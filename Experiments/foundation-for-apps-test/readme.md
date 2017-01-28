@@ -1,3 +1,6 @@
+Note: I used the tutorial at the following link for this experiment:
+https://www.smashingmagazine.com/2015/04/creating-web-app-in-foundation-for-apps
+
 # Foundation for Apps Template
 
 [![devDependency Status](https://david-dm.org/zurb/foundation-apps-template/dev-status.svg)](https://david-dm.org/zurb/foundation-apps-template#info=devDependencies)
