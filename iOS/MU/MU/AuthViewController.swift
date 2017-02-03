@@ -17,5 +17,6 @@ class AuthViewController: UIViewController, GIDSignInUIDelegate
   {
     super.viewDidLoad()
     GIDSignIn.sharedInstance().uiDelegate = self
+    signInButton.style = .wide
   }
 }

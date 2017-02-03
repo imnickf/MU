@@ -9,6 +9,25 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Misc-->
+        <scene sceneID="uxe-Td-ORE">
+            <objects>
+                <viewController id="fop-vk-SAe" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U0F-Kx-wNE"/>
+                        <viewControllerLayoutGuide type="bottom" id="VGh-Ko-WNw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="zoW-W5-efn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Misc" id="3Cs-F9-Zed"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YOH-Hm-2s5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1219" y="652"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="cVk-6h-iIq">
             <objects>
@@ -22,7 +41,7 @@
                         <segue destination="i0n-Q9-cKH" kind="relationship" relationship="viewControllers" id="2zF-fu-EvI"/>
                         <segue destination="EOc-wp-rxA" kind="relationship" relationship="viewControllers" id="2fZ-I3-tt8"/>
                         <segue destination="lvJ-8x-ntA" kind="relationship" relationship="viewControllers" id="zCR-fI-fnk"/>
-                        <segue destination="7XL-PM-hrv" kind="relationship" relationship="viewControllers" id="63g-oM-Uzq"/>
+                        <segue destination="fop-vk-SAe" kind="relationship" relationship="viewControllers" id="63g-oM-Uzq"/>
                         <segue destination="adp-5w-Mxd" kind="relationship" relationship="viewControllers" id="Bqa-eT-lRi"/>
                     </connections>
                 </tabBarController>
@@ -38,7 +57,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjg-ki-t2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="431" y="-178"/>
+            <point key="canvasLocation" x="425" y="-770"/>
         </scene>
         <!--Books-->
         <scene sceneID="EBG-7m-nmu">
@@ -58,7 +77,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lej-4g-etA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="-41"/>
+            <point key="canvasLocation" x="425" y="545"/>
         </scene>
         <!--Profile-->
         <scene sceneID="4Az-4d-FE5">
@@ -68,17 +87,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCI-FV-gFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="427" y="86"/>
-        </scene>
-        <!--Misc-->
-        <scene sceneID="Xsb-ja-2Rm">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Misc" id="7XL-PM-hrv" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Toc-WZ-Zl3"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="NKE-Rk-3Xt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="418" y="23"/>
+            <point key="canvasLocation" x="1202" y="-83"/>
         </scene>
     </scenes>
 </document>

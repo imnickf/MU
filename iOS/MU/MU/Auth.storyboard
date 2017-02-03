@@ -29,9 +29,22 @@
                                     <constraint firstAttribute="height" constant="40" id="ocm-kd-B8Y"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Av8-qe-ewJ">
+                                <rect key="frame" x="112" y="100" width="150" height="119"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign in with your Iowa State account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2CF-rz-WYw">
+                                <rect key="frame" x="84.5" y="361" width="205" height="15"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="Av8-qe-ewJ" firstAttribute="top" secondItem="xS6-mr-rus" secondAttribute="bottom" constant="80" id="Bli-br-VQP"/>
+                            <constraint firstItem="2CF-rz-WYw" firstAttribute="top" secondItem="wtb-rY-xjg" secondAttribute="bottom" constant="8" id="GZf-oP-2sG"/>
+                            <constraint firstItem="Av8-qe-ewJ" firstAttribute="centerX" secondItem="rZs-ES-sUJ" secondAttribute="centerX" id="O8v-I3-pf7"/>
+                            <constraint firstItem="2CF-rz-WYw" firstAttribute="centerX" secondItem="rZs-ES-sUJ" secondAttribute="centerX" id="iQ6-fE-Zi4"/>
                             <constraint firstItem="wtb-rY-xjg" firstAttribute="centerX" secondItem="rZs-ES-sUJ" secondAttribute="centerX" id="iuu-ZV-urJ"/>
                             <constraint firstItem="wtb-rY-xjg" firstAttribute="centerY" secondItem="rZs-ES-sUJ" secondAttribute="centerY" id="p3Q-PI-oVW"/>
                         </constraints>
@@ -42,7 +55,10 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXz-Gx-No6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="103" y="116"/>
+            <point key="canvasLocation" x="101.59999999999999" y="115.59220389805098"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="logo" width="150" height="119"/>
+    </resources>
 </document>

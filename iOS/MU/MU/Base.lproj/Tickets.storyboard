@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="c2E-g9-diY">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Tickets-->
+        <scene sceneID="TGc-E4-Sw0">
+            <objects>
+                <viewController id="c2E-g9-diY" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="CE4-IT-KJO"/>
+                        <viewControllerLayoutGuide type="bottom" id="ruq-c3-BAJ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="GGB-j7-q5B">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to MU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-X8-TWR">
+                                <rect key="frame" x="91" y="160" width="193" height="34"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The one stop shop for everything college" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRw-Jk-Mya">
+                                <rect key="frame" x="39" y="264" width="297" height="20"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="sRw-Jk-Mya" firstAttribute="top" secondItem="Qsa-X8-TWR" secondAttribute="bottom" constant="70" id="1sv-YI-LMZ"/>
+                            <constraint firstItem="Qsa-X8-TWR" firstAttribute="top" secondItem="CE4-IT-KJO" secondAttribute="bottom" constant="140" id="9jJ-3Z-Dvy"/>
+                            <constraint firstItem="Qsa-X8-TWR" firstAttribute="centerX" secondItem="GGB-j7-q5B" secondAttribute="centerX" id="V0Z-jg-Bpc"/>
+                            <constraint firstItem="sRw-Jk-Mya" firstAttribute="centerX" secondItem="GGB-j7-q5B" secondAttribute="centerX" id="o9D-Ns-Kp7"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Tickets" id="HKi-f0-mRt"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4_7.fullscreen"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y3i-rz-4Dt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="425" y="-770"/>
+        </scene>
+    </scenes>
+</document>
