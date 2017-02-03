@@ -3,28 +3,14 @@
   <head>
     <meta charset="utf-8">
     <title>Firebase Web Quickstart</title>
+    <script src="https://www.gstatic.com/firebasejs/live/3.6.8/firebase.js"></script>
   </head>
-  <body<
+  <body>
 
-  <script src="https://www.gstatic.com/firebasejs/3.6.8/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyB3bDwdIesJJqq8LUY06d_BS6RkGWjyarE",
-      authDomain: "com-s-309-project.firebaseapp.com",
-      databaseURL: "https://com-s-309-project.firebaseio.com",
-      storageBucket: "com-s-309-project.appspot.com",
-      messagingSenderId: "788794802091"
-    };
-    firebase.initializeApp(config);
+    <pre id="object"></pre>
 
-    var bigOne = document.getElementById('bigOne');
-    var dbRef = firebase.database().ref().child('text');
-    dbRef.on('value', snap => bigOne.innerText = snap.val());
 
-  </script>
+    <script src="app.js"></script>
+
   </body>
-
-  test
-
 </html>
