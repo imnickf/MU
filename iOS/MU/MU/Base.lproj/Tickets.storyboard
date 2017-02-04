@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="CE8-Kc-J9P">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aDB-j8-kX3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,45 +10,6 @@
     </dependencies>
     <scenes>
         <!--Table View Controller-->
-        <scene sceneID="TGc-E4-Sw0">
-            <objects>
-                <viewController id="c2E-g9-diY" customClass="UITableViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="CE4-IT-KJO"/>
-                        <viewControllerLayoutGuide type="bottom" id="ruq-c3-BAJ"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="GGB-j7-q5B">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to MU" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qsa-X8-TWR">
-                                <rect key="frame" x="91" y="160" width="193" height="34"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The one stop shop for everything college" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sRw-Jk-Mya">
-                                <rect key="frame" x="39" y="264" width="297" height="20"/>
-                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="sRw-Jk-Mya" firstAttribute="top" secondItem="Qsa-X8-TWR" secondAttribute="bottom" constant="70" id="1sv-YI-LMZ"/>
-                            <constraint firstItem="Qsa-X8-TWR" firstAttribute="top" secondItem="CE4-IT-KJO" secondAttribute="bottom" constant="140" id="9jJ-3Z-Dvy"/>
-                            <constraint firstItem="Qsa-X8-TWR" firstAttribute="centerX" secondItem="GGB-j7-q5B" secondAttribute="centerX" id="V0Z-jg-Bpc"/>
-                            <constraint firstItem="sRw-Jk-Mya" firstAttribute="centerX" secondItem="GGB-j7-q5B" secondAttribute="centerX" id="o9D-Ns-Kp7"/>
-                        </constraints>
-                    </view>
-                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="y3i-rz-4Dt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="425" y="-770"/>
-        </scene>
-        <!--Tickets-->
         <scene sceneID="3l4-qr-F6W">
             <objects>
                 <tableViewController id="CE8-Kc-J9P" sceneMemberID="viewController">
@@ -57,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="4jl-qG-XrU">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TicketTableViewCell" id="4jl-qG-XrU">
                                 <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4jl-qG-XrU" id="sm9-Eb-C1B">
@@ -71,12 +32,33 @@
                             <outlet property="delegate" destination="CE8-Kc-J9P" id="sk8-b0-ucE"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Tickets" image="tickets_icon" selectedImage="tickets_filled_icon" id="HKi-f0-mRt"/>
+                    <navigationItem key="navigationItem" id="DEs-ja-5uA">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WJd-61-rve"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZq-qM-TLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1271" y="-770"/>
+            <point key="canvasLocation" x="2679.1999999999998" y="-815.44227886056979"/>
+        </scene>
+        <!--Tickets-->
+        <scene sceneID="5dV-Rz-3KH">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aDB-j8-kX3" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Tickets" image="tickets_icon" selectedImage="tickets_filled_icon" id="HKi-f0-mRt"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23x-LV-Kyt">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="CE8-Kc-J9P" kind="relationship" relationship="rootViewController" id="nDs-5k-Ntb"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YzS-rG-tyW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1740" y="-815.44227886056979"/>
         </scene>
     </scenes>
     <resources>

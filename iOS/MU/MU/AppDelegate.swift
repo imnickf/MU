@@ -76,7 +76,9 @@ extension AppDelegate: GIDSignInDelegate
     }
 
     if user.hostedDomain != "iastate.edu" {
-      // TODO: Display message to user that they must sign in with iastate.edu email
+      let alert = UIAlertController(title: "Error", message: "Please connect with your Iowa State email.", preferredStyle: .alert)
+      alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+      window?.rootViewController?.present(alert, animated: true, completion: nil)
 
       signIn.disconnect()
       print("User did not sign in with iastate.edu email.")
@@ -98,9 +100,17 @@ extension AppDelegate: GIDSignInDelegate
 
   func sign(_ signIn: GIDSignIn!, didDisconnectWith user:GIDGoogleUser!, withError error: Error!)
   {
-    window?.rootViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
     // Perform any operations when the user disconnects from app here.
     // ...
+  }
+}
+
+extension AppDelegate: SignOutDelegate
+{
+  func signOut()
+  {
+    window?.rootViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
+    GIDSignIn.sharedInstance().signOut()
   }
 }
 

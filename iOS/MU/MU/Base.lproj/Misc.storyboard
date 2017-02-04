@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="fop-vk-SAe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16C67" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7aB-bq-lHE">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,25 +9,56 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Misc-->
-        <scene sceneID="uxe-Td-ORE">
+        <!--Table View Controller-->
+        <scene sceneID="RoQ-Sg-lDD">
             <objects>
-                <viewController id="fop-vk-SAe" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="U0F-Kx-wNE"/>
-                        <viewControllerLayoutGuide type="bottom" id="VGh-Ko-WNw"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zoW-W5-efn">
+                <tableViewController id="a12-fZ-3kr" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Bsb-pg-fG4">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Misc" image="misc_icon" selectedImage="misc_filled_icon" id="3Cs-F9-Zed"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MiscTableViewCell" id="hbQ-tP-l66">
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hbQ-tP-l66" id="gpg-we-1fk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a12-fZ-3kr" id="jBQ-Jp-cnu"/>
+                            <outlet property="delegate" destination="a12-fZ-3kr" id="eAp-L2-bfx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="DIb-Fx-AAv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3LJ-EN-hIA"/>
+                    </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YOH-Hm-2s5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t1m-Zk-zRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1219" y="652"/>
+            <point key="canvasLocation" x="2916" y="651.72413793103453"/>
+        </scene>
+        <!--Misc-->
+        <scene sceneID="g9j-qg-8sC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7aB-bq-lHE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Misc" image="misc_icon" selectedImage="misc_filled_icon" id="3Cs-F9-Zed"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xMr-aN-jws">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="a12-fZ-3kr" kind="relationship" relationship="rootViewController" id="EOv-kN-bix"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iGZ-uR-IHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976.8" y="651.72413793103453"/>
         </scene>
     </scenes>
     <resources>
