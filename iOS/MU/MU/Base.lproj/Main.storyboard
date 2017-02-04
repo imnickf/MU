@@ -38,7 +38,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hjg-ki-t2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="431" y="-178"/>
+            <point key="canvasLocation" x="67" y="-163"/>
         </scene>
         <!--Books-->
         <scene sceneID="EBG-7m-nmu">
@@ -48,7 +48,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqI-5r-WTc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="425" y="-114"/>
+            <point key="canvasLocation" x="63" y="-98"/>
         </scene>
         <!--Food-->
         <scene sceneID="S9O-hZ-kPn">
@@ -58,7 +58,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Lej-4g-etA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="419" y="-41"/>
+            <point key="canvasLocation" x="59" y="-25"/>
         </scene>
         <!--Profile-->
         <scene sceneID="4Az-4d-FE5">
@@ -68,7 +68,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hCI-FV-gFg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="427" y="86"/>
+            <point key="canvasLocation" x="64" y="102"/>
         </scene>
         <!--Misc-->
         <scene sceneID="Xsb-ja-2Rm">
@@ -78,7 +78,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKE-Rk-3Xt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="418" y="23"/>
+            <point key="canvasLocation" x="59" y="39"/>
         </scene>
     </scenes>
 </document>
