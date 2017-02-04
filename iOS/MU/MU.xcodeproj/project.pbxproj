@@ -23,6 +23,12 @@
 		0175A83D1E452B7D008A7780 /* Food.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A83B1E452B7D008A7780 /* Food.storyboard */; };
 		0175A83F1E452B94008A7780 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A83E1E452B94008A7780 /* Profile.storyboard */; };
 		0175A8421E452BA6008A7780 /* Misc.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8401E452BA6008A7780 /* Misc.storyboard */; };
+		0175A8441E45A153008A7780 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8431E45A153008A7780 /* Book.swift */; };
+		0175A8471E45A16A008A7780 /* Ticket.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8461E45A16A008A7780 /* Ticket.swift */; };
+		0175A8491E45A173008A7780 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8481E45A173008A7780 /* Food.swift */; };
+		0175A84B1E45A181008A7780 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84A1E45A181008A7780 /* Misc.swift */; };
+		0175A84D1E45A1E5008A7780 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84C1E45A1E5008A7780 /* Item.swift */; };
+		0175A84F1E463C77008A7780 /* ItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84E1E463C77008A7780 /* ItemProvider.swift */; };
 		01F3CCE41E42EF6B005DE947 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3CCE31E42EF6B005DE947 /* Auth.storyboard */; };
 		01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */; };
 		21BD3B80F4C22F719DDF7FAE /* Pods_MUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F614F1E99E90361FA6175C47 /* Pods_MUTests.framework */; };
@@ -66,6 +72,12 @@
 		0175A83C1E452B7D008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Food.storyboard; sourceTree = "<group>"; };
 		0175A83E1E452B94008A7780 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		0175A8411E452BA6008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Misc.storyboard; sourceTree = "<group>"; };
+		0175A8431E45A153008A7780 /* Book.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		0175A8461E45A16A008A7780 /* Ticket.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ticket.swift; sourceTree = "<group>"; };
+		0175A8481E45A173008A7780 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		0175A84A1E45A181008A7780 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
+		0175A84C1E45A1E5008A7780 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		0175A84E1E463C77008A7780 /* ItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemProvider.swift; sourceTree = "<group>"; };
 		01F3CCE31E42EF6B005DE947 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		348039BEAE9654123B5E48F7 /* Pods_MU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -132,6 +144,7 @@
 		0114DE831E42D20800E2AB2A /* MU */ = {
 			isa = PBXGroup;
 			children = (
+				0175A8451E45A15E008A7780 /* Model */,
 				01F3CCE71E42F084005DE947 /* View */,
 				01F3CCE81E42F095005DE947 /* Controllers */,
 				0114DE841E42D20800E2AB2A /* AppDelegate.swift */,
@@ -161,16 +174,29 @@
 			path = MUUITests;
 			sourceTree = "<group>";
 		};
+		0175A8451E45A15E008A7780 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0175A8461E45A16A008A7780 /* Ticket.swift */,
+				0175A8431E45A153008A7780 /* Book.swift */,
+				0175A8481E45A173008A7780 /* Food.swift */,
+				0175A84A1E45A181008A7780 /* Misc.swift */,
+				0175A84C1E45A1E5008A7780 /* Item.swift */,
+				0175A84E1E463C77008A7780 /* ItemProvider.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		01F3CCE71E42F084005DE947 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				01F3CCE31E42EF6B005DE947 /* Auth.storyboard */,
 				0114DE881E42D20800E2AB2A /* Main.storyboard */,
+				0175A8361E452B55008A7780 /* Tickets.storyboard */,
+				0175A8391E452B6B008A7780 /* Books.storyboard */,
+				0175A83B1E452B7D008A7780 /* Food.storyboard */,
 				0175A8401E452BA6008A7780 /* Misc.storyboard */,
 				0175A83E1E452B94008A7780 /* Profile.storyboard */,
-				0175A83B1E452B7D008A7780 /* Food.storyboard */,
-				0175A8391E452B6B008A7780 /* Books.storyboard */,
-				0175A8361E452B55008A7780 /* Tickets.storyboard */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -498,9 +524,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0175A8441E45A153008A7780 /* Book.swift in Sources */,
 				0114DE871E42D20800E2AB2A /* ViewController.swift in Sources */,
+				0175A8471E45A16A008A7780 /* Ticket.swift in Sources */,
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
+				0175A84F1E463C77008A7780 /* ItemProvider.swift in Sources */,
+				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,
+				0175A84B1E45A181008A7780 /* Misc.swift in Sources */,
 				0114DE851E42D20800E2AB2A /* AppDelegate.swift in Sources */,
+				0175A8491E45A173008A7780 /* Food.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
