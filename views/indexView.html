@@ -1,15 +1,24 @@
 <div class="container">
-<h2> Current Data: </h2>
+<h3> Current Data: </h3>
 
 <div class="row">
-  <div class="col-md-3">
-	<ul ng-repeat="object in firebase_data">
-		<li ng-repeat="(key, val) in object">
-			{{key | capitalize}}: {{val}}
-		</li>
-	</ul>
+  <div class="col-md-4">
+      <table class="table table-striped">
+          <thead>
+            <th>Category</th>
+            <th>Location</th>
+            <th>Name</th>
+            <th>Price</th>
+          </thead>
+          <tr ng-repeat="object in firebase_data">
+              <td>{{object.category}}</td>
+              <td>{{object.location}}</td>
+              <td>{{object.name}}</td>
+              <td>{{object.price}}</td>
+          </tr>
+      </table>
   </div>
-  <div class="col-md-3">
+  <div class="col-md-9">
 	<div class="btn-group" data-toggle="buttons">
 		<label class="btn btn-primary" ng-model="view_data.left" uib-btn-checkbox>Left</label>
 		<label class="btn btn-primary" ng-model="view_data.middle" uib-btn-checkbox>Middle</label>

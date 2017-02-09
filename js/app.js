@@ -49,7 +49,7 @@
 	    	
 			// function call to update the database upon form submission (POST/push data)
 	    	$scope.update_database = function() {
-        	  firebase.database().ref('products/food/1').set({
+        	  database.ref('products/food/1').set({
 				category: $scope.category,
 				location: $scope.location,
 				name: $scope.name,
