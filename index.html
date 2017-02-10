@@ -31,9 +31,11 @@
         }
     </style>
     <title>COM S 309 Test</title>
+</head>
 
+<div ng-app="app" ng-controller="indexController">
     <!-- Navigation Bar -->
-    <div ng-app="app" ng-controller="navController">
+    <div ng-controller="navController">
         <nav class="navbar navbar-default" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
@@ -55,11 +57,9 @@
             </div>
         </nav>
     </div>
-</head>
 
-<!-- Page Content -->
-<body>
-    <div ng-app="app" ng-controller="indexController">
+    <!-- Page Content -->
+    <body>
         <div ng-view=""></div>
-    </div>
-</body>
+    </body>
+</div>
