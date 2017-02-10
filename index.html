@@ -14,6 +14,7 @@
     <script src="controllers/main/app.js"></script>
     <script src="controllers/main/routes.js"></script>
     <script src="controllers/main/filters.js"></script>
+    <script src="controllers/main/navController.js"></script>
 
     <!-- Angular View Controllers -->
     <script src="controllers/content/indexController.js"></script>
@@ -24,30 +25,36 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="icon" type="image/png" href="images/favicon.png">
-
+    <style>
+        .navbar-collapse.in {
+            overflow-y: hidden;
+        }
+    </style>
     <title>COM S 309 Test</title>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-init="isNavCollapsed" ng-click="isNavCollapsed = !isNavCollapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">The MU</a>
-        </div>
-        <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
-            <ul class="nav navbar-nav">
-                <li><a href="#textbooks">Textbooks</a></li>
-                <li><a href="#tickets">Tickets</a></li>
-                <li><a href="#furniture">Furniture</a></li>
-                <li><a href="#food">Food</a></li>
-                <li><a href="#profile">Profile</a></li>
-            </ul>
-        </div>
-    </nav>
+    <div ng-app="app" ng-controller="navController">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">The MU</a>
+            </div>
+            <div class="collapse navbar-collapse" uib-collapse="isNavCollapsed">
+                <ul class="nav navbar-nav">
+                    <li><a href="#textbooks">Textbooks</a></li>
+                    <li><a href="#tickets">Tickets</a></li>
+                    <li><a href="#furniture">Furniture</a></li>
+                    <li><a href="#food">Food</a></li>
+                    <li><a href="#profile">Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
 </head>
 
 <!-- Page Content -->
