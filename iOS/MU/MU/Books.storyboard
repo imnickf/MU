@@ -47,6 +47,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hx6-VA-s3l" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Books" image="books_icon" selectedImage="books_filled_icon" id="gSE-Q8-mpj"/>
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mlm-wG-fm1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

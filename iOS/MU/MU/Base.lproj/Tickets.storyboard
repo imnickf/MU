@@ -47,6 +47,8 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="aDB-j8-kX3" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Tickets" image="tickets_icon" selectedImage="tickets_filled_icon" id="HKi-f0-mRt"/>
                     <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="23x-LV-Kyt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
