@@ -11,6 +11,9 @@ angular.module('app').controller('indexController', ['$scope', '$firebaseObject'
     $scope.view_data.middle = true;
     $scope.view_data.right = false;
 
+    // variable needed for navbar
+    $scope.isNavCollapsed = false;
+
     // listen for database changes and update our view in real time (GET/pull data)
     database.ref("/products/food/1").on('value', function (data) {
         // push the data so we can use ng-repeat to form a list
