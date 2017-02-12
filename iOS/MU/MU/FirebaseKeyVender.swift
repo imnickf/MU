@@ -23,8 +23,11 @@ struct FirebaseKeyVender
   static let dateSoldKey      = "dateSold"
   static let descriptionKey   = "description"
   static let isbnKey          = "isbn"
+  static let locationKey      = "location"
   static let nameKey          = "name"
   static let priceKey         = "price"
+  static let sportKey         = "sport"
+  static let timeKey          = "time"
   static let viewCountKey     = "viewCount"
 }
 

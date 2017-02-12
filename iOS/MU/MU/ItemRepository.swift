@@ -84,7 +84,7 @@ class ItemRepository
       var tickets = [Ticket]()
       if let ticketsData = data {
         for key in ticketsData.keys {
-          tickets.append(self.factory.makeItem(type: .ticket, data: [key : ticketsData[key] as Any]) as! Ticket)
+          tickets.append(self.factory.makeItem(type: .ticket, key: key, data: ticketsData[key] as! [String: Any]) as! Ticket)
         }
         completion(tickets, nil)
       } else {
@@ -100,7 +100,7 @@ class ItemRepository
       var books = [Book]()
       if let booksData = data {
         for key in booksData.keys {
-          books.append(self.factory.makeItem(type: .book, data: [key : booksData[key] as Any]) as! Book)
+          books.append(self.factory.makeItem(type: .book, key: key, data: booksData[key] as! [String: Any]) as! Book)
         }
         completion(books, nil)
       } else {
@@ -116,7 +116,7 @@ class ItemRepository
       var food = [Food]()
       if let foodData = data {
         for key in foodData.keys {
-          food.append(self.factory.makeItem(type: .food, data: [key : foodData[key] as Any]) as! Food)
+          food.append(self.factory.makeItem(type: .food, key: key, data: foodData[key] as! [String: Any]) as! Food)
         }
         completion(food, nil)
       } else {
@@ -132,7 +132,7 @@ class ItemRepository
       var miscItems = [Misc]()
       if let miscData = data {
         for key in miscData.keys {
-          miscItems.append(self.factory.makeItem(type: .miscellaneous, data: [key : miscData[key] as Any]) as! Misc)
+          miscItems.append(self.factory.makeItem(type: .miscellaneous, key: key, data: miscData[key] as! [String: Any]) as! Misc)
         }
         completion(miscItems, nil)
       } else {
