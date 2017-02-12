@@ -28,7 +28,9 @@
 		0175A8491E45A173008A7780 /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8481E45A173008A7780 /* Food.swift */; };
 		0175A84B1E45A181008A7780 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84A1E45A181008A7780 /* Misc.swift */; };
 		0175A84D1E45A1E5008A7780 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84C1E45A1E5008A7780 /* Item.swift */; };
-		0175A84F1E463C77008A7780 /* ItemProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84E1E463C77008A7780 /* ItemProvider.swift */; };
+		0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84E1E463C77008A7780 /* ItemRepository.swift */; };
+		0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8501E46CA9A008A7780 /* ItemGateway.swift */; };
+		01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */; };
 		01F3CCE41E42EF6B005DE947 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3CCE31E42EF6B005DE947 /* Auth.storyboard */; };
 		01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */; };
 		21BD3B80F4C22F719DDF7FAE /* Pods_MUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F614F1E99E90361FA6175C47 /* Pods_MUTests.framework */; };
@@ -77,7 +79,9 @@
 		0175A8481E45A173008A7780 /* Food.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		0175A84A1E45A181008A7780 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		0175A84C1E45A1E5008A7780 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		0175A84E1E463C77008A7780 /* ItemProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemProvider.swift; sourceTree = "<group>"; };
+		0175A84E1E463C77008A7780 /* ItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
+		0175A8501E46CA9A008A7780 /* ItemGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGateway.swift; sourceTree = "<group>"; };
+		01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
 		01F3CCE31E42EF6B005DE947 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		348039BEAE9654123B5E48F7 /* Pods_MU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,7 +186,9 @@
 				0175A8481E45A173008A7780 /* Food.swift */,
 				0175A84A1E45A181008A7780 /* Misc.swift */,
 				0175A84C1E45A1E5008A7780 /* Item.swift */,
-				0175A84E1E463C77008A7780 /* ItemProvider.swift */,
+				0175A84E1E463C77008A7780 /* ItemRepository.swift */,
+				0175A8501E46CA9A008A7780 /* ItemGateway.swift */,
+				01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -528,11 +534,13 @@
 				0114DE871E42D20800E2AB2A /* ProfileViewController.swift in Sources */,
 				0175A8471E45A16A008A7780 /* Ticket.swift in Sources */,
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
-				0175A84F1E463C77008A7780 /* ItemProvider.swift in Sources */,
+				0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */,
+				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,
 				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,
 				0175A84B1E45A181008A7780 /* Misc.swift in Sources */,
 				0114DE851E42D20800E2AB2A /* AppDelegate.swift in Sources */,
 				0175A8491E45A173008A7780 /* Food.swift in Sources */,
+				01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
