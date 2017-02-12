@@ -8,17 +8,21 @@
 
 class Ticket: Item
 {
+  var price: String
+  var dateSold: String?
   var sport: String
   var time: String
   var location: String
 
-  init(id: String, sellerID: String, createDate: String, buyerID: String?, price: String, isSold: Bool, dateSold: String?, viewCount: Int, sport: String, time: String, location: String)
+  init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, price: String, isSold: Bool, dateSold: String?, viewCount: Int, sport: String, time: String, location: String)
   {
+    self.price = price
+    self.dateSold = dateSold
     self.sport = sport
     self.time = time
     self.location = location
 
-    super.init(id: id, sellerID: sellerID, createDate: createDate, buyerID: buyerID, price: price, isSold: isSold, dateSold: dateSold, viewCount: viewCount)
+    super.init(id: id, creatorID: creatorID, createDate: createDate, desc: desc, name: name, buyerID: buyerID, viewCount: viewCount)
   }
 }
 

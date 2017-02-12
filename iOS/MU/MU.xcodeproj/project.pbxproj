@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0070DD2F2B27D6EC37662F9E /* Pods_MU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348039BEAE9654123B5E48F7 /* Pods_MU.framework */; };
+		010A31971E5013E7004CB07C /* FirebaseKeyVender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */; };
 		0114DE851E42D20800E2AB2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114DE841E42D20800E2AB2A /* AppDelegate.swift */; };
 		0114DE871E42D20800E2AB2A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114DE861E42D20800E2AB2A /* ProfileViewController.swift */; };
 		0114DE8A1E42D20800E2AB2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0114DE881E42D20800E2AB2A /* Main.storyboard */; };
@@ -55,6 +56,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseKeyVender.swift; sourceTree = "<group>"; };
 		0114DE811E42D20800E2AB2A /* MU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0114DE841E42D20800E2AB2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0114DE861E42D20800E2AB2A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				0175A84E1E463C77008A7780 /* ItemRepository.swift */,
 				0175A8501E46CA9A008A7780 /* ItemGateway.swift */,
 				01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */,
+				010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -534,6 +537,7 @@
 				0114DE871E42D20800E2AB2A /* ProfileViewController.swift in Sources */,
 				0175A8471E45A16A008A7780 /* Ticket.swift in Sources */,
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
+				010A31971E5013E7004CB07C /* FirebaseKeyVender.swift in Sources */,
 				0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */,
 				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,
 				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,

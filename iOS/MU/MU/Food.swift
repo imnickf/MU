@@ -10,10 +10,10 @@ class Food: Item
 {
   var category: String
 
-  init(id: String, sellerID: String, createDate: String, buyerID: String?, price: String, isSold: Bool, dateSold: String?, viewCount: Int, category: String)
+  init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, viewCount: Int, category: String)
   {
     self.category = category
 
-    super.init(id: id, sellerID: sellerID, createDate: createDate, buyerID: buyerID, price: price, isSold: isSold, dateSold: dateSold, viewCount: viewCount)
+    super.init(id: id, creatorID: creatorID, createDate: createDate, desc: desc, name: name, buyerID: buyerID, viewCount: viewCount)
   }
 }

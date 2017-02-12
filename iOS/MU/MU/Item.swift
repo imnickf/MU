@@ -14,23 +14,23 @@ enum ItemType
 class Item
 {
   private(set) var id: String
-  private(set) var sellerID: String
+  private(set) var creatorID: String
   private(set) var createDate: String
+  var name: String
+  var description: String
   var buyerID: String?
-  var price: String
   var isSold: Bool
-  var dateSold: String?
   var viewCount: Int
 
-  init(id: String, sellerID: String, createDate: String, buyerID: String?, price: String, isSold: Bool, dateSold: String?, viewCount: Int)
+  init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, viewCount: Int)
   {
     self.id = id
-    self.sellerID = sellerID
+    self.creatorID = creatorID
     self.createDate = createDate
+    self.description = desc
+    self.name = name
     self.buyerID = buyerID
-    self.price = price
-    self.isSold = isSold
-    self.dateSold = dateSold
+    self.isSold = buyerID != nil
     self.viewCount = viewCount
   }
 
