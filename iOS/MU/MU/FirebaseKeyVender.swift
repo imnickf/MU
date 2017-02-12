@@ -28,3 +28,12 @@ struct FirebaseKeyVender
   static let viewCountKey     = "viewCount"
 }
 
+// MARK: Database paths
+
+extension FirebaseKeyVender
+{
+  static let ticketsPath = productsKey + "/" + ticketsKey
+  static let booksPath = productsKey + "/" + booksKey
+  static let foodPath = productsKey + "/" + foodKey
+  static let miscPath = productsKey + "/" + miscKey
+}
