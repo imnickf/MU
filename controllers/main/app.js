@@ -1,6 +1,7 @@
 /*
     Main controller for handling configuration and dependency settings
 */
+
 // initialize our firebase settings
 var config = {
     apiKey: "AIzaSyB3bDwdIesJJqq8LUY06d_BS6RkGWjyarE",
@@ -13,3 +14,8 @@ firebase.initializeApp(config);
 
 // define our angular app, our dependencies are ngRoute, firebase, and ui.bootstrap
 var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
+
+// controller for handling the navagation bar
+angular.module('app').controller('navController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
+    $scope.isNavCollapsed = true;
+}]);

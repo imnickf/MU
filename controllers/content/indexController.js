@@ -1,5 +1,5 @@
 /*
-   Index controller for handling data provided to the indexView
+   Controller for providing data to the indexView
 */
 angular.module('app').controller('indexController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
     // grab the firebase database object
@@ -10,9 +10,6 @@ angular.module('app').controller('indexController', ['$scope', '$firebaseObject'
     $scope.view_data.left = false;
     $scope.view_data.middle = true;
     $scope.view_data.right = false;
-
-    // variable needed for navbar
-    $scope.isNavCollapsed = false;
 
     // listen for database changes and update our view in real time (GET/pull data)
     database.ref("/products/food/1").on('value', function (data) {
