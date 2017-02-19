@@ -80,7 +80,7 @@ class ItemRepository
   /// Fetches ticket items from database
   fileprivate func fetchTickets(completion: @escaping ([Ticket]?, Error?) -> Void)
   {
-    gateway.query("products/tickets") { (data, error) in
+    gateway.query("products/ticket") { (data, error) in
       var tickets = [Ticket]()
       if let ticketsData = data {
         for key in ticketsData.keys {

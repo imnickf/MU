@@ -28,7 +28,7 @@ class Item
   {
     self.id = id
     self.creatorID = creatorID
-    self.createDate = ISO8601DateFormatter().date(from: createDate)!
+    self.createDate = createDate.dateFromISO8601!
     self.description = desc
     self.name = name
     self.buyerID = buyerID

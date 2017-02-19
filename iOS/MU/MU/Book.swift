@@ -22,12 +22,7 @@ class Book: Item
     self.author = author
     self.isbn = isbn
     self.classCode = classCode
-
-    if let date = dateSold {
-      self.dateSold = ISO8601DateFormatter().date(from: date)
-    } else {
-      self.dateSold = nil
-    }
+    self.dateSold = dateSold?.dateFromISO8601
 
     super.init(id: id, creatorID: creatorID, createDate: createDate, desc: desc, name: name, buyerID: buyerID, viewCount: viewCount)
   }

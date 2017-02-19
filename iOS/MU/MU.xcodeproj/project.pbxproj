@@ -19,6 +19,8 @@
 		0114DEB31E42D79800E2AB2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0114DEB21E42D79800E2AB2A /* GoogleService-Info.plist */; };
 		0114DEB41E42D79800E2AB2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0114DEB21E42D79800E2AB2A /* GoogleService-Info.plist */; };
 		0114DEB51E42D79800E2AB2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0114DEB21E42D79800E2AB2A /* GoogleService-Info.plist */; };
+		014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */; };
+		014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE41E5A36170027A633 /* DateHelpers.swift */; };
 		0175A8381E452B55008A7780 /* Tickets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8361E452B55008A7780 /* Tickets.storyboard */; };
 		0175A83A1E452B6B008A7780 /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8391E452B6B008A7780 /* Books.storyboard */; };
 		0175A83D1E452B7D008A7780 /* Food.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A83B1E452B7D008A7780 /* Food.storyboard */; };
@@ -71,6 +73,8 @@
 		0114DEA41E42D20800E2AB2A /* MUUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUUITests.swift; sourceTree = "<group>"; };
 		0114DEA61E42D20800E2AB2A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0114DEB21E42D79800E2AB2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewController.swift; sourceTree = "<group>"; };
+		014E6DE41E5A36170027A633 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		0175A8371E452B55008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tickets.storyboard; sourceTree = "<group>"; };
 		0175A8391E452B6B008A7780 /* Books.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Books.storyboard; sourceTree = "<group>"; };
 		0175A83C1E452B7D008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Food.storyboard; sourceTree = "<group>"; };
@@ -192,6 +196,7 @@
 				0175A8501E46CA9A008A7780 /* ItemGateway.swift */,
 				01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */,
 				010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */,
+				014E6DE41E5A36170027A633 /* DateHelpers.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -215,6 +220,7 @@
 			children = (
 				01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */,
 				0114DE861E42D20800E2AB2A /* ProfileViewController.swift */,
+				014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -536,11 +542,13 @@
 				0175A8441E45A153008A7780 /* Book.swift in Sources */,
 				0114DE871E42D20800E2AB2A /* ProfileViewController.swift in Sources */,
 				0175A8471E45A16A008A7780 /* Ticket.swift in Sources */,
+				014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */,
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
 				010A31971E5013E7004CB07C /* FirebaseKeyVender.swift in Sources */,
 				0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */,
 				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,
 				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,
+				014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */,
 				0175A84B1E45A181008A7780 /* Misc.swift in Sources */,
 				0114DE851E42D20800E2AB2A /* AppDelegate.swift in Sources */,
 				0175A8491E45A173008A7780 /* Food.swift in Sources */,

@@ -21,13 +21,8 @@ class Ticket: Item
     self.price = price
     self.sport = sport
     self.location = location
-    self.time = ISO8601DateFormatter().date(from: time)!
-
-    if let date = dateSold {
-      self.dateSold = ISO8601DateFormatter().date(from: date)
-    } else {
-      self.dateSold = nil
-    }
+    self.time = time.dateFromISO8601!
+    self.dateSold = dateSold?.dateFromISO8601
 
     super.init(id: id, creatorID: creatorID, createDate: createDate, desc: desc, name: name, buyerID: buyerID, viewCount: viewCount)
   }
