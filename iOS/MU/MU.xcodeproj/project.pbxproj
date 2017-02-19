@@ -22,6 +22,9 @@
 		014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */; };
 		014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE41E5A36170027A633 /* DateHelpers.swift */; };
 		014E6DE71E5A4E1A0027A633 /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */; };
+		014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE81E5A62980027A633 /* FoodTableViewController.swift */; };
+		014E6DEB1E5A62B90027A633 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */; };
+		014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */; };
 		0175A8381E452B55008A7780 /* Tickets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8361E452B55008A7780 /* Tickets.storyboard */; };
 		0175A83A1E452B6B008A7780 /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8391E452B6B008A7780 /* Books.storyboard */; };
 		0175A83D1E452B7D008A7780 /* Food.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A83B1E452B7D008A7780 /* Food.storyboard */; };
@@ -77,6 +80,9 @@
 		014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewController.swift; sourceTree = "<group>"; };
 		014E6DE41E5A36170027A633 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
+		014E6DE81E5A62980027A633 /* FoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
+		014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
+		014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscTableViewController.swift; sourceTree = "<group>"; };
 		0175A8371E452B55008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tickets.storyboard; sourceTree = "<group>"; };
 		0175A8391E452B6B008A7780 /* Books.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Books.storyboard; sourceTree = "<group>"; };
 		0175A83C1E452B7D008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Food.storyboard; sourceTree = "<group>"; };
@@ -224,6 +230,9 @@
 				01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */,
 				0114DE861E42D20800E2AB2A /* ProfileViewController.swift */,
 				014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */,
+				014E6DE81E5A62980027A633 /* FoodTableViewController.swift */,
+				014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */,
+				014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -543,12 +552,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0175A8441E45A153008A7780 /* Book.swift in Sources */,
+				014E6DEB1E5A62B90027A633 /* BookTableViewController.swift in Sources */,
 				0114DE871E42D20800E2AB2A /* ProfileViewController.swift in Sources */,
 				0175A8471E45A16A008A7780 /* Ticket.swift in Sources */,
 				014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */,
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
 				010A31971E5013E7004CB07C /* FirebaseKeyVender.swift in Sources */,
 				0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */,
+				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
+				014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */,
 				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,
 				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,
 				014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */,
