@@ -21,6 +21,7 @@
 		0114DEB51E42D79800E2AB2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0114DEB21E42D79800E2AB2A /* GoogleService-Info.plist */; };
 		014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */; };
 		014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE41E5A36170027A633 /* DateHelpers.swift */; };
+		014E6DE71E5A4E1A0027A633 /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */; };
 		0175A8381E452B55008A7780 /* Tickets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8361E452B55008A7780 /* Tickets.storyboard */; };
 		0175A83A1E452B6B008A7780 /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8391E452B6B008A7780 /* Books.storyboard */; };
 		0175A83D1E452B7D008A7780 /* Food.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A83B1E452B7D008A7780 /* Food.storyboard */; };
@@ -75,6 +76,7 @@
 		0114DEB21E42D79800E2AB2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewController.swift; sourceTree = "<group>"; };
 		014E6DE41E5A36170027A633 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
+		014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
 		0175A8371E452B55008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tickets.storyboard; sourceTree = "<group>"; };
 		0175A8391E452B6B008A7780 /* Books.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Books.storyboard; sourceTree = "<group>"; };
 		0175A83C1E452B7D008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Food.storyboard; sourceTree = "<group>"; };
@@ -211,6 +213,7 @@
 				0175A83B1E452B7D008A7780 /* Food.storyboard */,
 				0175A8401E452BA6008A7780 /* Misc.storyboard */,
 				0175A83E1E452B94008A7780 /* Profile.storyboard */,
+				014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -551,6 +554,7 @@
 				014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */,
 				0175A84B1E45A181008A7780 /* Misc.swift in Sources */,
 				0114DE851E42D20800E2AB2A /* AppDelegate.swift in Sources */,
+				014E6DE71E5A4E1A0027A633 /* TicketTableViewCell.swift in Sources */,
 				0175A8491E45A173008A7780 /* Food.swift in Sources */,
 				01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */,
 			);
