@@ -17,6 +17,7 @@ struct FirebaseKeyVender
 
   static let authorKey        = "author"
   static let buyerIDKey       = "buyerID"
+  static let categoryKey      = "category"
   static let classCodeKey     = "classCode"
   static let createDateKey    = "createDate"
   static let creatorIDKey     = "creatorID"
