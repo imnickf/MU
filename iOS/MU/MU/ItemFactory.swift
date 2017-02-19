@@ -72,8 +72,19 @@ class ItemFactory
     return food
   }
 
-  fileprivate func make(misc: String, with data: [String : Any]) -> Misc
+  fileprivate func make(misc key: String, with data: [String : Any]) -> Misc
   {
+    let buyerID = data[FirebaseKeyVender.buyerIDKey] as? String
+    let category = data[FirebaseKeyVender.categoryKey] as! String
+    let creatorID = data[FirebaseKeyVender.creatorIDKey] as! String
+    let createDate = data[FirebaseKeyVender.createDateKey] as! String
+    let dateSold = data[FirebaseKeyVender.dateSoldKey] as? String
+    let description = data[FirebaseKeyVender.descriptionKey] as! String
+    let name = data[FirebaseKeyVender.nameKey] as! String
+    let price = data[FirebaseKeyVender.priceKey] as! String
+    let viewCount = data[FirebaseKeyVender.viewCountKey] as! Int
 
+    let misc = Misc(id: key, creatorID: creatorID, createDate: createDate, desc: description, name: name, buyerID: buyerID, price: price, dateSold: dateSold, viewCount: viewCount, category: category)
+    return misc
   }
 }
