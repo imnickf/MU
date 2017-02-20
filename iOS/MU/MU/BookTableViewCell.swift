@@ -8,17 +8,20 @@
 
 import UIKit
 
-class BookTableViewCell: UITableViewCell {
+class BookTableViewCell: UITableViewCell
+{
+  var book: Book!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
+  @IBOutlet weak var titleLabel: UILabel!
+  @IBOutlet weak var authorLabel: UILabel!
+  @IBOutlet weak var priceLabel: UILabel!
+  
+  func configureWith(book: Book)
+  {
+    self.book = book
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+    titleLabel.text = book.name
+    authorLabel.text = book.author
+    priceLabel.text = book.price
+  }
 }

@@ -43,10 +43,9 @@ extension BookTableViewController
 
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
-    let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath)
-
-    // Configure the cell...
-
+    let book = books[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: "BookTableViewCell", for: indexPath) as! BookTableViewCell
+    cell.configureWith(book: book)
     return cell
   }
 }
@@ -57,7 +56,7 @@ extension BookTableViewController
 {
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat
   {
-    return 50.0
+    return 60.0
   }
 }
 

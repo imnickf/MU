@@ -96,7 +96,7 @@ class ItemRepository
   /// Fetches book items from database
   fileprivate func fetchBooks(completion: @escaping ([Book]?, Error?) -> Void)
   {
-    gateway.query("products/books") { (data, error) in
+    gateway.query("products/book") { (data, error) in
       var books = [Book]()
       if let booksData = data {
         for key in booksData.keys {
