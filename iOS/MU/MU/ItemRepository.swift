@@ -61,16 +61,16 @@ class ItemRepository
   {
     switch item {
     case is Ticket:
-      gateway.persist(data: translate(ticket: item as! Ticket), endpoint: FirebaseKeyVender.ticketsPath)
+      gateway.persist(data: translate(ticket: item as! Ticket), endpoint: FirebaseKeyVender.ticketsPath + "/\(item.id)")
       break
     case is Book:
-      gateway.persist(data: translate(book: item as! Book), endpoint: FirebaseKeyVender.booksPath)
+      gateway.persist(data: translate(book: item as! Book), endpoint: FirebaseKeyVender.booksPath + "/\(item.id)")
       break
     case is Food:
-      gateway.persist(data: translate(food: item as! Food), endpoint: FirebaseKeyVender.foodPath)
+      gateway.persist(data: translate(food: item as! Food), endpoint: FirebaseKeyVender.foodPath + "/\(item.id)")
       break
     case is Misc:
-      gateway.persist(data: translate(misc: item as! Misc), endpoint: FirebaseKeyVender.miscPath)
+      gateway.persist(data: translate(misc: item as! Misc), endpoint: FirebaseKeyVender.miscPath + "/\(item.id)")
       break
     default:
       return
@@ -80,7 +80,7 @@ class ItemRepository
   /// Fetches ticket items from database
   fileprivate func fetchTickets(completion: @escaping ([Ticket]?, Error?) -> Void)
   {
-    gateway.query("products/ticket") { (data, error) in
+    gateway.query(FirebaseKeyVender.ticketsPath) { (data, error) in
       var tickets = [Ticket]()
       if let ticketsData = data {
         for key in ticketsData.keys {
@@ -96,7 +96,7 @@ class ItemRepository
   /// Fetches book items from database
   fileprivate func fetchBooks(completion: @escaping ([Book]?, Error?) -> Void)
   {
-    gateway.query("products/book") { (data, error) in
+    gateway.query(FirebaseKeyVender.booksPath) { (data, error) in
       var books = [Book]()
       if let booksData = data {
         for key in booksData.keys {
@@ -112,7 +112,7 @@ class ItemRepository
   /// Fetches food items from database
   fileprivate func fetchFood(completion: @escaping ([Food]?, Error?) -> Void)
   {
-    gateway.query("products/food") { (data, error) in
+    gateway.query(FirebaseKeyVender.foodPath) { (data, error) in
       var food = [Food]()
       if let foodData = data {
         for key in foodData.keys {
@@ -128,7 +128,7 @@ class ItemRepository
   /// Fetches miscellaneous items from database
   fileprivate func fetchMisc(completion: @escaping ([Misc]?, Error?) -> Void)
   {
-    gateway.query("products/misc") { (data, error) in
+    gateway.query(FirebaseKeyVender.miscPath) { (data, error) in
       var miscItems = [Misc]()
       if let miscData = data {
         for key in miscData.keys {
@@ -146,8 +146,20 @@ class ItemRepository
   /// - Returns: dictionary of ticket properties
   fileprivate func translate(ticket: Ticket) -> [String : Any]
   {
+    var ticketData = [String : Any]()
+    ticketData[FirebaseKeyVender.buyerIDKey] = ticket.buyerID ?? nil
+    ticketData[FirebaseKeyVender.createDateKey] = ticket.createDate.iso8601
+    ticketData[FirebaseKeyVender.creatorIDKey] = ticket.creatorID
+    ticketData[FirebaseKeyVender.dateSoldKey] = ticket.dateSold?.iso8601
+    ticketData[FirebaseKeyVender.descriptionKey] = ticket.description
+    ticketData[FirebaseKeyVender.locationKey] = ticket.location ?? nil
+    ticketData[FirebaseKeyVender.nameKey] = ticket.name
+    ticketData[FirebaseKeyVender.priceKey] = ticket.price
+    ticketData[FirebaseKeyVender.sportKey] = ticket.sport
+    ticketData[FirebaseKeyVender.timeKey] = ticket.time.iso8601
+    ticketData[FirebaseKeyVender.viewCountKey] = ticket.viewCount
 
-    return [ : ] // TODO
+    return ticketData
   }
 
   /// Translates book into dictionary to be persisted
