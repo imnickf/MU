@@ -167,8 +167,20 @@ class ItemRepository
   /// - Returns: dictionary of book properties
   fileprivate func translate(book: Book) -> [String : Any]
   {
+    var bookData = [String : Any]()
+    bookData[FirebaseKeyVender.authorKey] = book.author
+    bookData[FirebaseKeyVender.buyerIDKey] = book.buyerID ?? nil
+    bookData[FirebaseKeyVender.classCodeKey] = book.classCode ?? nil
+    bookData[FirebaseKeyVender.createDateKey] = book.createDate.iso8601
+    bookData[FirebaseKeyVender.creatorIDKey] = book.creatorID
+    bookData[FirebaseKeyVender.dateSoldKey] = book.dateSold?.iso8601
+    bookData[FirebaseKeyVender.descriptionKey] = book.description
+    bookData[FirebaseKeyVender.isbnKey] = book.isbn ?? nil
+    bookData[FirebaseKeyVender.nameKey] = book.name
+    bookData[FirebaseKeyVender.priceKey] = book.price
+    bookData[FirebaseKeyVender.viewCountKey] = book.viewCount
 
-    return [ : ] // TODO
+    return bookData
   }
 
   /// Translates food into dictionary to be persisted
