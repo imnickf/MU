@@ -20,19 +20,15 @@ class Item
   private(set) var createDate: Date
   var name: String
   var description: String
-  var buyerID: String?
-  var isSold: Bool
   var viewCount: Int
 
-  init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, viewCount: Int)
+  init(id: String, creatorID: String, createDate: String, desc: String, name: String, viewCount: Int)
   {
     self.id = id
     self.creatorID = creatorID
     self.createDate = createDate.dateFromISO8601!
     self.description = desc
     self.name = name
-    self.buyerID = buyerID
-    self.isSold = buyerID != nil
     self.viewCount = viewCount
   }
 }

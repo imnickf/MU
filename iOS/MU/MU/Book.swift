@@ -10,11 +10,13 @@ import Foundation
 
 class Book: Item
 {
-  var price: String
-  var dateSold: Date?
   var author: String
-  var isbn: String?
+  var buyerID: String?
   var classCode: String?
+  var dateSold: Date?
+  var isbn: String?
+  var isSold: Bool
+  var price: String
 
   init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, price: String, dateSold: String?, viewCount: Int, author: String, isbn: String?, classCode: String?)
   {
@@ -23,7 +25,9 @@ class Book: Item
     self.isbn = isbn
     self.classCode = classCode
     self.dateSold = dateSold?.dateFromISO8601
+    self.buyerID = buyerID
+    self.isSold = buyerID != nil
 
-    super.init(id: id, creatorID: creatorID, createDate: createDate, desc: desc, name: name, buyerID: buyerID, viewCount: viewCount)
+    super.init(id: id, creatorID: creatorID, createDate: createDate, desc: desc, name: name, viewCount: viewCount)
   }
 }
