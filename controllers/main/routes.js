@@ -4,10 +4,10 @@
 */
 angular.module('app').config(function ($routeProvider) {
     $routeProvider.when("/", {
-        controller: "indexController",
-        templateUrl: "views/indexView.html"
+        controller: "loginController",
+        templateUrl: "views/loginView.html"
     })
-    .when("main.html", {
+    .when("/main", {
         controller: "mainController",
         templateUrl: "views/mainView.html"
     })

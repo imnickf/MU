@@ -4,7 +4,6 @@
 angular.module('app').controller('mainController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
     // grab the firebase database object
     const database = firebase.database();
-    //var provider = new firebase.auth.GoogleAuthProvider();
 
     // variables that are used for indexView buttons
     $scope.view_data = {};
