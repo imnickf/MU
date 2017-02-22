@@ -205,7 +205,15 @@ class ItemRepository
   /// - Returns: dictionary of misc item properties
   fileprivate func translate(misc: Misc) -> [String : Any]
   {
+    var miscData = [String : Any]()
+    miscData[FirebaseKeyVender.buyerIDKey] = misc.buyerID ?? nil
+    miscData[FirebaseKeyVender.createDateKey] = misc.createDate.iso8601
+    miscData[FirebaseKeyVender.creatorIDKey] = misc.creatorID
+    miscData[FirebaseKeyVender.dateSoldKey] = misc.dateSold?.iso8601
+    miscData[FirebaseKeyVender.nameKey] = misc.name
+    miscData[FirebaseKeyVender.priceKey] = misc.price
+    miscData[FirebaseKeyVender.viewCountKey] = misc.viewCount
 
-    return [ : ] // TODO
+    return miscData
   }
 }
