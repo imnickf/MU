@@ -188,8 +188,16 @@ class ItemRepository
   /// - Returns: dictionary of food properties
   fileprivate func translate(food: Food) -> [String : Any]
   {
+    var foodData = [String : Any]()
+    foodData[FirebaseKeyVender.createDateKey] = food.createDate.iso8601
+    foodData[FirebaseKeyVender.creatorIDKey] = food.creatorID
+    foodData[FirebaseKeyVender.descriptionKey] = food.description
+    foodData[FirebaseKeyVender.locationKey] = food.location ?? nil
+    foodData[FirebaseKeyVender.nameKey] = food.name
+    foodData[FirebaseKeyVender.timeKey] = food.time?.iso8601
+    foodData[FirebaseKeyVender.viewCountKey] = food.viewCount
 
-    return [ : ] // TODO
+    return foodData
   }
 
   /// Translates misc item into dictionary to be persisted

@@ -65,10 +65,12 @@ class ItemFactory
     let creatorID = data[FirebaseKeyVender.creatorIDKey] as! String
     let createDate = data[FirebaseKeyVender.createDateKey] as! String
     let description = data[FirebaseKeyVender.descriptionKey] as! String
+    let location = data[FirebaseKeyVender.locationKey] as? String
     let name = data[FirebaseKeyVender.nameKey] as! String
+    let time = data[FirebaseKeyVender.timeKey] as? String
     let viewCount = data[FirebaseKeyVender.viewCountKey] as! Int
 
-    let food = Food(id: key, creatorID: creatorID, createDate: createDate, desc: description, name: name, buyerID: buyerID, viewCount: viewCount, category: category)
+    let food = Food(id: key, creatorID: creatorID, createDate: createDate, desc: description, location: location, name: name, time: time, buyerID: buyerID, viewCount: viewCount, category: category)
     return food
   }
 
