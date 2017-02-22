@@ -17,47 +17,26 @@
 
     <!-- Angular View Controllers -->
     <script src="controllers/content/indexController.js"></script>
-    <script src="controllers/content/foodController.js"></script>
-    <script src="controllers/content/ticketController.js"></script>
-    <script src="controllers/content/textbookController.js"></script>
-    <script src="controllers/content/furnitureController.js"></script>
-    <script src="controllers/content/profileController.js"></script>
+
 
     <!-- Styles -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/styles.css" />
     <link rel="icon" type="image/png" href="images/favicon.png">
 
     <title>Welcome to The MU</title>
 </head>
 
+
 <div ng-app="app">
+
     <!-- Navigation Bar -->
 
     <!-- End Navigation Bar -->
 
     <!-- Page Content -->
     <body ng-controller="indexController">
-        <div ng-view=""></div>
-
-        <div class="container">
-            <input id="txtEmail" type="email" placeholder="Email">
-            <input id="txtPassword" type="password" placeholder="Password">
-
-            <button id="btnLogin" class="btn btn-action">
-              Log in
-            </button>
-
-            <button id="btnSignUp" class="btn btn-secondary">
-             Sign up
-           </button>
-
-           <button id="btnLogout" class="btn btn-action hide">
-             Log out
-           </button>
-
-
+      <div ng-view=""></div>
     </body>
     <!-- End Page Content -->
 </div>

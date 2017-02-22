@@ -7,6 +7,10 @@ angular.module('app').config(function ($routeProvider) {
         controller: "indexController",
         templateUrl: "views/indexView.html"
     })
+    .when("main.html", {
+        controller: "mainController",
+        templateUrl: "views/mainView.html"
+    })
     .when("/food", {
         controller: "foodController",
         templateUrl: "views/foodView.html"
