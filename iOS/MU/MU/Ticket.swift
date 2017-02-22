@@ -10,11 +10,13 @@ import Foundation
 
 class Ticket: Item
 {
-  var price: String
+  var buyerID: String?
   var dateSold: Date?
+  var isSold: Bool
+  var location: String?
   var sport: String
   var time: Date
-  var location: String?
+  var price: String
 
   init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, price: String, dateSold: String?, viewCount: Int, sport: String, time: String, location: String?)
   {
@@ -23,8 +25,10 @@ class Ticket: Item
     self.location = location
     self.time = time.dateFromISO8601!
     self.dateSold = dateSold?.dateFromISO8601
+    self.buyerID = buyerID
+    self.isSold = buyerID != nil
 
-    super.init(id: id, creatorID: creatorID, createDate: createDate, desc: desc, name: name, buyerID: buyerID, viewCount: viewCount)
+    super.init(id: id, creatorID: creatorID, createDate: createDate, desc: desc, name: name, viewCount: viewCount)
   }
 }
 
