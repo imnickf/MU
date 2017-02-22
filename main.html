@@ -34,30 +34,33 @@
 
 <div ng-app="app">
     <!-- Navigation Bar -->
-
+    <div ng-controller="navController">
+        <nav class="navbar-inverse" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#index" ng-click="isNavCollapsed = true">The MU</a>
+            </div>
+            <div class="navbar-collapse" uib-collapse="isNavCollapsed">
+                <ul class="nav navbar-nav">
+                    <li><a href="#textbooks" ng-click="isNavCollapsed = true">Textbooks</a></li>
+                    <li><a href="#tickets" ng-click="isNavCollapsed = true">Tickets</a></li>
+                    <li><a href="#furniture" ng-click="isNavCollapsed = true">Furniture</a></li>
+                    <li><a href="#food" ng-click="isNavCollapsed = true">Food</a></li>
+                    <li><a href="#profile" ng-click="isNavCollapsed = true">Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <!-- End Navigation Bar -->
 
     <!-- Page Content -->
     <body ng-controller="indexController">
         <div ng-view=""></div>
-
-        <div class="container">
-            <input id="txtEmail" type="email" placeholder="Email">
-            <input id="txtPassword" type="password" placeholder="Password">
-
-            <button id="btnLogin" class="btn btn-action">
-              Log in
-            </button>
-
-            <button id="btnSignUp" class="btn btn-secondary">
-             Sign up
-           </button>
-
-           <button id="btnLogout" class="btn btn-action hide">
-             Log out
-           </button>
-
-
     </body>
     <!-- End Page Content -->
 </div>
