@@ -14,9 +14,10 @@ class FoodTableViewController: UITableViewController {
     var foods = [Food]()
     
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         itemRepo.getItems(.food) { (items) in
             self.foods = items as! [Food]
             

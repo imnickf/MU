@@ -13,11 +13,9 @@ class FoodTableViewCell: UITableViewCell {
     var food: Food!
 
     @IBOutlet weak var FoodText: UILabel!
-    @IBOutlet weak var PriceText: UILabel!
     
     func configureWith(food: Food) {
         self.food = food
         FoodText.text = food.name
-        PriceText.text = food.name
     }
 }
