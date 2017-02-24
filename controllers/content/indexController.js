@@ -9,10 +9,17 @@ angular.module('app').controller('indexController', ['$scope', '$firebaseObject'
     //const auth = firebase.auth();
     var provider = new firebase.auth.GoogleAuthProvider();
 
+    $scope.signOut = function() {
+        firebase.auth().signOut().then(function() {
+            $scope.hide_Logout = true;
+            $scope.hide_Login = false;
+            console.log("Not FAiled");
+            //sign-out successful
+        }, function(error) {
+            console.log("Failed");
+        });
 
 
-    $scope.signup = function() {
-        const promise = provider.createUserWithEmailAndPassword($scope.email, $scope.pass);
     };
 
 
@@ -23,6 +30,9 @@ angular.module('app').controller('indexController', ['$scope', '$firebaseObject'
             // The signed-in user info.
             var user = result.user;
             // ...
+            $scope.hide_Logout = false;
+            $scope.hide_Login = true;
+
         }).catch(function(error) {
             // Handle Errors here.
             var errorCode = error.code;
@@ -34,6 +44,8 @@ angular.module('app').controller('indexController', ['$scope', '$firebaseObject'
             // ...
         });
     };
+
+
 
 
 }]);

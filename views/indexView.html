@@ -2,12 +2,12 @@
 <h3> Current Data: </h3>
 
 
-	<button id="btnLogin" class="btn btn-action" ng-click="authenticate()">
+	<button id="btnLogin" class="btn btn-action" ng-click="authenticate()" ng-hide="hide_Login" >
 		Log in
 	</button>
 
 
-	<button id="btnLogout" class="btn btn-action hide">
+	<button id="btnLogout" class="btn btn-action " ng-click="signOut()" ng-hide="hide_Logout" >
 		Log out
 	</button>
 
