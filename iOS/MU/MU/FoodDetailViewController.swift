@@ -10,9 +10,19 @@ import UIKit
 
 class FoodDetailViewController: UIViewController {
 
+    @IBOutlet weak var ItemTitleText: UINavigationItem!
+    @IBOutlet weak var ItemNameText: UILabel!
+    @IBOutlet weak var DesText: UITextView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.DesText.isEditable = false
+        
+        if (foodSel != nil) {
+            self.ItemTitleText.title = foodSel!.name
+            self.ItemNameText.text = "\(foodSel!.name) - \(foodSel!.location)"
+            self.DesText.text = foodSel!.description
+        }
+        
     }
 }

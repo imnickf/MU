@@ -9,6 +9,7 @@
 class Food: Item
 {
   var category: String
+  var location: String = "The MU in the Food Court"
 
   init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, viewCount: Int, category: String)
   {
