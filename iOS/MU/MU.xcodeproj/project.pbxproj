@@ -38,6 +38,7 @@
 		0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84E1E463C77008A7780 /* ItemRepository.swift */; };
 		0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8501E46CA9A008A7780 /* ItemGateway.swift */; };
 		01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */; };
+		01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */; };
 		01F3CCE41E42EF6B005DE947 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3CCE31E42EF6B005DE947 /* Auth.storyboard */; };
 		01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */; };
 		21BD3B80F4C22F719DDF7FAE /* Pods_MUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F614F1E99E90361FA6175C47 /* Pods_MUTests.framework */; };
@@ -96,6 +97,7 @@
 		0175A84E1E463C77008A7780 /* ItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
 		0175A8501E46CA9A008A7780 /* ItemGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGateway.swift; sourceTree = "<group>"; };
 		01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
+		01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		01F3CCE31E42EF6B005DE947 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		348039BEAE9654123B5E48F7 /* Pods_MU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +221,7 @@
 				0175A83B1E452B7D008A7780 /* Food.storyboard */,
 				0175A8401E452BA6008A7780 /* Misc.storyboard */,
 				0175A83E1E452B94008A7780 /* Profile.storyboard */,
+				01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */,
 				014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */,
 			);
 			name = View;
@@ -559,6 +562,7 @@
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
 				010A31971E5013E7004CB07C /* FirebaseKeyVender.swift in Sources */,
 				0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */,
+				01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */,
 				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
 				014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */,
 				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,

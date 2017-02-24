@@ -60,15 +60,16 @@ class ItemFactory
 
   fileprivate func make(food key: String, with data: [String : Any]) -> Food
   {
-    let buyerID = data[FirebaseKeyVender.buyerIDKey] as? String
     let category = data[FirebaseKeyVender.categoryKey] as! String
     let creatorID = data[FirebaseKeyVender.creatorIDKey] as! String
     let createDate = data[FirebaseKeyVender.createDateKey] as! String
     let description = data[FirebaseKeyVender.descriptionKey] as! String
+    let location = data[FirebaseKeyVender.locationKey] as? String
     let name = data[FirebaseKeyVender.nameKey] as! String
+    let time = data[FirebaseKeyVender.timeKey] as? String
     let viewCount = data[FirebaseKeyVender.viewCountKey] as! Int
 
-    let food = Food(id: key, creatorID: creatorID, createDate: createDate, desc: description, name: name, buyerID: buyerID, viewCount: viewCount, category: category)
+    let food = Food(id: key, creatorID: creatorID, createDate: createDate, desc: description, location: location, name: name, time: time, viewCount: viewCount, category: category)
     return food
   }
 
