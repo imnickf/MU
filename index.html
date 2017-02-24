@@ -16,8 +16,14 @@
     <script src="controllers/main/filters.js"></script>
 
     <!-- Angular View Controllers -->
-    <script src="controllers/content/indexController.js"></script>
-
+    <script src="controllers/content/loginController.js"></script>
+    <script src="controllers/content/mainController.js"></script>
+    <script src="controllers/content/foodController.js"></script>
+    <script src="controllers/content/ticketController.js"></script>
+    <script src="controllers/content/textbookController.js"></script>
+    <script src="controllers/content/furnitureController.js"></script>
+    <script src="controllers/content/profileController.js"></script>
+    <script src="controllers/content/editBookController.js"></script>
 
     <!-- Styles -->
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
@@ -27,16 +33,36 @@
     <title>Welcome to The MU</title>
 </head>
 
-
 <div ng-app="app">
-
     <!-- Navigation Bar -->
-
+    <div ng-controller="navController">
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#main" ng-click="isNavCollapsed = true">The MU</a>
+            </div>
+            <div class="navbar-collapse" uib-collapse="isNavCollapsed">
+                <ul class="nav navbar-nav">
+                    <li><a href="#textbooks" ng-click="isNavCollapsed = true">Textbooks</a></li>
+                    <li><a href="#tickets" ng-click="isNavCollapsed = true">Tickets</a></li>
+                    <li><a href="#furniture" ng-click="isNavCollapsed = true">Furniture</a></li>
+                    <li><a href="#food" ng-click="isNavCollapsed = true">Food</a></li>
+                    <li><a href="#profile" ng-click="isNavCollapsed = true">Profile</a></li>
+                    <li><a href="#index" ng-click="isNavCollapsed = true">Login</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
     <!-- End Navigation Bar -->
 
     <!-- Page Content -->
-    <body ng-controller="indexController">
-      <div ng-view=""></div>
-    </body>
+    <div ng-controller="loginController">
+        <div ng-view=""></div>
+    </div>
     <!-- End Page Content -->
 </div>

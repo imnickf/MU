@@ -3,11 +3,12 @@
  */
 
 
-angular.module('app').controller('indexController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
+angular.module('app').controller('loginController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
     // grab the firebase database object
     const database = firebase.database();
     //const auth = firebase.auth();
     var provider = new firebase.auth.GoogleAuthProvider();
+
 
     $scope.signOut = function() {
         firebase.auth().signOut().then(function() {
@@ -19,9 +20,7 @@ angular.module('app').controller('indexController', ['$scope', '$firebaseObject'
             console.log("Failed");
         });
 
-
     };
-
 
     $scope.authenticate = function() {
         firebase.auth().signInWithPopup(provider).then(function(result) {
