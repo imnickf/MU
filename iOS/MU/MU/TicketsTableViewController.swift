@@ -19,7 +19,7 @@ class TicketsTableViewController: UITableViewController
 
     itemRepo.getItems(.ticket) { (items) in
       self.tickets = items as! [Ticket]
-
+    
       DispatchQueue.main.async {
         self.tableView.reloadData()
       }

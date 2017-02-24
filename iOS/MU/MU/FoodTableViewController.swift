@@ -10,9 +10,22 @@ import UIKit
 
 class FoodTableViewController: UITableViewController {
 
+    let itemRepo = ItemRepository()
+    var foods = [Food]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        itemRepo.getItems(.food) { (items) in
+            self.foods = items as! [Food]
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -20,32 +33,31 @@ class FoodTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
     }
 
-    override func didReceiveMemoryWarning() {
+    /*override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
-    }
+    }*/
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return foods.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let food = foods[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodTableViewCell", for: indexPath) as! FoodTableViewCell
 
-        // Configure the cell...
+        cell.configureWith(food: food)
 
         return cell
     }
-    */
+    
 
     /*
     // Override to support conditional editing of the table view.
