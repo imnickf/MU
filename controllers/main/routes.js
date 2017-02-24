@@ -11,6 +11,10 @@ angular.module('app').config(function ($routeProvider) {
         controller: "mainController",
         templateUrl: "views/mainView.html"
     })
+    .when('/edit/:bookID', {
+        templateUrl: 'views/editBook.html',
+        controller: 'editBookController'
+    })
     .when("/food", {
         controller: "foodController",
         templateUrl: "views/foodView.html"
