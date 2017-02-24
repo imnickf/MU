@@ -1,14 +1,16 @@
 <div class="container">
 <h3> Current Data: </h3>
 
-
-	<button id="btnLogin" class="btn btn-action" ng-click="authenticate()" ng-hide="hide_Login" >
+	<button class="btn" ng-click="authenticate()" ng-hide="hide_Login">
 		Log in
 	</button>
 
-
-	<button id="btnLogout" class="btn btn-action " ng-click="signOut()" ng-hide="hide_Logout" >
+	<button id="btnLogout" class="btn" ng-click="signOut()" ng-hide="hide_Logout">
 		Log out
-	</button>
+	</button><br><br>
+
+    <a ng-href="https://accounts.google.com/logout">
+        <img src="https://i.stack.imgur.com/I3NM6.png" height="75" width="150">
+    </a>
 
 </div>
