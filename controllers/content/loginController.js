@@ -25,7 +25,7 @@ angular.module('app').controller('loginController', ['$scope', '$firebaseObject'
 
     $scope.signOut = function() {
         // sign the user out using firebase
-        firebase.auth().signOut()
+        firebase.auth().signOut();
     };
 
     $scope.authenticate = function() {
