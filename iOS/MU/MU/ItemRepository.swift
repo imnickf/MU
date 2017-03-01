@@ -57,7 +57,7 @@ class ItemRepository
     }
   }
 
-  func presist(item: Item)
+  func persist(item: Item)
   {
     switch item {
     case is Ticket:

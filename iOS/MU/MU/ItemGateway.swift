@@ -28,4 +28,9 @@ class ItemGateway
   {
     FIRDatabase.database().reference().child(endpoint).setValue(data)
   }
+
+  static func createNewItemID(_ endpoint: String) -> String
+  {
+    return FIRDatabase.database().reference().child(endpoint).childByAutoId().key
+  }
 }

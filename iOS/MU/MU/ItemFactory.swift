@@ -24,30 +24,30 @@ class ItemFactory
     }
   }
 
-  func newTicket(withDescription desc: String, location: String?, name: String, price: String, sport: String, time: Date) -> Ticket
+  func makeTicket(withDescription desc: String, location: String?, name: String, price: String, sport: String, time: Date) -> Ticket
   {
-    let id = "" // TODO: Figure out how we assign this
+    let id = "ticket" + ItemGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
     let ticket = Ticket(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, sport: sport, time: time.iso8601, location: location)
     return ticket
   }
 
-  func newBook(withDescription desc: String, name: String, author: String, price: String, isbn: String?, classCode: String?) -> Book
+  func makeBook(withDescription desc: String, name: String, author: String, price: String, isbn: String?, classCode: String?) -> Book
   {
-    let id = "" // TODO: Figure out how we assign this
+    let id = "book" + ItemGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
     let book = Book(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, author: author, isbn: isbn, classCode: classCode)
     return book
   }
 
-  func newFood(withDescription desc: String, name: String, category: String, location: String?, time: Date?) -> Food
+  func makeFood(withDescription desc: String, name: String, category: String, location: String?, time: Date?) -> Food
   {
-    let id = "" // TODO: Figure out how we assign this
+    let id = "food" + ItemGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
     let food = Food(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, location: location, name: name, time: time?.iso8601, viewCount: 0, category: category)
     return food
   }
 
-  func newMisc(withDescription desc: String, name: String, price: String, category: String) -> Misc
+  func makeMisc(withDescription desc: String, name: String, price: String, category: String) -> Misc
   {
-    let id = "" // TODO: Figure out how we assign this
+    let id = "misc" + ItemGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
     let misc = Misc(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, category: category)
     return misc
   }
