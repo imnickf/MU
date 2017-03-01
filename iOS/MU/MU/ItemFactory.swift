@@ -6,6 +6,8 @@
 //  Copyright © 2017 Nick Flege. All rights reserved.
 //
 
+import FirebaseAuth
+
 class ItemFactory
 {
   func makeItem(type: ItemType, key: String, data: [String : Any]) -> Item
@@ -20,6 +22,34 @@ class ItemFactory
     case .miscellaneous:
       return make(misc: key, with: data)
     }
+  }
+
+  func makeTicket(withDescription desc: String, location: String?, name: String, price: String, sport: String, time: Date) -> Ticket
+  {
+    let id = "ticket" + ItemGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
+    let ticket = Ticket(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, sport: sport, time: time.iso8601, location: location)
+    return ticket
+  }
+
+  func makeBook(withDescription desc: String, name: String, author: String, price: String, isbn: String?, classCode: String?) -> Book
+  {
+    let id = "book" + ItemGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
+    let book = Book(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, author: author, isbn: isbn, classCode: classCode)
+    return book
+  }
+
+  func makeFood(withDescription desc: String, name: String, category: String, location: String?, time: Date?) -> Food
+  {
+    let id = "food" + ItemGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
+    let food = Food(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, location: location, name: name, time: time?.iso8601, viewCount: 0, category: category)
+    return food
+  }
+
+  func makeMisc(withDescription desc: String, name: String, price: String, category: String) -> Misc
+  {
+    let id = "misc" + ItemGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
+    let misc = Misc(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, category: category)
+    return misc
   }
 
   fileprivate func make(ticket key: String, with data: [String : Any]) -> Ticket
