@@ -189,6 +189,7 @@ class ItemRepository
   fileprivate func translate(food: Food) -> [String : Any]
   {
     var foodData = [String : Any]()
+    foodData[FirebaseKeyVender.categoryKey] = food.category
     foodData[FirebaseKeyVender.createDateKey] = food.createDate.iso8601
     foodData[FirebaseKeyVender.creatorIDKey] = food.creatorID
     foodData[FirebaseKeyVender.descriptionKey] = food.description
@@ -207,8 +208,10 @@ class ItemRepository
   {
     var miscData = [String : Any]()
     miscData[FirebaseKeyVender.buyerIDKey] = misc.buyerID ?? nil
+    miscData[FirebaseKeyVender.categoryKey] = misc.category
     miscData[FirebaseKeyVender.createDateKey] = misc.createDate.iso8601
     miscData[FirebaseKeyVender.creatorIDKey] = misc.creatorID
+    miscData[FirebaseKeyVender.descriptionKey] = misc.description
     miscData[FirebaseKeyVender.dateSoldKey] = misc.dateSold?.iso8601
     miscData[FirebaseKeyVender.nameKey] = misc.name
     miscData[FirebaseKeyVender.priceKey] = misc.price
