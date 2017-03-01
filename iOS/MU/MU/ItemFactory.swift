@@ -38,6 +38,13 @@ class ItemFactory
     return book
   }
 
+  func newFood(withDescription desc: String, name: String, category: String, location: String?, time: Date?) -> Food
+  {
+    let id = "" // TODO: Figure out how we assign this
+    let food = Food(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, location: location, name: name, time: time?.iso8601, viewCount: 0, category: category)
+    return food
+  }
+
   fileprivate func make(ticket key: String, with data: [String : Any]) -> Ticket
   {
     let buyerID = data[FirebaseKeyVender.buyerIDKey] as? String
