@@ -6,6 +6,8 @@
 //  Copyright © 2017 Nick Flege. All rights reserved.
 //
 
+import FirebaseAuth
+
 class ItemFactory
 {
   func makeItem(type: ItemType, key: String, data: [String : Any]) -> Item
@@ -20,6 +22,13 @@ class ItemFactory
     case .miscellaneous:
       return make(misc: key, with: data)
     }
+  }
+
+  func newTicket(withDescription desc: String, location: String?, name: String, price: String, sport: String, time: Date) -> Ticket
+  {
+    let id = "" // TODO: Figure out how we assign this
+    let ticket = Ticket(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, sport: sport, time: time.iso8601, location: location)
+    return ticket
   }
 
   fileprivate func make(ticket key: String, with data: [String : Any]) -> Ticket
