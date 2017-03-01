@@ -231,11 +231,8 @@
 				0175A83E1E452B94008A7780 /* Profile.storyboard */,
 				01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */,
 				014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */,
-<<<<<<< HEAD
 				48377B2A1E5A66C7007DBE2B /* FoodTableViewCell.swift */,
-=======
 				01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */,
->>>>>>> master
 			);
 			name = View;
 			sourceTree = "<group>";
