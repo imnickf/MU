@@ -58,13 +58,88 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="DEs-ja-5uA">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WJd-61-rve"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="WJd-61-rve">
+                            <connections>
+                                <segue destination="Dkr-oO-fOk" kind="show" id="W3w-c0-Uza"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fZq-qM-TLT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2679.1999999999998" y="-815.44227886056979"/>
+        </scene>
+        <!--New Ticket-->
+        <scene sceneID="YRc-bs-O5v">
+            <objects>
+                <viewController title="New Ticket" id="Dkr-oO-fOk" customClass="CreateTicketViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cH0-sU-tKp"/>
+                        <viewControllerLayoutGuide type="bottom" id="uFt-yQ-gBR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N9O-fJ-czE">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d61-cq-xS3">
+                                <rect key="frame" x="147" y="512" width="81" height="46"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Create">
+                                    <color key="titleColor" red="0.75686274509803919" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXe-t0-CrT">
+                                <rect key="frame" x="25" y="114" width="325" height="30"/>
+                                <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="About this ticket" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qoe-me-Kln">
+                                <rect key="frame" x="25" y="169" width="325" height="100"/>
+                                <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="a3J-Do-NE4"/>
+                                </constraints>
+                                <color key="textColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="Dkr-oO-fOk" id="I43-mt-mTI"/>
+                                </connections>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.18445743619999999" green="0.1843549907" blue="0.1883455366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="qoe-me-Kln" firstAttribute="top" secondItem="gXe-t0-CrT" secondAttribute="bottom" constant="25" id="E2k-Ab-lQV"/>
+                            <constraint firstItem="gXe-t0-CrT" firstAttribute="leading" secondItem="N9O-fJ-czE" secondAttribute="leading" constant="25" id="UGe-Oq-gDL"/>
+                            <constraint firstItem="uFt-yQ-gBR" firstAttribute="top" secondItem="d61-cq-xS3" secondAttribute="bottom" constant="60" id="Yog-0t-lkt"/>
+                            <constraint firstAttribute="trailing" secondItem="qoe-me-Kln" secondAttribute="trailing" constant="25" id="bGz-PV-61W"/>
+                            <constraint firstItem="gXe-t0-CrT" firstAttribute="top" secondItem="cH0-sU-tKp" secondAttribute="bottom" constant="50" id="eiO-U4-EqP"/>
+                            <constraint firstItem="qoe-me-Kln" firstAttribute="leading" secondItem="N9O-fJ-czE" secondAttribute="leading" constant="25" id="hXq-Ln-ikV"/>
+                            <constraint firstAttribute="trailing" secondItem="gXe-t0-CrT" secondAttribute="trailing" constant="25" id="uvp-15-M9p"/>
+                            <constraint firstItem="d61-cq-xS3" firstAttribute="centerX" secondItem="N9O-fJ-czE" secondAttribute="centerX" id="wkj-xn-1YF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="descriptionTextView" destination="qoe-me-Kln" id="fhZ-RN-e2k"/>
+                        <outlet property="nameTextField" destination="gXe-t0-CrT" id="TYl-U1-DCJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6OW-Da-JOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3480.8000000000002" y="-815.44227886056979"/>
         </scene>
         <!--Tickets-->
         <scene sceneID="5dV-Rz-3KH">
