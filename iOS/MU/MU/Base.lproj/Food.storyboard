@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="VAC-nZ-X2j">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Food Table View Controller-->
+        <scene sceneID="NWO-kf-48C">
+            <objects>
+                <tableViewController id="xYL-gA-ZF8" customClass="FoodTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="hGk-1X-p49">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="FoodTableViewCell" id="V6w-h3-eb7">
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V6w-h3-eb7" id="qtm-Fb-Xj3">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xYL-gA-ZF8" id="zfV-QE-abd"/>
+                            <outlet property="delegate" destination="xYL-gA-ZF8" id="0l8-ue-sTI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="ZdG-kc-QtF">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="M9s-kP-pTj"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cof-hX-7nC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2111.1999999999998" y="544.67766116941539"/>
+        </scene>
+        <!--Food-->
+        <scene sceneID="Mvn-aH-LcQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="VAC-nZ-X2j" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Food" image="food_icon" selectedImage="food_filled_icon" id="eTL-CM-fa7"/>
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AR5-q5-XxO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="xYL-gA-ZF8" kind="relationship" relationship="rootViewController" id="jgO-1Y-ZZg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jDc-iZ-qQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1172" y="544.67766116941539"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="food_filled_icon" width="25" height="25"/>
+        <image name="food_icon" width="25" height="25"/>
+    </resources>
+</document>

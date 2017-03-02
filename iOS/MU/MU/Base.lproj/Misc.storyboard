@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="7aB-bq-lHE">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Misc Table View Controller-->
+        <scene sceneID="RoQ-Sg-lDD">
+            <objects>
+                <tableViewController id="a12-fZ-3kr" customClass="MiscTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="Bsb-pg-fG4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="MiscTableViewCell" id="hbQ-tP-l66" customClass="MiscTableViewCell" customModule="MU" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="hbQ-tP-l66" id="gpg-we-1fk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FlP-Ig-weu">
+                                            <rect key="frame" x="8" y="11" width="45" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p1t-FW-YoP">
+                                            <rect key="frame" x="328" y="11" width="39" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="FlP-Ig-weu" firstAttribute="leading" secondItem="gpg-we-1fk" secondAttribute="leadingMargin" id="Dr0-N2-d3Z"/>
+                                        <constraint firstItem="p1t-FW-YoP" firstAttribute="trailing" secondItem="gpg-we-1fk" secondAttribute="trailingMargin" id="FfD-KK-y5C"/>
+                                        <constraint firstItem="p1t-FW-YoP" firstAttribute="centerY" secondItem="gpg-we-1fk" secondAttribute="centerY" id="NWX-mA-cxK"/>
+                                        <constraint firstItem="FlP-Ig-weu" firstAttribute="centerY" secondItem="gpg-we-1fk" secondAttribute="centerY" id="Uvb-Xb-IVy"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="FlP-Ig-weu" id="qsL-2V-BLL"/>
+                                    <outlet property="priceLabel" destination="p1t-FW-YoP" id="3w0-Sl-R8h"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="a12-fZ-3kr" id="jBQ-Jp-cnu"/>
+                            <outlet property="delegate" destination="a12-fZ-3kr" id="eAp-L2-bfx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="DIb-Fx-AAv">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3LJ-EN-hIA"/>
+                    </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t1m-Zk-zRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2916" y="651.72413793103453"/>
+        </scene>
+        <!--Misc-->
+        <scene sceneID="g9j-qg-8sC">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7aB-bq-lHE" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Misc" image="misc_icon" selectedImage="misc_filled_icon" id="3Cs-F9-Zed"/>
+                    <toolbarItems/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="375" height="667"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xMr-aN-jws">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="a12-fZ-3kr" kind="relationship" relationship="rootViewController" id="EOv-kN-bix"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iGZ-uR-IHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1976.8" y="651.72413793103453"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="misc_filled_icon" width="25" height="25"/>
+        <image name="misc_icon" width="25" height="25"/>
+    </resources>
+</document>
