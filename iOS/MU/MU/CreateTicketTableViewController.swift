@@ -17,6 +17,10 @@ class CreateTicketTableViewController: UITableViewController
   @IBOutlet weak var priceTextField: UITextField!
   @IBOutlet weak var descriptionTextView: UITextView!
 
+  var selectedDate: Date?
+  let itemFactory = ItemFactory()
+  let itemRepo = ItemRepository()
+
   lazy var dateFormatter: DateFormatter = {
     var formatter = DateFormatter()
     formatter.dateStyle = .medium
@@ -36,7 +40,27 @@ class CreateTicketTableViewController: UITableViewController
 
   @IBAction func createNewTicket()
   {
-    
+    guard let name = nameTextField.text else {
+      return
+    }
+    guard let date = selectedDate else {
+      return
+    }
+    guard let sport = sportTextField.text else {
+      return
+    }
+    guard let price = priceTextField.text else {
+      return
+    }
+    guard let description = descriptionTextView.text else {
+      return
+    }
+
+    if (description != "About this ticket") {
+      let ticket = itemFactory.makeTicket(withDescription: description, location: locationTextField.text, name: name, price: "$" + price, sport: sport, time: date)
+      itemRepo.persist(item: ticket)
+      let _ = self.navigationController?.popViewController(animated: true)
+    }
   }
 }
 
@@ -67,6 +91,7 @@ extension CreateTicketTableViewController
 {
   func dateChanged(_ sender: UIDatePicker)
   {
+    selectedDate = sender.date
     dateTextField.text = dateFormatter.string(from: sender.date)
   }
 }
