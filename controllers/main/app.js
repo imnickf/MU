@@ -17,6 +17,25 @@ var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
 // controller for handling the navagation bar and header data
 angular.module('app').controller('navController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
+    $scope.items = [
+        'Profile',
+        'Food'
+    ];
+
+    $scope.status = {
+        isopen: false
+    };
+
+    $scope.toggled = function(open) {
+        $log.log('Dropdown is now: ', open);
+    };
+
+    $scope.toggleDropdown = function($event) {
+        $event.preventDefault();
+        $event.stopPropagation();
+        $scope.status.isopen = !$scope.status.isopen;
+    };
+
     $scope.isNavCollapsed = true;
     $scope.email = "";
 
