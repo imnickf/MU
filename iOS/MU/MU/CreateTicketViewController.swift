@@ -11,11 +11,26 @@ import UIKit
 class CreateTicketViewController: UIViewController
 {
   @IBOutlet weak var nameTextField: UITextField!
+  @IBOutlet weak var dateTextField: UITextField!
+  @IBOutlet weak var sportTextField: UITextField!
   @IBOutlet weak var descriptionTextView: UITextView!
+  @IBOutlet weak var locationTextField: UITextField!
+  @IBOutlet weak var priceTextField: UITextField!
+
+  lazy var dateFormatter: DateFormatter = {
+    var formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    return formatter
+  }()
 
   override func viewDidLoad()
   {
     super.viewDidLoad()
+
+    let datePicker = UIDatePicker()
+    datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
+    dateTextField.inputView = datePicker
   }
 }
 
@@ -37,5 +52,15 @@ extension CreateTicketViewController: UITextViewDelegate
       descriptionTextView.text = "About this ticket"
       descriptionTextView.textColor = UIColor.lightGray
     }
+  }
+}
+
+// MARK: - DatePicker Actions
+
+extension CreateTicketViewController
+{
+  func dateChanged(_ sender: UIDatePicker)
+  {
+    dateTextField.text = dateFormatter.string(from: sender.date)
   }
 }

@@ -14,28 +14,28 @@
         <scene sceneID="3l4-qr-F6W">
             <objects>
                 <tableViewController id="CE8-Kc-J9P" customClass="TicketsTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="b8F-ZR-e8a">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="b8F-ZR-e8a">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.18445743619999999" green="0.1843549907" blue="0.1883455366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TicketTableViewCell" id="4jl-qG-XrU" customClass="TicketTableViewCell" customModule="MU" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="56" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4jl-qG-XrU" id="sm9-Eb-C1B">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5j-Yf-ZHX">
                                             <rect key="frame" x="328" y="11" width="39" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hax-oj-3kL">
                                             <rect key="frame" x="8" y="11" width="45" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
@@ -46,6 +46,7 @@
                                         <constraint firstItem="hax-oj-3kL" firstAttribute="centerY" secondItem="sm9-Eb-C1B" secondAttribute="centerY" id="dHC-lX-VFJ"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <outlet property="nameLabel" destination="hax-oj-3kL" id="qMV-DG-125"/>
                                     <outlet property="priceLabel" destination="O5j-Yf-ZHX" id="rGg-ZV-e9g"/>
@@ -86,23 +87,23 @@
                                 <rect key="frame" x="147" y="512" width="81" height="46"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                 <state key="normal" title="Create">
-                                    <color key="titleColor" red="0.75686274509803919" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.74318903680000004" green="0.38095304369999999" blue="0.35297098760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ticket Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gXe-t0-CrT">
-                                <rect key="frame" x="25" y="114" width="325" height="30"/>
-                                <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="25" y="109" width="325" height="30"/>
+                                <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
-                                        <color key="value" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="value" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </textField>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="About this ticket" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="qoe-me-Kln">
-                                <rect key="frame" x="25" y="169" width="325" height="100"/>
+                                <rect key="frame" x="25" y="259" width="325" height="100"/>
                                 <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="a3J-Do-NE4"/>
@@ -119,22 +120,100 @@
                                     <outlet property="delegate" destination="Dkr-oO-fOk" id="I43-mt-mTI"/>
                                 </connections>
                             </textView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="j1f-RV-m1h">
+                                <rect key="frame" x="102.5" y="444" width="170.5" height="33.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NaR-qy-BGa">
+                                        <rect key="frame" x="0.0" y="0.0" width="17.5" height="33.5"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sDo-wZ-tEF">
+                                        <rect key="frame" x="20.5" y="0.0" width="150" height="33.5"/>
+                                        <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="150" id="HZN-6Q-n25"/>
+                                        </constraints>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                                <color key="value" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </textField>
+                                </subviews>
+                            </stackView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zqG-ja-wq7">
+                                <rect key="frame" x="25" y="159" width="325" height="30"/>
+                                <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Sport" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="JdW-xT-wgG">
+                                <rect key="frame" x="25" y="209" width="325" height="30"/>
+                                <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Location (Optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SsQ-v0-1ow">
+                                <rect key="frame" x="25" y="379" width="325" height="30"/>
+                                <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
+                                        <color key="value" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" red="0.18445743619999999" green="0.1843549907" blue="0.1883455366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="qoe-me-Kln" firstAttribute="top" secondItem="gXe-t0-CrT" secondAttribute="bottom" constant="25" id="E2k-Ab-lQV"/>
+                            <constraint firstItem="zqG-ja-wq7" firstAttribute="trailing" secondItem="gXe-t0-CrT" secondAttribute="trailing" id="6m2-Wb-DxN"/>
+                            <constraint firstItem="j1f-RV-m1h" firstAttribute="centerX" secondItem="N9O-fJ-czE" secondAttribute="centerX" id="7Ph-4w-Ndt"/>
+                            <constraint firstItem="zqG-ja-wq7" firstAttribute="top" secondItem="gXe-t0-CrT" secondAttribute="bottom" constant="20" id="9Sa-pM-nQb"/>
+                            <constraint firstItem="zqG-ja-wq7" firstAttribute="leading" secondItem="gXe-t0-CrT" secondAttribute="leading" id="AQR-f6-GuC"/>
+                            <constraint firstItem="SsQ-v0-1ow" firstAttribute="leading" secondItem="qoe-me-Kln" secondAttribute="leading" id="Ktn-6d-Af6"/>
+                            <constraint firstItem="SsQ-v0-1ow" firstAttribute="top" secondItem="qoe-me-Kln" secondAttribute="bottom" constant="20" id="Obe-uB-yxa"/>
                             <constraint firstItem="gXe-t0-CrT" firstAttribute="leading" secondItem="N9O-fJ-czE" secondAttribute="leading" constant="25" id="UGe-Oq-gDL"/>
+                            <constraint firstItem="SsQ-v0-1ow" firstAttribute="trailing" secondItem="qoe-me-Kln" secondAttribute="trailing" id="WZS-ob-VT2"/>
                             <constraint firstItem="uFt-yQ-gBR" firstAttribute="top" secondItem="d61-cq-xS3" secondAttribute="bottom" constant="60" id="Yog-0t-lkt"/>
+                            <constraint firstItem="zqG-ja-wq7" firstAttribute="centerX" secondItem="N9O-fJ-czE" secondAttribute="centerX" id="ZvM-F2-uYl"/>
                             <constraint firstAttribute="trailing" secondItem="qoe-me-Kln" secondAttribute="trailing" constant="25" id="bGz-PV-61W"/>
-                            <constraint firstItem="gXe-t0-CrT" firstAttribute="top" secondItem="cH0-sU-tKp" secondAttribute="bottom" constant="50" id="eiO-U4-EqP"/>
+                            <constraint firstItem="JdW-xT-wgG" firstAttribute="top" secondItem="zqG-ja-wq7" secondAttribute="bottom" constant="20" id="cpM-vi-8LU"/>
+                            <constraint firstItem="gXe-t0-CrT" firstAttribute="top" secondItem="cH0-sU-tKp" secondAttribute="bottom" constant="45" id="eiO-U4-EqP"/>
                             <constraint firstItem="qoe-me-Kln" firstAttribute="leading" secondItem="N9O-fJ-czE" secondAttribute="leading" constant="25" id="hXq-Ln-ikV"/>
+                            <constraint firstItem="qoe-me-Kln" firstAttribute="top" secondItem="JdW-xT-wgG" secondAttribute="bottom" constant="20" id="hes-XM-yAj"/>
+                            <constraint firstItem="JdW-xT-wgG" firstAttribute="trailing" secondItem="zqG-ja-wq7" secondAttribute="trailing" id="k3S-D0-D8v"/>
+                            <constraint firstItem="j1f-RV-m1h" firstAttribute="top" secondItem="SsQ-v0-1ow" secondAttribute="bottom" constant="35" id="mWx-5j-iWd"/>
                             <constraint firstAttribute="trailing" secondItem="gXe-t0-CrT" secondAttribute="trailing" constant="25" id="uvp-15-M9p"/>
                             <constraint firstItem="d61-cq-xS3" firstAttribute="centerX" secondItem="N9O-fJ-czE" secondAttribute="centerX" id="wkj-xn-1YF"/>
+                            <constraint firstItem="JdW-xT-wgG" firstAttribute="leading" secondItem="zqG-ja-wq7" secondAttribute="leading" id="zl7-gC-ja3"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="dateTextField" destination="zqG-ja-wq7" id="MzD-00-oCn"/>
                         <outlet property="descriptionTextView" destination="qoe-me-Kln" id="fhZ-RN-e2k"/>
+                        <outlet property="locationTextField" destination="SsQ-v0-1ow" id="OYp-ig-cdI"/>
                         <outlet property="nameTextField" destination="gXe-t0-CrT" id="TYl-U1-DCJ"/>
+                        <outlet property="priceTextField" destination="sDo-wZ-tEF" id="7Wd-9C-DUG"/>
+                        <outlet property="sportTextField" destination="JdW-xT-wgG" id="7Pl-5M-0zF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6OW-Da-JOq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -149,7 +228,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="23x-LV-Kyt">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="23x-LV-Kyt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
