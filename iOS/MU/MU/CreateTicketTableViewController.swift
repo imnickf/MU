@@ -1,21 +1,21 @@
 //
-//  CreateTicketViewController.swift
+//  CreateTicketTableViewController.swift
 //  MU
 //
-//  Created by Nick Flege on 2/28/17.
+//  Created by Nick Flege on 3/2/17.
 //  Copyright © 2017 Nick Flege. All rights reserved.
 //
 
 import UIKit
 
-class CreateTicketViewController: UIViewController
+class CreateTicketTableViewController: UITableViewController
 {
   @IBOutlet weak var nameTextField: UITextField!
   @IBOutlet weak var dateTextField: UITextField!
   @IBOutlet weak var sportTextField: UITextField!
-  @IBOutlet weak var descriptionTextView: UITextView!
   @IBOutlet weak var locationTextField: UITextField!
   @IBOutlet weak var priceTextField: UITextField!
+  @IBOutlet weak var descriptionTextView: UITextView!
 
   lazy var dateFormatter: DateFormatter = {
     var formatter = DateFormatter()
@@ -27,16 +27,22 @@ class CreateTicketViewController: UIViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    hideKeyboardWhenTappedAround()
 
     let datePicker = UIDatePicker()
     datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     dateTextField.inputView = datePicker
   }
+
+  @IBAction func createNewTicket()
+  {
+    
+  }
 }
 
 // MARK: - UITextViewDelegate Protocol Methods
 
-extension CreateTicketViewController: UITextViewDelegate
+extension CreateTicketTableViewController: UITextViewDelegate
 {
   func textViewDidBeginEditing(_ textView: UITextView)
   {
@@ -55,9 +61,9 @@ extension CreateTicketViewController: UITextViewDelegate
   }
 }
 
-// MARK: - DatePicker Actions
+// MARK: - Actions
 
-extension CreateTicketViewController
+extension CreateTicketTableViewController
 {
   func dateChanged(_ sender: UIDatePicker)
   {
