@@ -1,3 +1,24 @@
 <div class="container">
-    <h3>{{ data }}</h3>
+    <h3>Current Book Data</h3><br>
+
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                <th>Name</th>
+                <th>Class Code</th>
+                <th>Author</th>
+                <th>Price</th>
+                <th>Options</th>
+                </thead>
+                <tr ng-repeat="(bookID, book) in books">
+                    <td>{{ book.name }}</td>
+                    <td>{{ book.classCode }}</td>
+                    <td>{{ book.author }}</td>
+                    <td>{{ book.price }}</td>
+                    <td><a ng-href="#edit/{{ book.$id }}">Edit</a></td>
+                </tr>
+            </table>
+        </div>
+    </div>
 </div>

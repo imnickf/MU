@@ -16,7 +16,7 @@ app.controller('editBookController', ['$scope', '$firebaseObject', '$routeParams
 
         if($scope.book === null){
             // redirect to main page if we dont have a valid book
-            $location.path('/main');
+            $location.path('/textbooks');
         }// end if book is null
     });
 
@@ -28,6 +28,6 @@ app.controller('editBookController', ['$scope', '$firebaseObject', '$routeParams
             author: $scope.book.author,
             price: $scope.book.price
         });
-        $location.path('/main');
+        $location.path('/textbooks');
     };
 }]);
