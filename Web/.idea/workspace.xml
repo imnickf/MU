@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77156a98-ec06-4048-91cc-5b9e942b2a53" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-    </list>
+    <list default="true" id="77156a98-ec06-4048-91cc-5b9e942b2a53" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -26,8 +24,8 @@
       <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="587">
-              <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+            <state relative-caret-position="887">
+              <caret line="71" column="133" lean-forward="false" selection-start-line="71" selection-start-column="133" selection-end-line="71" selection-end-column="133" />
               <folding />
             </state>
           </provider>
@@ -46,8 +44,8 @@
       <file leaf-file-name="loginView.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/views/loginView.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="23" />
+            <state relative-caret-position="175">
+              <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -344,12 +342,12 @@
       <workItem from="1488327255539" duration="598000" />
       <workItem from="1488380549081" duration="2722000" />
       <workItem from="1488410190873" duration="1516000" />
-      <workItem from="1488414361518" duration="4067000" />
+      <workItem from="1488414361518" duration="4433000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55712000" />
+    <option name="totallyTimeSpent" value="56078000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -673,14 +671,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/views/loginView.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="12" lean-forward="true" selection-start-line="3" selection-start-column="12" selection-end-line="3" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/content/loginController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -689,10 +679,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/views/loginView.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="49" lean-forward="true" selection-start-line="7" selection-start-column="49" selection-end-line="7" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="587">
-          <caret line="59" column="20" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="20" />
+        <state relative-caret-position="887">
+          <caret line="71" column="133" lean-forward="false" selection-start-line="71" selection-start-column="133" selection-end-line="71" selection-end-column="133" />
           <folding />
         </state>
       </provider>
