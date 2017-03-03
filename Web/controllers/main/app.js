@@ -40,7 +40,7 @@ angular.module('app').controller('navController', ['$scope', '$log','$firebaseOb
 
     $scope.isNavCollapsed = true;
     $scope.email = "";
-    $scope.display_dropDwn = false;
+    $scope.display_Navinfo = false;
 
     // listen for authentication changes
     firebase.auth().onAuthStateChanged(function(user) {
@@ -48,7 +48,7 @@ angular.module('app').controller('navController', ['$scope', '$log','$firebaseOb
             // user is logged in using an @iastate.edu account
             $scope.loggedInText = "You are currently logged in as " + user.email;
             $scope.email = user.email;
-            $scope.display_dropDwn = true;
+            $scope.display_Navinfo = true;
         }else if(user){
             // user is logged in with non-iastate account
             $scope.email = user.email;
@@ -62,7 +62,7 @@ angular.module('app').controller('navController', ['$scope', '$log','$firebaseOb
                 // user automatically signed out of a non-iastate account
                 $scope.loggedInText = "Bitch login with an iastate.edu account or get the fuck out.";
             }// end if email does not include @iastate
-            $scope.display_dropDwn = false;
+            $scope.display_Navinfo = false;
         }// end if we have a valid user
 
         $scope.$apply();

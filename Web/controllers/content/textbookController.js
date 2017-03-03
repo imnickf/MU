@@ -6,4 +6,18 @@ angular.module('app').controller('textbookController', ['$scope', '$firebaseObje
     // const database = firebase.database();
 
     $scope.data = "Textbook View";
+
+
+    const database = firebase.database();
+
+    // listen for database changes and update our view in real time (GET/pull data)
+    database.ref("/products/book").on('value', function (data) {
+        // on database change, grab the books and set the scope variable
+        $scope.books = data.val();
+        $scope.$apply();
+    });
+
+
 }]);
+
+
