@@ -10,11 +10,6 @@ app.factory('bookService', ['$firebaseArray', '$firebaseObject', function bookSe
     var ref = database.ref(url);
     var books;
 
-    // listen for database changes, update books object
-    ref.on('value', function (data) {
-        books = data.val();
-    });
-
     return {
         all: function() {
             // return an array of all our books at /products/book
@@ -22,7 +17,7 @@ app.factory('bookService', ['$firebaseArray', '$firebaseObject', function bookSe
         },
         get: function(bookID) {
             // return an array of a single book with bookID
-            return books[bookID];
+            return books.$getRecord(bookID);
         },
         set: function(book, bookID) {
             // update the book at bookID with the scope information
@@ -43,8 +38,15 @@ app.factory('bookService', ['$firebaseArray', '$firebaseObject', function bookSe
                 price: book.price
             });
         },
+        remove: function(book){
+            // delete the book with bookID
+            books.$remove(book);
+        },
         getRef: function(){
             return ref;
-        }
+        },
+        updateBooks: function(data){
+            books = data;
+        }// end service functions,
     };
 }]);

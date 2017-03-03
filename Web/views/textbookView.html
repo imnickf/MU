@@ -11,12 +11,15 @@
                 <th>Price</th>
                 <th>Options</th>
                 </thead>
-                <tr ng-repeat="(bookID, book) in books">
+                <tr ng-repeat="book in books">
                     <td>{{ book.name }}</td>
                     <td>{{ book.classCode }}</td>
                     <td>{{ book.author }}</td>
                     <td>{{ book.price }}</td>
-                    <td><a ng-href="#textbooks/{{ bookID }}">Edit</a></td>
+                    <td>
+                        <a ng-href="#textbooks/{{ book.$id }}">Edit</a> &bull;
+                        <a ng-href="#textbooks" ng-click="deleteBook(book)">Delete</a>
+                    </td>
                 </tr>
             </table>
         </div>

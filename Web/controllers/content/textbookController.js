@@ -1,12 +1,16 @@
 /*
      Controller for providing data to the textbookView
  */
-app.controller('textbookController', ['$scope', '$routeParams', '$location', 'bookService', function($scope, $routeParams, $location, bookService){
+app.controller('textbookController', ['$scope', '$routeParams', '$location', 'bookService', 'books', function($scope, $routeParams, $location, bookService, books){
+    // books variable resolved on the route, resolved variables are only available
+    // in the controller, so we need to update our singleton service
+    bookService.updateBooks(books);
     // default editing to false, show edit form when we have a valid bookID
     $scope.editing = false;
     // yank in our URL parameter
     var bookID = $routeParams.bookID;
-    // grab our book data array from bookService
+    // grab our book from bookService, we are making asynchronous calls, but since
+    // the books variable is a dependency, this wont run until books array is loaded
     $scope.book = bookService.get(bookID);
 
     // all of our error checking goes here
@@ -28,7 +32,6 @@ app.controller('textbookController', ['$scope', '$routeParams', '$location', 'bo
     // function call to update the database upon form submission (POST/push data)
     var setBook = function(book) {
         validate(book);
-
         if(!$scope.error){
             // we dont have an error
             bookService.set(book, bookID);
@@ -38,7 +41,6 @@ app.controller('textbookController', ['$scope', '$routeParams', '$location', 'bo
 
     var addBook = function(book){
         validate(book);
-
         if(!$scope.error){
             // we dont have an error
             bookService.add(book);
@@ -46,7 +48,12 @@ app.controller('textbookController', ['$scope', '$routeParams', '$location', 'bo
         }// end if we dont have an error
     };
 
+    $scope.deleteBook = function(bookID){
+        bookService.remove(bookID);
+    };
+
     if(bookID == 'add'){
+        // we are trying to add a new book
         $scope.title = 'Add Book';
         $scope.editing = true;
         $scope.book = {};
@@ -57,10 +64,9 @@ app.controller('textbookController', ['$scope', '$routeParams', '$location', 'bo
         $scope.editing = true;
         $scope.update = setBook;
     }else{
-        // pull in the books for list display
+        // we have nothing, just pull in the list of books
         $scope.books = bookService.all();
     }// end if bookID == add
-
 }]);
 
 
