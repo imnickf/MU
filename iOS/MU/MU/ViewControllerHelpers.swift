@@ -21,3 +21,14 @@ extension UIViewController
     view.endEditing(true)
   }
 }
+
+extension String
+{
+  func isCurrencyFormat() -> Bool
+  {
+    let regex = "\\d{0,}?(\\.\\d\\d)?"
+
+    let currencyTest = NSPredicate(format:"SELF MATCHES %@", regex)
+    return currencyTest.evaluate(with: self) && self != ""
+  }
+}

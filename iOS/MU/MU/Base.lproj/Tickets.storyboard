@@ -117,6 +117,9 @@
                                                             <color key="value" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="vQf-WK-423" id="fgv-9f-Qrk"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -149,6 +152,9 @@
                                                             <color key="value" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="vQf-WK-423" id="qX0-aS-sSl"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -181,6 +187,9 @@
                                                             <color key="value" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="vQf-WK-423" id="Z3Q-Xy-26o"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <constraints>
@@ -249,6 +258,9 @@
                                                             <color key="value" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="vQf-WK-423" id="JQn-t5-dAF"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" red="0.18445743619999999" green="0.1843549907" blue="0.1883455366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -293,12 +305,15 @@
                                                             </constraints>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                            <textInputTraits key="textInputTraits"/>
+                                                            <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="color" keyPath="_placeholderLabel.textColor">
                                                                     <color key="value" red="0.72156862749999995" green="0.72156862749999995" blue="0.72156862749999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </userDefinedRuntimeAttribute>
                                                             </userDefinedRuntimeAttributes>
+                                                            <connections>
+                                                                <outlet property="delegate" destination="vQf-WK-423" id="H9f-kX-qp7"/>
+                                                            </connections>
                                                         </textField>
                                                     </subviews>
                                                     <constraints>
@@ -338,6 +353,9 @@
                                                     <state key="normal" title="Create">
                                                         <color key="titleColor" red="0.74318903680000004" green="0.38095304369999999" blue="0.35297098760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
+                                                    <state key="disabled">
+                                                        <color key="titleColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    </state>
                                                     <connections>
                                                         <action selector="createNewTicket" destination="vQf-WK-423" eventType="touchUpInside" id="tIQ-0X-PvY"/>
                                                     </connections>
@@ -368,6 +386,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="createButton" destination="9nU-qh-pzr" id="xQj-Ku-UGP"/>
                         <outlet property="dateTextField" destination="DYP-tF-g6Q" id="505-Gf-92L"/>
                         <outlet property="descriptionTextView" destination="VVd-E1-KTI" id="F9z-8n-ZNi"/>
                         <outlet property="locationTextField" destination="dPw-id-9Lp" id="whP-oA-Eqw"/>
