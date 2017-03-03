@@ -12,6 +12,7 @@
 
     <!-- Main Angular Controllers -->
     <script src="controllers/main/app.js"></script>
+    <script src="controllers/main/services.js"></script>
     <script src="controllers/main/routes.js"></script>
     <script src="controllers/main/filters.js"></script>
 
@@ -36,7 +37,7 @@
 <div ng-app="app">
     <!-- Navigation Bar -->
     <div ng-controller="navController">
-        <nav class="navbar navbar-default" role="navigation">
+        <nav class="navbar navbar-inverse" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
                     <span class="sr-only">Toggle navigation</span>
@@ -70,12 +71,12 @@
             </div>
             </div>
         </nav>
-        <div class="container">
-             <p>{{ loggedInText }}</p>
-             <p>{{ error }}</p>
-        </div>
     </div>
     <!-- End Navigation Bar -->
+
+    <!-- Authentication -->
+    <div ng-controller="authController" class="container"></div>
+    <!-- End Authentication -->
 
     <!-- Page Content -->
     <div ng-controller="loginController">
