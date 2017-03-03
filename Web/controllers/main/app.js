@@ -1,5 +1,6 @@
 /*
-    Main controller for handling configuration and dependency settings
+    Main controller for handling configuration and dependency settings,
+    also provides a controller for the header and navigation
 */
 
 // initialize our firebase settings
@@ -16,44 +17,28 @@ firebase.initializeApp(config);
 var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
 app.controller('headerController', ['$scope', 'authService', function($scope, authService) {
-    // pull auth object from authService
-    $scope.auth = authService.getCurrentUser();
+    // pull authentication variables/functions into current scope
+    authService.setScope($scope);
 
-    $scope.auth.$onAuthStateChanged(function (firebaseUser) {
-        var user = firebaseUser;
+    $scope.auth.$onAuthStateChanged(function (user) {
+        // listener function, called every time authentication state changes
         if (user && user.email.includes("@iastate.edu")) {
             // user is logged in using an @iastate.edu account
-            $scope.loggedInText = "You are currently logged in as " + user.email;
-            $scope.email = user.email;
+            $scope.user = user;
             $scope.display_Navinfo = true;
+            $scope.error = '';
         } else if (user) {
             // user is logged in with non-iastate account
-            $scope.email = user.email;
+            $scope.error = "You must login with your Iowa State (@iastate.edu) Google account.";
             firebase.auth().signOut();
         } else {
-            // user is logging out, determine if @iastate.edu so we can print the correct error message
-            if ($scope.email == "" || $scope.email.includes("@iastate.edu")) {
-                // user logged out
-                $scope.loggedInText = "You are not logged in.";
-            } else if (!$scope.email.includes("@iastate.edu")) {
-                // user automatically signed out of a non-iastate account
-                $scope.loggedInText = "Bitch login with an iastate.edu account or get the fuck out.";
-            }// end if email does not include @iastate
+            // user is signing out
             $scope.display_Navinfo = false;
         }// end if we have a valid user
     });
 
-    $scope.items = [
-        'Profile',
-        'Food'
-    ];
-
     $scope.status = {
         isopen: false
-    };
-
-    $scope.toggled = function(open) {
-        $log.log('Dropdown is now: ', open);
     };
 
     $scope.toggleDropdown = function($event) {
@@ -62,9 +47,6 @@ app.controller('headerController', ['$scope', 'authService', function($scope, au
         $scope.status.isopen = !$scope.status.isopen;
     };
 
-    $scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
-
     $scope.isNavCollapsed = true;
-    $scope.email = "";
     $scope.display_Navinfo = false;
 }]);
