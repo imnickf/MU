@@ -2,6 +2,7 @@
     <h3>Textbook View</h3><br>
     <div class="row">
         <div class="col-md-8">
+            <a ng-href="#textbooks/add">Add Book</a>
             <table class="table table-striped">
                 <thead>
                 <th>Name</th>
@@ -24,7 +25,8 @@
 <div class="container" ng-show="editing" id="editForm">
     <div class="row">
         <div class="col-md-3">
-            <h3>Edit Book:</h3>
+            <h3>{{ title }}</h3>
+            <h4>{{ error }}</h4>
             <form>
                 <div class="form-group row">
                     <div class="col-md-10">
@@ -50,7 +52,7 @@
                         <input type="text" class="form-control" ng-model="book.price">
                     </div>
                 </div>
-                <input type="submit" class="btn btn-primary btn-lg" value="Submit" ng-click="setBook()">
+                <input type="submit" class="btn btn-primary btn-lg" value="Submit" ng-click="update(book)">
             </form>
         </div>
     </div>

@@ -24,13 +24,23 @@ app.factory('bookService', ['$firebaseArray', '$firebaseObject', function bookSe
             // return an array of a single book with bookID
             return books[bookID];
         },
-        set: function(scope, bookID) {
+        set: function(book, bookID) {
             // update the book at bookID with the scope information
             database.ref(url + bookID).set({
-                name: scope.book.name,
-                classCode: scope.book.classCode,
-                author: scope.book.author,
-                price: scope.book.price
+                name: book.name,
+                classCode: book.classCode,
+                author: book.author,
+                price: book.price
+            });
+        },
+        add: function(book){
+            // Generate a reference to a new location and add some data using push()
+            var key = ref.push().key;
+            database.ref(url + key).set({
+                name: book.name,
+                classCode: book.classCode,
+                author: book.author,
+                price: book.price
             });
         },
         getRef: function(){
