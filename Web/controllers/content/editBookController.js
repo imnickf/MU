@@ -1,7 +1,7 @@
 /*
    Controller for providing data to the editBookView
 */
-angular.module('app').controller('editBookController', ['$scope', '$firebaseObject', '$routeParams', '$location',
+app.controller('editBookController', ['$scope', '$firebaseObject', '$routeParams', '$location',
     function($scope, $firebaseObject, $routeParams, $location){
     // grab the firebase database object
     const database = firebase.database();
@@ -16,10 +16,8 @@ angular.module('app').controller('editBookController', ['$scope', '$firebaseObje
 
         if($scope.book === null){
             // redirect to main page if we dont have a valid book
-            $location.path('/main');
+            $location.path('/textbooks');
         }// end if book is null
-
-        $scope.$apply();
     });
 
     // function call to update the database upon form submission (POST/push data)
@@ -30,6 +28,6 @@ angular.module('app').controller('editBookController', ['$scope', '$firebaseObje
             author: $scope.book.author,
             price: $scope.book.price
         });
-        $location.path('/main');
+        $location.path('/textbooks');
     };
 }]);

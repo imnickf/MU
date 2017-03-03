@@ -2,7 +2,7 @@
     All of our page routing, if a user hits a URL, tell them
     where we need to go and what controller to use
 */
-angular.module('app').config(function ($routeProvider) {
+app.config(function ($routeProvider) {
     $routeProvider.when("/", {
         controller: "loginController",
         templateUrl: "views/loginView.html"

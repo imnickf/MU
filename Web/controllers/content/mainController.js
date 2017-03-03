@@ -1,7 +1,7 @@
 /*
    Controller for providing data to the indexView
 */
-angular.module('app').controller('mainController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
-    // grab the firebase database object
-    $scope.data = "Main VIew";
+app.controller('mainController', ['$scope', 'bookService', function($scope, bookService){
+    // pull in the books
+    $scope.books = bookService.getBooks();
 }]);
