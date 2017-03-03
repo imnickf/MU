@@ -52,29 +52,28 @@
                     <li><a href="#tickets" ng-click="isNavCollapsed = true">Tickets</a></li>
                     <li><a href="#furniture" ng-click="isNavCollapsed = true">Furniture</a></li>
                     <li><a href="#food" ng-click="isNavCollapsed = true">Food</a></li>
-                    <li><a href="#profile" ng-click="isNavCollapsed = true">Profile</a></li>
-                    <li><a href="#index" ng-click="isNavCollapsed = true">Login</a></li>
                 </ul>
+
+
             <div class="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" role="button" aria-haspopup="true" aria-expanded="false" href="#">Login <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#profile">Profile</a>/li>
-                            <li><a href="#profile">Profile</a>/li>
-                            <li><a href="#profile" >Profile</a>/li>
+                    
+
+                    <li ng-controller="loginController" class="btn-group" uib-dropdown is-open="status.isopen">
+
+                        <a  class="btn-group" ng-hide="display_dropDwn" ng-click="authenticate()">Login Here</a>
+
+                        <a  id="single-button" uib-dropdown-toggle ng-disabled="disabled" ng-show="display_dropDwn">#Insert_UserName<span class="caret"></span></a>
+                        <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
+                            <li role="menuitem"><a href="#profile">Profile</a></li>
+                            <li role="menuitem"><a href="#">Messages</a></li>
+                            <li role="menuitem"><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li role="menuitem"><a href="#index">Logout</a></li>
                         </ul>
                     </li>
                 </ul>
             </div>
-                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Page 1 <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Page 1-1</a></li>
-                        <li><a href="#">Page 1-2</a></li>
-                        <li><a href="#">Page 1-3</a></li>
-                    </ul>
-                </li>
-
             </div>
         </nav>
         <div class="container">

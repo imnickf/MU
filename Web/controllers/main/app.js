@@ -16,7 +16,7 @@ firebase.initializeApp(config);
 var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
 // controller for handling the navagation bar and header data
-angular.module('app').controller('navController', ['$scope', '$firebaseObject', function($scope, $firebaseObject){
+angular.module('app').controller('navController', ['$scope', '$log','$firebaseObject', function($scope, $log, $firebaseObject){
     $scope.items = [
         'Profile',
         'Food'
@@ -36,8 +36,11 @@ angular.module('app').controller('navController', ['$scope', '$firebaseObject', 
         $scope.status.isopen = !$scope.status.isopen;
     };
 
+    $scope.appendToEl = angular.element(document.querySelector('#dropdown-long-content'));
+
     $scope.isNavCollapsed = true;
     $scope.email = "";
+    $scope.display_dropDwn = false;
 
     // listen for authentication changes
     firebase.auth().onAuthStateChanged(function(user) {
@@ -45,6 +48,7 @@ angular.module('app').controller('navController', ['$scope', '$firebaseObject', 
             // user is logged in using an @iastate.edu account
             $scope.loggedInText = "You are currently logged in as " + user.email;
             $scope.email = user.email;
+            $scope.display_dropDwn = true;
         }else if(user){
             // user is logged in with non-iastate account
             $scope.email = user.email;
@@ -58,7 +62,7 @@ angular.module('app').controller('navController', ['$scope', '$firebaseObject', 
                 // user automatically signed out of a non-iastate account
                 $scope.loggedInText = "Bitch login with an iastate.edu account or get the fuck out.";
             }// end if email does not include @iastate
-
+            $scope.display_dropDwn = false;
         }// end if we have a valid user
 
         $scope.$apply();
