@@ -40,6 +40,7 @@
 		0175A84D1E45A1E5008A7780 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84C1E45A1E5008A7780 /* Item.swift */; };
 		0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84E1E463C77008A7780 /* ItemRepository.swift */; };
 		0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8501E46CA9A008A7780 /* ItemGateway.swift */; };
+		017C6B531E6CA44900EB7E36 /* CreateBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */; };
 		01BE84EF1E665CCC0035B48F /* MiscTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */; };
 		01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */; };
 		01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */; };
@@ -103,6 +104,7 @@
 		0175A84C1E45A1E5008A7780 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0175A84E1E463C77008A7780 /* ItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
 		0175A8501E46CA9A008A7780 /* ItemGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGateway.swift; sourceTree = "<group>"; };
+		017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBookTableViewController.swift; sourceTree = "<group>"; };
 		01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscTableViewCell.swift; sourceTree = "<group>"; };
 		01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
 		01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
@@ -248,6 +250,7 @@
 				014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */,
 				014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */,
 				0112CF361E68A11E008D46FB /* CreateTicketTableViewController.swift */,
+				017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -578,6 +581,7 @@
 				01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */,
 				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
 				014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */,
+				017C6B531E6CA44900EB7E36 /* CreateBookTableViewController.swift in Sources */,
 				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,
 				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,
 				014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */,
