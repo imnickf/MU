@@ -5,10 +5,13 @@ app.controller('textbookController', ['$scope', '$routeParams', '$location', 'bo
     // books variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service
     bookService.updateBooks(books);
+
     // default editing to false, show edit form when we have a valid bookID
     $scope.editing = false;
+
     // yank in our URL parameter
     var bookID = $routeParams.bookID;
+
     // grab our book from bookService, we are making asynchronous calls, but since
     // the books variable is a dependency, this wont run until books array is loaded
     $scope.book = bookService.get(bookID);
@@ -18,8 +21,6 @@ app.controller('textbookController', ['$scope', '$routeParams', '$location', 'bo
         // begin checking for errors
         if(!book.name){
             $scope.error = "Please enter a book name.";
-        }else if(!book.classCode){
-            $scope.error = "Please enter a class code.";
         }else if(!book.author){
             $scope.error = "Please enter an author.";
         }else if(!book.price){

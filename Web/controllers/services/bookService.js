@@ -3,7 +3,7 @@
  * This is a service for performing operations on
  * book objects from Firebase.
  */
-app.factory('bookService', ['$firebaseArray', '$firebaseObject', function bookService($firebaseArray, $firebaseObject) {
+app.factory('bookService', ['$firebaseArray', '$firebaseObject', 'authService', function bookService($firebaseArray, $firebaseObject, authService) {
     // pull in firebase object
     var database = firebase.database();
     var url = '/products/book/';
@@ -20,23 +20,29 @@ app.factory('bookService', ['$firebaseArray', '$firebaseObject', function bookSe
             return books.$getRecord(bookID);
         },
         set: function(book, bookID) {
+            // perform updates using an arary, note this will be helpful when we begin updating
+            // the users table, we can add on keys to the updates array
+            var updates = {};
+
+            // delete extra shit that comes with $firebaseArray
+            delete book['$id'];
+            delete book['$priority'];
+
             // update the book at bookID with the scope information
-            database.ref(url + bookID).set({
-                name: book.name,
-                classCode: book.classCode,
-                author: book.author,
-                price: book.price
-            });
+            updates[url + bookID] = book;
+            database.ref().update(updates);
         },
         add: function(book){
             // Generate a reference to a new location and add some data using push()
-            var key = ref.push().key;
-            database.ref(url + key).set({
-                name: book.name,
-                classCode: book.classCode,
-                author: book.author,
-                price: book.price
-            });
+            var key = 'book' + ref.push().key;
+
+            // apply additional fields when adding a book
+            book.createDate = new Date().toJSON();
+            book.viewCount = 0;
+            book.creatorID = authService.getUser().uid;
+
+            // call the update function with the newly generated bookID
+            this.set(book, key);
         },
         remove: function(book){
             // delete the book with bookID

@@ -30,7 +30,7 @@ app.controller('headerController', ['$scope', 'authService', function($scope, au
         } else if (user) {
             // user is logged in with non-iastate account
             $scope.error = "You must login with your Iowa State (@iastate.edu) Google account.";
-            firebase.auth().signOut();
+            authService.signOut();
         } else {
             // user is signing out
             $scope.display_Navinfo = false;
@@ -38,7 +38,7 @@ app.controller('headerController', ['$scope', 'authService', function($scope, au
     });
 
     $scope.status = {
-        isopen: false
+        isOpen: false
     };
 
     $scope.toggleDropdown = function($event) {

@@ -27,32 +27,44 @@
 </div>
 <div class="container" ng-show="editing" id="editForm">
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-5">
             <h3>{{ title }}</h3>
-            <h4>{{ error }}</h4>
+            <p style="color: crimson">{{ error }}</p>
             <form>
                 <div class="form-group row">
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                         <label>Name:</label>
                         <input type="text" class="form-control" ng-model="book.name">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-10">
-                        <label>Class Code:</label>
-                        <input type="text" class="form-control" ng-model="book.classCode">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <div class="col-md-10">
+                    <div class="col-md-8">
                         <label>Author:</label>
                         <input type="text" class="form-control" ng-model="book.author">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-md-10">
+                    <div class="col-md-4">
+                        <label>Class Code:</label>
+                        <input type="text" class="form-control" ng-model="book.classCode">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
                         <label>Price:</label>
                         <input type="text" class="form-control" ng-model="book.price">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label>Book Number (ISBN):</label>
+                        <input type="text" class="form-control" ng-model="book.isbn">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-10">
+                        <label>Description:</label>
+                        <textarea rows="4" class="form-control" ng-model="book.description"></textarea>
                     </div>
                 </div>
                 <input type="submit" class="btn btn-primary btn-lg" value="Submit" ng-click="update(book)">

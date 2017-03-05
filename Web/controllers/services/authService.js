@@ -16,7 +16,7 @@ app.factory('authService', ['$firebaseAuth', '$firebaseObject', function authSer
             });
         },
         getCurrentAuth: function(){
-            // return current information about the user
+            // return current authentication object
             return auth;
         },
         signOut: function(){
@@ -28,6 +28,10 @@ app.factory('authService', ['$firebaseAuth', '$firebaseObject', function authSer
             scope.authenticate = this.authenticate;
             scope.signOut = this.signOut;
             scope.auth = this.getCurrentAuth();
+        },
+        getUser: function(){
+            // return current authentication object
+            return auth.$getAuth();
         }
     };
 }]);
