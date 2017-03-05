@@ -29,6 +29,13 @@ class ItemGateway
     FIRDatabase.database().reference().child(endpoint).setValue(data)
   }
 
+  /// Saves itemID in users table
+  func persist(userItemId id: String, forUserId uid: String)
+  {
+    FIRDatabase.database().reference().child(FirebaseKeyVender.usersKey + "/" + uid + "/" + FirebaseKeyVender.itemsKey).childByAutoId().setValue(id)
+  }
+
+  /// Creates new unique itemID
   static func createNewItemID(_ endpoint: String) -> String
   {
     return FIRDatabase.database().reference().child(endpoint).childByAutoId().key

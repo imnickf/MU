@@ -6,6 +6,8 @@
 //  Copyright © 2017 Nick Flege. All rights reserved.
 //
 
+import FirebaseAuth
+
 class ItemRepository
 {
   fileprivate var factory: ItemFactory
@@ -75,6 +77,7 @@ class ItemRepository
     default:
       return
     }
+    gateway.persist(userItemId: item.id, forUserId: FIRAuth.auth()!.currentUser!.uid)
   }
 
   /// Fetches ticket items from database

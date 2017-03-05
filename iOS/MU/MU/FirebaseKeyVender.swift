@@ -14,6 +14,7 @@ struct FirebaseKeyVender
   static let foodKey          = "food"
   static let miscKey          = "misc"
   static let usersKey         = "users"
+  static let itemsKey         = "items"
 
   static let authorKey        = "author"
   static let buyerIDKey       = "buyerID"
