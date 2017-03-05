@@ -26,6 +26,7 @@
 		014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE81E5A62980027A633 /* FoodTableViewController.swift */; };
 		014E6DEB1E5A62B90027A633 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */; };
 		014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */; };
+		015EEA381E6CC28800E35855 /* TicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EEA371E6CC28800E35855 /* TicketDetailViewController.swift */; };
 		016287931E6682EF007A5F59 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016287921E6682EF007A5F59 /* Theme.swift */; };
 		016287951E680AB7007A5F59 /* ViewControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016287941E680AB7007A5F59 /* ViewControllerHelpers.swift */; };
 		0175A8381E452B55008A7780 /* Tickets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8361E452B55008A7780 /* Tickets.storyboard */; };
@@ -90,6 +91,7 @@
 		014E6DE81E5A62980027A633 /* FoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscTableViewController.swift; sourceTree = "<group>"; };
+		015EEA371E6CC28800E35855 /* TicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
 		016287921E6682EF007A5F59 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		016287941E680AB7007A5F59 /* ViewControllerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelpers.swift; sourceTree = "<group>"; };
 		0175A8371E452B55008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tickets.storyboard; sourceTree = "<group>"; };
@@ -250,6 +252,7 @@
 				014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */,
 				014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */,
 				0112CF361E68A11E008D46FB /* CreateTicketTableViewController.swift */,
+				015EEA371E6CC28800E35855 /* TicketDetailViewController.swift */,
 				017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */,
 			);
 			name = Controllers;
@@ -577,6 +580,7 @@
 				014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */,
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
 				010A31971E5013E7004CB07C /* FirebaseKeyVender.swift in Sources */,
+				015EEA381E6CC28800E35855 /* TicketDetailViewController.swift in Sources */,
 				0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */,
 				01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */,
 				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
