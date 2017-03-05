@@ -24,7 +24,7 @@ class ItemGateway
   }
 
   /// Saves provided data to firebase at the provided endpoint
-  func persist(data: [String: Any], endpoint: String)
+  func persist(data: Any, endpoint: String)
   {
     FIRDatabase.database().reference().child(endpoint).setValue(data)
   }
