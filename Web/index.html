@@ -17,7 +17,7 @@
 
     <!-- Angular Services -->
     <script src="controllers/services/authService.js"></script>
-    <script src="controllers/services/bookService.js"></script>
+    <script src="controllers/services/itemService.js"></script>
 
     <!-- Angular View Controllers -->
     <script src="controllers/content/mainController.js"></script>
@@ -37,8 +37,8 @@
 </head>
 
 <div ng-app="app">
-    <!-- Navigation Bar -->
     <div ng-controller="headerController">
+        <!-- Navigation Bar -->
         <nav class="navbar navbar-inverse" role="navigation">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
@@ -73,9 +73,9 @@
                 </div>
             </div>
         </nav>
+        <!-- End Navigation Bar -->
         <div class="container">{{ error }}</div>
     </div>
-    <!-- End Navigation Bar -->
 
     <!-- Page Content -->
     <div ng-controller="mainController">

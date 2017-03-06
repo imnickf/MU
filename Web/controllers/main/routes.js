@@ -20,8 +20,9 @@ app.config(function ($routeProvider) {
         controller: "textbookController",
         templateUrl: "views/textbookView.html",
         resolve: {
-            books: function ($firebaseArray, bookService) {
-                return $firebaseArray(bookService.getRef()).$loaded();
+            books: function ($firebaseArray) {
+                var ref = firebase.database().ref('/products/book/');
+                return $firebaseArray(ref).$loaded();
             }
         }
     })
