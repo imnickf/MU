@@ -30,12 +30,6 @@ class ItemRepository
   /// Gets items of specified type from database
   /// - Parameter type: the type of item being queried
   /// - Parameter completion: callback containg queried items or empty array if no items found
-  /// ```swift
-  ///    var tickets: [Ticket]
-  ///
-  ///    getItems(.ticket) { (items) in {
-  ///      tickets = tickets as! [Ticket]
-  ///    }
   func getItems(_ type: ItemType, completion: @escaping ([Item]) -> Void)
   {
     switch type {
@@ -78,13 +72,6 @@ class ItemRepository
   /// Gets all items created by a specified user
   /// - Parameter forUserId: userID for whose items to query
   /// - Parameter completion: callback containing queried items for specified user or empty array if none exist
-  /// ```swift
-  ///    var userItems: [Item]
-  ///    var userID = "someUID"
-  ///
-  ///    getItems(forUserId: userID) { (items) in {
-  ///      userItems = items
-  ///    }
   func getItems(forUserId id: String, completion: @escaping ([Item]) -> Void)
   {
     // TODO
@@ -92,9 +79,6 @@ class ItemRepository
 
   /// Saves provided item to database
   /// - Parameter item: item to be saved to database
-  /// ```swift
-  ///    let ticket = createNewTicket()
-  ///    persist(item: ticket)
   func persist(item: Item)
   {
     switch item {
@@ -187,10 +171,6 @@ class ItemRepository
   /// Translates ticket into raw data dictionary to be persisted
   /// - Parameter ticket: item to be translated
   /// - Returns: dictionary of ticket properties
-  /// ```swift
-  ///    let ticketEndpoint = "SomeEndpoint"
-  ///    let ticketData = translate(ticket: ticket)
-  ///    persist(data: ticketData, endpoint: ticketEndpoint)
   fileprivate func translate(ticket: Ticket) -> [String : Any]
   {
     var ticketData = [String : Any]()
@@ -212,10 +192,6 @@ class ItemRepository
   /// Translates book into raw data dictionary to be persisted
   /// - Parameter book: item to be translated
   /// - Returns: dictionary of book properties
-  /// ```swift
-  ///    let bookEndpoint = "SomeEndpoint"
-  ///    let bookData = translate(book: book)
-  ///    persist(data: bookData, endpoint: bookEndpoint)
   fileprivate func translate(book: Book) -> [String : Any]
   {
     var bookData = [String : Any]()
@@ -237,10 +213,6 @@ class ItemRepository
   /// Translates food into raw data dictionary to be persisted
   /// - Parameter food: item to be translated
   /// - Returns: dictionary of food properties
-  /// ```swift
-  ///    let foodEndpoint = "SomeEndpoint"
-  ///    let foodData = translate(food: food)
-  ///    persist(data: foodData, endpoint: foodEndpoint)
   fileprivate func translate(food: Food) -> [String : Any]
   {
     var foodData = [String : Any]()
@@ -259,10 +231,6 @@ class ItemRepository
   /// Translates misc item into raw data dictionary to be persisted
   /// - Parameter misc: item to be translated
   /// - Returns: dictionary of misc item properties
-  /// ```swift
-  ///    let miscEndpoint = "SomeEndpoint"
-  ///    let miscData = translate(misc: misc)
-  ///    persist(data: miscData, endpoint: miscEndpoint)
   fileprivate func translate(misc: Misc) -> [String : Any]
   {
     var miscData = [String : Any]()
