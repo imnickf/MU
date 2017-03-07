@@ -8,15 +8,19 @@
 
 import FirebaseAuth
 
+/// The UserRepository class enables you to query and persist user data with the database.
+/// The UserRepository interfaces with DatabaseGateway to save and query raw JSON data.
 class UserRespository
 {
+  /// DatabaseGateway for connecting to database
   fileprivate var gateway: DatabaseGateway
 
+  /// Creates a new UserRepository
   init() {
     gateway = DatabaseGateway()
   }
 
-  /// Saves new user information to database
+  /// Saves new user information and permissions to database
   func setupNewUser()
   {
     let endpoint = FirebaseKeyVender.usersKey + "/" + FIRAuth.auth()!.currentUser!.uid

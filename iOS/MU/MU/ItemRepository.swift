@@ -14,9 +14,13 @@ import FirebaseAuth
 /// it to the user in a usable Item object.
 class ItemRepository
 {
+  /// ItemFactory property for creating items
   fileprivate var factory: ItemFactory
+
+  /// DatabaseGateway for connecting to database
   fileprivate var gateway: DatabaseGateway
 
+  /// Creates a new ItemRepository
   init()
   {
     factory = ItemFactory()
