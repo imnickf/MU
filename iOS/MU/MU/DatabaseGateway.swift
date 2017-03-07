@@ -1,5 +1,5 @@
 //
-//  ItemGateway.swift
+//  DatabaseGateway.swift
 //  MU
 //
 //  Created by Nick Flege on 2/4/17.
@@ -8,7 +8,7 @@
 
 import FirebaseDatabase
 
-class ItemGateway
+class DatabaseGateway
 {
   /// Queries the database at a given endpoint and returns the contents in the completion handler
   func query(_ endpoint: String, with completion: @escaping ([String : Any]?, Error?) -> Void)

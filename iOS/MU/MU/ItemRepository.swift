@@ -1,5 +1,5 @@
 //
-//  ItemProvider.swift
+//  ItemRepository.swift
 //  MU
 //
 //  Created by Nick Flege on 2/4/17.
@@ -11,12 +11,12 @@ import FirebaseAuth
 class ItemRepository
 {
   fileprivate var factory: ItemFactory
-  fileprivate var gateway: ItemGateway
+  fileprivate var gateway: DatabaseGateway
 
   init()
   {
     factory = ItemFactory()
-    gateway = ItemGateway()
+    gateway = DatabaseGateway()
   }
 
   /// Gets items of specified type from database
@@ -60,21 +60,9 @@ class ItemRepository
   }
 
   /// Gets all items created by a specified user
-  func getItems(forUser id: String, completion: @escaping ([Item]) -> Void)
+  func getItems(forUserId id: String, completion: @escaping ([Item]) -> Void)
   {
     // TODO
-  }
-
-  /// Saves new user information to database
-  func setupNewUser()
-  {
-    let endpoint = FirebaseKeyVender.usersKey + "/" + FIRAuth.auth()!.currentUser!.uid
-
-    gateway.query(endpoint) { (data, error) in
-      if data == nil {
-        self.gateway.persist(data: UserType.normal.rawValue, endpoint: endpoint + "/" + FirebaseKeyVender.userTypeKey)
-      }
-    }
   }
 
   /// Saves provided item to database

@@ -40,8 +40,9 @@
 		0175A84B1E45A181008A7780 /* Misc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84A1E45A181008A7780 /* Misc.swift */; };
 		0175A84D1E45A1E5008A7780 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84C1E45A1E5008A7780 /* Item.swift */; };
 		0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84E1E463C77008A7780 /* ItemRepository.swift */; };
-		0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8501E46CA9A008A7780 /* ItemGateway.swift */; };
+		0175A8511E46CA9A008A7780 /* DatabaseGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8501E46CA9A008A7780 /* DatabaseGateway.swift */; };
 		017C6B531E6CA44900EB7E36 /* CreateBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */; };
+		01AC22911E6E524300AEBF50 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC22901E6E524300AEBF50 /* UserRepository.swift */; };
 		01BE84EF1E665CCC0035B48F /* MiscTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */; };
 		01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */; };
 		01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */; };
@@ -105,8 +106,9 @@
 		0175A84A1E45A181008A7780 /* Misc.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misc.swift; sourceTree = "<group>"; };
 		0175A84C1E45A1E5008A7780 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0175A84E1E463C77008A7780 /* ItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
-		0175A8501E46CA9A008A7780 /* ItemGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGateway.swift; sourceTree = "<group>"; };
+		0175A8501E46CA9A008A7780 /* DatabaseGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatabaseGateway.swift; sourceTree = "<group>"; };
 		017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBookTableViewController.swift; sourceTree = "<group>"; };
+		01AC22901E6E524300AEBF50 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscTableViewCell.swift; sourceTree = "<group>"; };
 		01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
 		01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
@@ -215,7 +217,8 @@
 				0175A84A1E45A181008A7780 /* Misc.swift */,
 				0175A84C1E45A1E5008A7780 /* Item.swift */,
 				0175A84E1E463C77008A7780 /* ItemRepository.swift */,
-				0175A8501E46CA9A008A7780 /* ItemGateway.swift */,
+				01AC22901E6E524300AEBF50 /* UserRepository.swift */,
+				0175A8501E46CA9A008A7780 /* DatabaseGateway.swift */,
 				01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */,
 				010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */,
 				014E6DE41E5A36170027A633 /* DateHelpers.swift */,
@@ -572,6 +575,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				01AC22911E6E524300AEBF50 /* UserRepository.swift in Sources */,
 				0175A8441E45A153008A7780 /* Book.swift in Sources */,
 				014E6DEB1E5A62B90027A633 /* BookTableViewController.swift in Sources */,
 				0114DE871E42D20800E2AB2A /* ProfileViewController.swift in Sources */,
@@ -586,7 +590,7 @@
 				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
 				014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */,
 				017C6B531E6CA44900EB7E36 /* CreateBookTableViewController.swift in Sources */,
-				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,
+				0175A8511E46CA9A008A7780 /* DatabaseGateway.swift in Sources */,
 				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,
 				014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */,
 				0175A84B1E45A181008A7780 /* Misc.swift in Sources */,
