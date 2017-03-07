@@ -21,7 +21,7 @@ class UserRespository
   {
     let endpoint = FirebaseKeyVender.usersKey + "/" + FIRAuth.auth()!.currentUser!.uid
 
-    gateway.query(endpoint) { (data, error) in
+    gateway.query(endpoint: endpoint) { (data, error) in
       if data == nil {
         self.gateway.persist(data: UserType.normal.rawValue, endpoint: endpoint + "/" + FirebaseKeyVender.userTypeKey)
       }

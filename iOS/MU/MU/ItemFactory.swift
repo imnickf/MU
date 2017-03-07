@@ -26,28 +26,28 @@ class ItemFactory
 
   func makeTicket(withDescription desc: String, location: String?, name: String, price: String, sport: String, time: Date) -> Ticket
   {
-    let id = "ticket" + DatabaseGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
+    let id = "ticket" + DatabaseGateway.createNewID(FirebaseKeyVender.ticketsPath)
     let ticket = Ticket(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, sport: sport, time: time.iso8601, location: location)
     return ticket
   }
 
   func makeBook(withDescription desc: String, name: String, author: String, price: String, isbn: String?, classCode: String?) -> Book
   {
-    let id = "book" + DatabaseGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
+    let id = "book" + DatabaseGateway.createNewID(FirebaseKeyVender.ticketsPath)
     let book = Book(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, author: author, isbn: isbn, classCode: classCode)
     return book
   }
 
   func makeFood(withDescription desc: String, name: String, category: String, location: String?, time: Date?) -> Food
   {
-    let id = "food" + DatabaseGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
+    let id = "food" + DatabaseGateway.createNewID(FirebaseKeyVender.ticketsPath)
     let food = Food(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, location: location, name: name, time: time?.iso8601, viewCount: 0, category: category)
     return food
   }
 
   func makeMisc(withDescription desc: String, name: String, price: String, category: String) -> Misc
   {
-    let id = "misc" + DatabaseGateway.createNewItemID(FirebaseKeyVender.ticketsPath)
+    let id = "misc" + DatabaseGateway.createNewID(FirebaseKeyVender.ticketsPath)
     let misc = Misc(id: id, creatorID: FIRAuth.auth()!.currentUser!.uid, createDate: Date().iso8601, desc: desc, name: name, buyerID: nil, price: price, dateSold: nil, viewCount: 0, category: category)
     return misc
   }

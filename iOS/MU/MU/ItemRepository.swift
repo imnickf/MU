@@ -109,14 +109,14 @@ class ItemRepository
     default:
       return
     }
-    gateway.persist(userItemId: item.id, forUserId: FIRAuth.auth()!.currentUser!.uid)
+    gateway.persist(itemId: item.id, forUserId: FIRAuth.auth()!.currentUser!.uid)
   }
 
   /// Fetches ticket items from database
   /// - Parameter completion: callback containing fetched ticket items or error value
   fileprivate func fetchTickets(completion: @escaping ([Ticket]?, Error?) -> Void)
   {
-    gateway.query(FirebaseKeyVender.ticketsPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVender.ticketsPath) { (data, error) in
       var tickets = [Ticket]()
       if let ticketsData = data {
         for key in ticketsData.keys {
@@ -133,7 +133,7 @@ class ItemRepository
   /// - Parameter completion: callback containing fetched book item or error value
   fileprivate func fetchBooks(completion: @escaping ([Book]?, Error?) -> Void)
   {
-    gateway.query(FirebaseKeyVender.booksPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVender.booksPath) { (data, error) in
       var books = [Book]()
       if let booksData = data {
         for key in booksData.keys {
@@ -150,7 +150,7 @@ class ItemRepository
   /// - Parameter completion: callback containing fetched food items or error value
   fileprivate func fetchFood(completion: @escaping ([Food]?, Error?) -> Void)
   {
-    gateway.query(FirebaseKeyVender.foodPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVender.foodPath) { (data, error) in
       var food = [Food]()
       if let foodData = data {
         for key in foodData.keys {
@@ -167,7 +167,7 @@ class ItemRepository
   /// - Parameter completion: callback containing fetched misc items or error value
   fileprivate func fetchMisc(completion: @escaping ([Misc]?, Error?) -> Void)
   {
-    gateway.query(FirebaseKeyVender.miscPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVender.miscPath) { (data, error) in
       var miscItems = [Misc]()
       if let miscData = data {
         for key in miscData.keys {
