@@ -23,11 +23,11 @@ class UserRespository
   /// Saves new user information and permissions to database
   func setupNewUser()
   {
-    let endpoint = FirebaseKeyVender.usersKey + "/" + FIRAuth.auth()!.currentUser!.uid
+    let endpoint = FirebaseKeyVendor.usersKey + "/" + FIRAuth.auth()!.currentUser!.uid
 
     gateway.query(endpoint: endpoint) { (data, error) in
       if data == nil {
-        self.gateway.persist(data: UserType.normal.rawValue, endpoint: endpoint + "/" + FirebaseKeyVender.userTypeKey)
+        self.gateway.persist(data: UserType.normal.rawValue, endpoint: endpoint + "/" + FirebaseKeyVendor.userTypeKey)
       }
     }
   }

@@ -83,16 +83,16 @@ class ItemRepository
   {
     switch item {
     case is Ticket:
-      gateway.persist(data: translate(ticket: item as! Ticket), endpoint: FirebaseKeyVender.ticketsPath + "/\(item.id)")
+      gateway.persist(data: translate(ticket: item as! Ticket), endpoint: FirebaseKeyVendor.ticketsPath + "/\(item.id)")
       break
     case is Book:
-      gateway.persist(data: translate(book: item as! Book), endpoint: FirebaseKeyVender.booksPath + "/\(item.id)")
+      gateway.persist(data: translate(book: item as! Book), endpoint: FirebaseKeyVendor.booksPath + "/\(item.id)")
       break
     case is Food:
-      gateway.persist(data: translate(food: item as! Food), endpoint: FirebaseKeyVender.foodPath + "/\(item.id)")
+      gateway.persist(data: translate(food: item as! Food), endpoint: FirebaseKeyVendor.foodPath + "/\(item.id)")
       break
     case is Misc:
-      gateway.persist(data: translate(misc: item as! Misc), endpoint: FirebaseKeyVender.miscPath + "/\(item.id)")
+      gateway.persist(data: translate(misc: item as! Misc), endpoint: FirebaseKeyVendor.miscPath + "/\(item.id)")
       break
     default:
       return
@@ -104,7 +104,7 @@ class ItemRepository
   /// - Parameter completion: callback containing fetched ticket items or error value
   fileprivate func fetchTickets(completion: @escaping ([Ticket]?, Error?) -> Void)
   {
-    gateway.query(endpoint: FirebaseKeyVender.ticketsPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVendor.ticketsPath) { (data, error) in
       var tickets = [Ticket]()
       if let ticketsData = data {
         for key in ticketsData.keys {
@@ -121,7 +121,7 @@ class ItemRepository
   /// - Parameter completion: callback containing fetched book item or error value
   fileprivate func fetchBooks(completion: @escaping ([Book]?, Error?) -> Void)
   {
-    gateway.query(endpoint: FirebaseKeyVender.booksPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVendor.booksPath) { (data, error) in
       var books = [Book]()
       if let booksData = data {
         for key in booksData.keys {
@@ -138,7 +138,7 @@ class ItemRepository
   /// - Parameter completion: callback containing fetched food items or error value
   fileprivate func fetchFood(completion: @escaping ([Food]?, Error?) -> Void)
   {
-    gateway.query(endpoint: FirebaseKeyVender.foodPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVendor.foodPath) { (data, error) in
       var food = [Food]()
       if let foodData = data {
         for key in foodData.keys {
@@ -155,7 +155,7 @@ class ItemRepository
   /// - Parameter completion: callback containing fetched misc items or error value
   fileprivate func fetchMisc(completion: @escaping ([Misc]?, Error?) -> Void)
   {
-    gateway.query(endpoint: FirebaseKeyVender.miscPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVendor.miscPath) { (data, error) in
       var miscItems = [Misc]()
       if let miscData = data {
         for key in miscData.keys {
@@ -174,17 +174,17 @@ class ItemRepository
   fileprivate func translate(ticket: Ticket) -> [String : Any]
   {
     var ticketData = [String : Any]()
-    ticketData[FirebaseKeyVender.buyerIDKey] = ticket.buyerID ?? nil
-    ticketData[FirebaseKeyVender.createDateKey] = ticket.createDate.iso8601
-    ticketData[FirebaseKeyVender.creatorIDKey] = ticket.creatorID
-    ticketData[FirebaseKeyVender.dateSoldKey] = ticket.dateSold?.iso8601
-    ticketData[FirebaseKeyVender.descriptionKey] = ticket.description
-    ticketData[FirebaseKeyVender.locationKey] = ticket.location ?? nil
-    ticketData[FirebaseKeyVender.nameKey] = ticket.name
-    ticketData[FirebaseKeyVender.priceKey] = ticket.price
-    ticketData[FirebaseKeyVender.sportKey] = ticket.sport
-    ticketData[FirebaseKeyVender.timeKey] = ticket.time.iso8601
-    ticketData[FirebaseKeyVender.viewCountKey] = ticket.viewCount
+    ticketData[FirebaseKeyVendor.buyerIDKey] = ticket.buyerID ?? nil
+    ticketData[FirebaseKeyVendor.createDateKey] = ticket.createDate.iso8601
+    ticketData[FirebaseKeyVendor.creatorIDKey] = ticket.creatorID
+    ticketData[FirebaseKeyVendor.dateSoldKey] = ticket.dateSold?.iso8601
+    ticketData[FirebaseKeyVendor.descriptionKey] = ticket.description
+    ticketData[FirebaseKeyVendor.locationKey] = ticket.location ?? nil
+    ticketData[FirebaseKeyVendor.nameKey] = ticket.name
+    ticketData[FirebaseKeyVendor.priceKey] = ticket.price
+    ticketData[FirebaseKeyVendor.sportKey] = ticket.sport
+    ticketData[FirebaseKeyVendor.timeKey] = ticket.time.iso8601
+    ticketData[FirebaseKeyVendor.viewCountKey] = ticket.viewCount
 
     return ticketData
   }
@@ -195,17 +195,17 @@ class ItemRepository
   fileprivate func translate(book: Book) -> [String : Any]
   {
     var bookData = [String : Any]()
-    bookData[FirebaseKeyVender.authorKey] = book.author
-    bookData[FirebaseKeyVender.buyerIDKey] = book.buyerID ?? nil
-    bookData[FirebaseKeyVender.classCodeKey] = book.classCode ?? nil
-    bookData[FirebaseKeyVender.createDateKey] = book.createDate.iso8601
-    bookData[FirebaseKeyVender.creatorIDKey] = book.creatorID
-    bookData[FirebaseKeyVender.dateSoldKey] = book.dateSold?.iso8601
-    bookData[FirebaseKeyVender.descriptionKey] = book.description
-    bookData[FirebaseKeyVender.isbnKey] = book.isbn ?? nil
-    bookData[FirebaseKeyVender.nameKey] = book.name
-    bookData[FirebaseKeyVender.priceKey] = book.price
-    bookData[FirebaseKeyVender.viewCountKey] = book.viewCount
+    bookData[FirebaseKeyVendor.authorKey] = book.author
+    bookData[FirebaseKeyVendor.buyerIDKey] = book.buyerID ?? nil
+    bookData[FirebaseKeyVendor.classCodeKey] = book.classCode ?? nil
+    bookData[FirebaseKeyVendor.createDateKey] = book.createDate.iso8601
+    bookData[FirebaseKeyVendor.creatorIDKey] = book.creatorID
+    bookData[FirebaseKeyVendor.dateSoldKey] = book.dateSold?.iso8601
+    bookData[FirebaseKeyVendor.descriptionKey] = book.description
+    bookData[FirebaseKeyVendor.isbnKey] = book.isbn ?? nil
+    bookData[FirebaseKeyVendor.nameKey] = book.name
+    bookData[FirebaseKeyVendor.priceKey] = book.price
+    bookData[FirebaseKeyVendor.viewCountKey] = book.viewCount
 
     return bookData
   }
@@ -216,14 +216,14 @@ class ItemRepository
   fileprivate func translate(food: Food) -> [String : Any]
   {
     var foodData = [String : Any]()
-    foodData[FirebaseKeyVender.categoryKey] = food.category
-    foodData[FirebaseKeyVender.createDateKey] = food.createDate.iso8601
-    foodData[FirebaseKeyVender.creatorIDKey] = food.creatorID
-    foodData[FirebaseKeyVender.descriptionKey] = food.description
-    foodData[FirebaseKeyVender.locationKey] = food.location ?? nil
-    foodData[FirebaseKeyVender.nameKey] = food.name
-    foodData[FirebaseKeyVender.timeKey] = food.time?.iso8601
-    foodData[FirebaseKeyVender.viewCountKey] = food.viewCount
+    foodData[FirebaseKeyVendor.categoryKey] = food.category
+    foodData[FirebaseKeyVendor.createDateKey] = food.createDate.iso8601
+    foodData[FirebaseKeyVendor.creatorIDKey] = food.creatorID
+    foodData[FirebaseKeyVendor.descriptionKey] = food.description
+    foodData[FirebaseKeyVendor.locationKey] = food.location ?? nil
+    foodData[FirebaseKeyVendor.nameKey] = food.name
+    foodData[FirebaseKeyVendor.timeKey] = food.time?.iso8601
+    foodData[FirebaseKeyVendor.viewCountKey] = food.viewCount
 
     return foodData
   }
@@ -234,15 +234,15 @@ class ItemRepository
   fileprivate func translate(misc: Misc) -> [String : Any]
   {
     var miscData = [String : Any]()
-    miscData[FirebaseKeyVender.buyerIDKey] = misc.buyerID ?? nil
-    miscData[FirebaseKeyVender.categoryKey] = misc.category
-    miscData[FirebaseKeyVender.createDateKey] = misc.createDate.iso8601
-    miscData[FirebaseKeyVender.creatorIDKey] = misc.creatorID
-    miscData[FirebaseKeyVender.descriptionKey] = misc.description
-    miscData[FirebaseKeyVender.dateSoldKey] = misc.dateSold?.iso8601
-    miscData[FirebaseKeyVender.nameKey] = misc.name
-    miscData[FirebaseKeyVender.priceKey] = misc.price
-    miscData[FirebaseKeyVender.viewCountKey] = misc.viewCount
+    miscData[FirebaseKeyVendor.buyerIDKey] = misc.buyerID ?? nil
+    miscData[FirebaseKeyVendor.categoryKey] = misc.category
+    miscData[FirebaseKeyVendor.createDateKey] = misc.createDate.iso8601
+    miscData[FirebaseKeyVendor.creatorIDKey] = misc.creatorID
+    miscData[FirebaseKeyVendor.descriptionKey] = misc.description
+    miscData[FirebaseKeyVendor.dateSoldKey] = misc.dateSold?.iso8601
+    miscData[FirebaseKeyVendor.nameKey] = misc.name
+    miscData[FirebaseKeyVendor.priceKey] = misc.price
+    miscData[FirebaseKeyVendor.viewCountKey] = misc.viewCount
 
     return miscData
   }

@@ -6,7 +6,9 @@
 //  Copyright © 2017 Nick Flege. All rights reserved.
 //
 
-struct FirebaseKeyVender
+/// The FirebaseKeyVendor struct stores string literals for specific key paths in 
+/// Firebase real-time database.
+struct FirebaseKeyVendor
 {
   static let productsKey      = "products"
   static let booksKey         = "book"
@@ -36,7 +38,7 @@ struct FirebaseKeyVender
 
 // MARK: Database paths
 
-extension FirebaseKeyVender
+extension FirebaseKeyVendor
 {
   static let ticketsPath = productsKey + "/" + ticketsKey
   static let booksPath = productsKey + "/" + booksKey
