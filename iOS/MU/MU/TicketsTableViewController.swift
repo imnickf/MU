@@ -16,6 +16,11 @@ class TicketsTableViewController: UITableViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    
+    navigationController?.navigationBar.barTintColor = Theme.primaryRedColor
+    navigationController?.navigationBar.tintColor = UIColor.black
+    tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
+    tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
 
     itemRepo.getItems(.ticket) { (items) in
       self.tickets = items as! [Ticket]

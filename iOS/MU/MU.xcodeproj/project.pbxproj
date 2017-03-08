@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0070DD2F2B27D6EC37662F9E /* Pods_MU.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 348039BEAE9654123B5E48F7 /* Pods_MU.framework */; };
 		010A31971E5013E7004CB07C /* FirebaseKeyVender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */; };
+		0112CF371E68A11E008D46FB /* CreateTicketTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0112CF361E68A11E008D46FB /* CreateTicketTableViewController.swift */; };
 		0114DE851E42D20800E2AB2A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114DE841E42D20800E2AB2A /* AppDelegate.swift */; };
 		0114DE871E42D20800E2AB2A /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0114DE861E42D20800E2AB2A /* ProfileViewController.swift */; };
 		0114DE8A1E42D20800E2AB2A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0114DE881E42D20800E2AB2A /* Main.storyboard */; };
@@ -25,6 +26,8 @@
 		014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE81E5A62980027A633 /* FoodTableViewController.swift */; };
 		014E6DEB1E5A62B90027A633 /* BookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */; };
 		014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */; };
+		016287931E6682EF007A5F59 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016287921E6682EF007A5F59 /* Theme.swift */; };
+		016287951E680AB7007A5F59 /* ViewControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016287941E680AB7007A5F59 /* ViewControllerHelpers.swift */; };
 		0175A8381E452B55008A7780 /* Tickets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8361E452B55008A7780 /* Tickets.storyboard */; };
 		0175A83A1E452B6B008A7780 /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8391E452B6B008A7780 /* Books.storyboard */; };
 		0175A83D1E452B7D008A7780 /* Food.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A83B1E452B7D008A7780 /* Food.storyboard */; };
@@ -37,6 +40,7 @@
 		0175A84D1E45A1E5008A7780 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84C1E45A1E5008A7780 /* Item.swift */; };
 		0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A84E1E463C77008A7780 /* ItemRepository.swift */; };
 		0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0175A8501E46CA9A008A7780 /* ItemGateway.swift */; };
+		017C6B531E6CA44900EB7E36 /* CreateBookTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */; };
 		01BE84EF1E665CCC0035B48F /* MiscTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */; };
 		01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */; };
 		01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */; };
@@ -68,6 +72,7 @@
 
 /* Begin PBXFileReference section */
 		010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseKeyVender.swift; sourceTree = "<group>"; };
+		0112CF361E68A11E008D46FB /* CreateTicketTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateTicketTableViewController.swift; sourceTree = "<group>"; };
 		0114DE811E42D20800E2AB2A /* MU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0114DE841E42D20800E2AB2A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0114DE861E42D20800E2AB2A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +93,8 @@
 		014E6DE81E5A62980027A633 /* FoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewController.swift; sourceTree = "<group>"; };
 		014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewController.swift; sourceTree = "<group>"; };
 		014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscTableViewController.swift; sourceTree = "<group>"; };
+		016287921E6682EF007A5F59 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
+		016287941E680AB7007A5F59 /* ViewControllerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelpers.swift; sourceTree = "<group>"; };
 		0175A8371E452B55008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tickets.storyboard; sourceTree = "<group>"; };
 		0175A8391E452B6B008A7780 /* Books.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Books.storyboard; sourceTree = "<group>"; };
 		0175A83C1E452B7D008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Food.storyboard; sourceTree = "<group>"; };
@@ -100,6 +107,7 @@
 		0175A84C1E45A1E5008A7780 /* Item.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		0175A84E1E463C77008A7780 /* ItemRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemRepository.swift; sourceTree = "<group>"; };
 		0175A8501E46CA9A008A7780 /* ItemGateway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemGateway.swift; sourceTree = "<group>"; };
+		017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateBookTableViewController.swift; sourceTree = "<group>"; };
 		01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscTableViewCell.swift; sourceTree = "<group>"; };
 		01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
 		01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
@@ -215,6 +223,8 @@
 				01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */,
 				010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */,
 				014E6DE41E5A36170027A633 /* DateHelpers.swift */,
+				016287941E680AB7007A5F59 /* ViewControllerHelpers.swift */,
+				016287921E6682EF007A5F59 /* Theme.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -248,6 +258,8 @@
 				014E6DE81E5A62980027A633 /* FoodTableViewController.swift */,
 				014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */,
 				014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */,
+				0112CF361E68A11E008D46FB /* CreateTicketTableViewController.swift */,
+				017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -570,6 +582,7 @@
 				48377B2B1E5A66C7007DBE2B /* FoodTableViewCell.swift in Sources */,
 				014E6DEB1E5A62B90027A633 /* BookTableViewController.swift in Sources */,
 				0114DE871E42D20800E2AB2A /* ProfileViewController.swift in Sources */,
+				016287951E680AB7007A5F59 /* ViewControllerHelpers.swift in Sources */,
 				0175A8471E45A16A008A7780 /* Ticket.swift in Sources */,
 				014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */,
 				48D6CD2D1E5FC48A00D5429D /* FoodAddViewController.swift in Sources */,
@@ -579,16 +592,19 @@
 				01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */,
 				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
 				014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */,
+				017C6B531E6CA44900EB7E36 /* CreateBookTableViewController.swift in Sources */,
 				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,
 				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,
 				014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */,
 				48D6CD2F1E60071500D5429D /* FoodDetailViewController.swift in Sources */,
 				0175A84B1E45A181008A7780 /* Misc.swift in Sources */,
+				016287931E6682EF007A5F59 /* Theme.swift in Sources */,
 				0114DE851E42D20800E2AB2A /* AppDelegate.swift in Sources */,
 				014E6DE71E5A4E1A0027A633 /* TicketTableViewCell.swift in Sources */,
 				01BE84EF1E665CCC0035B48F /* MiscTableViewCell.swift in Sources */,
 				0175A8491E45A173008A7780 /* Food.swift in Sources */,
 				01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */,
+				0112CF371E68A11E008D46FB /* CreateTicketTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

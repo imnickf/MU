@@ -17,6 +17,11 @@ class BookTableViewController: UITableViewController
   {
     super.viewDidLoad()
 
+    navigationController?.navigationBar.barTintColor = Theme.primaryRedColor
+    navigationController?.navigationBar.tintColor = UIColor.black
+    tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
+    tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
+
     itemRepo.getItems(.book) { (items) in
       self.books = items as! [Book]
 

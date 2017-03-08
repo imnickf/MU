@@ -78,7 +78,7 @@ class ItemFactory
     let createDate = data[FirebaseKeyVender.createDateKey] as! String
     let creatorID = data[FirebaseKeyVender.creatorIDKey] as! String
     let dateSold = data[FirebaseKeyVender.dateSoldKey] as? String
-    let description = data[FirebaseKeyVender.descriptionKey] as! String
+    let description = data[FirebaseKeyVender.descriptionKey] as? String ?? ""
     let isbn = data[FirebaseKeyVender.isbnKey] as? String
     let name = data[FirebaseKeyVender.nameKey] as! String
     let price = data[FirebaseKeyVender.priceKey] as! String
