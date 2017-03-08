@@ -4,16 +4,8 @@
 */
 app.config(function ($routeProvider) {
     $routeProvider.when("/", {
-        controller: "loginController",
-        templateUrl: "views/loginView.html"
-    })
-    .when("/main", {
         controller: "mainController",
         templateUrl: "views/mainView.html"
-    })
-    .when('/edit/:bookID', {
-        templateUrl: 'views/editBook.html',
-        controller: 'editBookController'
     })
     .when("/food", {
         controller: "foodController",
@@ -23,9 +15,16 @@ app.config(function ($routeProvider) {
         controller: "ticketController",
         templateUrl: "views/ticketView.html"
     })
-    .when("/textbooks", {
+    .when("/textbooks/:bookID?", {
+        // bookID is an optional URL parameter
         controller: "textbookController",
-        templateUrl: "views/textbookView.html"
+        templateUrl: "views/textbookView.html",
+        resolve: {
+            books: function ($firebaseArray) {
+                var ref = firebase.database().ref('/products/book/');
+                return $firebaseArray(ref).$loaded();
+            }
+        }
     })
     .when("/furniture", {
         controller: "furnitureController",
