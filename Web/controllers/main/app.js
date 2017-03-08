@@ -12,6 +12,7 @@ var config = {
     messagingSenderId: "788794802091"
 };
 firebase.initializeApp(config);
+var database = firebase.database();
 
 // define our angular app, our dependencies are ngRoute, firebase, and ui.bootstrap
 var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
@@ -27,6 +28,11 @@ app.controller('headerController', ['$scope', 'authService', function($scope, au
             $scope.user = user;
             $scope.display_Navinfo = true;
             $scope.error = '';
+            // update firebase information with new user
+            var updates = {};
+            // normal users get a type set to 3
+            updates['/users/' + user.uid + '/type'] = {type: 3};
+            database.ref().update(updates);
         } else if (user) {
             // user is logged in with non-iastate account
             $scope.error = "You must login with your Iowa State (@iastate.edu) Google account.";

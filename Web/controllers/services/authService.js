@@ -32,6 +32,10 @@ app.factory('authService', ['$firebaseAuth', '$firebaseObject', function authSer
         getUser: function(){
             // return current authentication object
             return auth.$getAuth();
+        },
+        getItems: function(){
+
+          console.log(user_id);
         }
     };
 }]);

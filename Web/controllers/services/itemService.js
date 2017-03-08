@@ -29,6 +29,7 @@ app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService', 
             // perform updates using an array, note this will be helpful when we begin updating
             // the users table, we can add on keys to the updates array
             var updates = {};
+            var user_id = authService.getUser().uid;
 
             // delete extra shit that comes with $firebaseArray
             delete item['$id'];
@@ -36,6 +37,7 @@ app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService', 
 
             // update the item at itemID with the scope information
             updates[url + itemID] = item;
+            updates['/users/' + user_id + '/items/' + itemID] = itemID;
             database.ref().update(updates);
         },
         add: function(item){
