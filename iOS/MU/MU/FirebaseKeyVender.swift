@@ -14,6 +14,8 @@ struct FirebaseKeyVender
   static let foodKey          = "food"
   static let miscKey          = "misc"
   static let usersKey         = "users"
+  static let itemsKey         = "items"
+  static let userTypeKey      = "type"
 
   static let authorKey        = "author"
   static let buyerIDKey       = "buyerID"
@@ -40,4 +42,14 @@ extension FirebaseKeyVender
   static let booksPath = productsKey + "/" + booksKey
   static let foodPath = productsKey + "/" + foodKey
   static let miscPath = productsKey + "/" + miscKey
+}
+
+
+enum UserType: Int
+{
+  case admin = 1
+  case moderator = 2
+  case normal = 3
+
+//case admin, moderator, normal
 }
