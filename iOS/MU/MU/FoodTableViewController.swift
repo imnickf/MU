@@ -8,96 +8,64 @@
 
 import UIKit
 
+// Global Variable used for testing.
 var foodSel:Food? = nil
 
+/// A class used to manage the Food View.
 class FoodTableViewController: UITableViewController {
-
-    let itemRepo = ItemRepository()
-    var foods = [Food]()
+  
+  /// An Item Repository.
+  let itemRepo = ItemRepository()
+  
+  /// An array that is used to store Food items.
+  var foods = [Food]()
+  
+  override func viewDidLoad() {
+    super.viewDidLoad()
     
+    navigationController?.navigationBar.barTintColor = Theme.primaryRedColor
+    navigationController?.navigationBar.tintColor = UIColor.black
+    tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
+    tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        itemRepo.getItems(.food) { (items) in
-            self.foods = items as! [Food]
-            
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
-            }
-        }
-        
-        
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+    itemRepo.getItems(.food) { (items) in
+      self.foods = items as! [Food]
+      
+      DispatchQueue.main.async {
+        self.tableView.reloadData()
+      }
     }
+  }
+  
+}
 
-    /*override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }*/
+// MARK: - FoodTableViewController Protocol Methods
 
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return foods.count
-    }
-
+extension FoodTableViewController
+{
+  override func numberOfSections(in tableView: UITableView) -> Int {
+    return 1
+  }
+  
+  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return foods.count
+  }
+  
+  
+  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let food = foods[indexPath.row]
+    let cell = tableView.dequeueReusableCell(withIdentifier: "FoodTableViewCell", for: indexPath) as! FoodTableViewCell
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let food = foods[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "FoodTableViewCell", for: indexPath) as! FoodTableViewCell
-
-        cell.configureWith(food: food)
-
-        return cell
-    }
+    cell.configureWith(food: food)
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        foodSel = self.foods[indexPath.row]
-    }
-    
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
+    return cell
+  }
+  
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    foodSel = self.foods[indexPath.row]
+  }
+  
+  override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    return 50.0
+  }
 }

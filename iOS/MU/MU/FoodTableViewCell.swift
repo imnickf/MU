@@ -7,15 +7,19 @@
 //
 
 import UIKit
-
+/// A class used to manage the Food Table View.
 class FoodTableViewCell: UITableViewCell {
-    
-    var food: Food!
-
-    @IBOutlet weak var FoodText: UILabel!
-    
-    func configureWith(food: Food) {
-        self.food = food
-        FoodText.text = food.name
-    }
+  
+  /// A Food Object used to store the created Food.
+  var food: Food!
+  
+  /// A link to the "Food" label.
+  @IBOutlet weak var FoodText: UILabel!
+  
+  /// A function that initalizes a Book for
+  /// this Table View Cell.
+  func configureWith(food: Food) {
+    self.food = food
+    FoodText.text = food.name
+  }
 }

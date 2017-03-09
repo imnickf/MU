@@ -8,9 +8,13 @@
 
 import UIKit
 
+/// A class used to manage the Misc View.
 class MiscTableViewController: UITableViewController
 {
+  /// An Item Repository.
   let itemRepo = ItemRepository()
+  
+  /// An array that is used to store Misc items.
   var miscItems = [Misc]()
 
   override func viewDidLoad()

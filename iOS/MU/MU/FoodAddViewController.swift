@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FoodAddViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class FoodAddViewController: UITableViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     let categories = ["Italian","Mexican","Chinese"]
     var selCategory = ""
@@ -25,6 +25,8 @@ class FoodAddViewController: UIViewController, UIPickerViewDataSource, UIPickerV
             TestLabel.text = NameText.text!
         }
     }
+    
+   
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

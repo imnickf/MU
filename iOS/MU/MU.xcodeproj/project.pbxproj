@@ -48,8 +48,7 @@
 		01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */; };
 		21BD3B80F4C22F719DDF7FAE /* Pods_MUTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F614F1E99E90361FA6175C47 /* Pods_MUTests.framework */; };
 		48377B2B1E5A66C7007DBE2B /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48377B2A1E5A66C7007DBE2B /* FoodTableViewCell.swift */; };
-		48D6CD2D1E5FC48A00D5429D /* FoodAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CD2C1E5FC48A00D5429D /* FoodAddViewController.swift */; };
-		48D6CD2F1E60071500D5429D /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6CD2E1E60071500D5429D /* FoodDetailViewController.swift */; };
+		48D663431E6FD4E20027FC9B /* CreateFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D663421E6FD4E20027FC9B /* CreateFoodTableViewController.swift */; };
 		4F5C9CDDAACEC461768E6981 /* Pods_MUUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3FC34EC82F61C2BA2B0FA64D /* Pods_MUUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,8 +115,7 @@
 		348039BEAE9654123B5E48F7 /* Pods_MU.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MU.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FC34EC82F61C2BA2B0FA64D /* Pods_MUUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MUUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		48377B2A1E5A66C7007DBE2B /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = "<group>"; };
-		48D6CD2C1E5FC48A00D5429D /* FoodAddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodAddViewController.swift; sourceTree = "<group>"; };
-		48D6CD2E1E60071500D5429D /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
+		48D663421E6FD4E20027FC9B /* CreateFoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFoodTableViewController.swift; sourceTree = "<group>"; };
 		51E4F0523ABE359931D989ED /* Pods-MU.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MU.release.xcconfig"; path = "Pods/Target Support Files/Pods-MU/Pods-MU.release.xcconfig"; sourceTree = "<group>"; };
 		6005F4491281C13DCE2EF1CE /* Pods-MUTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MUTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MUTests/Pods-MUTests.release.xcconfig"; sourceTree = "<group>"; };
 		684760EC547F36CECF6DC049 /* Pods-MUUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MUUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MUUITests/Pods-MUUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -250,8 +248,6 @@
 		01F3CCE81E42F095005DE947 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				48D6CD2E1E60071500D5429D /* FoodDetailViewController.swift */,
-				48D6CD2C1E5FC48A00D5429D /* FoodAddViewController.swift */,
 				01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */,
 				0114DE861E42D20800E2AB2A /* ProfileViewController.swift */,
 				014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */,
@@ -259,6 +255,7 @@
 				014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */,
 				014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */,
 				0112CF361E68A11E008D46FB /* CreateTicketTableViewController.swift */,
+				48D663421E6FD4E20027FC9B /* CreateFoodTableViewController.swift */,
 				017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */,
 			);
 			name = Controllers;
@@ -585,9 +582,9 @@
 				016287951E680AB7007A5F59 /* ViewControllerHelpers.swift in Sources */,
 				0175A8471E45A16A008A7780 /* Ticket.swift in Sources */,
 				014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */,
-				48D6CD2D1E5FC48A00D5429D /* FoodAddViewController.swift in Sources */,
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
 				010A31971E5013E7004CB07C /* FirebaseKeyVender.swift in Sources */,
+				48D663431E6FD4E20027FC9B /* CreateFoodTableViewController.swift in Sources */,
 				0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */,
 				01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */,
 				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
@@ -596,7 +593,6 @@
 				0175A8511E46CA9A008A7780 /* ItemGateway.swift in Sources */,
 				0175A84D1E45A1E5008A7780 /* Item.swift in Sources */,
 				014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */,
-				48D6CD2F1E60071500D5429D /* FoodDetailViewController.swift in Sources */,
 				0175A84B1E45A181008A7780 /* Misc.swift in Sources */,
 				016287931E6682EF007A5F59 /* Theme.swift in Sources */,
 				0114DE851E42D20800E2AB2A /* AppDelegate.swift in Sources */,
