@@ -46,12 +46,10 @@ extension FirebaseKeyVendor
   static let miscPath = productsKey + "/" + miscKey
 }
 
-
+/// The UserType enum for different user types available in the MU application
 enum UserType: Int
 {
   case admin = 1
   case moderator = 2
   case normal = 3
-
-//case admin, moderator, normal
 }
