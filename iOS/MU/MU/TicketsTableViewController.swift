@@ -8,9 +8,13 @@
 
 import UIKit
 
+/// A class used to manage the Ticket View.
 class TicketsTableViewController: UITableViewController
 {
+  /// An Item Repository.
   let itemRepo = ItemRepository()
+  
+  /// An array that is used to store Tickets items.
   var tickets = [Ticket]()
 
   var selectedTicket: Ticket?
@@ -26,7 +30,7 @@ class TicketsTableViewController: UITableViewController
 
     itemRepo.getItems(.ticket) { (items) in
       self.tickets = items as! [Ticket]
-
+    
       DispatchQueue.main.async {
         self.tableView.reloadData()
       }

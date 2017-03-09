@@ -8,17 +8,34 @@
 
 import UIKit
 
+/// A class used to manage the Create Book View.
 class CreateBookTableViewController: UITableViewController
 {
+  /// The link to the "name" text field.
   @IBOutlet weak var nameTextField: UITextField!
+  
+  /// The link to the "author" text field.
   @IBOutlet weak var authorTextField: UITextField!
+  
+  /// The link to the "ISBN" text field.
   @IBOutlet weak var isbnTextField: UITextField!
+  
+  /// The link to the "Class" text field.
   @IBOutlet weak var classCodeTextField: UITextField!
+  
+  /// The link to the "price" text field.
   @IBOutlet weak var priceTextField: UITextField!
+  
+  /// The link to the "description" text View.
   @IBOutlet weak var descriptionTextView: UITextView!
+  
+  /// The link to the "create" button.
   @IBOutlet weak var createButton: UIButton!
 
+  /// An Item Factory.
   let itemFactory = ItemFactory()
+  
+  /// An Item Repository.
   let itemRepo = ItemRepository()
 
   override func viewDidLoad()
@@ -29,11 +46,15 @@ class CreateBookTableViewController: UITableViewController
     createButton.isEnabled = false
   }
 
+  /// A function used to check if form is filled in.
+  /// - returns: A boolean value indicating that the form is filled in.
   fileprivate func verifyInputs() -> Bool
   {
     return nameTextField.text != nil && authorTextField.text != nil && priceTextField.text != nil && priceTextField.text!.isCurrencyFormat() && descriptionTextView.text != "About this book"
   }
 
+  /// A function that is used to create a new user.
+  /// This fuction is linked to "Create" button.
   @IBAction func createNewBook()
   {
     guard let name = nameTextField.text else {
@@ -57,6 +78,8 @@ class CreateBookTableViewController: UITableViewController
 
 extension CreateBookTableViewController: UITextViewDelegate
 {
+  /// A function that is executed when the user
+  /// begins editing a Text View.
   func textViewDidBeginEditing(_ textView: UITextView)
   {
     if textView.text == "About this book" {
@@ -66,6 +89,8 @@ extension CreateBookTableViewController: UITextViewDelegate
     tableView.isScrollEnabled = true
   }
 
+  /// A function that is executed when the user
+  /// ends editing a Text View.
   func textViewDidEndEditing(_ textView: UITextView)
   {
     if !descriptionTextView.hasText {
@@ -86,11 +111,15 @@ extension CreateBookTableViewController: UITextViewDelegate
 
 extension CreateBookTableViewController: UITextFieldDelegate
 {
+  /// A function that is executed when the user
+  /// begins editing a Text Field.
   func textFieldDidBeginEditing(_ textField: UITextField)
   {
     tableView.isScrollEnabled = true
   }
 
+  /// A function that is executed when the user
+  /// ends editing a Text Field.
   func textFieldDidEndEditing(_ textField: UITextField, reason: UITextFieldDidEndEditingReason)
   {
     tableView.isScrollEnabled = false

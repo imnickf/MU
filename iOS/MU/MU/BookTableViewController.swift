@@ -8,23 +8,27 @@
 
 import UIKit
 
+/// A class used to manage the Book View.
 class BookTableViewController: UITableViewController
 {
-  var books = [Book]()
+  /// An Item Repository.
   let itemRepo = ItemRepository()
-
+  
+  /// An array that is used to store Book items.
+  var books = [Book]()
+  
   override func viewDidLoad()
   {
     super.viewDidLoad()
-
+    
     navigationController?.navigationBar.barTintColor = Theme.primaryRedColor
     navigationController?.navigationBar.tintColor = UIColor.black
     tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
     tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
-
+    
     itemRepo.getItems(.book) { (items) in
       self.books = items as! [Book]
-
+      
       DispatchQueue.main.async {
         self.tableView.reloadData()
       }
@@ -40,12 +44,12 @@ extension BookTableViewController
   {
     return 1
   }
-
+  
   override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
     return books.count
   }
-
+  
   override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
     let book = books[indexPath.row]
