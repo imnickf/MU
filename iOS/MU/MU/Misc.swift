@@ -8,14 +8,26 @@
 
 import Foundation
 
+/// The Misc class is an Item subclass for items of type Miscellaneous. Miscellaneous items will be used for any 
+/// item that does not classify as a Ticket, Book, or Food.
 class Misc: Item
 {
+  /// Unique ID for buyer
   var buyerID: String?
+
+  /// Category that misc item falls under
   var category: String
+
+  /// Date item was sold
   var dateSold: Date?
+
+  /// Boolean value if item has been sold
   var isSold: Bool
+
+  /// Price of item
   var price: String
 
+  /// Create new Misc item
   init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, price: String, dateSold: String?, viewCount: Int, category: String)
   {
     self.price = price
