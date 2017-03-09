@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ItemRepository Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ItemRepository" class="dashAnchor"></a>
+    <a title="ItemRepository Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ItemRepository Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AuthViewController.html">AuthViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Book.html">Book</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BookTableViewCell.html">BookTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BookTableViewController.html">BookTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CreateBookTableViewController.html">CreateBookTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CreateTicketTableViewController.html">CreateTicketTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatabaseGateway.html">DatabaseGateway</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Food.html">Food</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FoodTableViewCell.html">FoodTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FoodTableViewController.html">FoodTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Item.html">Item</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ItemFactory.html">ItemFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ItemRepository.html">ItemRepository</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Misc.html">Misc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MiscTableViewCell.html">MiscTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MiscTableViewController.html">MiscTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProfileViewController.html">ProfileViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Ticket.html">Ticket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TicketTableViewCell.html">TicketTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TicketsTableViewController.html">TicketsTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserRespository.html">UserRespository</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums.html#/s:O2MU8ItemType">ItemType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserType.html">UserType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SignOutDelegate.html">SignOutDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/FirebaseKeyVendor.html">FirebaseKeyVendor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Theme.html">Theme</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ItemRepository</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">ItemRepository</span></code></pre>
+
+                </div>
+              </div>
+            <p>The ItemRepository class enables you to query and persist item data with the database.
+The ItemRepository interfaces with DatabaseGateway to save and query raw JSON data. It interfaces
+with ItemFactory to create items from raw data supplied by DatabaseGateway before returning 
+it to the user in a usable Item object.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C17factoryCS_11ItemFactory"></a>
+                    <a name="//apple_ref/swift/Property/factory" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C17factoryCS_11ItemFactory">factory</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>ItemFactory property for creating items</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="k">var</span> <span class="nv">factory</span><span class="p">:</span> <span class="kt"><a href="../Classes/ItemFactory.html">ItemFactory</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C17gatewayCS_15DatabaseGateway"></a>
+                    <a name="//apple_ref/swift/Property/gateway" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C17gatewayCS_15DatabaseGateway">gateway</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>DatabaseGateway for connecting to database</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="k">var</span> <span class="nv">gateway</span><span class="p">:</span> <span class="kt"><a href="../Classes/DatabaseGateway.html">DatabaseGateway</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositorycFT_S0_"></a>
+                    <a name="//apple_ref/swift/Method/init()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositorycFT_S0_">init()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a new ItemRepository</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="nf">init</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepository8getItemsFTOS_8ItemType10completionFGSaCS_4Item_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getItems(_:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepository8getItemsFTOS_8ItemType10completionFGSaCS_4Item_T__T_">getItems(_:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets items of specified type from database
+- Parameter type: the type of item being queried
+- Parameter completion: callback containg queried items or empty array if no items found</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getItems</span><span class="p">(</span><span class="n">_</span> <span class="nv">type</span><span class="p">:</span> <span class="kt"><a href="../Enums.html#/s:O2MU8ItemType">ItemType</a></span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/Item.html">Item</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>type</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the type of item being queried</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback containg queried items or empty array if no items found</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepository8getItemsFT9forUserIdSS10completionFGSaCS_4Item_T__T_"></a>
+                    <a name="//apple_ref/swift/Method/getItems(forUserId:completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepository8getItemsFT9forUserIdSS10completionFGSaCS_4Item_T__T_">getItems(forUserId:completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets all items created by a specified user
+- Parameter forUserId: userID for whose items to query
+- Parameter completion: callback containing queried items for specified user or empty array if none exist</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">getItems</span><span class="p">(</span><span class="n">forUserId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/Item.html">Item</a></span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forUserId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>userID for whose items to query</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback containing queried items for specified user or empty array if none exist</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepository7persistFT4itemCS_4Item_T_"></a>
+                    <a name="//apple_ref/swift/Method/persist(item:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepository7persistFT4itemCS_4Item_T_">persist(item:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Saves provided item to database
+- Parameter item: item to be saved to database</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">persist</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="kt"><a href="../Classes/Item.html">Item</a></span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>item</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>item to be saved to database</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C112fetchTicketsFT10completionFTGSqGSaCS_6Ticket__GSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchTickets(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C112fetchTicketsFT10completionFTGSqGSaCS_6Ticket__GSqPs5Error___T__T_">fetchTickets(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches ticket items from database
+- Parameter completion: callback containing fetched ticket items or error value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">fetchTickets</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/Ticket.html">Ticket</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback containing fetched ticket items or error value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C110fetchBooksFT10completionFTGSqGSaCS_4Book__GSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchBooks(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C110fetchBooksFT10completionFTGSqGSaCS_4Book__GSqPs5Error___T__T_">fetchBooks(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches book items from database
+- Parameter completion: callback containing fetched book item or error value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">fetchBooks</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/Book.html">Book</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback containing fetched book item or error value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19fetchFoodFT10completionFTGSqGSaCS_4Food__GSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchFood(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19fetchFoodFT10completionFTGSqGSaCS_4Food__GSqPs5Error___T__T_">fetchFood(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches food items from database
+- Parameter completion: callback containing fetched food items or error value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">fetchFood</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/Food.html">Food</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback containing fetched food items or error value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19fetchMiscFT10completionFTGSqGSaCS_4Misc__GSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/fetchMisc(completion:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19fetchMiscFT10completionFTGSqGSaCS_4Misc__GSqPs5Error___T__T_">fetchMisc(completion:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Fetches miscellaneous items from database
+- Parameter completion: callback containing fetched misc items or error value</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">fetchMisc</span><span class="p">(</span><span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt"><a href="../Classes/Misc.html">Misc</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback containing fetched misc items or error value</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19translateFT6ticketCS_6Ticket_GVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Method/translate(ticket:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19translateFT6ticketCS_6Ticket_GVs10DictionarySSP__">translate(ticket:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Translates ticket into raw data dictionary to be persisted
+- Parameter ticket: item to be translated
+- Returns: dictionary of ticket properties</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">translate</span><span class="p">(</span><span class="nv">ticket</span><span class="p">:</span> <span class="kt"><a href="../Classes/Ticket.html">Ticket</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ticket</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>item to be translated</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of ticket properties</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19translateFT4bookCS_4Book_GVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Method/translate(book:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19translateFT4bookCS_4Book_GVs10DictionarySSP__">translate(book:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Translates book into raw data dictionary to be persisted
+- Parameter book: item to be translated
+- Returns: dictionary of book properties</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">translate</span><span class="p">(</span><span class="nv">book</span><span class="p">:</span> <span class="kt"><a href="../Classes/Book.html">Book</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>book</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>item to be translated</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of book properties</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19translateFT4foodCS_4Food_GVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Method/translate(food:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19translateFT4foodCS_4Food_GVs10DictionarySSP__">translate(food:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Translates food into raw data dictionary to be persisted
+- Parameter food: item to be translated
+- Returns: dictionary of food properties</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">translate</span><span class="p">(</span><span class="nv">food</span><span class="p">:</span> <span class="kt"><a href="../Classes/Food.html">Food</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>food</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>item to be translated</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of food properties</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19translateFT4miscCS_4Misc_GVs10DictionarySSP__"></a>
+                    <a name="//apple_ref/swift/Method/translate(misc:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU14ItemRepositoryP33_83E2802B8AE52529AD7A02495002B2C19translateFT4miscCS_4Misc_GVs10DictionarySSP__">translate(misc:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Translates misc item into raw data dictionary to be persisted
+- Parameter misc: item to be translated
+- Returns: dictionary of misc item properties</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">fileprivate</span> <span class="kd">func</span> <span class="nf">translate</span><span class="p">(</span><span class="nv">misc</span><span class="p">:</span> <span class="kt"><a href="../Classes/Misc.html">Misc</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>misc</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>item to be translated</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>dictionary of misc item properties</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-03-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
