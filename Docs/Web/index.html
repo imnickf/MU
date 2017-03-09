@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<head lang="en">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8">
+	<title>Template Documentation Template</title>
+	<!-- Framework CSS -->
+	<link rel="stylesheet" href="assets/blueprint-css/screen.css" type="text/css" media="screen, projection">
+	<link rel="stylesheet" href="assets/blueprint-css/print.css" type="text/css" media="print">
+	<!--[if lt IE 8]><link rel="stylesheet" href="assets/blueprint-css/ie.css" type="text/css" media="screen, projection"><![endif]-->
+	<link rel="stylesheet" href="assets/blueprint-css/plugins/fancy-type/screen.css" type="text/css" media="screen, projection">
+	<style type="text/css" media="screen">
+		p, table, hr, .box { margin-bottom:25px; }
+		.box p { margin-bottom:10px; }
+	</style>
+</head>
+
+
+<body>
+	<div class="container">
+
+		<h1 class="center">&ldquo;Web Development for The MU&rdquo;</h1>
+
+		<div class="borderTop">
+			<div class="span-6 colborder info prepend-1">
+				<p class="prepend-top">
+					<strong>
+					Created: 3/8/2017<br>
+					By: Joe Kuczek And Johnathon Pine<br>
+					</strong>
+				</p>
+			</div><!-- end div .span-6 -->
+
+
+		</div><!-- end div .borderTop -->
+
+		<hr>
+
+		<h2 id="toc" class="alt">Table of Contents</h2>
+		<ol class="alpha">
+			<li><a href="#htmlStructure">HTML Structure</a></li>
+
+			<li><a href="#javascript">JavaScript</a></li>
+			<li><a href="#psdFiles">PSD Files</a></li>
+
+			<li><a href="#">PHP Code Explanation</a> <em class="quiet small">(If your theme uses PHP)</em></li>
+			<li><a href="#">Flash</a>  <em class="quiet small">(If your theme uses Flash)</em></li>
+			<li><a href="#">API Usage</a> <em class="quiet small">(If your theme uses an API)</em></li>
+			<li><a href="#">Any additional unique features that need an overview</a></li>
+		</ol>
+
+		<hr>
+
+		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
+		<p>This theme is a fixed layout with two columns. All of the information within the main content area is nested within a div with an id of "primaryContent". The sidebar's (column #2) content is within a div with an id of "secondaryContent". The general template structure is the same throughout the template. Here is the general structure.</p>
+
+		<img src="assets/images/htmlstructure.png" alt="HTML Structure" />
+
+		<p>If you would like to edit the color, font, or style of any elements in one of these columns, you would do the following:</p>
+
+<pre>	#primaryContent a {
+		color: #someColor;
+	}
+</pre>
+
+		<p>If you find that your new style is not overriding, it is most likely because of a specificity problem. Scroll down in your CSS file and make sure that there isn't a similar style that has more weight.</p>
+
+		<p>I.E.</p>
+
+<pre>	#wrap #primaryContent a {
+		color: #someColor;
+	}
+</pre>
+
+		<p>So, to ensure that your new styles are applied, make sure that they carry enough "weight" and that there isn't a style lower in the CSS file that is being applied after yours.</p>
+
+
+		<hr>
+
+		<h3 id="javascript"><strong>C) AngularJS/JavaScript</strong> - <a href="#toc">top</a></h3>
+
+		<p>This theme imports three Javascript files.</p>
+
+		<ol>
+			<li>Main Controller</li>
+			<ol>
+				<li>Main.js</li>
+					<ul>
+						App.controller <br>
+						@name = headerController <br>
+						@scopes {auth, status, toggleDropdown, isNavcollapsed, display_Navinfo} <br>
+						@description: <br>
+						App.Controller is the main controller for the Nav Bar and login system.
+					</ul>
+				<li>Filter.js</li>
+				<ul>
+					app.filter.filter()<br>
+					@param = {Capitalize, NetID}<br>
+					@dscription: <br>
+					Takes in the user netId and cuts out the Iastate.edu. <br>
+					This leaves just the part infront of @ and capitlize the letter.
+				</ul>
+				<li>Routes.js</li>
+				<ul>
+					app.config <br>
+					@description: <br>
+					Takes in a web link and changes the view/controller of the current page.
+				</ul>
+			</ol>
+			<li>Content</li>
+			<ol>
+				<li>adminController.js</li>
+					<ul>
+						admin.module <br>
+
+					</ul>
+				<li>foodController.js</li>
+					<ul>
+
+					</ul>
+				<li>FurnitureController.js</li>
+
+				<li>mainController.js</li>
+				<li>profileController.js</li>
+				<li>textbookController.js</li>
+				<li>ticketController.js</li>
+			</ol>
+
+		</ol>
+		
+
+		<hr>
+
+		<pre>	[some Javascript goes here...along with an general explanation]
+			[some Javascript goes here...along with an general explanation]
+			[some Javascript goes here...along with an general explanation]
+		</pre>
+
+		<p class="append-bottom alt large"><strong>Team117</strong></p>
+		<p><a href="#toc">Go To Table of Contents</a></p>
+
+		<hr class="space">
+	</div><!-- end div .container -->
+</body>
+</html>
