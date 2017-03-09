@@ -13,12 +13,9 @@
 	</style>
 </head>
 
-
 <body>
 	<div class="container">
-
-		<h1 class="center">&ldquo;Web Development for The MU&rdquo;</h1>
-
+		<h1 class="center">The MU - Web Documentation</h1>
 		<div class="borderTop">
 			<div class="span-6 colborder info prepend-1">
 				<p class="prepend-top">
@@ -28,54 +25,168 @@
 					</strong>
 				</p>
 			</div><!-- end div .span-6 -->
-
-
 		</div><!-- end div .borderTop -->
 
 		<hr>
 
-		<h2 id="toc" class="alt">Table of Contents</h2>
+		<h2 id="toc" class="alt">Index</h2>
 		<ol class="alpha">
-			<li><a href="#htmlStructure">HTML Structure</a></li>
-
-			<li><a href="#javascript">JavaScript</a></li>
-			<li><a href="#psdFiles">PSD Files</a></li>
-
-			<li><a href="#">PHP Code Explanation</a> <em class="quiet small">(If your theme uses PHP)</em></li>
-			<li><a href="#">Flash</a>  <em class="quiet small">(If your theme uses Flash)</em></li>
-			<li><a href="#">API Usage</a> <em class="quiet small">(If your theme uses an API)</em></li>
-			<li><a href="#">Any additional unique features that need an overview</a></li>
+			<li><a href="#angularStructure">File Structure and Design</a></li>
+			<li><a href="#services">Services</a></li>
+			<li><a href="#controllers">Controllers</a></li>
 		</ol>
 
 		<hr>
 
-		<h3 id="htmlStructure"><strong>A) HTML Structure</strong> - <a href="#toc">top</a></h3>
-		<p>This theme is a fixed layout with two columns. All of the information within the main content area is nested within a div with an id of "primaryContent". The sidebar's (column #2) content is within a div with an id of "secondaryContent". The general template structure is the same throughout the template. Here is the general structure.</p>
+		<h3 id="angularStructure"><strong>A) File Structure and Design</strong> - <a href="#toc">top</a></h3>
+		<p>We are using AngularJS as a front-end framework for API connection, web services, routes, and Javascript logic organization. The following list shows our files. All web files are written in JavaScript, excluding the views, which are written in HTML. We are using bower as a package manager for giving us the latest most-stable versions of Angular, Bootstrap, and jQuery</p>
 
-		<img src="assets/images/htmlstructure.png" alt="HTML Structure" />
+		<ul>
+            <li><strong>Header</strong>
+                <ul>
+                    <li>headerController (app.js)</li>
+                </ul>
+            </li>
+            <li><strong>Services</strong>
+                <ul>
+                    <li>authService.js</li>
+                    <li>itemService.js</li>
+                </ul>
+            </li>
+            <li><strong>Controllers</strong>
+                <ul>
+                    <li>adminController.js</li>
+                    <li>foodController.js</li>
+                    <li>furnitureController.js</li>
+                    <li>mainController.js</li>
+                    <li>profileController.js</li>
+                    <li>textbookController.js</li>
+                    <li>ticketController.js</li>
+                </ul>
+            </li>
+            <li><strong>Views</strong>
+                <ul>
+                    <li>adminView.html</li>
+                    <li>foodView.html</li>
+                    <li>furnitureView.html</li>
+                    <li>mainView.html</li>
+                    <li>profileView.html</li>
+                    <li>textbookView.html</li>
+                    <li>ticketView.html</li>
+                </ul>
+            </li>
+            <li><strong>Angular Configuration</strong>
+                <ul>
+                    <li>app.js</li>
+                    <li>filters.js</li>
+                    <li>routes.js</li>
+                </ul>
+            </li>
+            <li><strong>Bower Components</strong>
+                <ul>
+                    <li>Angular</li>
+                    <li>Bootstrap</li>
+                    <li>jQuery</li>
+                </ul>
+            </li>
+        </ul>
 
-		<p>If you would like to edit the color, font, or style of any elements in one of these columns, you would do the following:</p>
-
-<pre>	#primaryContent a {
-		color: #someColor;
-	}
-</pre>
-
-		<p>If you find that your new style is not overriding, it is most likely because of a specificity problem. Scroll down in your CSS file and make sure that there isn't a similar style that has more weight.</p>
-
-		<p>I.E.</p>
-
-<pre>	#wrap #primaryContent a {
-		color: #someColor;
-	}
-</pre>
-
-		<p>So, to ensure that your new styles are applied, make sure that they carry enough "weight" and that there isn't a style lower in the CSS file that is being applied after yours.</p>
-
+        <p>App.js contains all the main config for connecting to Firebase. Each controller has a corresponding view, the controller provides data to the view via the $scope variable. Services can be injected into each controller depending on the needs of the controller.</p>
 
 		<hr>
 
-		<h3 id="javascript"><strong>C) AngularJS/JavaScript</strong> - <a href="#toc">top</a></h3>
+        <h3 id="services"><strong>B) Services</strong> - <a href="#toc">top</a></h3>
+
+        <ul>
+            <li><h4><strong>authService</strong></h4></li>
+
+            <ul>
+                This service provides functions necessary methods for Authentication. The service injects the $firebaseObject which is used for Firebase database operations. It also injects the $firebaseAuth service which is used for handling Firebase authentication. Firebase handles all session logic for us, so we don't need to store anything on our server.<br><br>
+                <img width="700" src="assets/screenshots/authService.PNG"><br><br>
+                The service's functions are as follows:<br><br>
+                <ul>
+                    <li><strong>authenticate (): </strong></li>
+                    <ul>
+                        <li>Description: Authenticate the client by using the Firebase Google Authentitcation pop-up.</li>
+                        <li>Returns: JSON - Firebase user data on success, nothing on error.</li>
+                    </ul>
+                    <li><strong>getCurrentAuth (): </strong></li>
+                    <ul>
+                        <li>Description: Provides the current $firebaseAuth object. We can use the $firebaseAuth to create asynchronous function calls such as $onAuthStateChange.</li>
+                        <li>Returns: $firebaseAuth - Firebase Auth object for current user.</li>
+                    </ul>
+                    <li><strong>getUser (): </strong></li>
+                    <ul>
+                        <li>Description: Return the current status of the user in JSON data.</li>
+                        <li>Returns: JSON - Current user status and information.</li>
+                    </ul>
+                    <li><strong>setScope (scope): </strong></li>
+                    <ul>
+                        <li>Description: Updates the passed in $scope variable with the authenticate function, signOut function, and $firebaseAuth variable.</li>
+                        <li>Params: scope - JSON Object - The $scope variable to be updated</li>
+                    </ul>
+                    <li><strong>signOut (): </strong></li>
+                    <ul>
+                        <li>Description: Signs the current user out of Firebase.</li>
+                    </ul>
+                </ul>
+            </ul>
+
+            <li><h4><strong>itemService</strong></h4></li>
+
+            <ul>
+                This service provides functions necessary for managing 'items' from Firebase. Items can be defined as textbooks, tickets, food, and misc. To first use the service, call the setup function at the very top of the controller. Since we are making asynchronous calls, some data will not be available upon page load. To fix this, we use the $loaded function ($firebaseArray) inside routes.js to resolve the data as we are loading the webpage. We need to inject authService into itemService so that we can obtain the user ID for retrieving/updating items.<br><br>
+                <img width="700" src="assets/screenshots/itemService.PNG"><br><br>
+                The service holds the following variables:<br><br>
+                <ul>
+                    <li><strong>url:</strong> String - Mapping to Firebase data we want to use.</li>
+                    <li><strong>items:</strong> $firebaseArray - Contains all the items for the specified URL.</li>
+                    <li><strong>itemName:</strong> String - Name of the item, used for Firebase identifier in the set() method.</li>
+                </ul>
+
+                The service's functions are as follows:<br><br>
+                <ul>
+                    <li><strong>all (): </strong></li>
+                    <ul>
+                        <li>Description: Returns all the current items as a listing.</li>
+                        <li>Returns: $firebaseArray - Returns the current items (tickets, textbooks, furniture, etc.)</li>
+                    </ul>
+                    <li><strong>add (item): </strong></li>
+                    <ul>
+                        <li>Description: Adds the data held in variable item to Firebase. Generates a new key for storing the data.</li>
+                        <li>Params: item - JSON - Contains the data to be added into Firebase.</li>
+                    </ul>
+                    <li><strong>get (itemID): </strong></li>
+                    <ul>
+                        <li>Description: Returns the item data from the database at the key itemID.</li>
+                        <li>Params: itemID - String - The ID of the item to be pulled from Firebase.</li>
+                        <li>Returns: JSON - Object with data for the item.</li>
+                    </ul>
+                    <li><strong>remove (item): </strong></li>
+                    <ul>
+                        <li>Description: Deletes the Firebase key that is equivalent to item.</li>
+                        <li>Params: item - JSON Object - The item we wish to remove.</li>
+                    </ul>
+                    <li><strong>set (item, itemID): </strong></li>
+                    <ul>
+                        <li>Description: Updates the object at itemID with the data in the item object.</li>
+                        <li>Params: item - JSON Object - New item data to be added. <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    itemID - String - The key of the item to be updated.</li>
+                    </ul>
+                    <li><strong>setup (uri, name, scopeItems): </strong></li>
+                    <ul>
+                        <li>Description: Setup the URL, itemName, and items variables. This is similar to a constructor.</li>
+                        <li>Params: uri - String<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            name - String<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            scopeItems - $firebaseArray</li>
+                    </ul>
+                </ul>
+            </ul>
+        </ul>
+
+        <hr>
+
+		<h3 id="controllers"><strong>C) Controllers</strong> - <a href="#toc">top</a></h3>
 
 		<p>This theme imports three Javascript files.</p>
 
@@ -125,17 +236,11 @@
 			</ol>
 
 		</ol>
-		
 
 		<hr>
 
-		<pre>	[some Javascript goes here...along with an general explanation]
-			[some Javascript goes here...along with an general explanation]
-			[some Javascript goes here...along with an general explanation]
-		</pre>
-
-		<p class="append-bottom alt large"><strong>Team117</strong></p>
-		<p><a href="#toc">Go To Table of Contents</a></p>
+		<p class="append-bottom alt large"><strong>Team GB-4 (117) </strong></p>
+		<p><a href="#toc">Go To Index</a></p>
 
 		<hr class="space">
 	</div><!-- end div .container -->
