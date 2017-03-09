@@ -32,6 +32,7 @@
 		<h2 id="toc" class="alt">Index</h2>
 		<ol class="alpha">
 			<li><a href="#angularStructure">File Structure and Design</a></li>
+            <li><a href="#config">Angular Configuration</a></li>
 			<li><a href="#services">Services</a></li>
 			<li><a href="#controllers">Controllers</a></li>
 		</ol>
@@ -45,6 +46,7 @@
             <li><strong>Header</strong>
                 <ul>
                     <li>headerController (app.js)</li>
+                    <li>index.html (header view)</li>
                 </ul>
             </li>
             <li><strong>Services</strong>
@@ -95,7 +97,44 @@
 
 		<hr>
 
-        <h3 id="services"><strong>B) Services</strong> - <a href="#toc">top</a></h3>
+        <h3 id="config"><strong>B) Angular Configuration</strong> - <a href="#toc">top</a></h3>
+
+        <ul>
+            <li><h4><strong>app.js</strong></h4></li>
+            <ul>
+                In this file, we initialize our connection to Firebase by providing our custom API key. We also initialize our Angular module. It is important that this file is included in index.html before the rest of the controller files. This is because we initialize controllers using the module. This file also contains the headerController which handles variables for the navigation bar and authentication over each page. Our Angular app is defined in the code below:<br><br>
+
+                <img width="700" src="assets/screenshots/app.PNG">
+            </ul>
+            <li><h4><strong>filters.js</strong></h4></li>
+                <ul>
+                    In this file we provide different functions for formatting data from Firebase. The functions are as follows:<br><br>
+                    <ul>
+                        <li><strong>capitalize (word)</strong></li>
+                        <ul>
+                            <li>Description: Capitalizes the first letter of each word in the String.</li>
+                            <li>Params: word - String - The string variable to be capitalized.</li>
+                            <li>Returns: String - The capitalized string.</li>
+                        </ul>
+                        <li><strong>emailToNetID (email)</strong></li>
+                        <ul>
+                            <li>Description: Converts an ISU email to net-id by removing @iastate.edu.</li>
+                            <li>Params: email - String - The email to be converted.</li>
+                            <li>Returns: String - The converted net-id.</li>
+                        </ul>
+                    </ul>
+                </ul>
+            </li>
+            <li><h4><strong>routes.js</strong></h4></li>
+                <ul>
+                    This file contains all of our page and URL routing. If a client hits a URL, we need to tell them what view they should see and which controller we should use. We can also resolve variables so that they are immediately available upon page load. We can also provide optional parameters in our URLs. An example of a routing configuration is seen below:<br><br>
+                    <img width="700" src="assets/screenshots/routeExample.PNG">
+                </ul>
+        </ul>
+
+        <hr>
+
+        <h3 id="services"><strong>C) Services</strong> - <a href="#toc">top</a></h3>
 
         <ul>
             <li><h4><strong>authService</strong></h4></li>
@@ -186,7 +225,7 @@
 
         <hr>
 
-		<h3 id="controllers"><strong>C) Controllers</strong> - <a href="#toc">top</a></h3>
+		<h3 id="controllers"><strong>D) Controllers</strong> - <a href="#toc">top</a></h3>
 
 		<p>This theme imports three Javascript files.</p>
 
