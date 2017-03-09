@@ -95,7 +95,7 @@ extension AppDelegate: GIDSignInDelegate
         return
       }
       self.window?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-      ItemRepository().setupNewUser()
+      UserRespository().setupNewUser()
     }
   }
 
