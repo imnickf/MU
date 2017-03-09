@@ -8,16 +8,31 @@
 
 import Foundation
 
+/// The Ticket class is an Item subclass for items of type Ticket. Ticket items will be used for tickets being sold by students.
 class Ticket: Item
 {
+  /// Unique ID for buyer
   var buyerID: String?
+
+  /// Date item was sold
   var dateSold: Date?
+
+  /// Boolean value if item has been sold
   var isSold: Bool
+
+  /// Location of event
   var location: String?
+
+  /// Sport for ticket
   var sport: String
+
+  /// Time of event
   var time: Date
+
+  /// Price of item
   var price: String
 
+  /// Create new Ticket item
   init(id: String, creatorID: String, createDate: String, desc: String, name: String, buyerID: String?, price: String, dateSold: String?, viewCount: Int, sport: String, time: String, location: String?)
   {
     self.price = price

@@ -13,6 +13,8 @@ class TicketsTableViewController: UITableViewController
   let itemRepo = ItemRepository()
   var tickets = [Ticket]()
 
+  var selectedTicket: Ticket?
+
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -64,17 +66,26 @@ extension TicketsTableViewController
   {
     return 50.0
   }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+  {
+    selectedTicket = tickets[indexPath.row]
+    performSegue(withIdentifier: "showTicketDetail", sender: self)
+  }
 }
 
 // MARK: - Navigation
 
 extension TicketsTableViewController
 {
-  /*
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
+    if segue.identifier == "showTicketDetail" {
+      if let vc = segue.destination as? TicketDetailViewController {
+        if let ticket = selectedTicket {
+          vc.ticket = ticket
+        }
+      }
+    }
+  }
 }

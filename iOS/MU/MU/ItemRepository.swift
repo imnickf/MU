@@ -1,5 +1,5 @@
 //
-//  ItemProvider.swift
+//  ItemRepository.swift
 //  MU
 //
 //  Created by Nick Flege on 2/4/17.
@@ -8,18 +8,28 @@
 
 import FirebaseAuth
 
+/// The ItemRepository class enables you to query and persist item data with the database.
+/// The ItemRepository interfaces with DatabaseGateway to save and query raw JSON data. It interfaces
+/// with ItemFactory to create items from raw data supplied by DatabaseGateway before returning 
+/// it to the user in a usable Item object.
 class ItemRepository
 {
+  /// ItemFactory property for creating items
   fileprivate var factory: ItemFactory
-  fileprivate var gateway: ItemGateway
 
+  /// DatabaseGateway for connecting to database
+  fileprivate var gateway: DatabaseGateway
+
+  /// Creates a new ItemRepository
   init()
   {
     factory = ItemFactory()
-    gateway = ItemGateway()
+    gateway = DatabaseGateway()
   }
 
   /// Gets items of specified type from database
+  /// - Parameter type: the type of item being queried
+  /// - Parameter completion: callback containg queried items or empty array if no items found
   func getItems(_ type: ItemType, completion: @escaping ([Item]) -> Void)
   {
     switch type {
@@ -60,49 +70,41 @@ class ItemRepository
   }
 
   /// Gets all items created by a specified user
-  func getItems(forUser id: String, completion: @escaping ([Item]) -> Void)
+  /// - Parameter forUserId: userID for whose items to query
+  /// - Parameter completion: callback containing queried items for specified user or empty array if none exist
+  func getItems(forUserId id: String, completion: @escaping ([Item]) -> Void)
   {
     // TODO
   }
 
-  /// Saves new user information to database
-  func setupNewUser()
-  {
-    let endpoint = FirebaseKeyVender.usersKey + "/" + FIRAuth.auth()!.currentUser!.uid
-
-    gateway.query(endpoint) { (data, error) in
-      if data == nil {
-        self.gateway.persist(data: UserType.normal.rawValue, endpoint: endpoint + "/" + FirebaseKeyVender.userTypeKey)
-      }
-    }
-  }
-
   /// Saves provided item to database
+  /// - Parameter item: item to be saved to database
   func persist(item: Item)
   {
     switch item {
     case is Ticket:
-      gateway.persist(data: translate(ticket: item as! Ticket), endpoint: FirebaseKeyVender.ticketsPath + "/\(item.id)")
+      gateway.persist(data: translate(ticket: item as! Ticket), endpoint: FirebaseKeyVendor.ticketsPath + "/\(item.id)")
       break
     case is Book:
-      gateway.persist(data: translate(book: item as! Book), endpoint: FirebaseKeyVender.booksPath + "/\(item.id)")
+      gateway.persist(data: translate(book: item as! Book), endpoint: FirebaseKeyVendor.booksPath + "/\(item.id)")
       break
     case is Food:
-      gateway.persist(data: translate(food: item as! Food), endpoint: FirebaseKeyVender.foodPath + "/\(item.id)")
+      gateway.persist(data: translate(food: item as! Food), endpoint: FirebaseKeyVendor.foodPath + "/\(item.id)")
       break
     case is Misc:
-      gateway.persist(data: translate(misc: item as! Misc), endpoint: FirebaseKeyVender.miscPath + "/\(item.id)")
+      gateway.persist(data: translate(misc: item as! Misc), endpoint: FirebaseKeyVendor.miscPath + "/\(item.id)")
       break
     default:
       return
     }
-    gateway.persist(userItemId: item.id, forUserId: FIRAuth.auth()!.currentUser!.uid)
+    gateway.persist(itemId: item.id, forUserId: FIRAuth.auth()!.currentUser!.uid)
   }
 
   /// Fetches ticket items from database
+  /// - Parameter completion: callback containing fetched ticket items or error value
   fileprivate func fetchTickets(completion: @escaping ([Ticket]?, Error?) -> Void)
   {
-    gateway.query(FirebaseKeyVender.ticketsPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVendor.ticketsPath) { (data, error) in
       var tickets = [Ticket]()
       if let ticketsData = data {
         for key in ticketsData.keys {
@@ -116,9 +118,10 @@ class ItemRepository
   }
 
   /// Fetches book items from database
+  /// - Parameter completion: callback containing fetched book item or error value
   fileprivate func fetchBooks(completion: @escaping ([Book]?, Error?) -> Void)
   {
-    gateway.query(FirebaseKeyVender.booksPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVendor.booksPath) { (data, error) in
       var books = [Book]()
       if let booksData = data {
         for key in booksData.keys {
@@ -132,9 +135,10 @@ class ItemRepository
   }
 
   /// Fetches food items from database
+  /// - Parameter completion: callback containing fetched food items or error value
   fileprivate func fetchFood(completion: @escaping ([Food]?, Error?) -> Void)
   {
-    gateway.query(FirebaseKeyVender.foodPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVendor.foodPath) { (data, error) in
       var food = [Food]()
       if let foodData = data {
         for key in foodData.keys {
@@ -148,9 +152,10 @@ class ItemRepository
   }
 
   /// Fetches miscellaneous items from database
+  /// - Parameter completion: callback containing fetched misc items or error value
   fileprivate func fetchMisc(completion: @escaping ([Misc]?, Error?) -> Void)
   {
-    gateway.query(FirebaseKeyVender.miscPath) { (data, error) in
+    gateway.query(endpoint: FirebaseKeyVendor.miscPath) { (data, error) in
       var miscItems = [Misc]()
       if let miscData = data {
         for key in miscData.keys {
@@ -163,81 +168,81 @@ class ItemRepository
     }
   }
 
-  /// Translates ticket into dictionary to be persisted
+  /// Translates ticket into raw data dictionary to be persisted
   /// - Parameter ticket: item to be translated
   /// - Returns: dictionary of ticket properties
   fileprivate func translate(ticket: Ticket) -> [String : Any]
   {
     var ticketData = [String : Any]()
-    ticketData[FirebaseKeyVender.buyerIDKey] = ticket.buyerID ?? nil
-    ticketData[FirebaseKeyVender.createDateKey] = ticket.createDate.iso8601
-    ticketData[FirebaseKeyVender.creatorIDKey] = ticket.creatorID
-    ticketData[FirebaseKeyVender.dateSoldKey] = ticket.dateSold?.iso8601
-    ticketData[FirebaseKeyVender.descriptionKey] = ticket.description
-    ticketData[FirebaseKeyVender.locationKey] = ticket.location ?? nil
-    ticketData[FirebaseKeyVender.nameKey] = ticket.name
-    ticketData[FirebaseKeyVender.priceKey] = ticket.price
-    ticketData[FirebaseKeyVender.sportKey] = ticket.sport
-    ticketData[FirebaseKeyVender.timeKey] = ticket.time.iso8601
-    ticketData[FirebaseKeyVender.viewCountKey] = ticket.viewCount
+    ticketData[FirebaseKeyVendor.buyerIDKey] = ticket.buyerID ?? nil
+    ticketData[FirebaseKeyVendor.createDateKey] = ticket.createDate.iso8601
+    ticketData[FirebaseKeyVendor.creatorIDKey] = ticket.creatorID
+    ticketData[FirebaseKeyVendor.dateSoldKey] = ticket.dateSold?.iso8601
+    ticketData[FirebaseKeyVendor.descriptionKey] = ticket.description
+    ticketData[FirebaseKeyVendor.locationKey] = ticket.location ?? nil
+    ticketData[FirebaseKeyVendor.nameKey] = ticket.name
+    ticketData[FirebaseKeyVendor.priceKey] = ticket.price
+    ticketData[FirebaseKeyVendor.sportKey] = ticket.sport
+    ticketData[FirebaseKeyVendor.timeKey] = ticket.time.iso8601
+    ticketData[FirebaseKeyVendor.viewCountKey] = ticket.viewCount
 
     return ticketData
   }
 
-  /// Translates book into dictionary to be persisted
+  /// Translates book into raw data dictionary to be persisted
   /// - Parameter book: item to be translated
   /// - Returns: dictionary of book properties
   fileprivate func translate(book: Book) -> [String : Any]
   {
     var bookData = [String : Any]()
-    bookData[FirebaseKeyVender.authorKey] = book.author
-    bookData[FirebaseKeyVender.buyerIDKey] = book.buyerID ?? nil
-    bookData[FirebaseKeyVender.classCodeKey] = book.classCode ?? nil
-    bookData[FirebaseKeyVender.createDateKey] = book.createDate.iso8601
-    bookData[FirebaseKeyVender.creatorIDKey] = book.creatorID
-    bookData[FirebaseKeyVender.dateSoldKey] = book.dateSold?.iso8601
-    bookData[FirebaseKeyVender.descriptionKey] = book.description
-    bookData[FirebaseKeyVender.isbnKey] = book.isbn ?? nil
-    bookData[FirebaseKeyVender.nameKey] = book.name
-    bookData[FirebaseKeyVender.priceKey] = book.price
-    bookData[FirebaseKeyVender.viewCountKey] = book.viewCount
+    bookData[FirebaseKeyVendor.authorKey] = book.author
+    bookData[FirebaseKeyVendor.buyerIDKey] = book.buyerID ?? nil
+    bookData[FirebaseKeyVendor.classCodeKey] = book.classCode ?? nil
+    bookData[FirebaseKeyVendor.createDateKey] = book.createDate.iso8601
+    bookData[FirebaseKeyVendor.creatorIDKey] = book.creatorID
+    bookData[FirebaseKeyVendor.dateSoldKey] = book.dateSold?.iso8601
+    bookData[FirebaseKeyVendor.descriptionKey] = book.description
+    bookData[FirebaseKeyVendor.isbnKey] = book.isbn ?? nil
+    bookData[FirebaseKeyVendor.nameKey] = book.name
+    bookData[FirebaseKeyVendor.priceKey] = book.price
+    bookData[FirebaseKeyVendor.viewCountKey] = book.viewCount
 
     return bookData
   }
 
-  /// Translates food into dictionary to be persisted
+  /// Translates food into raw data dictionary to be persisted
   /// - Parameter food: item to be translated
   /// - Returns: dictionary of food properties
   fileprivate func translate(food: Food) -> [String : Any]
   {
     var foodData = [String : Any]()
-    foodData[FirebaseKeyVender.categoryKey] = food.category
-    foodData[FirebaseKeyVender.createDateKey] = food.createDate.iso8601
-    foodData[FirebaseKeyVender.creatorIDKey] = food.creatorID
-    foodData[FirebaseKeyVender.descriptionKey] = food.description
-    foodData[FirebaseKeyVender.locationKey] = food.location ?? nil
-    foodData[FirebaseKeyVender.nameKey] = food.name
-    foodData[FirebaseKeyVender.timeKey] = food.time?.iso8601
-    foodData[FirebaseKeyVender.viewCountKey] = food.viewCount
+    foodData[FirebaseKeyVendor.categoryKey] = food.category
+    foodData[FirebaseKeyVendor.createDateKey] = food.createDate.iso8601
+    foodData[FirebaseKeyVendor.creatorIDKey] = food.creatorID
+    foodData[FirebaseKeyVendor.descriptionKey] = food.description
+    foodData[FirebaseKeyVendor.locationKey] = food.location ?? nil
+    foodData[FirebaseKeyVendor.nameKey] = food.name
+    foodData[FirebaseKeyVendor.timeKey] = food.time?.iso8601
+    foodData[FirebaseKeyVendor.viewCountKey] = food.viewCount
 
     return foodData
   }
 
-  /// Translates misc item into dictionary to be persisted
+  /// Translates misc item into raw data dictionary to be persisted
   /// - Parameter misc: item to be translated
   /// - Returns: dictionary of misc item properties
   fileprivate func translate(misc: Misc) -> [String : Any]
   {
     var miscData = [String : Any]()
-    miscData[FirebaseKeyVender.buyerIDKey] = misc.buyerID ?? nil
-    miscData[FirebaseKeyVender.categoryKey] = misc.category
-    miscData[FirebaseKeyVender.createDateKey] = misc.createDate.iso8601
-    miscData[FirebaseKeyVender.creatorIDKey] = misc.creatorID
-    miscData[FirebaseKeyVender.descriptionKey] = misc.description
-    miscData[FirebaseKeyVender.dateSoldKey] = misc.dateSold?.iso8601
-    miscData[FirebaseKeyVender.nameKey] = misc.name
-    miscData[FirebaseKeyVender.priceKey] = misc.price
-    miscData[FirebaseKeyVender.viewCountKey] = misc.viewCount
+    miscData[FirebaseKeyVendor.buyerIDKey] = misc.buyerID ?? nil
+    miscData[FirebaseKeyVendor.categoryKey] = misc.category
+    miscData[FirebaseKeyVendor.createDateKey] = misc.createDate.iso8601
+    miscData[FirebaseKeyVendor.creatorIDKey] = misc.creatorID
+    miscData[FirebaseKeyVendor.descriptionKey] = misc.description
+    miscData[FirebaseKeyVendor.dateSoldKey] = misc.dateSold?.iso8601
+    miscData[FirebaseKeyVendor.nameKey] = misc.name
+    miscData[FirebaseKeyVendor.priceKey] = misc.price
+    miscData[FirebaseKeyVendor.viewCountKey] = misc.viewCount
 
     return miscData
   }
