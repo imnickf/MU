@@ -229,123 +229,84 @@
 
 		<h3 id="controllers"><strong>D) Controllers</strong> - <a href="#toc">top</a></h3>
 
-		<p>This theme imports three Javascript files.</p>
+		<p>Below are the main controllers for our views:</p>
 
-		<ol>
-			<li><h3 id="mainController">Main Controller</h3></li>
-			<ol>
-				<li><strong>Main.js</strong></li>
+		<ul>
+			<ul>
+				<h4><strong>&bull; adminController.js</strong></h4>
 					<ul>
-						App.controller <br>
-						@name = headerController <br>
-						@scopes {auth, status, toggleDropdown, isNavcollapsed, display_Navinfo} <br>
-						@description: <br>
-						App.Controller is the main controller for the Nav Bar and login system.
+                        app.controller <br>
+						scope = {} <br>
+						Description: Admin Controller Page used for pulling in data from firebase database.
 					</ul>
-				<li><strong>Filter.js</strong></li>
-				<ul>
-					app.filter.filter()<br>
-					@param = {Capitalize, NetID}<br>
-					@dscription: <br>
-					Takes in the user netId and cuts out the Iastate.edu. <br>
-					This leaves just the part infront of @ and capitlize the letter.
-				</ul>
-				<li><strong>Routes.js</strong></li>
-				<ul>
-					app.config <br>
-					@description: <br>
-					Takes in a web link and changes the view/controller of the current page.
-				</ul>
-			</ol>
-			<li><h3 id="Content">Content</h3></li>
-			<ol>
-				<li><strong>adminController.js</strong></li>
+				<h4><strong>&bull; foodController.js</strong></h4>
 					<ul>
-						admin.module <br>
-						@name = adminController <br>
-						@scope = {data} <br>
-						@description: <br>
-						Admin Controller Page used for pulling in data from firebase database.
-
+                        app.controller <br>
+						scope = {} <br>
+						Description: Food Controller Page used for pulling in data from firebase database.
 					</ul>
-				<li><strong>foodController.js</strong></li>
-					<ul>
-						food.app <br>
-						@name = foodController <br>
-						@scope = {data} <br>
-						@description: <br>
-						food Controller Page used for pulling in data from firebase database.
-					</ul>
-				<li><strong>FurnitureController.js</strong></li>
+				<h4><strong>&bull; FurnitureController.js</strong></h4>
 				<ul>
-					app.controller <br>
-					@name = furnitureController <br>
-					@scope = {data} <br>
-					@description: <br>
-					Furniture Controller Page used for pulling in data from firebase database.
+                    app.controller <br>
+					scope = {} <br>
+					Description: Furniture Controller Page used for pulling in data from firebase database.
 				</ul>
-				<li><strong>mainController.js</strong></li>
+				<h4><strong>&bull; mainController.js</strong></h4>
 				<ul>
-					app.controller <br>
-					@name = mainController <br>
-					@description: <br>
-					main Controller Page used for pulling in data from firebase database.
+                    app.controller <br>
+                    scope = {} <br>
+					Description: Main Controller Page used for pulling in data from firebase database.
 				</ul>
-				<li><strong>profileController.js</strong></li>
+				<h4><strong>&bull; profileController.js</strong></h4>
 				<ul>
-					app.controller <br>
-					@name = profileController <br>
-					@scope = {data} <br>
-					@description: <br>
-					Profile Controller Page used for pulling in data from firebase database.
+                    app.controller <br>
+					scope = {} <br>
+					Description: Profile Controller Page used for pulling in data from firebase database.
 				</ul>
-				<li><strong>textbookController.js</strong></li>
+				<h4><strong>&bull; textbookController.js</strong></h4>
 				<ul>
 					app.controller <br>
-					@name = textbookController <br>
 
-
-					@itemService.setup() <br>
-					<ul>setup our items service with a database URL, item name, and item array <br>
+					itemService.setup() <br>
+					<ul>Setup our items service with a database URL, item name, and item array <br>
 						books variable resolved on the route, resolved variables are only available <br>
 						in the controller, so we need to update our singleton service by passing books array <br>
 					</ul>
 
-					@scope = {data,book} <br>
+					scope = {book} <br>
 
-					@Var {addBook, Validate, bookID, setBook} <br>
+					Vars: {addBook, Validate, bookID, setBook} <br>
 						<ul>addBook = Adds a book to the array of books that get listed to the page. <br>
 						Validate = Checks to make sure all the critera for the current book being added is correct <br>
 						bookID = hooks onto url of the book <br>
 						setBook = Used to update a book in the array <br>
 						</ul>
-					@description: <br>
-					TextBook Controller Page used for pulling in data from firebase database.
+					Description: TextBook Controller Page used for pulling in data from firebase database.
 				</ul>
-				<li><strong>ticketController.js</strong></li>
+				<h4><strong>&bull; ticketController.js</strong></h4>
 				<ul>
 					app.controller <br>
-					@name = ticketController <br>
-					@scope = {data} <br>
-					@description: <br>
-					Ticket Controller Page used for pulling in data from firebase database.
+					scope = {} <br>
+					Description: Ticket Controller Page used for pulling in data from firebase database.
 				</ul>
-			</ol>
+			</ul>
 
-		</ol>
+		</ul>
 
 		<hr>
 
         <h3 id="views"><strong>E) Views</strong> - <a href="#toc">top</a></h3>
 
         <ul>
-            Our views are separated into different .html files under the views folder. Each item view technically contains two separate views, the edit view and the list view. The views pull in scope data from the controllers to display formatted data to the user. The following Bootstrap CSS classes have been proven to be the most useful during UI development:<br><br>
             <ul>
-                <li>container - Groups and formats elements together.</li>
-                <li>row - Create a new row for placing elements.</li>
-                <li>col-ss-xx (example: col-md-5) - Place items using custom column sizes and grid formatting.</li>
-                <li>form-group - Format items together inside of an HTML form.</li>
-                <li>table table-striped - Create a neat striped Bootstrap table.</li>
+               Our views are separated into different .html files under the views folder. Each item view technically contains two separate views, the edit view and the list view. The views pull in scope data from the controllers to display formatted data to the user. The following Bootstrap CSS classes have been proven to be the most useful during UI development:<br><br>
+                <ul>
+                    <li>container - Groups and formats elements together.</li>
+                    <li>row - Create a new row for placing elements.</li>
+                    <li>col-ss-xx (example: col-md-5) - Place items using custom column sizes and grid formatting.</li>
+                    <li>form-group - Format items together inside of an HTML form.</li>
+                    <li>table table-striped - Create a neat striped Bootstrap table.</li>
+                </ul>
             </ul>
         </ul>
 
