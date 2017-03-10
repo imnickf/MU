@@ -39,6 +39,10 @@
 			<li><a href="#htmlStructure">HTML Structure</a></li>
 
 			<li><a href="#javascript">JavaScript</a></li>
+				<ol>
+					<li><a href="#mainController">MainController</a></li>
+					<li><a href="#Content">Content</a></li>
+				</ol>
 			<li><a href="#psdFiles">PSD Files</a></li>
 
 			<li><a href="#">PHP Code Explanation</a> <em class="quiet small">(If your theme uses PHP)</em></li>
@@ -75,14 +79,14 @@
 
 		<hr>
 
-		<h3 id="javascript"><strong>C) AngularJS/JavaScript</strong> - <a href="#toc">top</a></h3>
+		<h3 id="javascript"><strong>C) AngularJS Controllers</strong> - <a href="#toc">top</a></h3>
 
 		<p>This theme imports three Javascript files.</p>
 
 		<ol>
-			<li>Main Controller</li>
+			<li><h3 id="mainController">Main Controller</h3></li>
 			<ol>
-				<li>Main.js</li>
+				<li><strong>Main.js</strong></li>
 					<ul>
 						App.controller <br>
 						@name = headerController <br>
@@ -90,7 +94,7 @@
 						@description: <br>
 						App.Controller is the main controller for the Nav Bar and login system.
 					</ul>
-				<li>Filter.js</li>
+				<li><strong>Filter.js</strong></li>
 				<ul>
 					app.filter.filter()<br>
 					@param = {Capitalize, NetID}<br>
@@ -98,42 +102,92 @@
 					Takes in the user netId and cuts out the Iastate.edu. <br>
 					This leaves just the part infront of @ and capitlize the letter.
 				</ul>
-				<li>Routes.js</li>
+				<li><strong>Routes.js</strong></li>
 				<ul>
 					app.config <br>
 					@description: <br>
 					Takes in a web link and changes the view/controller of the current page.
 				</ul>
 			</ol>
-			<li>Content</li>
+			<li><h3 id="Content">Content</h3></li>
 			<ol>
-				<li>adminController.js</li>
+				<li><strong>adminController.js</strong></li>
 					<ul>
 						admin.module <br>
+						@name = adminController <br>
+						@scope = {data} <br>
+						@description: <br>
+						Admin Controller Page used for pulling in data from firebase database.
 
 					</ul>
-				<li>foodController.js</li>
+				<li><strong>foodController.js</strong></li>
 					<ul>
-
+						food.app <br>
+						@name = foodController <br>
+						@scope = {data} <br>
+						@description: <br>
+						food Controller Page used for pulling in data from firebase database.
 					</ul>
-				<li>FurnitureController.js</li>
+				<li><strong>FurnitureController.js</strong></li>
+				<ul>
+					app.controller <br>
+					@name = furnitureController <br>
+					@scope = {data} <br>
+					@description: <br>
+					Furniture Controller Page used for pulling in data from firebase database.
+				</ul>
+				<li><strong>mainController.js</strong></li>
+				<ul>
+					app.controller <br>
+					@name = mainController <br>
+					@description: <br>
+					main Controller Page used for pulling in data from firebase database.
+				</ul>
+				<li><strong>profileController.js</strong></li>
+				<ul>
+					app.controller <br>
+					@name = profileController <br>
+					@scope = {data} <br>
+					@description: <br>
+					Profile Controller Page used for pulling in data from firebase database.
+				</ul>
+				<li><strong>textbookController.js</strong></li>
+				<ul>
+					app.controller <br>
+					@name = textbookController <br>
 
-				<li>mainController.js</li>
-				<li>profileController.js</li>
-				<li>textbookController.js</li>
-				<li>ticketController.js</li>
+
+					@itemService.setup() <br>
+					<ul>setup our items service with a database URL, item name, and item array <br>
+						books variable resolved on the route, resolved variables are only available <br>
+						in the controller, so we need to update our singleton service by passing books array <br>
+					</ul>
+
+					@scope = {data,book} <br>
+
+					@Var {addBook, Validate, bookID, setBook} <br>
+						<ul>addBook = Adds a book to the array of books that get listed to the page. <br>
+						Validate = Checks to make sure all the critera for the current book being added is correct <br>
+						bookID = hooks onto url of the book <br>
+						setBook = Used to update a book in the array <br>
+						</ul>
+					@description: <br>
+					TextBook Controller Page used for pulling in data from firebase database.
+				</ul>
+				<li><strong>ticketController.js</strong></li>
+				<ul>
+					app.controller <br>
+					@name = ticketController <br>
+					@scope = {data} <br>
+					@description: <br>
+					Ticket Controller Page used for pulling in data from firebase database.
+				</ul>
 			</ol>
 
 		</ol>
 		
 
 		<hr>
-
-		<pre>	[some Javascript goes here...along with an general explanation]
-			[some Javascript goes here...along with an general explanation]
-			[some Javascript goes here...along with an general explanation]
-		</pre>
-
 		<p class="append-bottom alt large"><strong>Team117</strong></p>
 		<p><a href="#toc">Go To Table of Contents</a></p>
 
