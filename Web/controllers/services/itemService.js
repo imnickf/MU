@@ -9,7 +9,8 @@
  *      3.) Call the itemService.setup() function at the very top of your controller, passing
  *          in the newly resolved variable.
  */
-app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService', function itemService($firebaseArray, $firebaseObject, authService) {
+app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService',
+    function itemService($firebaseArray, $firebaseObject, authService) {
     // pull in firebase database
     var database = firebase.database();
     var url;
@@ -52,9 +53,9 @@ app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService', 
             // call the update function with the newly generated itemID
             this.set(item, key);
         },
-        remove: function(item){
+        remove: function(itemID){
             // delete the item with itemID
-            items.$remove(item);
+            items.$remove(itemID);
         },
         setup: function(uri, name, scopeItems){
             url = uri;
@@ -62,6 +63,5 @@ app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService', 
             items = scopeItems;
         }
     };
-}]);/**
- * Created by joeku on 3/5/2017.
- */
+}]);
+

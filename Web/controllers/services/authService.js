@@ -1,7 +1,8 @@
 /**
  * Created by joe kuczek on 3/2/2017.
  */
-app.factory('authService', ['$firebaseAuth', '$firebaseObject', function authService($firebaseAuth, $firebaseObject) {
+app.factory('authService', ['$firebaseAuth', '$firebaseObject',
+    function authService($firebaseAuth, $firebaseObject) {
     var auth = $firebaseAuth();
 
     return {
@@ -32,10 +33,6 @@ app.factory('authService', ['$firebaseAuth', '$firebaseObject', function authSer
         getUser: function(){
             // return current authentication object
             return auth.$getAuth();
-        },
-        getItems: function(){
-
-          console.log(user_id);
         }
     };
 }]);

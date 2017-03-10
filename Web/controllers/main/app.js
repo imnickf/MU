@@ -17,11 +17,6 @@ var database = firebase.database();
 // define our angular app, our dependencies are ngRoute, firebase, and ui.bootstrap
 var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
-
-/**
- * App Controller for the Nav Bar.
- * @headController
- */
 app.controller('headerController', ['$scope', 'authService', function($scope, authService) {
     // pull authentication variables/functions into current scope
     authService.setScope($scope);
