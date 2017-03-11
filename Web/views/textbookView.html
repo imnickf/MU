@@ -5,11 +5,11 @@
             <a ng-href="#textbooks/add">Add Book</a>
             <table class="table table-striped">
                 <thead>
-                <th>Name</th>
-                <th>Class Code</th>
-                <th>Author</th>
-                <th>Price</th>
-                <th>Options</th>
+                    <th>Name</th>
+                    <th>Class Code</th>
+                    <th>Author</th>
+                    <th>Price</th>
+                    <th>Options</th>
                 </thead>
                 <tr ng-repeat="book in books">
                     <td>{{ book.name }}</td>
@@ -17,8 +17,8 @@
                     <td>{{ book.author }}</td>
                     <td>{{ book.price }}</td>
                     <td>
-                        <a ng-href="#textbooks/{{ book.$id }}">Edit</a> &bull;
-                        <a ng-href="#textbooks" ng-click="deleteBook(book)">Delete</a>
+                        <a ng-href="#textbooks/{{ book.$id }}" ng-show="book.allow_edit">Edit</a> <span ng-show="book.allow_edit"> &bull;</span>
+                        <a ng-href="#textbooks" ng-click="deleteBook(book)" ng-show="book.allow_edit">Delete</a>
                     </td>
                 </tr>
             </table>

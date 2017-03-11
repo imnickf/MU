@@ -1,7 +1,7 @@
 /*
      Controller for providing data to the textbookView
  */
-app.controller('textbookController', ['$scope', '$routeParams', '$location', 'itemService', 'books', function($scope, $routeParams, $location, itemService, books){
+app.controller('textbookController', function($scope, $routeParams, $location, itemService, books, userItems){
     // setup our items service with a database URL, item name, and item array
     // books variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service by passing books array
@@ -66,10 +66,12 @@ app.controller('textbookController', ['$scope', '$routeParams', '$location', 'it
         $scope.editing = true;
         $scope.update = setBook;
     }else{
-        // we have nothing, just pull in the list of books
-        $scope.books = itemService.all();
+        angular.forEach(books, function(book) {
+            if(userItems.$getRecord(book.$id) !== null){
+                book.allow_edit = true;
+            }// end if the user can edit this book
+        });
+
+        $scope.books = books;
     }// end if bookID == add
-
-}]);
-
-
+});

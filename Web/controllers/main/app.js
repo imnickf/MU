@@ -2,6 +2,7 @@
     Main controller for handling configuration and dependency settings,
     also provides a controller for the header and navigation
 */
+'use strict';
 
 // initialize our firebase settings
 var config = {
@@ -17,9 +18,9 @@ var database = firebase.database();
 // define our angular app, our dependencies are ngRoute, firebase, and ui.bootstrap
 var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
-app.controller('headerController', ['$scope', 'authService', function($scope, authService) {
+app.controller('headerController', function($scope, authService) {
     // pull authentication variables/functions into current scope
-    authService.setScope($scope);
+    authService.setup($scope);
 
     $scope.auth.$onAuthStateChanged(function (user) {
         // listener function, called every time authentication state changes
@@ -55,4 +56,4 @@ app.controller('headerController', ['$scope', 'authService', function($scope, au
 
     $scope.isNavCollapsed = true;
     $scope.display_Navinfo = false;
-}]);
+});

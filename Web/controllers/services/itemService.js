@@ -9,8 +9,7 @@
  *      3.) Call the itemService.setup() function at the very top of your controller, passing
  *          in the newly resolved variable.
  */
-app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService',
-    function itemService($firebaseArray, $firebaseObject, authService) {
+app.factory('itemService', function itemService($firebaseArray, $firebaseObject, authService) {
     // pull in firebase database
     var database = firebase.database();
     var url;
@@ -38,7 +37,7 @@ app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService',
 
             // update the item at itemID with the scope information
             updates[url + itemID] = item;
-            updates['/users/' + user_id + '/items/' + itemID] = itemID;
+            updates['/users/' + user_id + '/items/' + itemID] = "";
             database.ref().update(updates);
         },
         add: function(item){
@@ -53,15 +52,18 @@ app.factory('itemService', ['$firebaseArray', '$firebaseObject', 'authService',
             // call the update function with the newly generated itemID
             this.set(item, key);
         },
-        remove: function(itemID){
+        remove: function(item){
             // delete the item with itemID
-            items.$remove(itemID);
+            var user_id = authService.getUser().uid;
+            items.$remove(item);
+            // remove data from users table
+            database.ref('/users/' + user_id + '/items/' + item.$id).remove();
         },
         setup: function(uri, name, scopeItems){
             url = uri;
             itemName = name;
             items = scopeItems;
-        }
+        }// end itemService functions
     };
-}]);
+});
 
