@@ -62,16 +62,17 @@ class CreateFoodTableViewController: UITableViewController {
       createButton.isEnabled = false
     }
   
+  
   /// A function used to check if form is filled in.
   /// - returns: A boolean value indicating that the form is filled in.
   fileprivate func verifyInputs() -> Bool
   {
-    return nameTextField.text != nil && selectedDate != nil && categoryTextField.text != nil && descriptionTextView.text != "Discription of Food"
+    return nameTextField.text != nil && selectedDate != nil && categoryTextField.text != nil && descriptionTextView.text != "Description of Food"
   }
   
   /// A function that is used to create a new Food.
   /// This fuction is linked to "Create" button.
-  @IBAction func createFood() {
+  @IBAction func createFood(_ sender: Any) {
     guard let name = nameTextField.text else {
       return
     }
@@ -100,7 +101,7 @@ extension CreateFoodTableViewController: UITextViewDelegate
   /// begins editing a Text View.
   func textViewDidBeginEditing(_ textView: UITextView)
   {
-    if textView.text == "Discription of Food" {
+    if textView.text == "Description of Food" {
       textView.text = nil
       textView.textColor = UIColor.white
     }
@@ -112,7 +113,7 @@ extension CreateFoodTableViewController: UITextViewDelegate
   func textViewDidEndEditing(_ textView: UITextView)
   {
     if !descriptionTextView.hasText {
-      descriptionTextView.text = "Discription of Food"
+      descriptionTextView.text = "Description of Food"
       descriptionTextView.textColor = UIColor.lightGray
     }
     tableView.isScrollEnabled = false
