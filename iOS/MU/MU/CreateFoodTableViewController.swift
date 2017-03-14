@@ -85,7 +85,7 @@ class CreateFoodTableViewController: UITableViewController {
     guard let description = descriptionTextView.text else {
       return
     }
-    print(category)
+    
 
     let food = itemFactory.makeFood(withDescription: description, name: name, category: category, location: locationTextField.text, time: date)
     itemRepo.persist(item: food)

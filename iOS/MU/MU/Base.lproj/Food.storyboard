@@ -38,7 +38,6 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outlet property="FoodText" destination="n8Y-B1-r5g" id="mzY-Un-oWR"/>
-                                    <segue destination="Xzn-Ry-0P1" kind="show" id="gfu-0R-H0n"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -56,15 +55,18 @@
                         </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <segue destination="Xzn-Ry-0P1" kind="show" identifier="showFoodDetail" id="k7f-my-Wpp"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cof-hX-7nC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2111.1999999999998" y="544.67766116941539"/>
+            <point key="canvasLocation" x="2026" y="542"/>
         </scene>
-        <!--View Controller-->
+        <!--Food Detail View Controller-->
         <scene sceneID="5Pe-XA-9Cr">
             <objects>
-                <viewController id="Xzn-Ry-0P1" sceneMemberID="viewController">
+                <viewController id="Xzn-Ry-0P1" customClass="FoodDetailViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LKM-an-7T9"/>
                         <viewControllerLayoutGuide type="bottom" id="dQQ-kZ-47r"/>
@@ -72,12 +74,41 @@
                     <view key="view" contentMode="scaleToFill" id="C1T-5A-AjR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Fd-Ua-sBM">
+                                <rect key="frame" x="66" y="158" width="242" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="fjsdkfl;adjskfl;sdjfksdl;fsdjkfdfjdkfjdkfdjfkdjfkjaksdfjzskxfjksdjfkasjfksfjgbinu9eencoaekvsjdkjfniwrn" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="JHc-tV-fIt">
+                                <rect key="frame" x="66" y="216" width="242" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.1843137255" green="0.1843137255" blue="0.18823529410000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WZW-k2-asL">
+                                <rect key="frame" x="66" y="118" width="242" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <connections>
+                        <outlet property="DescriptionTextView" destination="JHc-tV-fIt" id="gbu-8J-LeZ"/>
+                        <outlet property="FoodCatLabel" destination="3Fd-Ua-sBM" id="Agm-2p-dty"/>
+                        <outlet property="TitleLabel" destination="WZW-k2-asL" id="LOU-uD-5z8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OwW-dQ-dGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3030" y="213"/>
+            <point key="canvasLocation" x="3029.5999999999999" y="212.74362818590706"/>
         </scene>
         <!--Create Food Table View Controller-->
         <scene sceneID="HEX-Eb-Kfd">
@@ -299,7 +330,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AR5-q5-XxO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AR5-q5-XxO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -310,7 +341,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jDc-iZ-qQj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="544.67766116941539"/>
+            <point key="canvasLocation" x="1118" y="542"/>
         </scene>
     </scenes>
     <resources>
