@@ -40,5 +40,17 @@ class ProfileViewController: UIViewController
       print ("Error signing out: %@", signOutError)
     }
   }
+  
+  @IBAction func test(_ sender: Any) {
+    let test = ItemRepository()
+    test.getItems(forUserId: "Qd04tReXvcfCDuFvPak5hyNO44U2") { (bla) in
+      print(bla.count)
+      if bla.count != 0 {
+        for k in 0...(bla.count - 1) {
+          //print(bla[k])
+        }
+      }
+    }
+  }
 }
 

@@ -70,7 +70,7 @@ class CreateMiscTableViewController: UITableViewController {
     }
     
     
-    let misc = itemFactory.makeMisc(withDescription: description, name: name, price: price, category: category)
+    let misc = itemFactory.makeMisc(withDescription: description, name: name, price: "$" + price, category: category)
     itemRepo.persist(item: misc)
     let _ = self.navigationController?.popViewController(animated: true)
   }
