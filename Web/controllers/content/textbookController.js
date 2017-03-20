@@ -58,14 +58,27 @@ app.controller('textbookController', function($scope, $routeParams, $location, i
         // we are trying to add a new book
         $scope.title = 'Add Book';
         $scope.editing = true;
+        // false because we are on the 'add' form
+        $scope.edit_form = false;
         $scope.book = {};
         $scope.update = addBook;
     }else if($scope.book){
         // we have a valid bookID in URL, show the edit form
         $scope.title = 'Edit Book';
+        // pull in Firebase storage image reference
+        var imageRef = itemService.getImageRef(bookID);
+
+        imageRef.getDownloadURL().then(function(url) {
+            $scope.image_url = url;
+            $scope.$apply();
+        });
+
         $scope.editing = true;
+        // true if we are on the 'edit' form
+        $scope.edit_form = true;
         $scope.update = setBook;
     }else{
+        // we are just showing the list of books
         angular.forEach(books, function(book) {
             if(userItems.$getRecord(book.$id) !== null){
                 book.allow_edit = true;

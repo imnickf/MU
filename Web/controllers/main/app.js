@@ -16,7 +16,7 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 // define our angular app, our dependencies are ngRoute, firebase, and ui.bootstrap
-var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
+var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap', 'angularFileUpload']);
 
 app.controller('headerController', function($scope, authService) {
     // pull authentication variables/functions into current scope
@@ -32,7 +32,7 @@ app.controller('headerController', function($scope, authService) {
             // update firebase information with new user
             var updates = {};
             // normal users get a type set to 3
-            updates['/users/' + user.uid + '/type'] = {type: 3};
+            updates['/users/' + user.uid + '/type/'] = 3;
             database.ref().update(updates);
         } else if (user) {
             // user is logged in with non-iastate account

@@ -28,9 +28,16 @@
 <div class="container" ng-show="editing" id="editForm">
     <div class="row">
         <div class="col-md-5">
-            <h3>{{ title }}</h3>
+            <h3>{{ title }}</h3><br ng-show="edit_form">
+            <img width="150" height="150" ng-src="{{ image_url }}" ng-show="edit_form"><div ng-show="edit_form"><br><br></div>
             <p style="color: crimson">{{ error }}</p>
             <form>
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <label>Upload Image:</label>
+                        <input type="file" nv-file-select uploader="{FileUploader}"/>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <div class="col-md-8">
                         <label>Name:</label>

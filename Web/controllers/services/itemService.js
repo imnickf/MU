@@ -35,6 +35,8 @@ app.factory('itemService', function itemService($firebaseArray, $firebaseObject,
             delete item['$id'];
             delete item['$priority'];
 
+            console.log(item.image);
+
             // update the item at itemID with the scope information
             updates[url + itemID] = item;
             updates['/users/' + user_id + '/items/' + itemID] = "";
@@ -58,6 +60,10 @@ app.factory('itemService', function itemService($firebaseArray, $firebaseObject,
             items.$remove(item);
             // remove data from users table
             database.ref('/users/' + user_id + '/items/' + item.$id).remove();
+        },
+        getImageRef: function(itemID){
+            // returns the uploaded image for this particular item, returns null if no image
+            return firebase.storage().ref('items/' + itemID + '.png');
         },
         setup: function(uri, name, scopeItems){
             url = uri;

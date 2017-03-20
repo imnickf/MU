@@ -1,48 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="77156a98-ec06-4048-91cc-5b9e942b2a53" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Docs/Web/assets/screenshots/app.PNG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Docs/Web/assets/screenshots/authService.PNG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Docs/Web/assets/screenshots/itemService.PNG" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../Docs/Web/assets/screenshots/routeExample.PNG" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/buttons/icons/cross.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/buttons/icons/key.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/buttons/icons/tick.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/buttons/readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/buttons/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/fancy-type/readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/fancy-type/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/icons/doc.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/icons/email.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/icons/external.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/icons/feed.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/icons/im.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/icons/pdf.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/icons/visited.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/icons/xls.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/link-icons/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/rtl/readme.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/plugins/rtl/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/print.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/screen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/src/forms.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/src/grid.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/src/grid.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/src/ie.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/src/print.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/src/reset.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/blueprint-css/src/typography.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/assets/images/htmlstructure.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../Docs/index.html" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../Docs/Web/index.html" afterPath="$PROJECT_DIR$/../Docs/Web/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/main/app.js" afterPath="$PROJECT_DIR$/controllers/main/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/services/authService.js" afterPath="$PROJECT_DIR$/controllers/services/authService.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/controllers/services/itemService.js" afterPath="$PROJECT_DIR$/controllers/services/itemService.js" />
-    </list>
+    <list default="true" id="77156a98-ec06-4048-91cc-5b9e942b2a53" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -61,12 +20,12 @@
     <favorites_list name="GB_04_CyFood_CyAlerts" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../Docs/Web/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="116">
-              <caret line="336" column="12" lean-forward="true" selection-start-line="336" selection-start-column="12" selection-end-line="336" selection-end-column="12" />
+            <state relative-caret-position="7304">
+              <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
               <folding>
                 <element signature="e#12110#12116#0" expanded="true" />
                 <element signature="e#12116#12122#0" expanded="true" />
@@ -108,6 +67,36 @@
                 <element signature="e#12780#12786#0" expanded="true" />
                 <element signature="e#12786#12792#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="textbookController.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/controllers/content/textbookController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="154">
+              <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="75" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="itemService.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/controllers/services/itemService.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="460">
+              <caret line="62" column="10" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -165,10 +154,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-11" />
-    <option name="y" value="-11" />
-    <option name="width" value="2182" />
-    <option name="height" value="1402" />
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="1938" />
+    <option name="height" value="1048" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -185,8 +174,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -255,6 +242,8 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,14 +357,15 @@
       <workItem from="1488414361518" duration="9061000" />
       <workItem from="1489015164858" duration="6021000" />
       <workItem from="1489106629601" duration="202000" />
+      <workItem from="1490054088149" duration="138000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68510000" />
+    <option name="totallyTimeSpent" value="68648000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-11" y="-11" width="2182" height="1402" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -545,13 +535,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/services/itemService.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/normal_logo.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -592,13 +575,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="675">
           <caret line="27" column="40" lean-forward="false" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="628">
-          <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
         </state>
       </provider>
     </entry>
@@ -644,13 +620,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/controllers/content/textbookController.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-601">
-          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/controllers/content/ticketController.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -660,8 +629,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../Docs/Web/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="116">
-          <caret line="336" column="12" lean-forward="true" selection-start-line="336" selection-start-column="12" selection-end-line="336" selection-end-column="12" />
+        <state relative-caret-position="7304">
+          <caret line="332" column="0" lean-forward="false" selection-start-line="332" selection-start-column="0" selection-end-line="332" selection-end-column="0" />
           <folding>
             <element signature="e#12110#12116#0" expanded="true" />
             <element signature="e#12116#12122#0" expanded="true" />
@@ -703,6 +672,30 @@
             <element signature="e#12780#12786#0" expanded="true" />
             <element signature="e#12786#12792#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="70" column="29" lean-forward="true" selection-start-line="70" selection-start-column="29" selection-end-line="70" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/content/textbookController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="9" column="4" lean-forward="false" selection-start-line="9" selection-start-column="4" selection-end-line="9" selection-end-column="75" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/controllers/services/itemService.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="62" column="10" lean-forward="true" selection-start-line="62" selection-start-column="10" selection-end-line="62" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
