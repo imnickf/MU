@@ -16,7 +16,9 @@ class BookTableViewController: UITableViewController
   
   /// An array that is used to store Book items.
   var books = [Book]()
-  
+
+  var selectedBook: Book?
+
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -67,17 +69,26 @@ extension BookTableViewController
   {
     return 60.0
   }
+
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
+  {
+    selectedBook = books[indexPath.row]
+    performSegue(withIdentifier: "showBookDetail", sender: self)
+  }
 }
 
 // MARK: - Navigation
 
 extension BookTableViewController
 {
-  /*
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
-   }
-   */
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
+    if segue.identifier == "showBookDetail" {
+      if let vc = segue.destination as? BookDetailViewController {
+        if let book = selectedBook {
+          vc.book = book
+        }
+      }
+    }
+  }
 }

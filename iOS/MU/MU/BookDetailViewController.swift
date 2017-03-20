@@ -30,7 +30,18 @@ class BookDetailViewController: UIViewController
 
   override func viewWillAppear(_ animated: Bool)
   {
-    
+    titleLabel.text = book.name
+    authorLabel.text = book.author
+    priceLabel.text = book.price
+    descriptionTextView.text = book.description
+    isbnLabel.text = book.isbn
+    classCodeLabel.text = book.classCode
+
+    isbnLabel.isHidden = book.isbn == nil
+    isbnInfoLabel.isHidden = book.isbn == nil
+
+    classCodeLabel.isHidden = book.classCode == nil
+    classCodeInfoLabel.isHidden = book.classCode == nil
   }
 
   @IBAction func buyItem(_ sender: Any)
