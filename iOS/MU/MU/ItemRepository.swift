@@ -83,21 +83,28 @@ class ItemRepository
   {
     switch item {
     case is Ticket:
-      gateway.persist(data: translate(ticket: item as! Ticket), endpoint: FirebaseKeyVendor.ticketsPath + "/\(item.id)")
+      let data = translate(ticket: item as! Ticket)
+      gateway.persist(data: data, endpoint: FirebaseKeyVendor.ticketsPath + "/\(item.id)")
+      gateway.persist(item: data, forUserId: FIRAuth.auth()!.currentUser!.uid, andItemId: item.id)
       break
     case is Book:
-      gateway.persist(data: translate(book: item as! Book), endpoint: FirebaseKeyVendor.booksPath + "/\(item.id)")
+      let data = translate(book: item as! Book)
+      gateway.persist(data: data, endpoint: FirebaseKeyVendor.booksPath + "/\(item.id)")
+      gateway.persist(item: data, forUserId: FIRAuth.auth()!.currentUser!.uid, andItemId: item.id)
       break
     case is Food:
-      gateway.persist(data: translate(food: item as! Food), endpoint: FirebaseKeyVendor.foodPath + "/\(item.id)")
+      let data = translate(food: item as! Food)
+      gateway.persist(data: data, endpoint: FirebaseKeyVendor.foodPath + "/\(item.id)")
+      gateway.persist(item: data, forUserId: FIRAuth.auth()!.currentUser!.uid, andItemId: item.id)
       break
     case is Misc:
-      gateway.persist(data: translate(misc: item as! Misc), endpoint: FirebaseKeyVendor.miscPath + "/\(item.id)")
+      let data = translate(misc: item as! Misc)
+      gateway.persist(data: data, endpoint: FirebaseKeyVendor.miscPath + "/\(item.id)")
+      gateway.persist(item: data, forUserId: FIRAuth.auth()!.currentUser!.uid, andItemId: item.id)
       break
     default:
       return
     }
-    gateway.persist(itemId: item.id, forUserId: FIRAuth.auth()!.currentUser!.uid)
   }
 
   /// Fetches ticket items from database

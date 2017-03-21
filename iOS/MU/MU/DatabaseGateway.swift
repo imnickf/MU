@@ -36,12 +36,12 @@ class DatabaseGateway
     FIRDatabase.database().reference().child(endpoint).setValue(data)
   }
 
-  /// Saves itemID in users table
-  /// - Parameter itemId: itemId string being saved to database
+  /// Saves item in users table
+  /// - Parameter item: item data being saved to database
   /// - Parameter forUserId: userId for which the item is being saved for
-  func persist(itemId id: String, forUserId uid: String)
+  func persist(item: Any, forUserId uid: String, andItemId id: String)
   {
-    FIRDatabase.database().reference().child(FirebaseKeyVendor.usersKey + "/" + uid + "/" + FirebaseKeyVendor.itemsKey).childByAutoId().setValue(id)
+    FIRDatabase.database().reference().child(FirebaseKeyVendor.usersKey + "/" + uid + "/" + FirebaseKeyVendor.itemsKey + "/" + id).setValue(item)
   }
 
   /// Creates new unique ID for the specified endpoint
