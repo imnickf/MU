@@ -17,10 +17,6 @@ app.factory('itemService', function itemService($firebaseArray, $firebaseObject,
     var items;    // a $firebaseArray object with all our database items
 
     return {
-        all: function() {
-            // return an array of all our items at /products/<item>
-            return items;
-        },
         get: function(itemID) {
             // return an array of a single item with itemID
             return items.$getRecord(itemID);
@@ -35,11 +31,9 @@ app.factory('itemService', function itemService($firebaseArray, $firebaseObject,
             delete item['$id'];
             delete item['$priority'];
 
-            console.log(item.image);
-
             // update the item at itemID with the scope information
             updates[url + itemID] = item;
-            updates['/users/' + user_id + '/items/' + itemID] = "";
+            updates['/users/' + user_id + '/items/' + itemID] = item;
             database.ref().update(updates);
         },
         add: function(item){
