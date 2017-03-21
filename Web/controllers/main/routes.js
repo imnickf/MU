@@ -46,6 +46,30 @@ app.config(function ($routeProvider) {
             }// end resolved functions
         }
     })
+    .when("/textbooks/detail/:bookID?", {
+        controller: "textbookController",
+        templateUrl: "views/textbookView.html",
+        resolve: {
+            books: function ($firebaseArray) {
+                var ref = firebase.database().ref('/products/book/');
+                return $firebaseArray(ref).$loaded();
+            },
+            userItems: function ($firebaseArray, authService, $q) {
+                // create a promise object
+                var deferred = $q.defer();
+
+                // wait for user to be authenticated
+                authService.promise.then(function () {
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid + '/items/');
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+            }// end resolved functions
+        }
+    })
     .when("/furniture", {
         controller: "furnitureController",
         templateUrl: "views/furnitureView.html"

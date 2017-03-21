@@ -9,6 +9,10 @@ app.controller('textbookController', function($scope, $routeParams, $location, i
 
     // default editing to false, show edit form when we have a valid bookID
     $scope.editing = false;
+    // detail view is default to false
+    $scope.detail = false;
+    // list view is default to true
+    $scope.list = true;
 
     // yank in our URL parameter
     var bookID = $routeParams.bookID;
@@ -16,6 +20,9 @@ app.controller('textbookController', function($scope, $routeParams, $location, i
     // grab our book from bookService, we are making asynchronous calls, but since
     // the books variable is a dependency, this wont run until books array is loaded
     $scope.book = itemService.get(bookID);
+
+    // grab the current URL path
+    var path = $location.path();
 
     // all of our error checking goes here
     var validate = function(book){
@@ -54,37 +61,58 @@ app.controller('textbookController', function($scope, $routeParams, $location, i
         itemService.remove(bookID);
     };
 
-    if(bookID == 'add'){
+    if(bookID == 'add') {
         // we are trying to add a new book
-        $scope.title = 'Add Book';
+        $scope.title = 'Add Book:';
         $scope.editing = true;
         // false because we are on the 'add' form
         $scope.edit_form = false;
+        $scope.list = false;
         $scope.book = {};
         $scope.update = addBook;
+    }else if(path.includes("detail")){
+        // we are on the detail view
+        $scope.detail = true;
+        $scope.editing = false;
+        $scope.list = false;
+        $scope.title = 'Book Details:';
+        // pull in Firebase storage image reference
+        var imageRef = itemService.getImageRef(bookID);
+
+        if(userItems.$getRecord($scope.book.$id) !== null){
+            $scope.book.allow_edit = true;
+        }// end if the user can edit this book
+
+        imageRef.getDownloadURL().then(function(url) {
+            $scope.image_valid = true;
+            $scope.image_url = url;
+            $scope.$apply();
+        }).catch(function(error){
+            $scope.image_valid = false;
+        });
     }else if($scope.book){
         // we have a valid bookID in URL, show the edit form
-        $scope.title = 'Edit Book';
+        $scope.title = 'Edit Book:';
         // pull in Firebase storage image reference
         var imageRef = itemService.getImageRef(bookID);
 
         imageRef.getDownloadURL().then(function(url) {
+            $scope.image_valid = true;
             $scope.image_url = url;
             $scope.$apply();
+        }).catch(function(error){
+            $scope.image_valid = false;
         });
 
         $scope.editing = true;
+        $scope.list = false;
+        $scope.detail = false;
         // true if we are on the 'edit' form
         $scope.edit_form = true;
         $scope.update = setBook;
     }else{
         // we are just showing the list of books
-        angular.forEach(books, function(book) {
-            if(userItems.$getRecord(book.$id) !== null){
-                book.allow_edit = true;
-            }// end if the user can edit this book
-        });
-
         $scope.books = books;
+        $scope.list = true;
     }// end if bookID == add
 });
