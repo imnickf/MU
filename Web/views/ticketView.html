@@ -1,3 +1,81 @@
-<div class="container">
-    <h3>{{ data }}</h3>
+<div class="container" ng-hide="editing" id="listView">
+    <h3>Ticket View</h3><br>
+    <div class="row">
+        <div class="col-md-8">
+            <a ng-href="#tickets/add">Add Ticket</a>
+            <table class="table table-striped">
+                <thead>
+                <th>Name</th>
+                <th>Seat Number</th>
+                <th>Location</th>
+                <th>Price</th>
+                <th>Options</th>
+                </thead>
+                <tr ng-repeat="ticket in tickets">
+                    <td>{{ ticket.name }}</td>
+                    <td>{{ ticket.seatNumber }}</td>
+                    <td>{{ ticket.location }}</td>
+                    <td>{{ ticket.price }}</td>
+                    <td>
+                        <a ng-href="#tickets/{{ ticket.$id }}" ng-show="ticket.allow_edit">Edit</a> <span ng-show="ticket.allow_edit"> &bull;</span>
+                        <a ng-href="#tickets" ng-click="deleteTicket(ticket)" ng-show="ticket.allow_edit">Delete</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<div class="container" ng-show="editing" id="editForm">
+    <div class="row">
+        <div class="col-md-5">
+            <h3>{{ title }}</h3><br ng-show="edit_form">
+            <img width="150" height="150" ng-src="{{ image_url }}" ng-show="edit_form"><div ng-show="edit_form"><br><br></div>
+            <p style="color: crimson">{{ error }}</p>
+            <form>
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <label>Upload Image:</label>
+                        <input type="file" nv-file-select uploader="{FileUploader}"/>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <label>Name:</label>
+                        <input type="text" class="form-control" ng-model="ticket.name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-8">
+                        <label>Seat Number:</label>
+                        <input type="text" class="form-control" ng-model="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label>Location:</label>
+                        <input type="text" class="form-control" ng-model="ticket.location">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label>Price:</label>
+                        <input type="text" class="form-control" ng-model="ticket.price">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-4">
+                        <label>Sport:</label>
+                        <input type="text" class="form-control" ng-model="ticket.sport">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-md-10">
+                        <label>Description:</label>
+                        <textarea rows="4" class="form-control" ng-model="ticket.description"></textarea>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary btn-lg" value="Submit" ng-click="update(ticket)">
+            </form>
+        </div>
+    </div>
 </div>
