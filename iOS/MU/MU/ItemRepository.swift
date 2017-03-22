@@ -77,6 +77,26 @@ class ItemRepository
     // TODO
   }
 
+  func getUserID() -> String
+  {
+    return FIRAuth.auth()!.currentUser!.uid
+  }
+
+  /// Deletes a provided item from the databse completely
+  /// - Parameter item: item to be deleted
+  func delete(item: Item)
+  {
+    // TODO
+  }
+
+  /// Marks an item as sold in the database
+  /// - Parameter item: item to be marked as sold
+  /// - Parameter byUser: unique ID for the buyer of the item
+  func markItemBought(_ item: Item, byUser id: String)
+  {
+    // TODO
+  }
+
   /// Saves provided item to database
   /// - Parameter item: item to be saved to database
   func persist(item: Item)
