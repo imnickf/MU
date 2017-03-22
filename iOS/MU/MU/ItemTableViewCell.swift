@@ -10,15 +10,17 @@ import UIKit
 
 class ItemTableViewCell: UITableViewCell {
 
+  @IBOutlet weak var nameText: UILabel!
+  @IBOutlet weak var itemTypeText: UILabel!
+  
+  
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
+  func configureWith(item: Item) {
+    nameText.text = item.name
+    let type: String = item.id.components(separatedBy: "-")[0]
+    itemTypeText.text = type
+  }
 }

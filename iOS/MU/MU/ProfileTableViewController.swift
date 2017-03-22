@@ -36,7 +36,7 @@ class ProfileTableViewController: UITableViewController
     tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
     
     
-    nameText.text = googleUser?.userID
+    //Add Name to text.
   }
 
     /// A method that is used to sign out the user using Firebase API.

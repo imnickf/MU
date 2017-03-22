@@ -79,7 +79,6 @@ class ItemRepository
       
       if let itemData = data {
         for key in itemData.keys {
-          
           //Retrieve type.
           var keyInfo: [String] = (key).components(separatedBy: "-")
           var itemType: ItemType? = nil
