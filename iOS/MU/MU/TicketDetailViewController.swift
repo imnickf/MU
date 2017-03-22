@@ -15,6 +15,8 @@ class TicketDetailViewController: UIViewController
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var descriptionTextView: UITextView!
   
+  @IBOutlet weak var actionButton: UIButton!
+
   var ticket: Ticket!
 
   override func viewDidLoad()
@@ -28,5 +30,39 @@ class TicketDetailViewController: UIViewController
     sportLabel.text = ticket.sport
     priceLabel.text = ticket.price
     descriptionTextView.text = ticket.description
+
+    if ItemRepository().getUserID() == ticket.creatorID {
+      actionButton.isHidden = true
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
+    } else {
+      actionButton.isHidden = false
+      actionButton.setTitle("Message Seller", for: .normal)
+      navigationItem.rightBarButtonItem = nil
+    }
+  }
+
+  @objc fileprivate func editItem()
+  {
+    performSegue(withIdentifier: "editTicket", sender: self)
+  }
+
+  @IBAction func actionButtonPressed(_ sender: UIButton)
+  {
+
+  }
+}
+
+// MARK: - Navigation
+
+extension TicketDetailViewController
+{
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
+    if segue.identifier == "editTicket" {
+      if let vc = segue.destination as? CreateTicketTableViewController {
+        vc.shouldEdit = true
+        vc.ticket = ticket
+      }
+    }
   }
 }
