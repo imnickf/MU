@@ -8,9 +8,6 @@
 
 import UIKit
 
-// Global Variable used for testing.
-var foodSel:Food? = nil
-
 /// A class used to manage the Food View.
 class FoodTableViewController: UITableViewController {
   
@@ -19,6 +16,8 @@ class FoodTableViewController: UITableViewController {
   
   /// An array that is used to store Food items.
   var foods = [Food]()
+  
+  var selectedFood: Food?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -62,10 +61,28 @@ extension FoodTableViewController
   }
   
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    foodSel = self.foods[indexPath.row]
+    selectedFood = self.foods[indexPath.row]
+    performSegue(withIdentifier: "showFoodDetail", sender: self)
   }
   
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 50.0
   }
 }
+
+// MARK: - Navigation
+
+extension FoodTableViewController
+{
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
+    if segue.identifier == "showFoodDetail" {
+      if let vc = segue.destination as? FoodDetailViewController {
+        if let food = selectedFood {
+          vc.food = food
+        }
+      }
+    }
+  }
+}
+

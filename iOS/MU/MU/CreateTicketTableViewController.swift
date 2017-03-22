@@ -91,7 +91,7 @@ class CreateTicketTableViewController: UITableViewController
   }
 
   
-  /// A function that is used to create a new user.
+  /// A function that is used to create a new Ticket.
   /// This fuction is linked to "Create" button.
   @IBAction func createNewTicket()
   {

@@ -74,7 +74,38 @@ class ItemRepository
   /// - Parameter completion: callback containing queried items for specified user or empty array if none exist
   func getItems(forUserId id: String, completion: @escaping ([Item]) -> Void)
   {
-    // TODO
+    var items: [Item] = [Item]()
+    gateway.query(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + FirebaseKeyVendor.itemsKey) { (data, error) in
+      
+      if let itemData = data {
+        for key in itemData.keys {
+          //Retrieve type.
+          var keyInfo: [String] = (key).components(separatedBy: "-")
+          var itemType: ItemType? = nil
+          switch keyInfo[0] {
+          case "food":
+            itemType = .food
+            
+          case "ticket":
+            itemType = .ticket
+            
+          case "book":
+            itemType = .book
+            
+          case "misc":
+            itemType = .miscellaneous
+            
+            default:
+              return
+          }
+          
+          items.append(self.factory.makeItem(type: itemType!, key: key, data: itemData[key]! as! [String : Any]))
+          
+        }
+      }
+      
+      completion(items)
+    }
   }
 
   func getUserID() -> String
@@ -194,7 +225,7 @@ class ItemRepository
       }
     }
   }
-
+  
   /// Translates ticket into raw data dictionary to be persisted
   /// - Parameter ticket: item to be translated
   /// - Returns: dictionary of ticket properties
