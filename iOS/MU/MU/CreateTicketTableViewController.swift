@@ -75,6 +75,7 @@ class CreateTicketTableViewController: UITableViewController
       priceTextField.text = editTicket.price.substring(from: editTicket.price.index(editTicket.price.startIndex, offsetBy: 1))
       descriptionTextView.text = editTicket.description != "" ? editTicket.description : "About this book"
       dateTextField.text = dateFormatter.string(from: editTicket.time)
+      selectedDate = editTicket.time
       sportTextField.text = editTicket.sport
       locationTextField.text = editTicket.location
       createButton.setTitle("Save", for: .normal)
@@ -110,8 +111,23 @@ class CreateTicketTableViewController: UITableViewController
       return
     }
 
-    let newTicket = itemFactory.makeTicket(withDescription: description, location: locationTextField.text, name: name, price: "$" + price, sport: sport, time: date)
-    itemRepo.persist(item: newTicket)
+    if shouldEdit {
+      guard let editTicket = ticket else {
+        return
+      }
+
+      editTicket.name = name
+      editTicket.price = "$" + price
+      editTicket.description = description
+      editTicket.location = locationTextField.text
+      editTicket.sport = sport
+      editTicket.time = date
+      itemRepo.persist(item: editTicket)
+      let _ = self.navigationController?.popViewController(animated: true)
+    } else {
+      let newTicket = itemFactory.makeTicket(withDescription: description, location: locationTextField.text, name: name, price: "$" + price, sport: sport, time: date)
+      itemRepo.persist(item: newTicket)
+    }
     let _ = self.navigationController?.popViewController(animated: true)
   }
 }
