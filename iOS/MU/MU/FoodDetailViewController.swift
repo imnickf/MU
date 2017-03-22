@@ -13,6 +13,7 @@ class FoodDetailViewController: UIViewController {
   @IBOutlet weak var TitleLabel: UILabel!
   @IBOutlet weak var FoodCatLabel: UILabel!
   @IBOutlet weak var DescriptionTextView: UITextView!
+  @IBOutlet weak var actionButton: UIButton!
   
   var food: Food?
   
@@ -25,5 +26,35 @@ class FoodDetailViewController: UIViewController {
     TitleLabel.text = food?.name
     FoodCatLabel.text = food?.category
     DescriptionTextView.text = food?.description
+    
+    if ItemRepository().getUserID() == food!.creatorID {
+      actionButton.isHidden = true
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
+    } else {
+      actionButton.isHidden = false
+      actionButton.setTitle("Message Seller", for: .normal)
+      navigationItem.rightBarButtonItem = nil
+    }
+  }
+  
+  @objc fileprivate func editItem()
+  {
+    performSegue(withIdentifier: "editFood", sender: self)
+  }
+  
+  @IBAction func messageSeller(_ sender: Any) {
+    
+  }
+}
+
+// MARK: - Navigation
+extension FoodDetailViewController {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "editFood" {
+      if let vc = segue.destination as? CreateFoodTableViewController {
+        vc.food = food
+        vc.shouldEdit = true
+      }
+    }
   }
 }

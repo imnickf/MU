@@ -17,7 +17,7 @@ class ViewItemsProfileTableViewController: UITableViewController {
     super.viewDidLoad()
     
     
-    let userId: String = "gg4aqBggyVWiO50sCC8lTomuUFT2"
+    let userId: String = itemRepo.getUserID()
     itemRepo.getItems(forUserId: userId) { (items) in
       self.userItems = items
       

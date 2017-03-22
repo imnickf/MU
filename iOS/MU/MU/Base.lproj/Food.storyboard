@@ -97,6 +97,17 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tGG-MQ-aUe">
+                                <rect key="frame" x="50" y="449" width="274" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.74509803919999995" green="0.3803921569" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="messageSeller:" destination="Xzn-Ry-0P1" eventType="touchUpInside" id="LSZ-cE-uYZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18823529411764706" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -104,11 +115,13 @@
                         <outlet property="DescriptionTextView" destination="JHc-tV-fIt" id="gbu-8J-LeZ"/>
                         <outlet property="FoodCatLabel" destination="3Fd-Ua-sBM" id="Agm-2p-dty"/>
                         <outlet property="TitleLabel" destination="WZW-k2-asL" id="LOU-uD-5z8"/>
+                        <outlet property="actionButton" destination="tGG-MQ-aUe" id="fEG-Yu-1l5"/>
+                        <segue destination="FIc-XU-T91" kind="show" identifier="editFood" id="VOO-Lc-QMU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OwW-dQ-dGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3029.5999999999999" y="212.74362818590706"/>
+            <point key="canvasLocation" x="3029.5999999999999" y="213.64317841079463"/>
         </scene>
         <!--Create Food Table View Controller-->
         <scene sceneID="HEX-Eb-Kfd">
@@ -320,7 +333,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftq-RT-sHO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3031" y="889"/>
+            <point key="canvasLocation" x="3030" y="1041"/>
         </scene>
         <!--Food-->
         <scene sceneID="Mvn-aH-LcQ">
@@ -330,7 +343,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AR5-q5-XxO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AR5-q5-XxO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -348,5 +361,8 @@
         <image name="food_filled_icon" width="25" height="25"/>
         <image name="food_icon" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="VOO-Lc-QMU"/>
+    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.11647947311906659" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

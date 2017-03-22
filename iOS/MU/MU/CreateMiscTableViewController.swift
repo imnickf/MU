@@ -34,6 +34,9 @@ class CreateMiscTableViewController: UITableViewController {
   /// An Item Repository.
   let itemRepo = ItemRepository()
   
+  var misc: Misc?
+  var shouldEdit: Bool = false
+  
   override func viewDidLoad() {
     super.viewDidLoad()
     hideKeyboardWhenTappedAround()
@@ -44,6 +47,22 @@ class CreateMiscTableViewController: UITableViewController {
     CategoryTextField.inputView = catPicker
     
     CreateButton.isEnabled = false
+  }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    if shouldEdit {
+      guard let editMisc = misc else {
+        return
+      }
+      
+      NameTextField.text = editMisc.name
+      CategoryTextField.text = editMisc.category
+      DescriptionTextView.text = editMisc.description != "" ? editMisc.description : "About this item"
+      PriceTextField.text = editMisc.price.substring(from: editMisc.price.index(editMisc.price.startIndex, offsetBy: 1))
+      CreateButton.setTitle("Save", for: .normal)
+      CreateButton.isEnabled = true
+    }
+
   }
   
   /// A function used to check if form is filled in.
@@ -69,10 +88,23 @@ class CreateMiscTableViewController: UITableViewController {
       return
     }
     
-    
+    if shouldEdit {
+      guard let editMisc = misc else {
+        return
+      }
+      
+      editMisc.name = name
+      editMisc.category = category
+      editMisc.description = description
+      editMisc.price = "$" + price
+      itemRepo.persist(item: editMisc)
+      let _ = self.navigationController?.popViewController(animated: true)
+      
+    } else {
     let misc = itemFactory.makeMisc(withDescription: description, name: name, price: "$" + price, category: category)
     itemRepo.persist(item: misc)
     let _ = self.navigationController?.popViewController(animated: true)
+    }
   }
 }
 

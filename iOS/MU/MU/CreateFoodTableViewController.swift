@@ -38,6 +38,9 @@ class CreateFoodTableViewController: UITableViewController {
   /// An Item Repository.
   let itemRepo = ItemRepository()
   
+  var food: Food?
+  var shouldEdit: Bool = false
+  
   /// A DateFormatter used to format the date to a human readable format.
   lazy var dateFormatter: DateFormatter = {
     var formatter = DateFormatter()
@@ -61,6 +64,23 @@ class CreateFoodTableViewController: UITableViewController {
       
       createButton.isEnabled = false
     }
+  
+  override func viewWillAppear(_ animated: Bool) {
+    if shouldEdit {
+      guard let editFood = food else {
+        return
+      }
+      
+      nameTextField.text = editFood.name
+      dateTextField.text = dateFormatter.string(from: editFood.time!)
+      selectedDate = editFood.time
+      categoryTextField.text = editFood.category
+      descriptionTextView.text = editFood.description != "" ? editFood.description : "Description of Food"
+      locationTextField.text = editFood.location
+      createButton.setTitle("Save", for: .normal)
+      createButton.isEnabled = true
+    }
+  }
   
   
   /// A function used to check if form is filled in.
@@ -86,10 +106,25 @@ class CreateFoodTableViewController: UITableViewController {
       return
     }
     
+    if shouldEdit {
+      guard let editFood = food else {
+        return
+      }
+      
+      editFood.name = name
+      editFood.time = date
+      editFood.category = category
+      editFood.description = description
+      editFood.location = locationTextField.text
+      itemRepo.persist(item: editFood)
+      let _ = self.navigationController?.popViewController(animated: true)
+      
+    } else {
 
     let food = itemFactory.makeFood(withDescription: description, name: name, category: category, location: locationTextField.text, time: date)
     itemRepo.persist(item: food)
     let _ = self.navigationController?.popViewController(animated: true)
+    }
   }
 }
 

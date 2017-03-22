@@ -52,6 +52,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kr4-Ww-TNp">
+                                <rect key="frame" x="16" y="464" width="343" height="53"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleColor" red="0.74509803919999995" green="0.3803921569" blue="0.35294117650000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="messageSeller:" destination="rrC-xS-wCG" eventType="touchUpInside" id="CWy-xL-auR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
@@ -60,11 +71,13 @@
                         <outlet property="DescriptionView" destination="JLg-in-xey" id="mO5-7G-PrG"/>
                         <outlet property="NameLabel" destination="HzR-Hb-7bL" id="t8O-IV-xO1"/>
                         <outlet property="PriceLabel" destination="y9J-uq-sBh" id="wPe-2b-FqD"/>
+                        <outlet property="actionButton" destination="Kr4-Ww-TNp" id="RXD-w3-GVP"/>
+                        <segue destination="yZd-pU-x9s" kind="show" identifier="editMisc" id="UdZ-jE-mzD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdg-CU-3g0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3792.8000000000002" y="295.50224887556226"/>
+            <point key="canvasLocation" x="3793" y="292"/>
         </scene>
         <!--Misc Table View Controller-->
         <scene sceneID="RoQ-Sg-lDD">
@@ -319,7 +332,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xMr-aN-jws">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xMr-aN-jws">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -337,4 +350,7 @@
         <image name="misc_filled_icon" width="25" height="25"/>
         <image name="misc_icon" width="25" height="25"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="UdZ-jE-mzD"/>
+    </inferredMetricsTieBreakers>
 </document>

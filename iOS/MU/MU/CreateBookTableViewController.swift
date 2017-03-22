@@ -38,12 +38,33 @@ class CreateBookTableViewController: UITableViewController
   /// An Item Repository.
   let itemRepo = ItemRepository()
 
+  var shouldEdit: Bool = false
+  var book: Book?
+
   override func viewDidLoad()
   {
     super.viewDidLoad()
     hideKeyboardWhenTappedAround()
 
     createButton.isEnabled = false
+  }
+
+  override func viewWillAppear(_ animated: Bool)
+  {
+    if shouldEdit {
+      guard let editBook = book else {
+        return
+      }
+
+      nameTextField.text = editBook.name
+      authorTextField.text = editBook.author
+      priceTextField.text = editBook.price.substring(from: editBook.price.index(editBook.price.startIndex, offsetBy: 1))
+      descriptionTextView.text = editBook.description != "" ? editBook.description : "About this book"
+      isbnTextField.text = editBook.isbn
+      classCodeTextField.text = editBook.classCode
+      createButton.setTitle("Save", for: .normal)
+      createButton.isEnabled = true
+    }
   }
 
   /// A function used to check if form is filled in.
@@ -70,8 +91,23 @@ class CreateBookTableViewController: UITableViewController
       return
     }
 
-    let book = itemFactory.makeBook(withDescription: description, name: name, author: author, price: "$" + price, isbn: isbnTextField.text, classCode: classCodeTextField.text)
-    itemRepo.persist(item: book)
+    if shouldEdit {
+      guard let editBook = book else {
+        return
+      }
+
+      editBook.name = name
+      editBook.author = author
+      editBook.price = "$" + price
+      editBook.description = description
+      editBook.isbn = isbnTextField.text
+      editBook.classCode = classCodeTextField.text
+      itemRepo.persist(item: editBook)
+      let _ = self.navigationController?.popViewController(animated: true)
+    } else {
+      let newBook = itemFactory.makeBook(withDescription: description, name: name, author: author, price: "$" + price, isbn: isbnTextField.text, classCode: classCodeTextField.text)
+      itemRepo.persist(item: newBook)
+    }
     let _ = self.navigationController?.popViewController(animated: true)
   }
 }
