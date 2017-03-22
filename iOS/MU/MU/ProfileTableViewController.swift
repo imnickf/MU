@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import GoogleSignIn
 
 /// A protocol that is used to implement the sign out functionality.
 protocol SignOutDelegate
@@ -17,14 +18,25 @@ protocol SignOutDelegate
 }
 
 /// A class used to manage the Profile View.
-class ProfileViewController: UIViewController
+class ProfileTableViewController: UITableViewController
 {
+  @IBOutlet weak var nameText: UILabel!
+  
   /// The AppDelegate of the Profile View.
   let signOutDelegate: SignOutDelegate = (UIApplication.shared.delegate as! AppDelegate)
+
 
   override func viewDidLoad()
   {
     super.viewDidLoad()
+    
+    navigationController?.navigationBar.barTintColor = Theme.primaryRedColor
+    navigationController?.navigationBar.tintColor = UIColor.black
+    tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
+    tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
+    
+    
+    nameText.text = googleUser?.userID
   }
 
     /// A method that is used to sign out the user using Firebase API.
@@ -40,17 +52,4 @@ class ProfileViewController: UIViewController
       print ("Error signing out: %@", signOutError)
     }
   }
-  
-  @IBAction func test(_ sender: Any) {
-    let test = ItemRepository()
-    test.getItems(forUserId: "Qd04tReXvcfCDuFvPak5hyNO44U2") { (bla) in
-      print(bla.count)
-      if bla.count != 0 {
-        for k in 0...(bla.count - 1) {
-          //print(bla[k])
-        }
-      }
-    }
-  }
 }
-

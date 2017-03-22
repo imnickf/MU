@@ -74,38 +74,38 @@ class ItemRepository
   /// - Parameter completion: callback containing queried items for specified user or empty array if none exist
   func getItems(forUserId id: String, completion: @escaping ([Item]) -> Void)
   {
-    // An dictionary that is used to store an item's type with the given itemID index.
-    var itemType: [String: String] = [String: String]()
+    var items: [Item] = [Item]()
     gateway.query(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + FirebaseKeyVendor.itemsKey) { (data, error) in
       
       if let itemData = data {
         for key in itemData.keys {
-          var charset = CharacterSet()
-          charset.insert(charactersIn: "-")
-          var keyInfo: [String] = (itemData[key] as! String).components(separatedBy: charset)
           
-          //Catches the case where "-" are in the item id.
-          var itemID: String = keyInfo[1]
-          if (keyInfo.count > 2) {
+          //Retrieve type.
+          var keyInfo: [String] = (key).components(separatedBy: "-")
+          var itemType: ItemType? = nil
+          switch keyInfo[0] {
+          case "food":
+            itemType = .food
             
-            for i in 2...(keyInfo.count - 1) {
-              itemID.append("-" + keyInfo[i])
-            }
+          case "ticket":
+            itemType = .ticket
+            
+          case "book":
+            itemType = .book
+            
+          case "misc":
+            itemType = .miscellaneous
+            
+            default:
+              return
           }
           
-          itemType[itemID] = keyInfo[0]
+          items.append(self.factory.makeItem(type: itemType!, key: key, data: itemData[key]! as! [String : Any]))
+          
         }
       }
       
-      var items: [Item]? = nil
-      self.fetchUserItems(forItems: itemType, completion: { (data, error) in
-        items = data
-      })
-      if items != nil {
-        completion(items!)
-      } else {
-        completion([])
-      }
+      completion(items)
     }
   }
 
@@ -200,49 +200,6 @@ class ItemRepository
     }
   }
   
-  ///Fetches the User's Items from the database.
-  /// - Parameter completion: callback containing fetched items or error value
-  fileprivate func fetchUserItems(forItems: [String: String] , completion: @escaping ([Item]?, Error?) -> Void)
-  {
-    let queueGroup = DispatchGroup()
-    var endpoint: String
-    var itemsArr = [Item]()
-    for key in forItems.keys {
-      print(forItems[key]!)
-      print(key)
-      endpoint = FirebaseKeyVendor.productsKey + "/" + forItems[key]! + "/" + forItems[key]! + "-" + key
-      gateway.query(endpoint: endpoint) { (data, error) in
-        queueGroup.enter()
-        if let items = data {
-          if forItems[key]!.compare("food").rawValue == 0 {
-            itemsArr.append(self.factory.makeItem(type: .food, key: key, data: items))
-            print("added food")
-          }
-          else if forItems[key]!.compare("misc").rawValue == 0 {
-            itemsArr.append(self.factory.makeItem(type: .miscellaneous, key: key, data: items))
-            print("added misc")
-          }
-          else if forItems[key]!.compare("ticket").rawValue == 0 {
-            itemsArr.append(self.factory.makeItem(type: .ticket, key: key, data: items))
-            print("added ticket")
-          }
-          else if forItems[key]!.compare("book").rawValue == 0 {
-            itemsArr.append(self.factory.makeItem(type: .book, key: key, data: items))
-            print("added book")
-          }
-          queueGroup.leave()
-        } else {
-          completion(nil, error)
-          return
-        }
-      }
-    }
-    
-    queueGroup.wait()
-    print(itemsArr.count)
-    completion(itemsArr, nil)
-  }
-
   /// Translates ticket into raw data dictionary to be persisted
   /// - Parameter ticket: item to be translated
   /// - Returns: dictionary of ticket properties
