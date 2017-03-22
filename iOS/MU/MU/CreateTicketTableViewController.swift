@@ -49,6 +49,9 @@ class CreateTicketTableViewController: UITableViewController
     return formatter
   }()
 
+  var shouldEdit: Bool = false
+  var ticket: Ticket?
+
   override func viewDidLoad()
   {
     super.viewDidLoad()
@@ -59,6 +62,24 @@ class CreateTicketTableViewController: UITableViewController
     dateTextField.inputView = datePicker
 
     createButton.isEnabled = false
+  }
+
+  override func viewWillAppear(_ animated: Bool)
+  {
+    if shouldEdit {
+      guard let editTicket = ticket else {
+        return
+      }
+
+      nameTextField.text = editTicket.name
+      priceTextField.text = editTicket.price.substring(from: editTicket.price.index(editTicket.price.startIndex, offsetBy: 1))
+      descriptionTextView.text = editTicket.description != "" ? editTicket.description : "About this book"
+      dateTextField.text = dateFormatter.string(from: editTicket.time)
+      sportTextField.text = editTicket.sport
+      locationTextField.text = editTicket.location
+      createButton.setTitle("Save", for: .normal)
+      createButton.isEnabled = true
+    }
   }
 
   /// A function used to check if form is filled in.
@@ -89,8 +110,8 @@ class CreateTicketTableViewController: UITableViewController
       return
     }
 
-    let ticket = itemFactory.makeTicket(withDescription: description, location: locationTextField.text, name: name, price: "$" + price, sport: sport, time: date)
-    itemRepo.persist(item: ticket)
+    let newTicket = itemFactory.makeTicket(withDescription: description, location: locationTextField.text, name: name, price: "$" + price, sport: sport, time: date)
+    itemRepo.persist(item: newTicket)
     let _ = self.navigationController?.popViewController(animated: true)
   }
 }

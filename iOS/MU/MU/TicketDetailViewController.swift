@@ -60,7 +60,8 @@ extension TicketDetailViewController
   {
     if segue.identifier == "editTicket" {
       if let vc = segue.destination as? CreateTicketTableViewController {
-        
+        vc.shouldEdit = true
+        vc.ticket = ticket
       }
     }
   }
