@@ -131,7 +131,7 @@ class ItemRepository
     default:
       return
     }
-    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
+    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + getUserID() + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
   }
 
   /// Marks an item as sold in the database
