@@ -56,7 +56,7 @@ class ProfileTableViewController: UITableViewController
   }
 }
 
-
+// MARK: - Navigation
 
 extension ProfileTableViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

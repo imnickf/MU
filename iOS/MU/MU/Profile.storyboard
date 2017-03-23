@@ -15,7 +15,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pop-9r-Ner" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="user_icon" selectedImage="user_filled_icon" id="WBQ-lB-SVZ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sk2-4l-R2q">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sk2-4l-R2q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -213,10 +213,48 @@
                             <outlet property="delegate" destination="0Kr-bJ-7Ya" id="kJ0-4E-OkU"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="GbQ-GN-Kdp" kind="show" identifier="editFood" id="I0z-tB-0FF"/>
+                        <segue destination="YKg-4Q-Qzk" kind="show" identifier="editTicket" id="hMf-9x-7WB"/>
+                        <segue destination="5Hv-Ys-SG2" kind="show" identifier="editBook" id="WVm-kK-Doi"/>
+                        <segue destination="EvZ-lB-yBa" kind="show" identifier="editMisc" id="x8y-jM-Hj9"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Oh-nV-0Jj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2912.8000000000002" y="-83.208395802098963"/>
+        </scene>
+        <!--EditFood-->
+        <scene sceneID="LaB-pS-Aqz">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Food" referencedIdentifier="EditFood" id="GbQ-GN-Kdp" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="DgM-NO-M7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3596" y="-242"/>
+        </scene>
+        <!--EditTicket-->
+        <scene sceneID="EgI-oy-fDT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Tickets" referencedIdentifier="EditTicket" id="YKg-4Q-Qzk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oph-PD-pai" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3596" y="-177"/>
+        </scene>
+        <!--EditBook-->
+        <scene sceneID="Qww-u0-JFx">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Books" referencedIdentifier="EditBook" id="5Hv-Ys-SG2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cYj-CV-w2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3596" y="-112"/>
+        </scene>
+        <!--EditMisc-->
+        <scene sceneID="gvz-sg-TEu">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Misc" referencedIdentifier="EditMisc" id="EvZ-lB-yBa" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NQQ-Wy-wfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3595" y="-36"/>
         </scene>
     </scenes>
     <resources>
