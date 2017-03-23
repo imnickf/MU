@@ -117,7 +117,23 @@ class ItemRepository
   /// - Parameter item: item to be deleted
   func delete(item: Item)
   {
-    // TODO
+    switch item {
+    case is Ticket:
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.ticketsPath + "/\(item.id)")
+      break
+    case is Book:
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.booksPath + "/\(item.id)")
+      break
+    case is Food:
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.foodPath + "/\(item.id)")
+      break
+    case is Misc:
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.miscPath + "/\(item.id)")
+      break
+    default:
+      return
+    }
+    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
   }
 
   /// Marks an item as sold in the database

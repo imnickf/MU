@@ -44,6 +44,13 @@ class DatabaseGateway
     FIRDatabase.database().reference().child(FirebaseKeyVendor.usersKey + "/" + uid + "/" + FirebaseKeyVendor.itemsKey + "/" + id).setValue(item)
   }
 
+  /// Deletes data at specified endpoint
+  /// - Parameter atEndpoint: endpoint at which to delete data from
+  func deleteData(atEndpoint endpoint: String)
+  {
+    FIRDatabase.database().reference().child(endpoint).removeValue()
+  }
+
   /// Creates new unique ID for the specified endpoint
   /// - Parameter endpoint: endpoint or path for which an unique should be Created
   /// - Returns: unique identifier string for given endpoint
