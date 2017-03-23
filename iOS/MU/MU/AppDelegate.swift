@@ -10,8 +10,6 @@ import UIKit
 import Firebase
 import GoogleSignIn
 
-var googleUser: GIDGoogleUser? = nil
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate
 {
@@ -91,7 +89,6 @@ extension AppDelegate: GIDSignInDelegate
 
     let credential = FIRGoogleAuthProvider.credential(withIDToken: authentication.idToken, accessToken: authentication.accessToken)
 
-    googleUser = user
     FIRAuth.auth()?.signIn(with: credential) { (user, error) in
       if let error = error {
         print(error.localizedDescription)

@@ -21,6 +21,8 @@ protocol SignOutDelegate
 class ProfileTableViewController: UITableViewController
 {
   @IBOutlet weak var nameText: UILabel!
+  @IBOutlet weak var emailText: UILabel!
+  
   
   /// The AppDelegate of the Profile View.
   let signOutDelegate: SignOutDelegate = (UIApplication.shared.delegate as! AppDelegate)
@@ -35,8 +37,8 @@ class ProfileTableViewController: UITableViewController
     tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
     tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
     
-    
-    //Add Name to text.
+    nameText.text = FIRAuth.auth()?.currentUser?.displayName
+    emailText.text = FIRAuth.auth()?.currentUser?.email
   }
 
     /// A method that is used to sign out the user using Firebase API.
@@ -50,6 +52,30 @@ class ProfileTableViewController: UITableViewController
       signOutDelegate.signOut()
     } catch let signOutError as NSError {
       print ("Error signing out: %@", signOutError)
+    }
+  }
+}
+
+
+
+extension ProfileTableViewController {
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    if segue.identifier == "showPostedItems" {
+      if let vc = segue.destination as? ViewItemsProfileTableViewController {
+        vc.fetchType = .posted
+      }
+    }
+    
+    if segue.identifier == "showSoldItems" {
+      if let vc = segue.destination as? ViewItemsProfileTableViewController {
+        vc.fetchType = .sold
+      }
+    }
+    
+    if segue.identifier == "showBoughtItems" {
+      if let vc = segue.destination as? ViewItemsProfileTableViewController {
+        vc.fetchType = .bought
+      }
     }
   }
 }

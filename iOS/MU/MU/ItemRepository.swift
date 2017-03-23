@@ -8,6 +8,11 @@
 
 import FirebaseAuth
 
+enum ItemFetchType
+{
+  case posted, sold, bought
+}
+
 /// The ItemRepository class enables you to query and persist item data with the database.
 /// The ItemRepository interfaces with DatabaseGateway to save and query raw JSON data. It interfaces
 /// with ItemFactory to create items from raw data supplied by DatabaseGateway before returning 
@@ -72,10 +77,25 @@ class ItemRepository
   /// Gets all items created by a specified user
   /// - Parameter forUserId: userID for whose items to query
   /// - Parameter completion: callback containing queried items for specified user or empty array if none exist
-  func getItems(forUserId id: String, completion: @escaping ([Item]) -> Void)
+  func getItems(forUserId id: String, fetchType type: ItemFetchType, completion: @escaping ([Item]) -> Void)
   {
     var items: [Item] = [Item]()
-    gateway.query(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + FirebaseKeyVendor.itemsKey) { (data, error) in
+    
+    var path: String = ""
+    switch type {
+    case .posted:
+      path = FirebaseKeyVendor.itemsKey
+      break
+      
+    case .sold:
+      path = FirebaseKeyVendor.userSoldKey
+      break
+    
+    case .bought:
+      path = FirebaseKeyVendor.userBoughtKey
+      break
+    }
+    gateway.query(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + path) { (data, error) in
       
       if let itemData = data {
         for key in itemData.keys {

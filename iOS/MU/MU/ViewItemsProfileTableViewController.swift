@@ -10,25 +10,23 @@ import UIKit
 
 class ViewItemsProfileTableViewController: UITableViewController {
 
-  var itemRepo: ItemRepository = ItemRepository()
+  let itemRepo: ItemRepository = ItemRepository()
   var userItems: [Item] = [Item]()
+  var fetchType: ItemFetchType = .posted
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
     
     let userId: String = itemRepo.getUserID()
-    itemRepo.getItems(forUserId: userId) { (items) in
+    itemRepo.getItems(forUserId: userId, fetchType: fetchType) { (items) in
       self.userItems = items
-      
+    
       DispatchQueue.main.async {
         self.tableView.reloadData()
       }
     }
-    
-    print(userItems.count)
   }
-  
 }
 
 // MARK: - Table view data source
