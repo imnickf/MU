@@ -13,10 +13,23 @@ import FirebaseDatabase
 /// back to the database.
 class DatabaseGateway
 {
+  /// Queries the database and adds an event listener at the specified endpoint
+  func query(endpoint: String, with completion: @escaping ([String : Any]?, Error?) -> Void)
+  {
+    FIRDatabase.database().reference().child(endpoint).observe(.value, with: { snapshot in
+      let value = snapshot.value as? [String : Any]
+
+      completion(value, nil)
+    }) { error in
+      print(error.localizedDescription)
+      completion(nil, error)
+    }
+  }
+
   /// Queries the database at a given endpoint and returns the contents in the completion handler
   /// - Parameter endpoint: the path or endpoint in the database being queried
   /// - Parameter completion: callback containing raw dictionary data for queried objects or error
-  func query(endpoint: String, with completion: @escaping ([String : Any]?, Error?) -> Void)
+  func querySingleEvent(endpoint: String, with completion: @escaping ([String : Any]?, Error?) -> Void)
   {
     FIRDatabase.database().reference().child(endpoint).observeSingleEvent(of: .value, with: { snapshot in
       let value = snapshot.value as? [String : Any]

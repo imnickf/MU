@@ -36,17 +36,6 @@ class BookTableViewController: UITableViewController
       }
     }
   }
-
-  override func viewWillAppear(_ animated: Bool)
-  {
-    itemRepo.getItems(.book) { (items) in
-      self.books = items as! [Book]
-
-      DispatchQueue.main.async {
-        self.tableView.reloadData()
-      }
-    }
-  }
 }
 
 // MARK: - TableViewDataSource Protocol Methods

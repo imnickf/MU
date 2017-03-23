@@ -75,7 +75,7 @@ class ItemRepository
   func getItems(forUserId id: String, completion: @escaping ([Item]) -> Void)
   {
     var items: [Item] = [Item]()
-    gateway.query(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + FirebaseKeyVendor.itemsKey) { (data, error) in
+    gateway.querySingleEvent(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + FirebaseKeyVendor.itemsKey) { (data, error) in
       
       if let itemData = data {
         for key in itemData.keys {
@@ -100,10 +100,8 @@ class ItemRepository
           }
           
           items.append(self.factory.makeItem(type: itemType!, key: key, data: itemData[key]! as! [String : Any]))
-          
         }
       }
-      
       completion(items)
     }
   }
