@@ -20,10 +20,15 @@ class UserRespository
     gateway = DatabaseGateway()
   }
 
+  func getCurrentUserID() -> String
+  {
+    return FIRAuth.auth()!.currentUser!.uid
+  }
+
   /// Saves new user information and permissions to database
   func setupNewUser()
   {
-    let endpoint = FirebaseKeyVendor.usersKey + "/" + FIRAuth.auth()!.currentUser!.uid
+    let endpoint = FirebaseKeyVendor.usersKey + "/" + getCurrentUserID()
 
     gateway.querySingleEvent(endpoint: endpoint) { (data, error) in
       if data == nil {

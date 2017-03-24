@@ -27,7 +27,7 @@ class FoodDetailViewController: UIViewController {
     FoodCatLabel.text = food?.category
     DescriptionTextView.text = food?.description
     
-    if ItemRepository().getUserID() == food!.creatorID {
+    if UserRespository().getCurrentUserID() == food!.creatorID {
       actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {

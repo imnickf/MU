@@ -34,7 +34,7 @@ class MiscDetailViewController: UIViewController {
     PriceLabel.text = misc?.price
     DescriptionView.text = misc?.description
     
-    if ItemRepository().getUserID() == misc?.creatorID {
+    if UserRespository().getCurrentUserID() == misc?.creatorID {
       actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {

@@ -43,7 +43,7 @@ class BookDetailViewController: UIViewController
     classCodeLabel.isHidden = book.classCode == nil
     classCodeInfoLabel.isHidden = book.classCode == nil
 
-    if ItemRepository().getUserID() == book.creatorID {
+    if UserRespository().getCurrentUserID() == book.creatorID {
       actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {

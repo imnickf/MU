@@ -25,11 +25,14 @@ class ItemRepository
   /// DatabaseGateway for connecting to database
   fileprivate var gateway: DatabaseGateway
 
+  fileprivate var userRepo: UserRespository
+
   /// Creates a new ItemRepository
   init()
   {
     factory = ItemFactory()
     gateway = DatabaseGateway()
+    userRepo = UserRespository()
   }
 
   /// Gets items of specified type from database
@@ -126,11 +129,6 @@ class ItemRepository
     }
   }
 
-  func getUserID() -> String
-  {
-    return FIRAuth.auth()!.currentUser!.uid
-  }
-
   /// Deletes a provided item from the databse completely
   /// - Parameter item: item to be deleted
   func delete(item: Item)
@@ -151,7 +149,7 @@ class ItemRepository
     default:
       return
     }
-    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + getUserID() + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
+    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + userRepo.getCurrentUserID() + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
   }
 
   /// Marks an item as sold in the database
