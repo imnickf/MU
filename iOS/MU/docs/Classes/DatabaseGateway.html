@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DatabaseGateway Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/DatabaseGateway" class="dashAnchor"></a>
+    <a title="DatabaseGateway Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DatabaseGateway Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AuthViewController.html">AuthViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Book.html">Book</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BookTableViewCell.html">BookTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/BookTableViewController.html">BookTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CreateBookTableViewController.html">CreateBookTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/CreateTicketTableViewController.html">CreateTicketTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/DatabaseGateway.html">DatabaseGateway</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Food.html">Food</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FoodTableViewCell.html">FoodTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/FoodTableViewController.html">FoodTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Item.html">Item</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ItemFactory.html">ItemFactory</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ItemRepository.html">ItemRepository</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Misc.html">Misc</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MiscTableViewCell.html">MiscTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/MiscTableViewController.html">MiscTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ProfileViewController.html">ProfileViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/Ticket.html">Ticket</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TicketTableViewCell.html">TicketTableViewCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/TicketsTableViewController.html">TicketsTableViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/UserRespository.html">UserRespository</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums.html#/s:O2MU8ItemType">ItemType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/UserType.html">UserType</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Date.html">Date</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/SignOutDelegate.html">SignOutDelegate</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/FirebaseKeyVendor.html">FirebaseKeyVendor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/Theme.html">Theme</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DatabaseGateway</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">class</span> <span class="kt">DatabaseGateway</span></code></pre>
+
+                </div>
+              </div>
+            <p>The DatabaseGateway class interfaces directly with the Firebase backend database.
+This class is used to fetch raw data from the database as well as to save raw data
+back to the database.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU15DatabaseGateway5queryFT8endpointSS4withFTGSqGVs10DictionarySSP___GSqPs5Error___T__T_"></a>
+                    <a name="//apple_ref/swift/Method/query(endpoint:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU15DatabaseGateway5queryFT8endpointSS4withFTGSqGVs10DictionarySSP___GSqPs5Error___T__T_">query(endpoint:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Queries the database at a given endpoint and returns the contents in the completion handler
+- Parameter endpoint: the path or endpoint in the database being queried
+- Parameter completion: callback containing raw dictionary data for queried objects or error</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">query</span><span class="p">(</span><span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">with</span> <span class="nv">completion</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">([</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endpoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the path or endpoint in the database being queried</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completion</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>callback containing raw dictionary data for queried objects or error</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU15DatabaseGateway7persistFT4dataP_8endpointSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/persist(data:endpoint:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU15DatabaseGateway7persistFT4dataP_8endpointSS_T_">persist(data:endpoint:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Saves provided data to firebase at the provided endpoint
+- Parameter data: data being saved to database
+- Parameter endpoint: endpoint or path at which the data should be saved</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">persist</span><span class="p">(</span><span class="nv">data</span><span class="p">:</span> <span class="kt">Any</span><span class="p">,</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>data being saved to database</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endpoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>endpoint or path at which the data should be saved</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC2MU15DatabaseGateway7persistFT6itemIdSS9forUserIdSS_T_"></a>
+                    <a name="//apple_ref/swift/Method/persist(itemId:forUserId:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC2MU15DatabaseGateway7persistFT6itemIdSS9forUserIdSS_T_">persist(itemId:forUserId:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Saves itemID in users table
+- Parameter itemId: itemId string being saved to database
+- Parameter forUserId: userId for which the item is being saved for</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">persist</span><span class="p">(</span><span class="n">itemId</span> <span class="nv">id</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">forUserId</span> <span class="nv">uid</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>itemId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>itemId string being saved to database</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>forUserId</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>userId for which the item is being saved for</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:ZFC2MU15DatabaseGateway11createNewIDFSSSS"></a>
+                    <a name="//apple_ref/swift/Method/createNewID(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:ZFC2MU15DatabaseGateway11createNewIDFSSSS">createNewID(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates new unique ID for the specified endpoint
+- Parameter endpoint: endpoint or path for which an unique should be Created
+- Returns: unique identifier string for given endpoint</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">createNewID</span><span class="p">(</span><span class="n">_</span> <span class="nv">endpoint</span><span class="p">:</span> <span class="kt">String</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>endpoint</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>endpoint or path for which an unique should be Created</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>unique identifier string for given endpoint</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-03-08)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

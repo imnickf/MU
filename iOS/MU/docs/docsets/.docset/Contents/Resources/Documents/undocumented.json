@@ -1,0 +1,278 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/AppDelegate.swift",
+      "line": null,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/AppDelegate.swift",
+      "line": null,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/AppDelegate.swift",
+      "line": 14,
+      "symbol": "AppDelegate",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/AuthViewController.swift",
+      "line": 18,
+      "symbol": "AuthViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/BookTableViewController.swift",
+      "line": 20,
+      "symbol": "BookTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/BookTableViewController.swift",
+      "line": 43,
+      "symbol": "BookTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/BookTableViewController.swift",
+      "line": 48,
+      "symbol": "BookTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/BookTableViewController.swift",
+      "line": 53,
+      "symbol": "BookTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/BookTableViewController.swift",
+      "line": 66,
+      "symbol": "BookTableViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/CreateBookTableViewController.swift",
+      "line": 41,
+      "symbol": "CreateBookTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/CreateFoodTableViewController.swift",
+      "line": 11,
+      "symbol": "CreateFoodTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/CreateTicketTableViewController.swift",
+      "line": 52,
+      "symbol": "CreateTicketTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/FoodTableViewController.swift",
+      "line": 12,
+      "symbol": "foodSel",
+      "symbol_kind": "source.lang.swift.decl.var.global",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/FoodTableViewController.swift",
+      "line": 23,
+      "symbol": "FoodTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/FoodTableViewController.swift",
+      "line": 46,
+      "symbol": "FoodTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/FoodTableViewController.swift",
+      "line": 50,
+      "symbol": "FoodTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/FoodTableViewController.swift",
+      "line": 55,
+      "symbol": "FoodTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/FoodTableViewController.swift",
+      "line": 64,
+      "symbol": "FoodTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/FoodTableViewController.swift",
+      "line": 68,
+      "symbol": "FoodTableViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/Item.swift",
+      "line": 14,
+      "symbol": "ItemType.book",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/Item.swift",
+      "line": 14,
+      "symbol": "ItemType.food",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/Item.swift",
+      "line": 14,
+      "symbol": "ItemType.miscellaneous",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/Item.swift",
+      "line": 14,
+      "symbol": "ItemType.ticket",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/MiscTableViewCell.swift",
+      "line": 23,
+      "symbol": "MiscTableViewCell.awakeFromNib()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/MiscTableViewController.swift",
+      "line": 20,
+      "symbol": "MiscTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/MiscTableViewController.swift",
+      "line": 38,
+      "symbol": "MiscTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/MiscTableViewController.swift",
+      "line": 43,
+      "symbol": "MiscTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/MiscTableViewController.swift",
+      "line": 48,
+      "symbol": "MiscTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/MiscTableViewController.swift",
+      "line": 61,
+      "symbol": "MiscTableViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/ProfileViewController.swift",
+      "line": 25,
+      "symbol": "ProfileViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketDetailViewController.swift",
+      "line": 11,
+      "symbol": "TicketDetailViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketsTableViewController.swift",
+      "line": 20,
+      "symbol": "TicketsTableViewController.selectedTicket",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketsTableViewController.swift",
+      "line": 22,
+      "symbol": "TicketsTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketsTableViewController.swift",
+      "line": 45,
+      "symbol": "TicketsTableViewController.numberOfSections(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketsTableViewController.swift",
+      "line": 50,
+      "symbol": "TicketsTableViewController.tableView(_:numberOfRowsInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketsTableViewController.swift",
+      "line": 56,
+      "symbol": "TicketsTableViewController.tableView(_:cellForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketsTableViewController.swift",
+      "line": 69,
+      "symbol": "TicketsTableViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketsTableViewController.swift",
+      "line": 74,
+      "symbol": "TicketsTableViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU/MU/TicketsTableViewController.swift",
+      "line": 85,
+      "symbol": "TicketsTableViewController.prepare(for:sender:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/nick/Developer/GB_04_CyFood_CyAlerts/iOS/MU"
+}
