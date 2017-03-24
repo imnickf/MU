@@ -5,7 +5,7 @@ app.controller('miscController', function($scope, $routeParams, $location, itemS
     // setup our items service with a database URL, item name, and item array
     // miscs variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service by passing miscs array
-    itemService.setup('/products/miscs/', 'misc', miscs);
+    itemService.setup('/products/misc/', 'misc', miscs);
 
     // default editing to false, show edit form when we have a valid miscID
     $scope.editing = false;
@@ -76,7 +76,7 @@ app.controller('miscController', function($scope, $routeParams, $location, itemS
         $scope.detail = true;
         $scope.editing = false;
         $scope.list = false;
-        $scope.title = 'misc Details:';
+        $scope.title = 'Misc Details:';
         // pull in Firebase storage image reference
         var imageRef = itemService.getImageRef(miscID);
 

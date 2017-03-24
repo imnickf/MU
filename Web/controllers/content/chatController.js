@@ -21,7 +21,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
 
                 if (users.hasOwnProperty(key)) {
 
-                    if(users[key].displayName != null){
+                    if(users[key].displayName != null && users[key].inbox != null && users[key].outbox != null){
                         // we have a valid displayName
                         if($scope.userList[key] == null){
                             // setup constructor chat variables
@@ -35,6 +35,10 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
                             // just update the inbox and outbox values
                             users[key].inbox = newData[key].inbox;
                             users[key].outbox = newData[key].outbox;
+
+                            users[key].chatLog = mergeBoxes(users[key].inbox, users[key].outbox);
+
+                            console.log(users[key].chatLog);
                         }// end if we are creating a new chat window
 
                     }else{
@@ -100,13 +104,6 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
             // pull in the sender ID from our auth service
             var senderID = authService.getUser().uid;
 
-
-            if(user.chats == null){
-
-
-            }// end if user.chat == null
-
-
             var updates = {};
             var messageObject = ({
                 message: message,
@@ -129,4 +126,33 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
         }// end if they pressed enter
     };
 
+    var mergeBoxes = function(inbox, outbox){
+
+        var chatLog = {};
+
+        for(key in inbox){
+
+            var userInbox = inbox[key];
+            var userOutbox = outbox[key];
+
+            chatLog = extend(userInbox, userOutbox);
+
+            console.log(chatLog);
+
+            console.log('a');
+            console.log(userInbox);
+
+
+
+        }// end for loop
+
+        return 'test';
+    }// end mergeBoxes function
+
+    var extend = function extend(obj, src) {
+        for (var key in src) {
+            if (src.hasOwnProperty(key)) obj[key] = src[key];
+        }
+        return obj;
+    }
 });

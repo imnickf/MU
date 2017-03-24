@@ -2,7 +2,6 @@
     Main controller for handling configuration and dependency settings,
     also provides a controller for the header and navigation
 */
-'use strict';
 
 // initialize our firebase settings
 var config = {
@@ -35,7 +34,6 @@ app.controller('headerController', function($scope, authService) {
             updates['/users/' + user.uid + '/type/'] = 3;
             updates['/users/' + user.uid + '/displayName/'] = user.displayName;
 
-            //updates['/users/' + user.uid + '/type/'] = 3;
             database.ref().update(updates);
         } else if (user) {
             // user is logged in with non-iastate account
