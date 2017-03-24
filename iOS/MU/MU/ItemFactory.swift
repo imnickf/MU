@@ -73,7 +73,7 @@ class ItemFactory
     let buyerID = data[FirebaseKeyVendor.buyerIDKey] as? String
     let createDate = data[FirebaseKeyVendor.createDateKey] as! String
     let creatorID = data[FirebaseKeyVendor.creatorIDKey] as! String
-    let description = data[FirebaseKeyVendor.descriptionKey] as! String
+    let description = data[FirebaseKeyVendor.descriptionKey] as? String ?? ""
     let dateSold = data[FirebaseKeyVendor.dateSoldKey] as? String
     let location = data[FirebaseKeyVendor.locationKey] as? String
     let name = data[FirebaseKeyVendor.nameKey] as! String
@@ -117,7 +117,7 @@ class ItemFactory
     let category = data[FirebaseKeyVendor.categoryKey] as! String
     let creatorID = data[FirebaseKeyVendor.creatorIDKey] as! String
     let createDate = data[FirebaseKeyVendor.createDateKey] as! String
-    let description = data[FirebaseKeyVendor.descriptionKey] as! String
+    let description = data[FirebaseKeyVendor.descriptionKey] as? String ?? ""
     let location = data[FirebaseKeyVendor.locationKey] as? String
     let name = data[FirebaseKeyVendor.nameKey] as! String
     let time = data[FirebaseKeyVendor.timeKey] as? String
@@ -138,7 +138,7 @@ class ItemFactory
     let creatorID = data[FirebaseKeyVendor.creatorIDKey] as! String
     let createDate = data[FirebaseKeyVendor.createDateKey] as! String
     let dateSold = data[FirebaseKeyVendor.dateSoldKey] as? String
-    let description = data[FirebaseKeyVendor.descriptionKey] as! String
+    let description = data[FirebaseKeyVendor.descriptionKey] as? String ?? ""
     let name = data[FirebaseKeyVendor.nameKey] as! String
     let price = data[FirebaseKeyVendor.priceKey] as! String
     let viewCount = data[FirebaseKeyVendor.viewCountKey] as! Int
