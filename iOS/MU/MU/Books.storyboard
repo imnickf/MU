@@ -19,7 +19,7 @@
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookTableViewCell" id="YQk-Bx-7NT" customClass="BookTableViewCell" customModule="MU" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YQk-Bx-7NT" id="r8g-1C-pja">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
