@@ -53,6 +53,7 @@
 		484315311E80FAC5009D57A8 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484315301E80FAC5009D57A8 /* ProfileTableViewController.swift */; };
 		484315331E82061A009D57A8 /* ViewItemsProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484315321E82061A009D57A8 /* ViewItemsProfileTableViewController.swift */; };
 		484315351E820D22009D57A8 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484315341E820D22009D57A8 /* ItemTableViewCell.swift */; };
+		484315371E84D300009D57A8 /* MessagesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484315361E84D300009D57A8 /* MessagesCollectionViewController.swift */; };
 		48D663431E6FD4E20027FC9B /* CreateFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D663421E6FD4E20027FC9B /* CreateFoodTableViewController.swift */; };
 		48FFEE841E771E1D00764748 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FFEE831E771E1D00764748 /* FoodDetailViewController.swift */; };
 		48FFEE861E77531E00764748 /* MiscDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FFEE851E77531E00764748 /* MiscDetailViewController.swift */; };
@@ -128,6 +129,7 @@
 		484315301E80FAC5009D57A8 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		484315321E82061A009D57A8 /* ViewItemsProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewItemsProfileTableViewController.swift; sourceTree = "<group>"; };
 		484315341E820D22009D57A8 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		484315361E84D300009D57A8 /* MessagesCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessagesCollectionViewController.swift; sourceTree = "<group>"; };
 		48D663421E6FD4E20027FC9B /* CreateFoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFoodTableViewController.swift; sourceTree = "<group>"; };
 		48FFEE831E771E1D00764748 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		48FFEE851E77531E00764748 /* MiscDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscDetailViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 		01F3CCE81E42F095005DE947 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				484315361E84D300009D57A8 /* MessagesCollectionViewController.swift */,
 				484315321E82061A009D57A8 /* ViewItemsProfileTableViewController.swift */,
 				01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */,
 				484315301E80FAC5009D57A8 /* ProfileTableViewController.swift */,
@@ -606,6 +609,7 @@
 				014E6DEB1E5A62B90027A633 /* BookTableViewController.swift in Sources */,
 				48FFEE841E771E1D00764748 /* FoodDetailViewController.swift in Sources */,
 				016287951E680AB7007A5F59 /* ViewControllerHelpers.swift in Sources */,
+				484315371E84D300009D57A8 /* MessagesCollectionViewController.swift in Sources */,
 				0175A8471E45A16A008A7780 /* Ticket.swift in Sources */,
 				014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */,
 				01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */,
