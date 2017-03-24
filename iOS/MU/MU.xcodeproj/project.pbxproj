@@ -24,6 +24,8 @@
 		0127BB431E84E28000B9F28C /* InMessageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127BB421E84E28000B9F28C /* InMessageTableViewCell.swift */; };
 		0127BB451E85B10000B9F28C /* ChatListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127BB441E85B10000B9F28C /* ChatListTableViewController.swift */; };
 		0127BB471E85B19500B9F28C /* ChatListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127BB461E85B19500B9F28C /* ChatListTableViewCell.swift */; };
+		0127BB491E85B75E00B9F28C /* ChatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127BB481E85B75E00B9F28C /* ChatRepository.swift */; };
+		0127BB4B1E85B7AC00B9F28C /* Chat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0127BB4A1E85B7AC00B9F28C /* Chat.swift */; };
 		014E6DE31E5A2C7D0027A633 /* TicketsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */; };
 		014E6DE51E5A36170027A633 /* DateHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE41E5A36170027A633 /* DateHelpers.swift */; };
 		014E6DE71E5A4E1A0027A633 /* TicketTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */; };
@@ -103,6 +105,8 @@
 		0127BB421E84E28000B9F28C /* InMessageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InMessageTableViewCell.swift; sourceTree = "<group>"; };
 		0127BB441E85B10000B9F28C /* ChatListTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListTableViewController.swift; sourceTree = "<group>"; };
 		0127BB461E85B19500B9F28C /* ChatListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatListTableViewCell.swift; sourceTree = "<group>"; };
+		0127BB481E85B75E00B9F28C /* ChatRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatRepository.swift; sourceTree = "<group>"; };
+		0127BB4A1E85B7AC00B9F28C /* Chat.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chat.swift; sourceTree = "<group>"; };
 		014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketsTableViewController.swift; sourceTree = "<group>"; };
 		014E6DE41E5A36170027A633 /* DateHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelpers.swift; sourceTree = "<group>"; };
 		014E6DE61E5A4E1A0027A633 /* TicketTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketTableViewCell.swift; sourceTree = "<group>"; };
@@ -242,7 +246,9 @@
 				0175A8481E45A173008A7780 /* Food.swift */,
 				0175A84A1E45A181008A7780 /* Misc.swift */,
 				0175A84C1E45A1E5008A7780 /* Item.swift */,
+				0127BB4A1E85B7AC00B9F28C /* Chat.swift */,
 				0175A84E1E463C77008A7780 /* ItemRepository.swift */,
+				0127BB481E85B75E00B9F28C /* ChatRepository.swift */,
 				01AC22901E6E524300AEBF50 /* UserRepository.swift */,
 				0175A8501E46CA9A008A7780 /* DatabaseGateway.swift */,
 				01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */,
@@ -633,6 +639,7 @@
 				015EEA381E6CC28800E35855 /* TicketDetailViewController.swift in Sources */,
 				48FFEE881E7767A300764748 /* CreateMiscTableViewController.swift in Sources */,
 				0175A84F1E463C77008A7780 /* ItemRepository.swift in Sources */,
+				0127BB4B1E85B7AC00B9F28C /* Chat.swift in Sources */,
 				01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */,
 				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
 				014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */,
@@ -653,6 +660,7 @@
 				0112CF371E68A11E008D46FB /* CreateTicketTableViewController.swift in Sources */,
 				484315351E820D22009D57A8 /* ItemTableViewCell.swift in Sources */,
 				48FFEE861E77531E00764748 /* MiscDetailViewController.swift in Sources */,
+				0127BB491E85B75E00B9F28C /* ChatRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
