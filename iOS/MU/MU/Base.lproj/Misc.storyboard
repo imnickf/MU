@@ -79,7 +79,7 @@
             </objects>
             <point key="canvasLocation" x="3793" y="292"/>
         </scene>
-        <!--Misc Table View Controller-->
+        <!--Misc-->
         <scene sceneID="RoQ-Sg-lDD">
             <objects>
                 <tableViewController id="a12-fZ-3kr" customClass="MiscTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
@@ -128,7 +128,8 @@
                             <outlet property="delegate" destination="a12-fZ-3kr" id="eAp-L2-bfx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DIb-Fx-AAv">
+                    <navigationItem key="navigationItem" title="Misc" id="DIb-Fx-AAv">
+                        <barButtonItem key="backBarButtonItem" title="Misc" id="Fil-ed-F9l"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="3LJ-EN-hIA">
                             <connections>
                                 <segue destination="yZd-pU-x9s" kind="show" id="dqa-lo-R0e"/>
@@ -147,7 +148,7 @@
         <!--Create Misc Table View Controller-->
         <scene sceneID="vAd-iR-fo4">
             <objects>
-                <tableViewController id="yZd-pU-x9s" customClass="CreateMiscTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditMisc" id="yZd-pU-x9s" customClass="CreateMiscTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="jGj-Iy-erf">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -351,6 +352,6 @@
         <image name="misc_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="UdZ-jE-mzD"/>
+        <segue reference="dqa-lo-R0e"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tickets Table View Controller-->
+        <!--Tickets-->
         <scene sceneID="3l4-qr-F6W">
             <objects>
                 <tableViewController id="CE8-Kc-J9P" customClass="TicketsTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
@@ -57,7 +57,8 @@
                             <outlet property="delegate" destination="CE8-Kc-J9P" id="sk8-b0-ucE"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="DEs-ja-5uA">
+                    <navigationItem key="navigationItem" title="Tickets" id="DEs-ja-5uA">
+                        <barButtonItem key="backBarButtonItem" title="Tickets" id="mji-fg-4TH"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="WJd-61-rve">
                             <connections>
                                 <segue destination="vQf-WK-423" kind="show" id="Mjp-Hw-CL8"/>
@@ -76,7 +77,7 @@
         <!--Create Ticket Table View Controller-->
         <scene sceneID="Rhb-eV-ziW">
             <objects>
-                <tableViewController id="vQf-WK-423" customClass="CreateTicketTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditTicket" id="vQf-WK-423" customClass="CreateTicketTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pU1-z9-xqk">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -508,6 +509,6 @@
         <image name="tickets_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ySS-RG-M3n"/>
+        <segue reference="Mjp-Hw-CL8"/>
     </inferredMetricsTieBreakers>
 </document>
