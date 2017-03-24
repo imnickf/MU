@@ -28,6 +28,7 @@ class UserRespository
     gateway.querySingleEvent(endpoint: endpoint) { (data, error) in
       if data == nil {
         self.gateway.persist(data: UserType.normal.rawValue, endpoint: endpoint + "/" + FirebaseKeyVendor.userTypeKey)
+        self.gateway.persist(data: FIRAuth.auth()!.currentUser!.displayName ?? "", endpoint: endpoint + "/" + FirebaseKeyVendor.displayNameKey)
       }
     }
   }

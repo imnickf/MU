@@ -30,6 +30,8 @@ struct FirebaseKeyVendor
   static let userBoughtKey    = "boughtItems"
   /// User Type key string
   static let userTypeKey      = "type"
+  /// Display Name key
+  static let displayNameKey   = "displayName"
 
   /// Author key string
   static let authorKey        = "author"
