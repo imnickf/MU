@@ -13,9 +13,29 @@ app.config(function ($routeProvider) {
             }
         }
     })
-    .when("/food", {
+    .when("/foods/:foodID?", {
         controller: "foodController",
-        templateUrl: "views/foodView.html"
+        templateUrl: "views/foodView.html",
+        resolve: {
+            books: function ($firebaseArray) {
+                var ref = firebase.database().ref('/products/food/');
+                return $firebaseArray(ref).$loaded();
+            },
+            userItems: function($firebaseArray, authService, $q){
+                // create a promise object
+                var deferred = $q.defer();
+
+                // wait for user to be authenticated
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid + '/items/');
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+            }// end resolved functions
+        }
     })
     .when("/tickets/:ticketID?", {
 

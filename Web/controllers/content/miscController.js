@@ -1,22 +1,30 @@
 /*
- Controller for providing data to the textbookView
+ Controller for providing data to the textmiscView
  */
 app.controller('miscController', function($scope, $routeParams, $location, itemService, miscs, userItems){
     // setup our items service with a database URL, item name, and item array
-    // books variable resolved on the route, resolved variables are only available
-    // in the controller, so we need to update our singleton service by passing books array
-    itemService.setup('/products/misc/', 'misc', miscs);
+    // miscs variable resolved on the route, resolved variables are only available
+    // in the controller, so we need to update our singleton service by passing miscs array
+    itemService.setup('/products/miscs/', 'misc', miscs);
 
-    // default editing to false, show edit form when we have a valid bookID
+    // default editing to false, show edit form when we have a valid miscID
     $scope.editing = false;
+    // detail view is default to false
+    $scope.detail = false;
+    // list view is default to true
+    $scope.list = true;
 
     // yank in our URL parameter
     var miscID = $routeParams.miscID;
 
-    // grab our book from bookService, we are making asynchronous calls, but since
-    // the books variable is a dependency, this wont run until books array is loaded
-    $scope.furniture = itemService.get(miscID);
+    // grab our misc from miscService, we are making asynchronous calls, but since
+    // the miscs variable is a dependency, this wont run until miscs array is loaded
+    $scope.misc = itemService.get(miscID);
 
+    // grab the current URL path
+    var path = $location.path();
+
+    // all of our error checking goes here
     // all of our error checking goes here
     var validate = function(misc){
         // begin checking for errors
@@ -54,37 +62,58 @@ app.controller('miscController', function($scope, $routeParams, $location, itemS
         itemService.remove(miscID);
     };
 
-    if(miscID == 'add'){
-        // we are trying to add a new book
-        $scope.title = 'Sell Item';
+    if(miscID == 'add') {
+        // we are trying to add a new misc
+        $scope.title = 'Add misc:';
         $scope.editing = true;
         // false because we are on the 'add' form
         $scope.edit_form = false;
-        $scope.book = {};
+        $scope.list = false;
+        $scope.misc = {};
         $scope.update = addMisc;
+    }else if(path.includes("detail")){
+        // we are on the detail view
+        $scope.detail = true;
+        $scope.editing = false;
+        $scope.list = false;
+        $scope.title = 'misc Details:';
+        // pull in Firebase storage image reference
+        var imageRef = itemService.getImageRef(miscID);
+
+        if(userItems.$getRecord($scope.misc.$id) !== null){
+            $scope.misc.allow_edit = true;
+        }// end if the user can edit this misc
+
+        imageRef.getDownloadURL().then(function(url) {
+            $scope.image_valid = true;
+            $scope.image_url = url;
+            $scope.$apply();
+        }).catch(function(error){
+            $scope.image_valid = false;
+        });
     }else if($scope.misc){
-        // we have a valid bookID in URL, show the edit form
-        $scope.title = 'Edit Item';
+        // we have a valid miscID in URL, show the edit form
+        $scope.title = 'Edit misc:';
         // pull in Firebase storage image reference
         var imageRef = itemService.getImageRef(miscID);
 
         imageRef.getDownloadURL().then(function(url) {
+            $scope.image_valid = true;
             $scope.image_url = url;
             $scope.$apply();
+        }).catch(function(error){
+            $scope.image_valid = false;
         });
 
         $scope.editing = true;
+        $scope.list = false;
+        $scope.detail = false;
         // true if we are on the 'edit' form
         $scope.edit_form = true;
         $scope.update = setMisc;
     }else{
-        // we are just showing the list of books
-        angular.forEach(miscs, function(misc) {
-            if(userItems.$getRecord(misc.$id) !== null){
-                misc.allow_edit = true;
-            }// end if the user can edit this book
-        });
-
+        // we are just showing the list of miscs
         $scope.miscs = miscs;
-    }// end if bookID == add
+        $scope.list = true;
+    }// end if miscID == add
 });
