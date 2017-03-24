@@ -61,7 +61,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="Deg-Sq-IeA">
-                                                    <rect key="frame" x="10" y="23" width="72.5" height="54"/>
+                                                    <rect key="frame" x="10" y="23.5" width="72.5" height="54"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2rv-9a-3WM">
                                                             <rect key="frame" x="0.0" y="0.0" width="72.5" height="33.5"/>
@@ -190,6 +190,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <segue destination="2h8-lL-hwb" kind="show" identifier="showChatList" id="MhW-x7-ap9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -215,6 +218,51 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0B-rY-0eE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1989.5999999999999" y="-83.208395802098963"/>
+        </scene>
+        <!--Chat List Table View Controller-->
+        <scene sceneID="Aob-O1-N7v">
+            <objects>
+                <tableViewController id="2h8-lL-hwb" customClass="ChatListTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="pBd-y5-Su6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.18445743619999999" green="0.1843549907" blue="0.1883455366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatListCell" id="6sz-0z-WTD" customClass="ChatListTableViewCell" customModule="MU" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="6sz-0z-WTD" id="c3u-4b-dbi">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ewS-zX-XP4">
+                                            <rect key="frame" x="15" y="11" width="79" height="21"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="ewS-zX-XP4" firstAttribute="leading" secondItem="c3u-4b-dbi" secondAttribute="leading" constant="15" id="MDM-Bt-zDg"/>
+                                        <constraint firstItem="ewS-zX-XP4" firstAttribute="centerY" secondItem="c3u-4b-dbi" secondAttribute="centerY" id="q18-Bq-x1I"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <outlet property="displayNameLabel" destination="ewS-zX-XP4" id="jPs-UZ-oQI"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="2h8-lL-hwb" id="iOH-Jv-344"/>
+                            <outlet property="delegate" destination="2h8-lL-hwb" id="nVD-Bu-HAu"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FdN-af-tVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2924" y="135"/>
         </scene>
         <!--View Items Profile Table View Controller-->
         <scene sceneID="3gL-gG-AhK">
@@ -276,7 +324,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Oh-nV-0Jj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2912.8000000000002" y="-83.208395802098963"/>
+            <point key="canvasLocation" x="2924" y="-530"/>
         </scene>
         <!--EditFood-->
         <scene sceneID="LaB-pS-Aqz">
@@ -284,7 +332,7 @@
                 <viewControllerPlaceholder storyboardName="Food" referencedIdentifier="EditFood" id="GbQ-GN-Kdp" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DgM-NO-M7j" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="-242"/>
+            <point key="canvasLocation" x="3640" y="-633"/>
         </scene>
         <!--EditTicket-->
         <scene sceneID="EgI-oy-fDT">
@@ -292,7 +340,7 @@
                 <viewControllerPlaceholder storyboardName="Tickets" referencedIdentifier="EditTicket" id="YKg-4Q-Qzk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oph-PD-pai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="-177"/>
+            <point key="canvasLocation" x="3641" y="-568"/>
         </scene>
         <!--EditBook-->
         <scene sceneID="Qww-u0-JFx">
@@ -300,7 +348,7 @@
                 <viewControllerPlaceholder storyboardName="Books" referencedIdentifier="EditBook" id="5Hv-Ys-SG2" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cYj-CV-w2C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3596" y="-112"/>
+            <point key="canvasLocation" x="3641" y="-503"/>
         </scene>
         <!--EditMisc-->
         <scene sceneID="gvz-sg-TEu">
@@ -308,7 +356,7 @@
                 <viewControllerPlaceholder storyboardName="Misc" referencedIdentifier="EditMisc" id="EvZ-lB-yBa" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NQQ-Wy-wfm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3595" y="-36"/>
+            <point key="canvasLocation" x="3638" y="-427"/>
         </scene>
     </scenes>
     <resources>
