@@ -1,9 +1,20 @@
 app.controller('chatController', function($scope, authService, $firebaseArray, $firebaseObject){
+    authService.setup($scope);
     $scope.userList = [];
     $scope.inputMessages = [];
 
     // number of chats currently open
     var chatCount = 0;
+
+    $scope.auth.$onAuthStateChanged(function (user) {
+        // listener function, called every time authentication state changes
+        if (user && user.email.includes("@iastate.edu")) {
+            // user is logged in using an @iastate.edu account
+            $scope.hide_chat = false;
+        } else {
+            $scope.hide_chat = true;
+        }// end if we have a valid user
+    });
 
     authService.promise.then(function(){
         var userRef = firebase.database().ref('/users/');
@@ -21,7 +32,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
 
                 if (users.hasOwnProperty(key)) {
 
-                    if(users[key].displayName != null && users[key].inbox != null && users[key].outbox != null){
+                    if(users[key].displayName != null){
                         // we have a valid displayName
                         if($scope.userList[key] == null){
                             // setup constructor chat variables
@@ -36,9 +47,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
                             users[key].inbox = newData[key].inbox;
                             users[key].outbox = newData[key].outbox;
 
-                            users[key].chatLog = mergeBoxes(users[key].inbox, users[key].outbox);
-
-                            console.log(users[key].chatLog);
+                            users[key].chatLog = mergeBoxes(users[key].inbox, users[key].outbox, key);
                         }// end if we are creating a new chat window
 
                     }else{
@@ -116,8 +125,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
             updates['/users/' + receiverID + '/inbox/' + senderID + '/' + inbox_key] = messageObject;
 
             // setup outbox Firebase update
-            var outbox_url = '/users/' + senderID + '/outbox/' + receiverID;
-            var outbox_key = database.ref(outbox_url).push().key;
+            var outbox_key = database.ref(inbox_url).push().key;
             updates['/users/' + senderID + '/outbox/' + receiverID + '/' + outbox_key] = messageObject;
 
             firebase.database().ref().update(updates);
@@ -126,33 +134,40 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
         }// end if they pressed enter
     };
 
-    var mergeBoxes = function(inbox, outbox){
+    var mergeBoxes = function(inbox, outbox, key){
+        // merge the two chatBoxes, sorting based on date, return the combined array
+        var chatLog = [];
 
-        var chatLog = {};
+        for(inboxUser in inbox){
+            // for loop over all inboxes
+            var userInbox = inbox[inboxUser];
 
-        for(key in inbox){
-
-            var userInbox = inbox[key];
-            var userOutbox = outbox[key];
-
-            chatLog = extend(userInbox, userOutbox);
-
-            console.log(chatLog);
-
-            console.log('a');
             console.log(userInbox);
 
+            for(outboxUser in outbox){
+                // for loop over all outboxes
 
+                if(inboxUser == outboxUser){
+                    console.log(userInbox);
+                    var userOutbox = outbox[outboxUser];
+
+                    // console.log('Inbox for ' + inboxUser + ': ');
+                    //console.log(userInbox);
+                    //console.log('Outbox for ' + inboxUser + ': ');
+                    //console.log(userOutbox);
+                    var tmp_inbox = userInbox;
+
+
+                    // inboxUser == outboxUser, merge the two chatboxes together
+                    chatLog[inboxUser] = Object.assign(tmp_inbox, userOutbox);
+                    // console.log('Chatlog for ' + inboxUser + ': ');
+                    // console.log(chatLog[inboxUser]);
+                }// end if inboxUser == outboxUser
+
+            }// end for loop
 
         }// end for loop
 
-        return 'test';
+        return chatLog;
     }// end mergeBoxes function
-
-    var extend = function extend(obj, src) {
-        for (var key in src) {
-            if (src.hasOwnProperty(key)) obj[key] = src[key];
-        }
-        return obj;
-    }
 });

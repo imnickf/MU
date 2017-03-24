@@ -90,7 +90,7 @@
     <!-- Chat View -->
     <div ng-controller="chatController">
     <body>
-        <div class="chat_box">
+        <div class="chat_box" ng-hide="hide_chat">
             <div class="chat_head">Chat</div>
             <div style="display:none" class="chat_body">
                 <div ng-repeat="(key, user) in userList">

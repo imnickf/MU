@@ -17,7 +17,7 @@ var database = firebase.database();
 // define our angular app, our dependencies are ngRoute, firebase, and ui.bootstrap
 var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
-app.controller('headerController', function($scope, authService) {
+app.controller('headerController', function($scope, authService, $location, $window) {
     // pull authentication variables/functions into current scope
     authService.setup($scope);
 
@@ -35,6 +35,11 @@ app.controller('headerController', function($scope, authService) {
             updates['/users/' + user.uid + '/displayName/'] = user.displayName;
 
             database.ref().update(updates);
+
+            if($location.path() == '/'){
+                $location.path('/profile/');
+                $window.location.reload();
+            }// end if we are on the main page and logged in, redirect
         } else if (user) {
             // user is logged in with non-iastate account
             $scope.error = "You must login with your Iowa State (@iastate.edu) Google account.";
