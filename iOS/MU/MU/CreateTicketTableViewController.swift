@@ -84,6 +84,7 @@ class CreateTicketTableViewController: UITableViewController
     }
   }
 
+  /// Deletes current item being editted from the database
   @objc fileprivate func deleteItem()
   {
     itemRepo.delete(item: ticket!)
