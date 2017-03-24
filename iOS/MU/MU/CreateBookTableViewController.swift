@@ -64,7 +64,16 @@ class CreateBookTableViewController: UITableViewController
       classCodeTextField.text = editBook.classCode
       createButton.setTitle("Save", for: .normal)
       createButton.isEnabled = true
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteItem))
     }
+  }
+
+  /// Deletes current item being editted from the database
+  @objc fileprivate func deleteItem()
+  {
+    itemRepo.delete(item: book!)
+    let _ = self.navigationController?.popViewController(animated: true)
+    let _ = self.navigationController?.popViewController(animated: true)
   }
 
   /// A function used to check if form is filled in.

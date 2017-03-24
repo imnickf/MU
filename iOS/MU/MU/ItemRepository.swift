@@ -15,7 +15,7 @@ enum ItemFetchType
 
 /// The ItemRepository class enables you to query and persist item data with the database.
 /// The ItemRepository interfaces with DatabaseGateway to save and query raw JSON data. It interfaces
-/// with ItemFactory to create items from raw data supplied by DatabaseGateway before returning 
+/// with ItemFactory to create items from raw data supplied by DatabaseGateway before returning
 /// it to the user in a usable Item object.
 class ItemRepository
 {
@@ -80,22 +80,22 @@ class ItemRepository
   func getItems(forUserId id: String, fetchType type: ItemFetchType, completion: @escaping ([Item]) -> Void)
   {
     var items: [Item] = [Item]()
-    
+
     var path: String = ""
     switch type {
     case .posted:
       path = FirebaseKeyVendor.itemsKey
       break
-      
+
     case .sold:
       path = FirebaseKeyVendor.userSoldKey
       break
-    
+
     case .bought:
       path = FirebaseKeyVendor.userBoughtKey
       break
     }
-    gateway.query(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + path) { (data, error) in
+    gateway.querySingleEvent(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + path) { (data, error) in
       
       if let itemData = data {
         for key in itemData.keys {
@@ -120,10 +120,8 @@ class ItemRepository
           }
           
           items.append(self.factory.makeItem(type: itemType!, key: key, data: itemData[key]! as! [String : Any]))
-          
         }
       }
-      
       completion(items)
     }
   }
@@ -137,7 +135,23 @@ class ItemRepository
   /// - Parameter item: item to be deleted
   func delete(item: Item)
   {
-    // TODO
+    switch item {
+    case is Ticket:
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.ticketsPath + "/\(item.id)")
+      break
+    case is Book:
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.booksPath + "/\(item.id)")
+      break
+    case is Food:
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.foodPath + "/\(item.id)")
+      break
+    case is Misc:
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.miscPath + "/\(item.id)")
+      break
+    default:
+      return
+    }
+    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + getUserID() + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
   }
 
   /// Marks an item as sold in the database

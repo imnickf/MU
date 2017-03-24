@@ -35,7 +35,6 @@ class FoodTableViewController: UITableViewController {
       }
     }
   }
-  
 }
 
 // MARK: - FoodTableViewController Protocol Methods

@@ -36,17 +36,6 @@ class TicketsTableViewController: UITableViewController
       }
     }
   }
-
-  override func viewWillAppear(_ animated: Bool)
-  {
-    itemRepo.getItems(.ticket) { (items) in
-      self.tickets = items as! [Ticket]
-
-      DispatchQueue.main.async {
-        self.tableView.reloadData()
-      }
-    }
-  }
 }
 
 // MARK: - UITableViewDataSource Protocol Methods
