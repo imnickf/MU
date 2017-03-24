@@ -501,7 +501,7 @@
                                 <color key="backgroundColor" red="0.1844574362039566" green="0.1843549907207489" blue="0.1883455365896225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="sectionIndexBackgroundColor" red="0.1844574362039566" green="0.1843549907207489" blue="0.1883455365896225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="inMessageCell" rowHeight="50" id="V6r-5N-iAc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="inMessageCell" rowHeight="50" id="V6r-5N-iAc" customClass="InMessageTableViewCell" customModule="MU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V6r-5N-iAc" id="frI-Kw-YeF">
@@ -538,8 +538,12 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.18445743619999999" green="0.1843549907" blue="0.1883455366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="messageContainerView" destination="rv7-UY-RWy" id="1O9-69-x54"/>
+                                            <outlet property="messageLabel" destination="mcP-Wv-Zyi" id="dhd-ER-pCI"/>
+                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="outMessageCell" rowHeight="50" id="N5L-3A-Xvc">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="outMessageCell" rowHeight="50" id="N5L-3A-Xvc" customClass="OutMessageTableViewCell" customModule="MU" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="78" width="375" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="N5L-3A-Xvc" id="QYV-Nn-agt">
@@ -576,6 +580,10 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.18445743619999999" green="0.1843549907" blue="0.1883455366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <outlet property="messageContainerView" destination="vad-hF-GaL" id="Zg7-6a-z3N"/>
+                                            <outlet property="messageLabel" destination="D8M-Nn-kge" id="C4n-LW-zb9"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
