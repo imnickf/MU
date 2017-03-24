@@ -22,6 +22,7 @@ class ProfileTableViewController: UITableViewController
 {
   @IBOutlet weak var nameText: UILabel!
   @IBOutlet weak var emailText: UILabel!
+  @IBOutlet weak var testImage: UIImageView!
   
   
   /// The AppDelegate of the Profile View.
@@ -39,6 +40,29 @@ class ProfileTableViewController: UITableViewController
     
     nameText.text = FIRAuth.auth()?.currentUser?.displayName
     emailText.text = FIRAuth.auth()?.currentUser?.email
+    
+    let url = URL(string: "http://proj-309-gb-4.cs.iastate.edu/images/Qd04tReXvcfCDuFvPak5hyNO44U2/cat_image.jpg")
+    let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
+      if (error != nil) {
+        print(error!.localizedDescription)
+      }
+      else {
+        var docDirectory: String?
+        var paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        if paths.count > 0 {
+          docDirectory = paths[0]
+          let savePath = docDirectory! + "/cat.jpg"
+          
+          FileManager.default.createFile(atPath: savePath, contents: data, attributes: nil)
+          
+          DispatchQueue.main.async {
+            self.testImage.image = UIImage(named: savePath)
+          }
+        }
+      }
+    }
+    
+    task.resume()
   }
 
     /// A method that is used to sign out the user using Firebase API.
