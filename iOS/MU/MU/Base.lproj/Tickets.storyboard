@@ -452,7 +452,7 @@
                                 </state>
                                 <connections>
                                     <action selector="actionButtonPressed:" destination="bdy-IX-MOQ" eventType="touchUpInside" id="OCG-WE-Jih"/>
-                                    <segue destination="lpJ-RS-9vw" kind="show" id="eIX-cO-Smi"/>
+                                    <segue destination="lpJ-RS-9vw" kind="show" identifier="showChat" id="eIX-cO-Smi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -591,6 +591,9 @@
                                         <state key="normal" title="Send">
                                             <color key="titleColor" red="0.74318903680000004" green="0.38095304369999999" blue="0.35297098760000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         </state>
+                                        <connections>
+                                            <action selector="sendMessage" destination="lpJ-RS-9vw" eventType="touchUpInside" id="1kB-8e-U4h"/>
+                                        </connections>
                                     </button>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Message" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wPp-8B-Qfq">
                                         <rect key="frame" x="80" y="0.0" width="265" height="39"/>

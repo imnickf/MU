@@ -18,6 +18,11 @@ class ChatViewController: UIViewController
   {
     super.viewDidLoad()
   }
+
+  @IBAction func sendMessage()
+  {
+    
+  }
 }
 
 // MARK: - Navigation
