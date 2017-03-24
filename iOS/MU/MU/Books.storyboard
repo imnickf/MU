@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Book Table View Controller-->
+        <!--Books-->
         <scene sceneID="Ihc-By-ZSF">
             <objects>
                 <tableViewController id="gsK-Hk-uDd" customClass="BookTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
@@ -70,7 +70,8 @@
                             <outlet property="delegate" destination="gsK-Hk-uDd" id="xso-Pn-j1m"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="RSF-P2-7g2">
+                    <navigationItem key="navigationItem" title="Books" id="RSF-P2-7g2">
+                        <barButtonItem key="backBarButtonItem" title="Books" id="PWu-eg-qvY"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="kH6-sV-NMm">
                             <connections>
                                 <segue destination="cdF-uf-Nje" kind="show" id="KtE-qn-5A2"/>
@@ -110,7 +111,7 @@
         <!--Create Book Table View Controller-->
         <scene sceneID="YoP-8E-UKF">
             <objects>
-                <tableViewController id="cdF-uf-Nje" customClass="CreateBookTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="EditBook" id="cdF-uf-Nje" customClass="CreateBookTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="static" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9dG-YG-1ha">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -557,6 +558,6 @@
         <image name="books_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="TY3-oR-dJz"/>
+        <segue reference="KtE-qn-5A2"/>
     </inferredMetricsTieBreakers>
 </document>

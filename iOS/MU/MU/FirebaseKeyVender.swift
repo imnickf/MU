@@ -24,6 +24,10 @@ struct FirebaseKeyVendor
   static let usersKey         = "users"
   /// Items key string
   static let itemsKey         = "items"
+  /// User Sold Key
+  static let userSoldKey      = "soldItems"
+  /// User Bought Key
+  static let userBoughtKey    = "boughtItems"
   /// User Type key string
   static let userTypeKey      = "type"
 
