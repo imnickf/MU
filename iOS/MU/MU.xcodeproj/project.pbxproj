@@ -270,17 +270,17 @@
 				01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */,
 				484315301E80FAC5009D57A8 /* ProfileTableViewController.swift */,
 				014E6DE21E5A2C7D0027A633 /* TicketsTableViewController.swift */,
-				48FFEE831E771E1D00764748 /* FoodDetailViewController.swift */,
-				48FFEE851E77531E00764748 /* MiscDetailViewController.swift */,
-				48FFEE871E7767A300764748 /* CreateMiscTableViewController.swift */,
 				014E6DEA1E5A62B90027A633 /* BookTableViewController.swift */,
 				014E6DE81E5A62980027A633 /* FoodTableViewController.swift */,
 				014E6DEC1E5A62D20027A633 /* MiscTableViewController.swift */,
 				0112CF361E68A11E008D46FB /* CreateTicketTableViewController.swift */,
 				017C6B521E6CA44900EB7E36 /* CreateBookTableViewController.swift */,
 				48D663421E6FD4E20027FC9B /* CreateFoodTableViewController.swift */,
+				48FFEE871E7767A300764748 /* CreateMiscTableViewController.swift */,
 				015EEA371E6CC28800E35855 /* TicketDetailViewController.swift */,
 				015505CF1E806809000196C2 /* BookDetailViewController.swift */,
+				48FFEE831E771E1D00764748 /* FoodDetailViewController.swift */,
+				48FFEE851E77531E00764748 /* MiscDetailViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";

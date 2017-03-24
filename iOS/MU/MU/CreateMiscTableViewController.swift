@@ -61,10 +61,18 @@ class CreateMiscTableViewController: UITableViewController {
       PriceTextField.text = editMisc.price.substring(from: editMisc.price.index(editMisc.price.startIndex, offsetBy: 1))
       CreateButton.setTitle("Save", for: .normal)
       CreateButton.isEnabled = true
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteItem))
     }
-
   }
-  
+
+  /// Deletes current item being editted from the database
+  @objc fileprivate func deleteItem()
+  {
+    itemRepo.delete(item: misc!)
+    let _ = self.navigationController?.popViewController(animated: true)
+    let _ = self.navigationController?.popViewController(animated: true)
+  }
+
   /// A function used to check if form is filled in.
   /// - returns: A boolean value indicating that the form is filled in.
   fileprivate func verifyInputs() -> Bool
