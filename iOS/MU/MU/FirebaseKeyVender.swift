@@ -72,6 +72,8 @@ struct FirebaseKeyVendor
   static let dateKey          = "date"
   /// Key for chats
   static let chatsKey         = "chats"
+  /// Key for messages
+  static let messagesKey      = "messages"
 }
 
 // MARK: Database paths
