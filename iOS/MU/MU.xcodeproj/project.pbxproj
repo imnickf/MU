@@ -36,6 +36,7 @@
 		015EEA381E6CC28800E35855 /* TicketDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 015EEA371E6CC28800E35855 /* TicketDetailViewController.swift */; };
 		016287931E6682EF007A5F59 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016287921E6682EF007A5F59 /* Theme.swift */; };
 		016287951E680AB7007A5F59 /* ViewControllerHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016287941E680AB7007A5F59 /* ViewControllerHelpers.swift */; };
+		016DA7901E90AFAF0006C672 /* ChatFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 016DA78F1E90AFAF0006C672 /* ChatFactory.swift */; };
 		0175A8381E452B55008A7780 /* Tickets.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8361E452B55008A7780 /* Tickets.storyboard */; };
 		0175A83A1E452B6B008A7780 /* Books.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A8391E452B6B008A7780 /* Books.storyboard */; };
 		0175A83D1E452B7D008A7780 /* Food.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0175A83B1E452B7D008A7780 /* Food.storyboard */; };
@@ -117,6 +118,7 @@
 		015EEA371E6CC28800E35855 /* TicketDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TicketDetailViewController.swift; sourceTree = "<group>"; };
 		016287921E6682EF007A5F59 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		016287941E680AB7007A5F59 /* ViewControllerHelpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewControllerHelpers.swift; sourceTree = "<group>"; };
+		016DA78F1E90AFAF0006C672 /* ChatFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChatFactory.swift; sourceTree = "<group>"; };
 		0175A8371E452B55008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Tickets.storyboard; sourceTree = "<group>"; };
 		0175A8391E452B6B008A7780 /* Books.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Books.storyboard; sourceTree = "<group>"; };
 		0175A83C1E452B7D008A7780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Food.storyboard; sourceTree = "<group>"; };
@@ -252,6 +254,7 @@
 				01AC22901E6E524300AEBF50 /* UserRepository.swift */,
 				0175A8501E46CA9A008A7780 /* DatabaseGateway.swift */,
 				01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */,
+				016DA78F1E90AFAF0006C672 /* ChatFactory.swift */,
 				010A31961E5013E7004CB07C /* FirebaseKeyVender.swift */,
 				014E6DE41E5A36170027A633 /* DateHelpers.swift */,
 				016287941E680AB7007A5F59 /* ViewControllerHelpers.swift */,
@@ -624,6 +627,7 @@
 				01AC22911E6E524300AEBF50 /* UserRepository.swift in Sources */,
 				0175A8441E45A153008A7780 /* Book.swift in Sources */,
 				48377B2B1E5A66C7007DBE2B /* FoodTableViewCell.swift in Sources */,
+				016DA7901E90AFAF0006C672 /* ChatFactory.swift in Sources */,
 				0127BB3F1E84DF0E00B9F28C /* ChatViewController.swift in Sources */,
 				015505D01E806809000196C2 /* BookDetailViewController.swift in Sources */,
 				0127BB471E85B19500B9F28C /* ChatListTableViewCell.swift in Sources */,
