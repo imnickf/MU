@@ -72,5 +72,6 @@ class ChatRepository
   fileprivate func setupChat(withUserID id: String) -> Chat
   {
     // TODO: Setup new chat
+    // TODO: Generage new chat ID, save ID to both users' chats path
   }
 }

@@ -13,17 +13,19 @@ class Chat
   var messages: [Message]
   var receiverID: String
   var senderID: String
+  var id: String
 
-  init(receiverID: String, senderID: String)
+  init(id: String, receiverID: String, senderID: String)
   {
+    self.id = id
     self.receiverID = receiverID
     self.senderID = senderID
     self.messages = []
   }
 
-  func fetchMessages()
+  func store(messages: [Message])
   {
-    // TODO: Add value listener to fetch messages from Firebase
+    self.messages = messages
   }
 }
 

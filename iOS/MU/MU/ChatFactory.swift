@@ -20,9 +20,9 @@ class ChatFactory
   /// - Parameter fromData: data used to create the chat
   /// - Parameter withReceiverID: user ID of the receiver for the chat
   /// - Returns: the created chat
-  func makeChat(fromData data: [String : Any], withReceiverID id: String) -> Chat
+  func makeChat(withID id: String, fromData data: [String : Any], withReceiverID rid: String) -> Chat
   {
-    let chat = Chat(receiverID: id, senderID: userRepo.getCurrentUserID())
+    let chat = Chat(id: id, receiverID: rid, senderID: userRepo.getCurrentUserID())
 
     // TODO: Create message objects and store in chat
 
@@ -32,9 +32,10 @@ class ChatFactory
   /// Makes a new chat without any messages attached
   /// - Parameter withReceiverID: user ID of the receiver of the chat
   /// - Returns: the created chat
-  func createNewChat(withReceiverID id: String) -> Chat
+  func createNewChat(withID id: String, withReceiverID rid: String) -> Chat
   {
-    return Chat(receiverID: id, senderID: userRepo.getCurrentUserID())
+    let chat = Chat(id: id, receiverID: rid, senderID: userRepo.getCurrentUserID())
+    return chat
   }
 
   /// Creates a new message object with the provided message content
@@ -51,6 +52,11 @@ class ChatFactory
   /// - Returns: the created message
   fileprivate func makeMessage(fromData data: [String : Any]) -> Message
   {
-    // TODO
+    // TODO: Create message from provided data
+
+    let content = ""
+    let senderID = ""
+    let message = Message(senderID: senderID, content: content)
+    return message
   }
 }
