@@ -63,6 +63,15 @@ struct FirebaseKeyVendor
   static let timeKey          = "time"
   /// View Count key string
   static let viewCountKey     = "viewCount"
+
+  /// Key for message senderID
+  static let senderIdKey      = "senderID"
+  /// Key for message content
+  static let contentKey       = "content"
+  /// Key for message date
+  static let dateKey          = "date"
+  /// Key for chats
+  static let chatsKey         = "chats"
 }
 
 // MARK: Database paths
