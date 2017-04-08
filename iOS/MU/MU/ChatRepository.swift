@@ -43,7 +43,7 @@ class ChatRepository
       }
       if let chats = data {
         if let chatID = chats[id] as? String {
-          let chatEndpoint = FirebaseKeyVendor.chatsKey + "/" + chatID + "/" + FirebaseKeyVendor.messagesKey
+          let chatEndpoint = FirebaseKeyVendor.messagesKey + "/" + chatID
           self.gateway.query(endpoint: chatEndpoint) { (messagesData, err) in
             if err != nil {
               print(err!.localizedDescription)
@@ -67,11 +67,32 @@ class ChatRepository
     }
   }
 
+  func persistNew(chat: Chat)
+  {
+    let senderPath = FirebaseKeyVendor.usersKey + "/" + chat.senderID + "/" + FirebaseKeyVendor.chatsKey + "/" + chat.receiverID
+    let receiverPath = FirebaseKeyVendor.usersKey + "/" + chat.receiverID + "/" + FirebaseKeyVendor.chatsKey + "/" + chat.senderID
+    gateway.persist(data: chat.id, endpoint: senderPath)
+    gateway.persist(data: chat.id, endpoint: receiverPath)
+  }
+
+  func persistNew(message: Message, forChatID id: String)
+  {
+    let messageID = DatabaseGateway.createNewID(FirebaseKeyVendor.messagesKey + "/" + id)
+    let messagePath = FirebaseKeyVendor.messagesKey + "/" + id + "/" + messageID
+
+    var messageData = [String : String]()
+    messageData[FirebaseKeyVendor.dateKey] = message.date.iso8601
+    messageData[FirebaseKeyVendor.messageKey] = message.content
+    messageData[FirebaseKeyVendor.senderIdKey] = message.senderID
+    gateway.persist(data: messageData, endpoint: messagePath)
+  }
+
   /// Sets up a new chat with another user
   /// - Parameter withUserID: User ID of the person that chat is with
   fileprivate func setupChat(withUserID id: String) -> Chat
   {
-    // TODO: Setup new chat
-    // TODO: Generage new chat ID, save ID to both users' chats path
+    let chatID = DatabaseGateway.createNewID(FirebaseKeyVendor.messagesKey)
+    let chat = chatFactory.createNewChat(withID: chatID, withReceiverID: id)
+    return chat
   }
 }
