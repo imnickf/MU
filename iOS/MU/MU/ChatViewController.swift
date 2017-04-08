@@ -14,14 +14,25 @@ class ChatViewController: UIViewController
   @IBOutlet weak var sendMessageButton: UIButton!
   @IBOutlet weak var messageTextField: UITextField!
 
+  let chatRepo = ChatRepository()
+  var receiverID: String!
+  var chat: Chat!
+
   override func viewDidLoad()
   {
     super.viewDidLoad()
+
+    chatRepo.getChat(withUserID: receiverID) { (chat) in
+      self.chat = chat
+      // TODO: Set source for table view
+    }
   }
 
   @IBAction func sendMessage()
   {
-    
+    if let message = messageTextField.text {
+      chat.send(message: message)
+    }
   }
 }
 
