@@ -75,6 +75,10 @@ extension BookDetailViewController
         vc.shouldEdit = true
         vc.book = book
       }
+    } else if segue.identifier == "showChat" {
+      if let vc = segue.destination as? ChatViewController {
+        vc.receiverID = book.creatorID
+      }
     }
   }
 }

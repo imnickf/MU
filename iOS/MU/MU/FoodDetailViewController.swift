@@ -15,14 +15,15 @@ class FoodDetailViewController: UIViewController {
   @IBOutlet weak var DescriptionTextView: UITextView!
   @IBOutlet weak var actionButton: UIButton!
   
-  var food: Food?
+  var food: Food!
   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
+  override func viewDidLoad()
+  {
+    super.viewDidLoad()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
+  override func viewWillAppear(_ animated: Bool)
+  {
     TitleLabel.text = food?.name
     FoodCatLabel.text = food?.category
     DescriptionTextView.text = food?.description
@@ -32,7 +33,7 @@ class FoodDetailViewController: UIViewController {
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
       actionButton.isHidden = false
-      actionButton.setTitle("Message Seller", for: .normal)
+      actionButton.setTitle("Message Creator", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
   }
@@ -48,12 +49,18 @@ class FoodDetailViewController: UIViewController {
 }
 
 // MARK: - Navigation
-extension FoodDetailViewController {
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+extension FoodDetailViewController
+{
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
     if segue.identifier == "editFood" {
       if let vc = segue.destination as? CreateFoodTableViewController {
         vc.food = food
         vc.shouldEdit = true
+      }
+    } else if segue.identifier == "showChat" {
+      if let vc = segue.destination as? ChatViewController {
+        vc.receiverID = food.creatorID
       }
     }
   }

@@ -63,6 +63,10 @@ extension TicketDetailViewController
         vc.shouldEdit = true
         vc.ticket = ticket
       }
+    } else if segue.identifier == "showChat" {
+      if let vc = segue.destination as? ChatViewController {
+        vc.receiverID = ticket.creatorID
+      }
     }
   }
 }

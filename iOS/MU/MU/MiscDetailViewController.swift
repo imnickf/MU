@@ -22,13 +22,15 @@ class MiscDetailViewController: UIViewController {
   @IBOutlet weak var actionButton: UIButton!
   
   /// A variable used to hold the selected Misc object.
-  var misc: Misc?
+  var misc: Misc!
   
-  override func viewDidLoad() {
+  override func viewDidLoad()
+  {
     super.viewDidLoad()
   }
   
-  override func viewWillAppear(_ animated: Bool) {
+  override func viewWillAppear(_ animated: Bool)
+  {
     NameLabel.text = misc?.name
     CategoryLabel.text = misc?.category
     PriceLabel.text = misc?.price
@@ -56,12 +58,18 @@ class MiscDetailViewController: UIViewController {
 
 // MARK: - Navigation
 
-extension MiscDetailViewController {
-  override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+extension MiscDetailViewController
+{
+  override func prepare(for segue: UIStoryboardSegue, sender: Any?)
+  {
     if segue.identifier == "editMisc" {
       if let vc = segue.destination as? CreateMiscTableViewController {
         vc.misc = misc
         vc.shouldEdit = true
+      }
+    } else if segue.identifier == "showChat" {
+      if let vc = segue.destination as? ChatViewController {
+        vc.receiverID = misc?.creatorID
       }
     }
   }
