@@ -24,8 +24,14 @@ class ChatFactory
   {
     let chat = Chat(id: id, receiverID: rid, senderID: userRepo.getCurrentUserID(), persisted: true)
 
-    // TODO: Create message objects and store in chat
-
+    var messages = [Message]()
+    for (_, messageData) in data {
+      if let message = messageData as? [String : Any] {
+        messages.append(makeMessage(fromData: message))
+      }
+    }
+    chat.store(messages: messages)
+    
     return chat
   }
 
