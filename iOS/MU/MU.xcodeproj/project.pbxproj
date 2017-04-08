@@ -53,6 +53,7 @@
 		01AC22911E6E524300AEBF50 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01AC22901E6E524300AEBF50 /* UserRepository.swift */; };
 		01BE84EF1E665CCC0035B48F /* MiscTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */; };
 		01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */; };
+		01CAE9681E996BD500855CA0 /* Chat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01CAE9661E996BD500855CA0 /* Chat.storyboard */; };
 		01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */; };
 		01F3CCE41E42EF6B005DE947 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 01F3CCE31E42EF6B005DE947 /* Auth.storyboard */; };
 		01F3CCE61E42EFDF005DE947 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */; };
@@ -135,6 +136,7 @@
 		01AC22901E6E524300AEBF50 /* UserRepository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscTableViewCell.swift; sourceTree = "<group>"; };
 		01C1283D1E46CE9900A8DB87 /* ItemFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemFactory.swift; sourceTree = "<group>"; };
+		01CAE9671E996BD500855CA0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		01D5E6DA1E5A7CB7005C737C /* BookTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		01F3CCE31E42EF6B005DE947 /* Auth.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
 		01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 				01F3CCE31E42EF6B005DE947 /* Auth.storyboard */,
 				0114DE881E42D20800E2AB2A /* Main.storyboard */,
 				0175A8361E452B55008A7780 /* Tickets.storyboard */,
+				01CAE9661E996BD500855CA0 /* Chat.storyboard */,
 				0175A8391E452B6B008A7780 /* Books.storyboard */,
 				0175A83B1E452B7D008A7780 /* Food.storyboard */,
 				0175A8401E452BA6008A7780 /* Misc.storyboard */,
@@ -450,6 +453,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0175A8381E452B55008A7780 /* Tickets.storyboard in Resources */,
+				01CAE9681E996BD500855CA0 /* Chat.storyboard in Resources */,
 				0114DE8F1E42D20800E2AB2A /* LaunchScreen.storyboard in Resources */,
 				0114DEB31E42D79800E2AB2A /* GoogleService-Info.plist in Resources */,
 				01F3CCE41E42EF6B005DE947 /* Auth.storyboard in Resources */,
@@ -738,6 +742,14 @@
 				0175A8411E452BA6008A7780 /* Base */,
 			);
 			name = Misc.storyboard;
+			sourceTree = "<group>";
+		};
+		01CAE9661E996BD500855CA0 /* Chat.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				01CAE9671E996BD500855CA0 /* Base */,
+			);
+			name = Chat.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
