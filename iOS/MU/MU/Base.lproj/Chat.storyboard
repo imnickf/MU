@@ -159,7 +159,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.1844574362039566" green="0.1843549907207489" blue="0.1883455365896225" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="tZY-qE-Jfw" firstAttribute="top" secondItem="bF1-XX-Zsj" secondAttribute="bottom" id="0QQ-2G-iXB"/>
                             <constraint firstItem="jZs-6S-k9m" firstAttribute="top" secondItem="tZY-qE-Jfw" secondAttribute="bottom" id="1wN-Hj-o41"/>
                             <constraint firstItem="bF1-XX-Zsj" firstAttribute="leading" secondItem="TdW-o0-kTt" secondAttribute="leading" id="6II-4x-RAH"/>
                             <constraint firstAttribute="trailing" secondItem="bF1-XX-Zsj" secondAttribute="trailing" id="NL5-Vp-hZL"/>
@@ -178,6 +177,7 @@
                     <connections>
                         <outlet property="messageInputView" destination="tZY-qE-Jfw" id="k2s-aA-Xf2"/>
                         <outlet property="messageTextField" destination="wPp-8B-Qfq" id="Wb4-3Q-UYF"/>
+                        <outlet property="messageViewBottomConstraint" destination="1wN-Hj-o41" id="mQT-ff-ZHz"/>
                         <outlet property="messagesTableView" destination="bF1-XX-Zsj" id="TDa-GV-eIB"/>
                         <outlet property="sendMessageButton" destination="nUe-TD-m8E" id="flh-A2-eLS"/>
                     </connections>

@@ -15,6 +15,8 @@ class ChatViewController: UIViewController
   @IBOutlet weak var messageTextField: UITextField!
   @IBOutlet weak var messageInputView: UIView!
 
+  @IBOutlet weak var messageViewBottomConstraint: NSLayoutConstraint!
+  
   let chatRepo = ChatRepository()
   var receiverID: String!
   var chat: Chat?
@@ -29,6 +31,10 @@ class ChatViewController: UIViewController
       self.messages = chat.messages.sorted(by: { $0.date < $1.date })
       self.messagesTableView.reloadData()
     }
+
+    hideKeyboardWhenTappedAround()
+    NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+    NotificationCenter.default.addObserver(self, selector: #selector(ChatViewController.keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
   }
 
   @IBAction func sendMessage()
@@ -36,6 +42,28 @@ class ChatViewController: UIViewController
     if let message = messageTextField.text {
       chat?.send(message: message)
       messageTextField.text = nil
+    }
+  }
+
+  func keyboardWillShow(notification: NSNotification)
+  {
+    let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+
+    if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+      UIView.animate(withDuration: duration) { () -> Void in
+        self.messageViewBottomConstraint.constant = (keyboardSize.height - (self.tabBarController?.tabBar.frame.size.height)!)
+        self.view.layoutIfNeeded()
+      }
+    }
+  }
+
+  func keyboardWillHide(notification: NSNotification)
+  {
+    let duration = notification.userInfo![UIKeyboardAnimationDurationUserInfoKey] as! Double
+
+    UIView.animate(withDuration: duration) { () -> Void in
+      self.messageViewBottomConstraint.constant = 0
+      self.view.layoutIfNeeded()
     }
   }
 }
