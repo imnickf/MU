@@ -67,6 +67,8 @@ class ChatRepository
     }
   }
 
+  /// Persists a new Chat between two users to the database
+  /// - Parameter chat: chat to be persisted
   func persistNew(chat: Chat)
   {
     let senderPath = FirebaseKeyVendor.usersKey + "/" + chat.senderID + "/" + FirebaseKeyVendor.chatsKey + "/" + chat.receiverID
@@ -75,6 +77,9 @@ class ChatRepository
     gateway.persist(data: chat.id, endpoint: receiverPath)
   }
 
+  /// Persists a new message sent from a user
+  /// - Parameter message: content of message being persisted
+  /// - Parameter forChatID: id of chat message is from
   func persistNew(message: Message, forChatID id: String)
   {
     let messageID = DatabaseGateway.createNewID(FirebaseKeyVendor.messagesKey + "/" + id)

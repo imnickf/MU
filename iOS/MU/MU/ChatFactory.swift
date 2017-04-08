@@ -22,7 +22,7 @@ class ChatFactory
   /// - Returns: the created chat
   func makeChat(withID id: String, fromData data: [String : Any], withReceiverID rid: String) -> Chat
   {
-    let chat = Chat(id: id, receiverID: rid, senderID: userRepo.getCurrentUserID())
+    let chat = Chat(id: id, receiverID: rid, senderID: userRepo.getCurrentUserID(), persisted: true)
 
     // TODO: Create message objects and store in chat
 
@@ -34,7 +34,7 @@ class ChatFactory
   /// - Returns: the created chat
   func createNewChat(withID id: String, withReceiverID rid: String) -> Chat
   {
-    let chat = Chat(id: id, receiverID: rid, senderID: userRepo.getCurrentUserID())
+    let chat = Chat(id: id, receiverID: rid, senderID: userRepo.getCurrentUserID(), persisted: false)
     return chat
   }
 
@@ -52,11 +52,10 @@ class ChatFactory
   /// - Returns: the created message
   fileprivate func makeMessage(fromData data: [String : Any]) -> Message
   {
-    // TODO: Create message from provided data
-
-    let content = ""
-    let senderID = ""
-    let message = Message(senderID: senderID, content: content)
+    let content = data[FirebaseKeyVendor.messageKey] as! String
+    let senderID = data[FirebaseKeyVendor.senderIdKey] as! String
+    let date = data[FirebaseKeyVendor.dateKey] as! String
+    let message = Message(senderID: senderID, content: content, date: date.dateFromISO8601!)
     return message
   }
 }

@@ -36,6 +36,7 @@ class Chat
   {
     if !persisted {
       chatRepo.persistNew(chat: self)
+      persisted = true
     }
     let message = Message(senderID: self.senderID, content: message)
     messages.append(message)
@@ -54,5 +55,12 @@ class Message
     self.senderID = senderID
     self.content = content
     self.date = Date()
+  }
+
+  init(senderID: String, content: String, date: Date)
+  {
+    self.senderID = senderID
+    self.content = content
+    self.date = date
   }
 }
