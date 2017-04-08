@@ -26,8 +26,7 @@ class ChatViewController: UIViewController
 
     chatRepo.getChat(withUserID: receiverID) { (chat) in
       self.chat = chat
-      self.messages = chat.messages
-      
+      self.messages = chat.messages.sorted(by: { $0.date < $1.date })
       self.messagesTableView.reloadData()
     }
   }
@@ -41,10 +40,7 @@ class ChatViewController: UIViewController
   }
 }
 
-extension ChatViewController: UITableViewDelegate
-{
-
-}
+// MARK: - UITableViewDataSource Protocol Methods
 
 extension ChatViewController: UITableViewDataSource
 {
@@ -61,6 +57,7 @@ extension ChatViewController: UITableViewDataSource
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
   {
     var cell: UITableViewCell
+
     let message = messages[indexPath.row]
     if message.senderID == receiverID {
       cell = tableView.dequeueReusableCell(withIdentifier: "inMessageCell", for: indexPath)
@@ -72,4 +69,11 @@ extension ChatViewController: UITableViewDataSource
 
     return cell
   }
+}
+
+// MARK: - UITableViewDelegate Protocol Methods
+
+extension ChatViewController: UITableViewDelegate
+{
+
 }
