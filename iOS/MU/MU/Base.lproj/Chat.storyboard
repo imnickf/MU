@@ -112,6 +112,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="lpJ-RS-9vw" id="Sjs-Al-X91"/>
+                                    <outlet property="delegate" destination="lpJ-RS-9vw" id="1Qt-JB-CmY"/>
+                                </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tZY-qE-Jfw">
                                 <rect key="frame" x="0.0" y="573" width="375" height="45"/>
@@ -172,6 +176,7 @@
                         <size key="landscapeSize" width="375" height="667"/>
                     </fixedSimulatedSizeMetrics>
                     <connections>
+                        <outlet property="messageInputView" destination="tZY-qE-Jfw" id="k2s-aA-Xf2"/>
                         <outlet property="messageTextField" destination="wPp-8B-Qfq" id="Wb4-3Q-UYF"/>
                         <outlet property="messagesTableView" destination="bF1-XX-Zsj" id="TDa-GV-eIB"/>
                         <outlet property="sendMessageButton" destination="nUe-TD-m8E" id="flh-A2-eLS"/>
