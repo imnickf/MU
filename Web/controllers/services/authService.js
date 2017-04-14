@@ -4,14 +4,14 @@
 
 app.factory('authService', function authService($firebaseAuth) {
     var promise = $firebaseAuth().$requireSignIn();
-    var auth = $firebaseAuth();
 
     return {
         promise: promise,
         authenticate: function(){
             // authenticate the user using google sign-in
-            auth.$signInWithPopup("google").then(function(user) {
+            $firebaseAuth().$signInWithPopup("google").then(function(user) {
                 // login successful
+                promise = $firebaseAuth().$requireSignIn();
                 return user;
             }).catch(function(error) {
                 // login failed
@@ -20,7 +20,7 @@ app.factory('authService', function authService($firebaseAuth) {
         },
         getCurrentAuth: function(){
             // return current authentication object
-            return auth;
+            return $firebaseAuth();
         },
         signOut: function(){
             // sign the user out of firebase
@@ -34,7 +34,7 @@ app.factory('authService', function authService($firebaseAuth) {
         },
         getUser: function(){
             // return current authentication object
-            return auth.$getAuth();
+            return $firebaseAuth().$getAuth();
         }
     };
 });

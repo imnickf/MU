@@ -5,19 +5,80 @@
 app.config(function ($routeProvider) {
     $routeProvider.when("/", {
         controller: "mainController",
-        templateUrl: "views/mainView.html",
-        resolve:{
-            auth: function(authService){
-                // we wont begin calling controller code until this promise is resolved
-                return authService.promise;
-            }
+        templateUrl: "views/mainView.html"
+    })
+    .when("/foods/:foodID?", {
+        controller: "foodController",
+        templateUrl: "views/foodView.html",
+        resolve: {
+            foods: function ($firebaseArray) {
+                var ref = firebase.database().ref('/products/food/');
+                return $firebaseArray(ref).$loaded();
+            },
+            userItems: function($firebaseArray, authService, $q){
+                // create a promise object
+                var deferred = $q.defer();
+
+                // wait for user to be authenticated
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid + '/items/');
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+            }// end resolved functions
+        }
+    }).when("/foods/detail/:foodID?", {
+        controller: "foodController",
+        templateUrl: "views/foodView.html",
+        resolve: {
+            foods: function ($firebaseArray) {
+                var ref = firebase.database().ref('/products/food/');
+                return $firebaseArray(ref).$loaded();
+            },
+            userItems: function($firebaseArray, authService, $q){
+                // create a promise object
+                var deferred = $q.defer();
+
+                // wait for user to be authenticated
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid + '/items/');
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+            }// end resolved functions
         }
     })
-    .when("/food", {
-        controller: "foodController",
-        templateUrl: "views/foodView.html"
-    })
     .when("/tickets/:ticketID?", {
+
+        controller: "ticketController",
+        templateUrl: "views/ticketView.html",
+        resolve: {
+            tickets: function ($firebaseArray) {
+                var ref = firebase.database().ref('/products/ticket/');
+                return $firebaseArray(ref).$loaded();
+            },
+            userItems: function($firebaseArray, authService, $q){
+                // create a promise object
+                var deferred = $q.defer();
+
+                // wait for user to be authenticated
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid + '/items/');
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+            }// end resolved functions
+        }
+    }).when("/tickets/detail/:ticketID?", {
 
         controller: "ticketController",
         templateUrl: "views/ticketView.html",
@@ -69,6 +130,31 @@ app.config(function ($routeProvider) {
     })
 
     .when("/miscs/:miscID?", {
+
+        controller: "miscController",
+        templateUrl: "views/miscView.html",
+
+        resolve: {
+            miscs: function ($firebaseArray) {
+                var ref = firebase.database().ref('/products/misc/');
+                return $firebaseArray(ref).$loaded();
+            },
+            userItems: function($firebaseArray, authService, $q){
+                // create a promise object
+                var deferred = $q.defer();
+
+                // wait for user to be authenticated
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid + '/items/');
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+            }// end resolved functions
+        }
+    }).when("/miscs/detail/:miscID?", {
 
         controller: "miscController",
         templateUrl: "views/miscView.html",
