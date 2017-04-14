@@ -5,11 +5,6 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
     $scope.displayMessages = {};
     var messagesRef = firebase.database().ref('/messages/');
 
-    messagesRef.on('value', function(snapshot) {
-        var messages = snapshot.val();
-        console.log(messages);
-    });
-
     // number of chats currently open
     var chatCount = 0;
     var sender;
@@ -28,7 +23,6 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
 
     var userRef = firebase.database().ref('/users/');
     var users = $firebaseArray(userRef);
-    var chatIDs;
 
     // to take an action after the data loads, use the $loaded() promise
     users.$loaded().then(function () {
@@ -37,7 +31,44 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
             sender = users.$getRecord(authService.getUser().uid);
         }); // end authService promise function()
 
+        // update the users scope variables
         updateUsers(users);
+
+        messagesRef.on('value', function(snapshot) {
+            // messages listener
+            authService.promise.then(function() {
+                sender = users.$getRecord(authService.getUser().uid);
+                var messages = snapshot.val();
+
+                if(sender.chats != null){
+
+                    angular.forEach(sender.chats, function (chatID, receiverID) {
+
+                        if(chatID in messages){
+                            var messageObj = messages[chatID];
+
+                            angular.forEach(messageObj, function (message) {
+
+                                if(message.senderID == sender.$id){
+                                    message.class = 'msg_a';
+                                }else{
+                                    message.class = 'msg_b';
+                                }// end if apply different classes to these messages
+
+                                var index = users.$indexFor(receiverID);
+
+                                $scope.userList[index].displayMessages.push(message);
+                            });
+                            
+                        }// end if this user is involved in a chat
+
+                    }); // end for loop over all the user chats
+
+                }// end if the auth user is involved in any chats
+
+            }); // end authService promise function()
+        });
+
     }); // end users data loaded function
 
     userRef.on('value', function(snapshot) {
@@ -48,15 +79,6 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
         // users data is loaded
         angular.forEach(users, function (user, id) {
             // for each loop over all users setting up chats
-
-            if(user.chats != null){
-                // we have a list of chats for each user, convert c.s to array
-                chatIDs = user.chats;
-            }else{
-                chatIDs = [];
-            }// end if we have chats for this user
-
-            // we have a valid displayName
             if ($scope.userList[id] == null) {
                 // setup constructor chat variables
                 user.hide_message = true;
@@ -71,6 +93,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
             user.id = user.$id;
             user.chatIndex = id;
             $scope.userList[id] = user;
+            $scope.userList[id].displayMessages = [];
         }); // end for loop over all users data
 
     }// end updateUsers function(...)

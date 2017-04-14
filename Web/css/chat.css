@@ -18,7 +18,7 @@ body{
 }
 
 .chat_head,.msg_head{
-    background:#ff0000;
+    background:#ff9900;
     color:white;
     padding:15px;
     font-weight:bold;
@@ -35,7 +35,7 @@ body{
 }
 
 .msg_head{
-    background:#ff9900;
+    background: #ff0000;
 }
 
 .msg_body{

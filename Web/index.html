@@ -106,10 +106,9 @@
 
                         <div ng-attr-id="{{ key }}_wrap" class="msg_wrap">
                             <div class="msg_body">
-
-
-                                <div class="msg_a">Hello guys</div>
-                                <div class="msg_b">Yo yo yo</div>
+                                <div ng-repeat="messageData in userList[key].displayMessages">
+                                    <div ng-class="messageData.class">{{ messageData.message }}</div>
+                                </div>
                                 <div class="msg_push"></div>
                             </div>
                             <form>
