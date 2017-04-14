@@ -10,7 +10,7 @@ app.factory('chatService', function chatService($firebaseArray) {
             var receiverChatIDs;
             var senderChatIDs;
             var chat_key;
-            var messageRef = firebase.database().ref('/messages/');;
+            var messageRef = firebase.database().ref('/messages/');
 
             var receiverID = receiver.$id;
             var senderID = sender.$id;
