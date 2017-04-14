@@ -5,10 +5,9 @@
             <a ng-href="#miscs/add">Add Item</a>
             <table class="table table-striped">
                 <thead>
-                <th>Name</th>
-                <th>Category</th>
-                <th>Price</th>
-                <th>Options</th>
+                    <th>Name</th>
+                    <th>Category</th>
+                    <th>Price</th>
                 </thead>
                 <tr ng-repeat="misc in miscs">
                     <td><a ng-href="#miscs/detail/{{misc.$id}}" >{{ misc.name }}</a></td>

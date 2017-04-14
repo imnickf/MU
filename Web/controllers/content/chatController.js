@@ -1,10 +1,11 @@
-app.controller('chatController', function($scope, authService, $firebaseArray, $firebaseObject){
+app.controller('chatController', function($scope, authService, $firebaseArray, chatService){
     authService.setup($scope);
     $scope.userList = [];
     $scope.inputMessages = [];
 
     // number of chats currently open
     var chatCount = 0;
+    var sender;
 
     $scope.auth.$onAuthStateChanged(function (user) {
         // listener function, called every time authentication state changes
@@ -14,57 +15,49 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
         } else {
             $scope.hide_chat = true;
         }// end if we have a valid user
-    });
 
-    authService.promise.then(function(){
+    }); // end on auth state change function
+
+    authService.promise.then(function() {
         var userRef = firebase.database().ref('/users/');
+        var users = $firebaseArray(userRef);
+        var chatIDs;
 
-        userRef.on('value', function(snapshot) {
+        // to take an action after the data loads, use the $loaded() promise
+        users.$loaded().then(function () {
+            // grab the sender from our $firebaseArray
+            sender = users.$getRecord(authService.getUser().uid);
 
-            if($scope.userList.length == 0){
-                var users = snapshot.val();
-            }else{
-                var users = $scope.userList;
-                var newData = snapshot.val();
-            }// end if userList has been defined
+            // users data is loaded
+            angular.forEach(users, function (user, id) {
+                // for each loop over all users setting up chats
 
-            for (var key in users) {
+                if(user.chats != null){
+                    // we have a list of chats for each user, convert c.s to array
+                    chatIDs = user.chats;
+                }else{
+                    chatIDs = [];
+                }// end if we have chats for this user
 
-                if (users.hasOwnProperty(key)) {
+                // we have a valid displayName
+                if ($scope.userList[id] == null) {
+                    // setup constructor chat variables
+                    user.hide_message = true;
+                    user.chatWidth = 0;
+                    user.chatNum = 0;
 
-                    if(users[key].displayName != null){
-                        // we have a valid displayName
-                        if($scope.userList[key] == null){
-                            // setup constructor chat variables
-                            users[key].hide_message = true;
-                            users[key].chatWidth = 0;
-                            users[key].chatNum = 0;
-                            users[key].key = key;
-                            // push a blank placeholder onto input array
-                            $scope.inputMessages.push("");
-                        }else{
-                            // just update the inbox and outbox values
-                            users[key].inbox = newData[key].inbox;
-                            users[key].outbox = newData[key].outbox;
+                    // push a blank placeholder onto input array
+                    $scope.inputMessages.push("");
+                }// end if we are creating a new chat window
 
-                            users[key].chatLog = mergeBoxes(users[key].inbox, users[key].outbox, key);
-                        }// end if we are creating a new chat window
+                user.id = user.$id;
+                user.chatIndex = id;
+                $scope.userList[id] = user;
+            }); // end for loop over all users data
 
-                    }else{
-                        // if we dont have displayName we dont care
-                        delete users[key];
-                    }// end if we have a displayName
+        }); // end users data loaded function
 
-                }// end if we have a users object
-
-            }// end loop over all users in database
-
-            // update the userList with new user properties
-            $scope.userList = users;
-
-            $scope.$evalAsync();
-        });
-    });
+    }); // end authService promise function()
 
     $scope.updateChatWidth = function(type, user, $event){
         // update the chat widths for all users
@@ -76,98 +69,52 @@ app.controller('chatController', function($scope, authService, $firebaseArray, $
         } else if (type == 'sub' && user.hide_message == false) {
             chatCount--;
 
-            for(var key in $scope.userList){
+            angular.forEach($scope.userList, function (u, id) {
                 // loop over all users
-                if (user.chatNum < $scope.userList[key].chatNum){
-                    $scope.userList[key].chatNum--;
+                if (user.chatNum < $scope.userList[id].chatNum){
+                    $scope.userList[id].chatNum--;
                 }// end if current user Chat less than some user chat
 
-            }// end for loop
+            });// end for each loop over all users
 
             user.chatNum = 0;
-        } else {
-            return;
+        }else{
+
         }// end if adding a new chat
 
-        for(var key in $scope.userList){
-            // loop over all users
+        angular.forEach($scope.userList, function (u, id) {
+            // for each loop over users updating chat widths
             if (chatCount == 1) {
-                $scope.userList[key].chatWidth = 300 * $scope.userList[key].chatNum;
+                $scope.userList[id].chatWidth = 300 * u.chatNum;
             } else {
-                $scope.userList[key].chatWidth = 280 * $scope.userList[key].chatNum;
+                $scope.userList[id].chatWidth = 280 * u.chatNum;
             }// end if first chat opened
 
-        }// end for loop
-    };
+        });// end for each loop over all users
 
-    $scope.slideToggle = function(key){
-        $("#" + key + '_wrap').slideToggle();
-    };
+    }; // end function updateChatWidth(...)
 
-    $scope.send = function(e, user, key){
+    $scope.send = function($event, receiver) {
         // send a message by posting to firebase
+        $event.stopPropagation();
 
-        if(e.code == 'Enter'){
-            var message = $scope.inputMessages[key];
-            var receiverID = user.key;
-            // pull in the sender ID from our auth service
-            var senderID = authService.getUser().uid;
+        if($event.code == 'Enter' && $scope.inputMessages[receiver.chatIndex] != ''){
+            // get the text input from the scope
+            var message = $scope.inputMessages[receiver.chatIndex];
+            console.log(receiver);
+            // send the message
+            chatService.send(sender, receiver, message);
 
-            var updates = {};
-            var messageObject = ({
-                message: message,
-                date: new Date().toJSON()
-            });
-
-            // setup inbox Firebase update
-            var inbox_url = '/users/' + receiverID + '/inbox/' + senderID;
-            var inbox_key = database.ref(inbox_url).push().key;
-            updates['/users/' + receiverID + '/inbox/' + senderID + '/' + inbox_key] = messageObject;
-
-            // setup outbox Firebase update
-            var outbox_key = database.ref(inbox_url).push().key;
-            updates['/users/' + senderID + '/outbox/' + receiverID + '/' + outbox_key] = messageObject;
-
-            firebase.database().ref().update(updates);
+            console.log($scope.inputMessages);
             // clear the message box
-            $scope.inputMessages[key] = "";
+            $scope.inputMessages[receiver.chatIndex] = "";
+
+            // $scope.updateChatWidth(null, receiver, $event);
+            $scope.$evalAsync();
         }// end if they pressed enter
     };
 
-    var mergeBoxes = function(inbox, outbox, key){
-        // merge the two chatBoxes, sorting based on date, return the combined array
-        var chatLog = [];
-
-        for(inboxUser in inbox){
-            // for loop over all inboxes
-            var userInbox = inbox[inboxUser];
-
-            console.log(userInbox);
-
-            for(outboxUser in outbox){
-                // for loop over all outboxes
-
-                if(inboxUser == outboxUser){
-                    console.log(userInbox);
-                    var userOutbox = outbox[outboxUser];
-
-                    // console.log('Inbox for ' + inboxUser + ': ');
-                    //console.log(userInbox);
-                    //console.log('Outbox for ' + inboxUser + ': ');
-                    //console.log(userOutbox);
-                    var tmp_inbox = userInbox;
-
-
-                    // inboxUser == outboxUser, merge the two chatboxes together
-                    chatLog[inboxUser] = Object.assign(tmp_inbox, userOutbox);
-                    // console.log('Chatlog for ' + inboxUser + ': ');
-                    // console.log(chatLog[inboxUser]);
-                }// end if inboxUser == outboxUser
-
-            }// end for loop
-
-        }// end for loop
-
-        return chatLog;
-    }// end mergeBoxes function
+    $scope.slideToggle = function(key){
+        $("#" + key + '_wrap').toggle();
+    };
 });

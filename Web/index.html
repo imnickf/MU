@@ -10,7 +10,6 @@
     <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
-    <script src="js/chatScript.js"></script>
 
     <!-- Main Angular Controllers -->
     <script src="controllers/main/app.js"></script>
@@ -19,6 +18,7 @@
 
     <!-- Angular Services -->
     <script src="controllers/services/authService.js"></script>
+    <script src="controllers/services/chatService.js"></script>
     <script src="controllers/services/itemService.js"></script>
 
     <!-- Angular View Controllers -->
@@ -43,15 +43,19 @@
 <div ng-app="app">
     <div ng-controller="headerController">
         <!-- Navigation Bar -->
+
         <nav class="navbar navbar-inverse" role="navigation">
+
             <div class="navbar-header">
+
                 <button type="button" class="navbar-toggle" ng-click="isNavCollapsed = !isNavCollapsed">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#main" ng-click="isNavCollapsed = true">The MU</a>
+                <a class="navbar-brand" href="#main" ng-click="isNavCollapsed = true"><img style="position: relative; top: -6px;" src="images/normal_logo.png" width="40px"></a>
+
             </div>
             <div class="navbar-collapse" uib-collapse="isNavCollapsed">
                 <ul class="nav navbar-nav">
@@ -67,8 +71,6 @@
                             <a id="single-button" uib-dropdown-toggle ng-disabled="disabled" ng-show="display_Navinfo">{{ user.email | emailToNetID }}<span class="caret"></span></a>
                             <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
                                 <li role="menuitem"><a href="#profile">Profile</a></li>
-                                <li role="menuitem"><a href="#">Messages</a></li>
-                                <li role="menuitem"><a href="#">Something else here</a></li>
                                 <li class="divider"></li>
                                 <li role="menuitem"><a href="#index" ng-click="signOut()">Logout</a></li>
                             </ul>
@@ -94,7 +96,6 @@
             <div class="chat_head">Chat</div>
             <div style="display:none" class="chat_body">
                 <div ng-repeat="(key, user) in userList">
-
                     <div ng-click="updateChatWidth('add', user, $event); user.hide_message = false;" class='user' >{{ user.displayName }}</div>
 
                     <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box" ng-hide="user.hide_message" >
@@ -105,19 +106,15 @@
 
                         <div ng-attr-id="{{ key }}_wrap" class="msg_wrap">
                             <div class="msg_body">
-                                <div ng-repeat="(senderID, senderMessages) in user.inbox">
-                                    <div ng-repeat="message in senderMessages"class="msg_a">{{ message.message}}</div>
-
-                                </div>
+                                <div class="msg_a">Hello guys</div>
+                                <div class="msg_b">Yo yo yo</div>
                                 <div class="msg_push"></div>
                             </div>
-
                             <form>
                                 <div class="msg_footer">
-                                    <textarea ng-keypress="send($event, user, key)" class="msg_input" rows="4" style="resize: none" ng-model="inputMessages[key]"></textarea>
+                                    <textarea ng-keypress="send($event, user);" class="msg_input" rows="4" style="resize: none" ng-model="inputMessages[key]"></textarea>
                                 </div>
                             </form>
-
                         </div>
                     </div>
 
@@ -125,8 +122,15 @@
             </div>
         </div>
         </body>
-
     </div>
     <!-- End Chat View -->
-
 </div>
+<script>
+$(document).ready(function(){
+
+    $('.chat_head').click(function(){
+        $('.chat_body').toggle();
+    });
+
+});
+</script>
