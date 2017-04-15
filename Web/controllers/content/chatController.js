@@ -29,10 +29,9 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
 
         authService.promise.then(function() {
             sender = users.$getRecord(authService.getUser().uid);
+            // update the users scope variables
+            updateUsers(users);
         }); // end authService promise function()
-
-        // update the users scope variables
-        updateUsers(users);
 
         messagesRef.on('value', function(snapshot) {
             // messages listener
@@ -59,7 +58,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
 
                                 $scope.userList[index].displayMessages.push(message);
                             });
-                            
+
                         }// end if this user is involved in a chat
 
                     }); // end for loop over all the user chats
@@ -90,10 +89,16 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
                 storedChatNums.push(user.chatNum);
             }// end if we are creating a new chat window
 
+            if(user.$id == sender.$id){
+                user.displayInList = false;
+            }else{
+                user.displayInList = true;
+            }// end if we should display this user in the chat list
+
             user.id = user.$id;
             user.chatIndex = id;
+            user.displayMessages = [];
             $scope.userList[id] = user;
-            $scope.userList[id].displayMessages = [];
         }); // end for loop over all users data
 
     }// end updateUsers function(...)
