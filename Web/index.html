@@ -68,6 +68,7 @@
                 <div class="navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
                         <li class="btn-group" uib-dropdown is-open="status.isOpen">
+                            <a class="btn-group" ng-hide="display_Navinfo" ng-href="https://accounts.google.com/logout" target="_blank">Google Sign Out</a>
                             <a class="btn-group" ng-hide="display_Navinfo" ng-click="authenticate()">Login</a>
                             <a id="single-button" uib-dropdown-toggle ng-disabled="disabled" ng-show="display_Navinfo">{{ user.email | emailToNetID }}<span class="caret"></span></a>
                             <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
@@ -81,7 +82,7 @@
             </div>
         </nav>
         <!-- End Navigation Bar -->
-        <div class="container">{{ error }}</div>
+        <div class="container"><h3><strong>{{ error }}</strong></h3></div>
     </div>
 
     <!-- Page Content -->
@@ -97,9 +98,9 @@
             <div class="chat_head">Chat</div>
             <div style="display:none" class="chat_body">
                 <div ng-repeat="(key, user) in userList">
-                    <div ng-click="updateChatWidth('add', user, $event); user.hide_message = false;" class='user' >{{ user.displayName }}</div>
+                    <div ng-click="updateChatWidth('add', user, $event); user.hide_message = false;" class='user' ng-show="user.displayInList">{{ user.displayName }}</div>
 
-                    <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box" ng-hide="user.hide_message" >
+                    <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box" ng-hide="user.hide_message || !user.displayInList" >
 
                         <div class="msg_head" ng-click="slideToggle(key)"> {{ user.displayName }}
                             <div ng-click="updateChatWidth('sub', user, $event); user.hide_message = true" class="close">x</div>
@@ -107,18 +108,17 @@
 
                         <div ng-attr-id="{{ key }}_wrap" class="msg_wrap">
                             <div class="msg_body">
-                                <div class="msg_a">Hello guys</div>
-                                <div class="msg_b">Yo yo yo</div>
-                                <div class="msg_push"></div>
+                                <div ng-repeat="messageData in userList[key].displayMessages">
+                                    <div ng-class="messageData.class">{{ messageData.message }}</div>
+                                </div>
                             </div>
                             <form>
                                 <div class="msg_footer">
-                                    <textarea ng-keypress="send($event, user);" class="msg_input" rows="4" style="resize: none" ng-model="inputMessages[key]"></textarea>
+                                    <textarea ng-attr-id="{{ key }}_input" ng-keypress="send($event, user);" class="msg_input" rows="4" style="resize: none" ng-model="inputMessages[key]"></textarea>
                                 </div>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -128,10 +128,8 @@
 </div>
 <script>
 $(document).ready(function(){
-
     $('.chat_head').click(function(){
         $('.chat_body').toggle();
     });
-
 });
 </script>

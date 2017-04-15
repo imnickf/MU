@@ -3,14 +3,14 @@
  */
 
 app.factory('chatService', function chatService($firebaseArray) {
-
+    // service for providing functions to the chatController
     return {
         send: function(sender, receiver, message){
             // POST a message to the server from <sender> to <receiver>
             var receiverChatIDs;
             var senderChatIDs;
             var chat_key;
-            var messageRef = firebase.database().ref('/messages/');;
+            var messageRef = firebase.database().ref('/messages/');
 
             var receiverID = receiver.$id;
             var senderID = sender.$id;
