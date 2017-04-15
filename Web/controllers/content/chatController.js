@@ -66,7 +66,8 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
                 }// end if the auth user is involved in any chats
 
             }); // end authService promise function()
-        });
+
+        }); // end messages on value change listener
 
     }); // end users data loaded function
 
@@ -145,10 +146,11 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
 
     $scope.send = function($event, receiver) {
         // send a message by posting to firebase
-        $event.stopPropagation();
-
+        // only do something if the input key is "Enter"
         if($event.code == 'Enter' && $scope.inputMessages[receiver.chatIndex] != ''){
-            // get the text input from the scope
+            // prevent the enter key from creating a new line in the textarea
+            event.preventDefault();
+            // setup our users with default 'constructor' variables
             updateUsers($scope.userList);
             // get the message from the DOM
             var message = $scope.inputMessages[receiver.chatIndex];
@@ -159,6 +161,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
             // clear the message box
             $scope.inputMessages[receiver.chatIndex] = "";
 
+            // update the chat width for this receiver (fixes weird bug)
             $scope.updateChatWidth(null, receiver, $event);
             $scope.$evalAsync();
         }// end if they pressed enter

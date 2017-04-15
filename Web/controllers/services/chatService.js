@@ -3,7 +3,7 @@
  */
 
 app.factory('chatService', function chatService($firebaseArray) {
-
+    // service for providing functions to the chatController
     return {
         send: function(sender, receiver, message){
             // POST a message to the server from <sender> to <receiver>

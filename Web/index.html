@@ -99,7 +99,7 @@
                 <div ng-repeat="(key, user) in userList">
                     <div ng-click="updateChatWidth('add', user, $event); user.hide_message = false;" class='user' ng-show="user.displayInList">{{ user.displayName }}</div>
 
-                    <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box" ng-hide="user.hide_message" >
+                    <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box" ng-hide="user.hide_message || !user.displayInList" >
 
                         <div class="msg_head" ng-click="slideToggle(key)"> {{ user.displayName }}
                             <div ng-click="updateChatWidth('sub', user, $event); user.hide_message = true" class="close">x</div>
@@ -110,16 +110,14 @@
                                 <div ng-repeat="messageData in userList[key].displayMessages">
                                     <div ng-class="messageData.class">{{ messageData.message }}</div>
                                 </div>
-                                <div class="msg_push"></div>
                             </div>
                             <form>
                                 <div class="msg_footer">
-                                    <textarea ng-keypress="send($event, user);" class="msg_input" rows="4" style="resize: none" ng-model="inputMessages[key]"></textarea>
+                                    <textarea ng-attr-id="{{ key }}_input" ng-keypress="send($event, user);" class="msg_input" rows="4" style="resize: none" ng-model="inputMessages[key]"></textarea>
                                 </div>
                             </form>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
