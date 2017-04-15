@@ -209,7 +209,26 @@ app.config(function ($routeProvider) {
     })
     .when("/profile", {
         controller: "profileController",
-        templateUrl: "views/profileView.html"
+        templateUrl: "views/profileView.html",
+        //resolve user data
+
+        resolve: {
+
+            userInfo: function ($firebaseArray, authService, $q)  {
+               var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
+            }
+
+        }
     })
     .otherwise({
         redirectTo: "/"
