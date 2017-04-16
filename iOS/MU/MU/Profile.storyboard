@@ -259,10 +259,21 @@
                             <outlet property="delegate" destination="2h8-lL-hwb" id="nVD-Bu-HAu"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <segue destination="ccj-uG-GpU" kind="show" identifier="showChatWithUser" id="F0w-fl-Qc8"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FdN-af-tVq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2924" y="135"/>
+        </scene>
+        <!--Chat-->
+        <scene sceneID="0H8-qj-vN5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="ccj-uG-GpU" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8l2-bK-tTI" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3680" y="132"/>
         </scene>
         <!--View Items Profile Table View Controller-->
         <scene sceneID="3gL-gG-AhK">
