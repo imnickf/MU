@@ -5,30 +5,36 @@ app.controller('profileController', function($scope, $firebaseObject, authServic
     // uncomment the line below to connect to firebase
     // const database = firebase.database();
 
+    //userInfo grabs all info of current user logged in.
     userService.setup(userInfo);
+
+    //flag for editing one profile.
+    $scope.editing = false;
+
+    var updates =
+
 
     //Grabs user information from AuthServices.js
     authService.promise.then(function() {
        // console.log(authService.getUser());
 
         var user = authService.getUser();
-
-
-        console.log(user);
-        console.log(user.bio);
-        console.log(userInfo);
-
-        $scope.userName = user.displayName;
-
         $scope.userEmail = user.email;
+
+
+        $scope.userName = userInfo.displayName;
+        $scope.userBio = userInfo.bio;
+        $scope.userItems = userInfo.items;
+
 
 
     });
 
-
-    //flag for editing one profile.
-    $scope.editing = false;
-
+        $scope.saveProfileData = function(){
+          userInfo.bio = $scope.userBio;
+            userService.set(userInfo);
+            $scope.editing = false;
+        };
 
 
 });
