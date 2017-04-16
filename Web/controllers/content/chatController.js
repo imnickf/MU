@@ -34,6 +34,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
         }); // end authService promise function()
 
         messagesRef.on('value', function(snapshot) {
+
             // messages listener
             authService.promise.then(function() {
                 sender = users.$getRecord(authService.getUser().uid);
@@ -45,6 +46,8 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
 
                         if(chatID in messages){
                             var messageObj = messages[chatID];
+                            var index = users.$indexFor(receiverID);
+                            $scope.userList[index].displayMessages = [];
 
                             angular.forEach(messageObj, function (message) {
 
@@ -53,8 +56,6 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
                                 }else{
                                     message.class = 'msg_b';
                                 }// end if apply different classes to these messages
-
-                                var index = users.$indexFor(receiverID);
 
                                 $scope.userList[index].displayMessages.push(message);
                             });
