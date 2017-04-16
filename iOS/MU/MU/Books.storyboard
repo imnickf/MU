@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hx6-VA-s3l">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="hx6-VA-s3l">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +19,7 @@
                         <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BookTableViewCell" id="YQk-Bx-7NT" customClass="BookTableViewCell" customModule="MU" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="YQk-Bx-7NT" id="r8g-1C-pja">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -95,7 +95,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mlm-wG-fm1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mlm-wG-fm1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -509,6 +509,7 @@
                                 </state>
                                 <connections>
                                     <action selector="actionButtonPressed:" destination="PxK-kz-XUw" eventType="touchUpInside" id="diZ-KX-dvC"/>
+                                    <segue destination="tqD-xR-8uB" kind="show" identifier="showChat" id="69j-eZ-nBp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -552,12 +553,20 @@
             </objects>
             <point key="canvasLocation" x="2702" y="173"/>
         </scene>
+        <!--Chat-->
+        <scene sceneID="RY4-Aq-jOd">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="tqD-xR-8uB" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EuU-JD-Dsm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3407" y="194"/>
+        </scene>
     </scenes>
     <resources>
         <image name="books_filled_icon" width="25" height="25"/>
         <image name="books_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KtE-qn-5A2"/>
+        <segue reference="TY3-oR-dJz"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,8 +10,9 @@ import UIKit
 
 class ViewItemsProfileTableViewController: UITableViewController {
 
-  let itemRepo: ItemRepository = ItemRepository()
-  var userItems: [Item] = [Item]()
+  let itemRepo = ItemRepository()
+  let userRepo = UserRespository()
+  var userItems = [Item]()
   var fetchType: ItemFetchType = .posted
   var selItem: Item? = nil
   
@@ -19,7 +20,7 @@ class ViewItemsProfileTableViewController: UITableViewController {
     super.viewDidLoad()
     
     
-    let userId: String = itemRepo.getUserID()
+    let userId: String = userRepo.getCurrentUserID()
     itemRepo.getItems(forUserId: userId, fetchType: fetchType) { (items) in
       self.userItems = items
     

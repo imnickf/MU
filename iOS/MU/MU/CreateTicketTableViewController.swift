@@ -41,6 +41,14 @@ class CreateTicketTableViewController: UITableViewController
   /// An Item Repository.
   let itemRepo = ItemRepository()
 
+  /// Array storing sports for picker wheel
+  var sports = ["Basketball",
+                "Football",
+                "Soccer",
+                "Baseball",
+                "Hockey",
+                "Volleybal"]
+
   /// A DateFormatter used to format the date to a human readable format.
   lazy var dateFormatter: DateFormatter = {
     var formatter = DateFormatter()
@@ -60,6 +68,11 @@ class CreateTicketTableViewController: UITableViewController
     let datePicker = UIDatePicker()
     datePicker.addTarget(self, action: #selector(dateChanged(_:)), for: .valueChanged)
     dateTextField.inputView = datePicker
+
+    let sportPicker = UIPickerView()
+    sportPicker.delegate = self
+    sportPicker.dataSource = self
+    sportTextField.inputView = sportPicker
 
     createButton.isEnabled = false
   }
@@ -196,6 +209,42 @@ extension CreateTicketTableViewController: UITextFieldDelegate
     } else {
       createButton.isEnabled = false
     }
+  }
+}
+
+// MARK: - UIPickerViewDelegate Protocol Methods
+
+extension CreateTicketTableViewController: UIPickerViewDelegate
+{
+  /// A function that is used to set titles for the row.
+  func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String?
+  {
+    return sports[row]
+  }
+
+  /// A function that is used to update the "sport" text field when a user
+  /// selects a sport.
+  func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int)
+  {
+    sportTextField.text = sports[row]
+  }
+
+}
+
+// MARK: - UIPickerViewDataSource Protocol Methods
+
+extension CreateTicketTableViewController: UIPickerViewDataSource
+{
+  /// A function that sets the number of columns for the picker.
+  func numberOfComponents(in pickerView: UIPickerView) -> Int
+  {
+    return 1
+  }
+
+  /// A function that sets the number of rows for the picker.
+  func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int
+  {
+    return sports.count
   }
 }
 

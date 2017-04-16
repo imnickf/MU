@@ -20,11 +20,6 @@ class MiscTableViewCell: UITableViewCell
   /// A link to the "price" label.
   @IBOutlet weak var priceLabel: UILabel!
   
-  override func awakeFromNib()
-  {
-    super.awakeFromNib()
-  }
-
   /// A function that initalizes a Misc for
   /// this Table View Cell.
   func configureWith(misc: Misc)

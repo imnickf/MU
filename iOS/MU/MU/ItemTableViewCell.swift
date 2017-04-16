@@ -8,17 +8,13 @@
 
 import UIKit
 
-class ItemTableViewCell: UITableViewCell {
-
+class ItemTableViewCell: UITableViewCell
+{
   @IBOutlet weak var nameText: UILabel!
   @IBOutlet weak var itemTypeText: UILabel!
-  
-  
-    override func awakeFromNib() {
-        super.awakeFromNib()
-    }
 
-  func configureWith(item: Item) {
+  func configureWith(item: Item)
+  {
     nameText.text = item.name
     let type: String = item.id.components(separatedBy: "-")[0]
     itemTypeText.text = type

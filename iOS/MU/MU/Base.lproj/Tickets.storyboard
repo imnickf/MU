@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aDB-j8-kX3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="aDB-j8-kX3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -19,7 +19,7 @@
                         <color key="backgroundColor" red="0.18445743619999999" green="0.1843549907" blue="0.1883455366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TicketTableViewCell" id="4jl-qG-XrU" customClass="TicketTableViewCell" customModule="MU" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="56" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4jl-qG-XrU" id="sm9-Eb-C1B">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -451,6 +451,7 @@
                                 </state>
                                 <connections>
                                     <action selector="actionButtonPressed:" destination="bdy-IX-MOQ" eventType="touchUpInside" id="OCG-WE-Jih"/>
+                                    <segue destination="1Fj-rc-ZbG" kind="show" identifier="showChat" id="eIX-cO-Smi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -503,12 +504,20 @@
             </objects>
             <point key="canvasLocation" x="1740" y="-815.44227886056979"/>
         </scene>
+        <!--Chat-->
+        <scene sceneID="knK-2W-kqP">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Chat" id="1Fj-rc-ZbG" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="exX-Yk-TSs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4306" y="-608"/>
+        </scene>
     </scenes>
     <resources>
         <image name="tickets_filled_icon" width="25" height="25"/>
         <image name="tickets_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Mjp-Hw-CL8"/>
+        <segue reference="ySS-RG-M3n"/>
     </inferredMetricsTieBreakers>
 </document>

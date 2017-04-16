@@ -43,7 +43,7 @@ class BookDetailViewController: UIViewController
     classCodeLabel.isHidden = book.classCode == nil
     classCodeInfoLabel.isHidden = book.classCode == nil
 
-    if ItemRepository().getUserID() == book.creatorID {
+    if UserRespository().getCurrentUserID() == book.creatorID {
       actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
@@ -74,6 +74,10 @@ extension BookDetailViewController
       if let vc = segue.destination as? CreateBookTableViewController {
         vc.shouldEdit = true
         vc.book = book
+      }
+    } else if segue.identifier == "showChat" {
+      if let vc = segue.destination as? ChatViewController {
+        vc.receiverID = book.creatorID
       }
     }
   }

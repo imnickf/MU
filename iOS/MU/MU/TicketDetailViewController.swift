@@ -31,7 +31,7 @@ class TicketDetailViewController: UIViewController
     priceLabel.text = ticket.price
     descriptionTextView.text = ticket.description
 
-    if ItemRepository().getUserID() == ticket.creatorID {
+    if UserRespository().getCurrentUserID() == ticket.creatorID {
       actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
@@ -62,6 +62,10 @@ extension TicketDetailViewController
       if let vc = segue.destination as? CreateTicketTableViewController {
         vc.shouldEdit = true
         vc.ticket = ticket
+      }
+    } else if segue.identifier == "showChat" {
+      if let vc = segue.destination as? ChatViewController {
+        vc.receiverID = ticket.creatorID
       }
     }
   }
