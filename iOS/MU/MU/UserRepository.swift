@@ -65,6 +65,9 @@ class UserRespository
       if data == nil {
         self.gateway.persist(data: UserType.normal.rawValue, endpoint: endpoint + "/" + FirebaseKeyVendor.userTypeKey)
         self.gateway.persist(data: FIRAuth.auth()!.currentUser!.displayName ?? "", endpoint: endpoint + "/" + FirebaseKeyVendor.displayNameKey)
+        UserDefaults.standard.set(UserType.normal.rawValue, forKey: "userType")
+      } else {
+        UserDefaults.standard.set(data!["type"], forKey: "userType")
       }
     }
   }
