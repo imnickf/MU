@@ -35,7 +35,7 @@ class ProfileTableViewController: UITableViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    
+
     navigationController?.navigationBar.barTintColor = Theme.primaryRedColor
     navigationController?.navigationBar.tintColor = UIColor.black
     tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
