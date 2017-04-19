@@ -113,6 +113,7 @@ extension AppDelegate: SignOutDelegate
   {
     window?.rootViewController = UIStoryboard(name: "Auth", bundle: nil).instantiateInitialViewController()
     GIDSignIn.sharedInstance().signOut()
+    UserDefaults.standard.set(nil, forKey: "userType")
   }
 }
 
