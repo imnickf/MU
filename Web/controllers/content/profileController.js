@@ -21,6 +21,7 @@ app.controller('profileController', function($scope, $firebaseObject, authServic
         var user = authService.getUser();
         $scope.userEmail = user.email;
 
+        console.log(userInfo);
 
         $scope.userName = userInfo.displayName;
         $scope.userBio = userInfo.bio;

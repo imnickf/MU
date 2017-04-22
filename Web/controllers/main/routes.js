@@ -230,7 +230,38 @@ app.config(function ($routeProvider) {
 
         }
     })
+
+    .when("/admin", {
+        controller: "adminController",
+        templateUrl: "views/adminView.html",
+
+        resolve: {
+
+            users: function ($firebaseArray) {
+                var ref = firebase.database().ref('/users/');
+                return $firebaseArray(ref).$loaded();
+            },
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
+            }
+        }
+    })
+
+
     .otherwise({
         redirectTo: "/"
     });
+
+
 });

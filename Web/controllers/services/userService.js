@@ -8,6 +8,7 @@ app.factory('userService', function userService($firebaseArray, $firebaseObject,
     var userName;
     var userBio;
     var userEmail;
+    var userLevel;
 
     return{
 
@@ -35,6 +36,7 @@ app.factory('userService', function userService($firebaseArray, $firebaseObject,
             userName = userInfo.displayName;
             userEmail = userInfo.email;
             userBio = userInfo.bio;
+            userLevel = userInfo.type;
         }
     };
 
