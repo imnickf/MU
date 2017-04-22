@@ -6,6 +6,9 @@ app.config(function ($routeProvider) {
     $routeProvider.when("/", {
         controller: "mainController",
         templateUrl: "views/mainView.html"
+    }).when("/main", {
+        controller: "mainController",
+        templateUrl: "views/mainView.html"
     })
     .when("/foods/:foodID?", {
         controller: "foodController",

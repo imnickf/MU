@@ -56,10 +56,12 @@ app.controller('headerController', function($scope, authService, $location, $win
 
 
             // update firebase information with new user
-// end if we are on the main page and logged in, redirect
-        }else if(user.type == 0){
-            $scope.error = "You've been Banned. If you feel this is a mistake please contact the Admins";
-            authService.signOut();
+
+
+            if($location.path() == '/'){
+                $location.path('/main');
+                $window.location.reload();
+            }// end if we are on the main page and logged in, redirect
         }else if (user) {
             // user is logged in with non-iastate account
             $scope.error = "You must login with your Iowa State (@iastate.edu) Google account.";
