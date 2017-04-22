@@ -54,6 +54,15 @@ app.factory('itemService', function itemService($firebaseArray, $firebaseObject,
             items.$remove(item);
             // remove data from users table
             database.ref('/users/' + user_id + '/items/' + item.$id).remove();
+        },userItemremove: function(item){
+            // delete the item with itemID
+            var user_id = authService.getUser().uid;
+            var str = item.$id;
+            var n = str.indexOf("-");
+            var res = str.substring(0, n);
+             items.$remove(item);
+            // // remove data from users table
+            database.ref('/products/' + res + '/' + item.$id).remove();
         },
         getImageRef: function(itemID){
             // returns the uploaded image for this particular item, returns null if no image
@@ -63,7 +72,10 @@ app.factory('itemService', function itemService($firebaseArray, $firebaseObject,
             url = uri;
             itemName = name;
             items = scopeItems;
-        }// end itemService functions
+        },// end itemService functions
+        userItemSetup: function(scopeItems){
+            items = scopeItems;
+        }
     };
 });
 

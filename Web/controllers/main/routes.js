@@ -229,6 +229,38 @@ app.config(function ($routeProvider) {
 
                 return deferred.promise;
 
+            },
+
+            userItems: function ($firebaseArray, authService, $q) {
+
+                // create a promise object
+                var deferred = $q.defer();
+
+                // wait for user to be authenticated
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid + '/items/');
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+            },
+
+            completedItems: function ($firebaseArray, authService, $q) {
+
+                // create a promise object
+                var deferred = $q.defer();
+
+                // wait for user to be authenticated
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid + '/soldItems/');
+                    var data = $firebaseArray(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
             }
 
         }

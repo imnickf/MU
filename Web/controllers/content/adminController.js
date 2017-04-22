@@ -23,9 +23,6 @@ angular.module('app').controller('adminController', function($scope, $firebaseOb
     });
 
     $scope.banUsers = function() {
-            // we dont have an error
-            console.log("test");
-
         angular.forEach($scope.users, function (user, userID) {
             if(user.checked) {
                     var updates = {};
@@ -33,9 +30,5 @@ angular.module('app').controller('adminController', function($scope, $firebaseOb
                     database.ref().update(updates);
             }
         });
-
-
     };
-
-    $scope.data = "Admin View";
 });
