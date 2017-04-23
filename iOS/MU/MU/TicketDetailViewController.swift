@@ -17,7 +17,10 @@ class TicketDetailViewController: UIViewController
 
   @IBOutlet weak var actionButton: UIButton!
 
+  /// Ticket item used for ticket detail view
   var ticket: Ticket!
+
+  /// Item Repository for interacting with item objects
   let itemRepo = ItemRepository()
 
   override func viewDidLoad()
@@ -36,7 +39,7 @@ class TicketDetailViewController: UIViewController
     if UserRespository().getCurrentUserID() == ticket.creatorID {
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
       actionButton.setTitle("Mark Ticket Sold", for: .normal)
-    } else if UserDefaults.standard.integer(forKey: "userType") > 1 {
+    } else if UserDefaults.standard.integer(forKey: "userType") > 1 { // If the user is a mod, they can edit
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {

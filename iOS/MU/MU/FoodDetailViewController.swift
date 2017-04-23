@@ -15,7 +15,10 @@ class FoodDetailViewController: UIViewController {
   @IBOutlet weak var DescriptionTextView: UITextView!
   @IBOutlet weak var actionButton: UIButton!
 
+  /// Food item for detail view
   var food: Food!
+
+  /// Item Repository for interacting with item objects
   let itemRepo = ItemRepository()
 
   override func viewDidLoad()
@@ -58,6 +61,7 @@ class FoodDetailViewController: UIViewController {
 }
 
 // MARK: - Navigation
+
 extension FoodDetailViewController
 {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?)

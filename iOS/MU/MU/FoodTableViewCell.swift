@@ -8,8 +8,8 @@
 
 import UIKit
 /// A class used to manage the Food Table View.
-class FoodTableViewCell: UITableViewCell {
-  
+class FoodTableViewCell: UITableViewCell
+{  
   /// A Food Object used to store the created Food.
   var food: Food!
   

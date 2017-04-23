@@ -19,10 +19,13 @@ class MiscDetailViewController: UIViewController {
   @IBOutlet weak var PriceLabel: UILabel!
   /// The link to the "description" text view.
   @IBOutlet weak var DescriptionView: UITextView!
+  /// Action button for misc item
   @IBOutlet weak var actionButton: UIButton!
 
   /// A variable used to hold the selected Misc object.
   var misc: Misc!
+
+  /// Item Repository for interacting with item objects
   let itemRepo = ItemRepository()
 
   override func viewDidLoad()

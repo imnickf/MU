@@ -92,7 +92,7 @@ class ItemRepository
       break
     }
     gateway.querySingleEvent(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + path) { (data, error) in
-      
+
       if let itemData = data {
         for key in itemData.keys {
           //Retrieve type.
@@ -101,20 +101,20 @@ class ItemRepository
           switch keyInfo[0] {
           case "food":
             itemType = .food
-            
+
           case "ticket":
             itemType = .ticket
-            
+
           case "book":
             itemType = .book
-            
+
           case "misc":
             itemType = .miscellaneous
-            
-            default:
-              return
+
+          default:
+            return
           }
-          
+
           items.append(self.factory.makeItem(type: itemType!, key: key, data: itemData[key]! as! [String : Any]))
         }
       }
@@ -270,7 +270,7 @@ class ItemRepository
       }
     }
   }
-  
+
   /// Translates ticket into raw data dictionary to be persisted
   /// - Parameter ticket: item to be translated
   /// - Returns: dictionary of ticket properties
@@ -346,7 +346,7 @@ class ItemRepository
     miscData[FirebaseKeyVendor.nameKey] = misc.name
     miscData[FirebaseKeyVendor.priceKey] = misc.price
     miscData[FirebaseKeyVendor.viewCountKey] = misc.viewCount
-
+    
     return miscData
   }
 }

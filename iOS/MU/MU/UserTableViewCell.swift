@@ -8,19 +8,19 @@
 
 import UIKit
 
-class UserTableViewCell: UITableViewCell {
-
+class UserTableViewCell: UITableViewCell
+{
   let gateway: DatabaseGateway = DatabaseGateway()
   var user: User!
   
   @IBOutlet weak var userName: UILabel!
   @IBOutlet weak var userTypeSel: UISegmentedControl!
 
-  @IBAction func editUserLevel(_ sender: Any) {
+  @IBAction func editUserLevel(_ sender: Any)
+  {
     let endpoint: String = FirebaseKeyVendor.usersKey + "/" + user.userId + "/" + FirebaseKeyVendor.userTypeKey
     gateway.persist(data: userTypeSel.selectedSegmentIndex, endpoint: endpoint)
   }
-
   
   func configureWith(user: User)
   {
