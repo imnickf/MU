@@ -28,11 +28,9 @@ class ProfileTableViewController: UITableViewController
   @IBOutlet weak var adminTitle: UITableViewCell!
   @IBOutlet weak var adminUsers: UITableViewCell!
   @IBOutlet weak var adminItems: UITableViewCell!
-  
-  
+
   /// The AppDelegate of the Profile View.
   let signOutDelegate: SignOutDelegate = (UIApplication.shared.delegate as! AppDelegate)
-
 
   override func viewDidLoad()
   {
@@ -42,17 +40,16 @@ class ProfileTableViewController: UITableViewController
     navigationController?.navigationBar.tintColor = UIColor.black
     tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
     tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
-    
+
     nameText.text = FIRAuth.auth()?.currentUser?.displayName
     emailText.text = FIRAuth.auth()?.currentUser?.email
-    
+
     if (UserDefaults.standard.integer(forKey: "userType") != 3) {
       adminTitle.isHidden = true
       adminUsers.isHidden = true
       adminItems.isHidden = true
     }
-    
-    
+
     let url = URL(string: "http://proj-309-gb-4.cs.iastate.edu/images/Qd04tReXvcfCDuFvPak5hyNO44U2/cat_image.jpg")
     let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
       if (error != nil) {
@@ -64,23 +61,23 @@ class ProfileTableViewController: UITableViewController
         if paths.count > 0 {
           docDirectory = paths[0]
           let savePath = docDirectory! + "/cat.jpg"
-          
+
           FileManager.default.createFile(atPath: savePath, contents: data, attributes: nil)
-          
+
           DispatchQueue.main.async {
             self.testImage.image = UIImage(named: savePath)
           }
         }
       }
     }
-    
+
     task.resume()
   }
 
-    /// A method that is used to sign out the user using Firebase API.
-    /// This function is linked to the "Sign Out" button on the navagation bar.
-    /// On click, the fuction signOut() is called.
-    /// - parameter sender: The UIBarButtonItem that is clicked when the user wishes to sign out.
+  /// A method that is used to sign out the user using Firebase API.
+  /// This function is linked to the "Sign Out" button on the navagation bar.
+  /// On click, the fuction signOut() is called.
+  /// - parameter sender: The UIBarButtonItem that is clicked when the user wishes to sign out.
   @IBAction func signOut(_ sender: UIBarButtonItem)
   {
     do {
@@ -94,7 +91,8 @@ class ProfileTableViewController: UITableViewController
 
 // MARK: - Navigation
 
-extension ProfileTableViewController {
+extension ProfileTableViewController
+{
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
     if segue.identifier == "showPostedItems" {
       if let vc = segue.destination as? ViewItemsProfileTableViewController {
@@ -103,7 +101,7 @@ extension ProfileTableViewController {
         vc.navigationItem.title = "Posted Items"
       }
     }
-    
+
     if segue.identifier == "showSoldItems" {
       if let vc = segue.destination as? ViewItemsProfileTableViewController {
         vc.fetchType = .sold

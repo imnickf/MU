@@ -13,7 +13,7 @@ class TicketsTableViewController: UITableViewController
 {
   /// An Item Repository.
   let itemRepo = ItemRepository()
-  
+
   /// An array that is used to store Tickets items.
   var tickets = [Ticket]()
 
@@ -22,7 +22,7 @@ class TicketsTableViewController: UITableViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
-    
+
     navigationController?.navigationBar.barTintColor = Theme.primaryRedColor
     navigationController?.navigationBar.tintColor = UIColor.black
     tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
@@ -30,7 +30,7 @@ class TicketsTableViewController: UITableViewController
 
     itemRepo.getItems(.ticket) { (items) in
       self.tickets = items as! [Ticket]
-    
+
       DispatchQueue.main.async {
         self.tableView.reloadData()
       }

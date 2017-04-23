@@ -25,14 +25,11 @@ class ItemRepository
   /// DatabaseGateway for connecting to database
   fileprivate var gateway: DatabaseGateway
 
-  fileprivate var userRepo: UserRespository
-
   /// Creates a new ItemRepository
   init()
   {
     factory = ItemFactory()
     gateway = DatabaseGateway()
-    userRepo = UserRespository()
   }
 
   /// Gets items of specified type from database
@@ -95,7 +92,7 @@ class ItemRepository
       break
     }
     gateway.querySingleEvent(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + path) { (data, error) in
-      
+
       if let itemData = data {
         for key in itemData.keys {
           //Retrieve type.
@@ -104,20 +101,20 @@ class ItemRepository
           switch keyInfo[0] {
           case "food":
             itemType = .food
-            
+
           case "ticket":
             itemType = .ticket
-            
+
           case "book":
             itemType = .book
-            
+
           case "misc":
             itemType = .miscellaneous
-            
-            default:
-              return
+
+          default:
+            return
           }
-          
+
           items.append(self.factory.makeItem(type: itemType!, key: key, data: itemData[key]! as! [String : Any]))
         }
       }
@@ -145,15 +142,35 @@ class ItemRepository
     default:
       return
     }
-    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + userRepo.getCurrentUserID() + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
+    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + UserRespository().getCurrentUserID() + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
   }
 
   /// Marks an item as sold in the database
   /// - Parameter item: item to be marked as sold
-  /// - Parameter byUser: unique ID for the buyer of the item
-  func markItemBought(_ item: Item, byUser id: String)
+  func markItemSold(_ item: Item)
   {
-    // TODO
+    var data: [String : Any]
+    switch item {
+    case is Ticket:
+      data = translate(ticket: item as! Ticket)
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.ticketsPath + "/\(item.id)")
+      break
+    case is Book:
+      data = translate(book: item as! Book)
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.booksPath + "/\(item.id)")
+      break
+    case is Food:
+      data = translate(food: item as! Food)
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.foodPath + "/\(item.id)")
+      break
+    case is Misc:
+      data = translate(misc: item as! Misc)
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.miscPath + "/\(item.id)")
+      break
+    default:
+      return
+    }
+    gateway.persist(data: data, endpoint: FirebaseKeyVendor.usersKey + "/\(UserRespository().getCurrentUserID())" + "/\(FirebaseKeyVendor.userSoldKey)" + "/\(item.id)")
   }
 
   /// Saves provided item to database
@@ -253,7 +270,7 @@ class ItemRepository
       }
     }
   }
-  
+
   /// Translates ticket into raw data dictionary to be persisted
   /// - Parameter ticket: item to be translated
   /// - Returns: dictionary of ticket properties
@@ -329,7 +346,7 @@ class ItemRepository
     miscData[FirebaseKeyVendor.nameKey] = misc.name
     miscData[FirebaseKeyVendor.priceKey] = misc.price
     miscData[FirebaseKeyVendor.viewCountKey] = misc.viewCount
-
+    
     return miscData
   }
 }

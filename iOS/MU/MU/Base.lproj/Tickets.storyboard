@@ -451,7 +451,6 @@
                                 </state>
                                 <connections>
                                     <action selector="actionButtonPressed:" destination="bdy-IX-MOQ" eventType="touchUpInside" id="OCG-WE-Jih"/>
-                                    <segue destination="1Fj-rc-ZbG" kind="show" identifier="showChat" id="eIX-cO-Smi"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -477,6 +476,7 @@
                         <outlet property="sportLabel" destination="9CK-R1-9zV" id="EWv-vC-wJk"/>
                         <outlet property="titleLabel" destination="2VP-7K-AB2" id="0QI-bN-TZ2"/>
                         <segue destination="vQf-WK-423" kind="show" identifier="editTicket" id="ySS-RG-M3n"/>
+                        <segue destination="1Fj-rc-ZbG" kind="show" identifier="showChat" id="6cG-CO-BvI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v4N-aF-S8T" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,10 +13,10 @@ class MiscTableViewController: UITableViewController
 {
   /// An Item Repository.
   let itemRepo = ItemRepository()
-  
+
   /// An array that is used to store Misc items.
   var miscItems = [Misc]()
-  
+
   var selectedMisc: Misc?
 
   override func viewDidLoad()
@@ -27,7 +27,7 @@ class MiscTableViewController: UITableViewController
     navigationController?.navigationBar.tintColor = UIColor.black
     tabBarController?.tabBar.barTintColor = Theme.primaryGrayColor
     tabBarController?.tabBar.tintColor = Theme.secondaryRedColor
-    
+
     itemRepo.getItems(.miscellaneous) { (items) in
       self.miscItems = items as! [Misc]
 
@@ -68,15 +68,15 @@ extension MiscTableViewController
   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 50.0
   }
-  
+
   override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     selectedMisc = miscItems[indexPath.row]
     performSegue(withIdentifier: "showMiscDetail", sender: self)
   }
 }
 
+// MARK: - Navigation
 
- // MARK: - Navigation
 extension MiscTableViewController
 {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -88,7 +88,5 @@ extension MiscTableViewController
         }
       }
     }
-
- }
+  }
 }
-

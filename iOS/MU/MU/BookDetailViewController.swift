@@ -21,7 +21,11 @@ class BookDetailViewController: UIViewController
   @IBOutlet weak var isbnInfoLabel: UILabel!
   @IBOutlet weak var classCodeInfoLabel: UILabel!
 
+  /// Book item for book detail view
   var book: Book!
+
+  /// Item Repository for interacting with item objects
+  let itemRepo = ItemRepository()
 
   override func viewDidLoad()
   {
@@ -42,16 +46,15 @@ class BookDetailViewController: UIViewController
 
     classCodeLabel.isHidden = book.classCode == nil
     classCodeInfoLabel.isHidden = book.classCode == nil
+    actionButton.isHidden = false
 
     if UserRespository().getCurrentUserID() == book.creatorID {
-      actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
-    } else if UserDefaults.standard.integer(forKey: "userType") > 1 {
-      actionButton.isHidden = false
+      actionButton.setTitle("Mark Book Sold", for: .normal)
+    } else if UserDefaults.standard.integer(forKey: "userType") > 1 { // If the user is a mod, they can edit
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
-      actionButton.isHidden = false
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
@@ -64,7 +67,11 @@ class BookDetailViewController: UIViewController
 
   @IBAction func actionButtonPressed(_ sender: UIButton)
   {
-
+    if UserRespository().getCurrentUserID() == book.creatorID {
+      itemRepo.markItemSold(book)
+    } else {
+      performSegue(withIdentifier: "showChat", sender: self)
+    }
   }
 }
 

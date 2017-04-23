@@ -16,7 +16,7 @@ class ChatViewController: UIViewController
   @IBOutlet weak var messageInputView: UIView!
 
   @IBOutlet weak var messageViewBottomConstraint: NSLayoutConstraint!
-  
+
   let chatRepo = ChatRepository()
   var receiverID: String!
   var chat: Chat?
@@ -103,5 +103,5 @@ extension ChatViewController: UITableViewDataSource
 
 extension ChatViewController: UITableViewDelegate
 {
-
+  
 }

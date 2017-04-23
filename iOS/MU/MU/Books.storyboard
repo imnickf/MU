@@ -95,7 +95,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Mlm-wG-fm1">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Mlm-wG-fm1">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -509,7 +509,6 @@
                                 </state>
                                 <connections>
                                     <action selector="actionButtonPressed:" destination="PxK-kz-XUw" eventType="touchUpInside" id="diZ-KX-dvC"/>
-                                    <segue destination="tqD-xR-8uB" kind="show" identifier="showChat" id="69j-eZ-nBp"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -547,6 +546,7 @@
                         <outlet property="priceLabel" destination="Z7J-IW-0EH" id="9qZ-Kr-GRl"/>
                         <outlet property="titleLabel" destination="XxD-bY-Ruv" id="lZw-6j-bJa"/>
                         <segue destination="cdF-uf-Nje" kind="show" identifier="editBook" id="TY3-oR-dJz"/>
+                        <segue destination="tqD-xR-8uB" kind="show" identifier="showChat" id="CQU-3u-vhA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XDd-Dy-xtc" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -18,7 +18,7 @@ class ChatListTableViewController: UITableViewController
   {
     super.viewDidLoad()
     navigationItem.title = "Messages"
-    
+
     userRepo.getUsersChatList { (userData) in
       self.chatUsers = userData
       self.tableView.reloadData()

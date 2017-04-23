@@ -19,32 +19,35 @@ class MiscDetailViewController: UIViewController {
   @IBOutlet weak var PriceLabel: UILabel!
   /// The link to the "description" text view.
   @IBOutlet weak var DescriptionView: UITextView!
+  /// Action button for misc item
   @IBOutlet weak var actionButton: UIButton!
-  
+
   /// A variable used to hold the selected Misc object.
   var misc: Misc!
-  
+
+  /// Item Repository for interacting with item objects
+  let itemRepo = ItemRepository()
+
   override func viewDidLoad()
   {
     super.viewDidLoad()
   }
-  
+
   override func viewWillAppear(_ animated: Bool)
   {
     NameLabel.text = misc?.name
     CategoryLabel.text = misc?.category
     PriceLabel.text = misc?.price
     DescriptionView.text = misc?.description
-    
+    actionButton.isHidden = false
+
     if UserRespository().getCurrentUserID() == misc.creatorID {
-      actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
+      actionButton.setTitle("Mark Item Sold", for: .normal)
     } else if UserDefaults.standard.integer(forKey: "userType") > 1 {
-      actionButton.isHidden = false
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
-      actionButton.isHidden = false
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
@@ -54,9 +57,14 @@ class MiscDetailViewController: UIViewController {
   {
     performSegue(withIdentifier: "editMisc", sender: self)
   }
-  
-  @IBAction func messageSeller(_ sender: Any) {
-    
+
+  @IBAction func messageSeller(_ sender: Any)
+  {
+    if UserRespository().getCurrentUserID() == misc?.creatorID {
+      itemRepo.markItemSold(misc)
+    } else {
+      performSegue(withIdentifier: "showChat", sender: self)
+    }
   }
 }
 

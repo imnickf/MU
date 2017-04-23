@@ -14,10 +14,14 @@ class TicketDetailViewController: UIViewController
   @IBOutlet weak var sportLabel: UILabel!
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var descriptionTextView: UITextView!
-  
+
   @IBOutlet weak var actionButton: UIButton!
 
+  /// Ticket item used for ticket detail view
   var ticket: Ticket!
+
+  /// Item Repository for interacting with item objects
+  let itemRepo = ItemRepository()
 
   override func viewDidLoad()
   {
@@ -30,20 +34,19 @@ class TicketDetailViewController: UIViewController
     sportLabel.text = ticket.sport
     priceLabel.text = ticket.price
     descriptionTextView.text = ticket.description
+    actionButton.isHidden = false
 
     if UserRespository().getCurrentUserID() == ticket.creatorID {
-      actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
-    } else if UserDefaults.standard.integer(forKey: "userType") > 1 {
-      actionButton.isHidden = false
+      actionButton.setTitle("Mark Ticket Sold", for: .normal)
+    } else if UserDefaults.standard.integer(forKey: "userType") > 1 { // If the user is a mod, they can edit
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
-      actionButton.isHidden = false
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
-    
+
   }
 
   @objc fileprivate func editItem()
@@ -53,7 +56,11 @@ class TicketDetailViewController: UIViewController
 
   @IBAction func actionButtonPressed(_ sender: UIButton)
   {
-
+    if UserRespository().getCurrentUserID() == ticket.creatorID {
+      itemRepo.markItemSold(ticket)
+    } else {
+      performSegue(withIdentifier: "showChat", sender: self)
+    }
   }
 }
 
@@ -71,7 +78,7 @@ extension TicketDetailViewController
     } else if segue.identifier == "showChat" {
       if let vc = segue.destination as? ChatViewController {
         vc.receiverID = ticket.creatorID
-        
+
       }
     }
   }
