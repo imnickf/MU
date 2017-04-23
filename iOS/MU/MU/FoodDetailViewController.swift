@@ -27,12 +27,12 @@ class FoodDetailViewController: UIViewController {
     TitleLabel.text = food?.name
     FoodCatLabel.text = food?.category
     DescriptionTextView.text = food?.description
-    
+    actionButton.isHidden = false
+
     if UserRespository().getCurrentUserID() == food!.creatorID {
-      actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
+      actionButton.setTitle("Close Food Event", for: .normal)
     } else {
-      actionButton.isHidden = false
       actionButton.setTitle("Message Creator", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
@@ -43,8 +43,13 @@ class FoodDetailViewController: UIViewController {
     performSegue(withIdentifier: "editFood", sender: self)
   }
   
-  @IBAction func messageSeller(_ sender: Any) {
-    
+  @IBAction func messageSeller(_ sender: Any)
+  {
+    if UserRespository().getCurrentUserID() == food!.creatorID {
+      // TODO: Mark item sold/closed
+    } else {
+      performSegue(withIdentifier: "showChat", sender: self)
+    }
   }
 }
 

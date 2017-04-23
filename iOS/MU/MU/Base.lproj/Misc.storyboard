@@ -61,7 +61,6 @@
                                 </state>
                                 <connections>
                                     <action selector="messageSeller:" destination="rrC-xS-wCG" eventType="touchUpInside" id="CWy-xL-auR"/>
-                                    <segue destination="VDq-qX-tDp" kind="show" identifier="showChat" id="NMn-W3-9eB"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -74,6 +73,7 @@
                         <outlet property="PriceLabel" destination="y9J-uq-sBh" id="wPe-2b-FqD"/>
                         <outlet property="actionButton" destination="Kr4-Ww-TNp" id="RXD-w3-GVP"/>
                         <segue destination="yZd-pU-x9s" kind="show" identifier="editMisc" id="UdZ-jE-mzD"/>
+                        <segue destination="VDq-qX-tDp" kind="show" identifier="showChat" id="sna-cl-EU4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdg-CU-3g0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -364,7 +364,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="xMr-aN-jws">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="xMr-aN-jws">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

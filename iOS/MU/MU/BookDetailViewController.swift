@@ -42,12 +42,12 @@ class BookDetailViewController: UIViewController
 
     classCodeLabel.isHidden = book.classCode == nil
     classCodeInfoLabel.isHidden = book.classCode == nil
+    actionButton.isHidden = false
 
     if UserRespository().getCurrentUserID() == book.creatorID {
-      actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
+      actionButton.setTitle("Mark Book Sold", for: .normal)
     } else {
-      actionButton.isHidden = false
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
@@ -60,7 +60,11 @@ class BookDetailViewController: UIViewController
 
   @IBAction func actionButtonPressed(_ sender: UIButton)
   {
-
+    if UserRespository().getCurrentUserID() == book.creatorID {
+      // TODO: Mark sold
+    } else {
+      performSegue(withIdentifier: "showChat", sender: self)
+    }
   }
 }
 

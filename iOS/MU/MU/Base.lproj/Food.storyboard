@@ -106,7 +106,6 @@
                                 </state>
                                 <connections>
                                     <action selector="messageSeller:" destination="Xzn-Ry-0P1" eventType="touchUpInside" id="LSZ-cE-uYZ"/>
-                                    <segue destination="Zlf-mp-Vce" kind="show" identifier="showChat" id="NhD-zk-Q9M"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -118,6 +117,7 @@
                         <outlet property="TitleLabel" destination="WZW-k2-asL" id="LOU-uD-5z8"/>
                         <outlet property="actionButton" destination="tGG-MQ-aUe" id="fEG-Yu-1l5"/>
                         <segue destination="FIc-XU-T91" kind="show" identifier="editFood" id="VOO-Lc-QMU"/>
+                        <segue destination="Zlf-mp-Vce" kind="show" identifier="showChat" id="LE1-sc-aZq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OwW-dQ-dGg" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -352,7 +352,7 @@
                     <toolbarItems/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="667"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="AR5-q5-XxO">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="AR5-q5-XxO">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

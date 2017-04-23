@@ -30,12 +30,12 @@ class TicketDetailViewController: UIViewController
     sportLabel.text = ticket.sport
     priceLabel.text = ticket.price
     descriptionTextView.text = ticket.description
+    actionButton.isHidden = false
 
     if UserRespository().getCurrentUserID() == ticket.creatorID {
-      actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
+      actionButton.setTitle("Mark Ticket Sold", for: .normal)
     } else {
-      actionButton.isHidden = false
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
@@ -48,7 +48,11 @@ class TicketDetailViewController: UIViewController
 
   @IBAction func actionButtonPressed(_ sender: UIButton)
   {
-
+    if UserRespository().getCurrentUserID() == ticket.creatorID {
+      // TODO: Mark item sold
+    } else {
+      performSegue(withIdentifier: "showChat", sender: self)
+    }
   }
 }
 

@@ -35,12 +35,12 @@ class MiscDetailViewController: UIViewController {
     CategoryLabel.text = misc?.category
     PriceLabel.text = misc?.price
     DescriptionView.text = misc?.description
-    
+    actionButton.isHidden = false
+
     if UserRespository().getCurrentUserID() == misc?.creatorID {
-      actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
+      actionButton.setTitle("Mark Item Sold", for: .normal)
     } else {
-      actionButton.isHidden = false
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
@@ -51,8 +51,13 @@ class MiscDetailViewController: UIViewController {
     performSegue(withIdentifier: "editMisc", sender: self)
   }
   
-  @IBAction func messageSeller(_ sender: Any) {
-    
+  @IBAction func messageSeller(_ sender: Any)
+  {
+    if UserRespository().getCurrentUserID() == misc?.creatorID {
+
+    } else {
+      performSegue(withIdentifier: "showChat", sender: self)
+    }
   }
 }
 
