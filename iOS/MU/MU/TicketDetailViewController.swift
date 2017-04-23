@@ -18,6 +18,7 @@ class TicketDetailViewController: UIViewController
   @IBOutlet weak var actionButton: UIButton!
 
   var ticket: Ticket!
+  let itemRepo = ItemRepository()
 
   override func viewDidLoad()
   {
@@ -49,7 +50,7 @@ class TicketDetailViewController: UIViewController
   @IBAction func actionButtonPressed(_ sender: UIButton)
   {
     if UserRespository().getCurrentUserID() == ticket.creatorID {
-      // TODO: Mark item sold
+      itemRepo.markItemSold(ticket)
     } else {
       performSegue(withIdentifier: "showChat", sender: self)
     }

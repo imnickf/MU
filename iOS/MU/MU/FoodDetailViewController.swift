@@ -16,6 +16,7 @@ class FoodDetailViewController: UIViewController {
   @IBOutlet weak var actionButton: UIButton!
   
   var food: Food!
+  let itemRepo = ItemRepository()
   
   override func viewDidLoad()
   {
@@ -46,7 +47,7 @@ class FoodDetailViewController: UIViewController {
   @IBAction func messageSeller(_ sender: Any)
   {
     if UserRespository().getCurrentUserID() == food!.creatorID {
-      // TODO: Mark item sold/closed
+      itemRepo.markItemSold(food)
     } else {
       performSegue(withIdentifier: "showChat", sender: self)
     }

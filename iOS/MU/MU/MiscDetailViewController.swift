@@ -23,6 +23,7 @@ class MiscDetailViewController: UIViewController {
   
   /// A variable used to hold the selected Misc object.
   var misc: Misc!
+  let itemRepo = ItemRepository()
   
   override func viewDidLoad()
   {
@@ -54,7 +55,7 @@ class MiscDetailViewController: UIViewController {
   @IBAction func messageSeller(_ sender: Any)
   {
     if UserRespository().getCurrentUserID() == misc?.creatorID {
-
+      itemRepo.markItemSold(misc)
     } else {
       performSegue(withIdentifier: "showChat", sender: self)
     }

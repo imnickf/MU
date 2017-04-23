@@ -22,6 +22,7 @@ class BookDetailViewController: UIViewController
   @IBOutlet weak var classCodeInfoLabel: UILabel!
 
   var book: Book!
+  let itemRepo = ItemRepository()
 
   override func viewDidLoad()
   {
@@ -61,7 +62,7 @@ class BookDetailViewController: UIViewController
   @IBAction func actionButtonPressed(_ sender: UIButton)
   {
     if UserRespository().getCurrentUserID() == book.creatorID {
-      // TODO: Mark sold
+      itemRepo.markItemSold(book)
     } else {
       performSegue(withIdentifier: "showChat", sender: self)
     }
