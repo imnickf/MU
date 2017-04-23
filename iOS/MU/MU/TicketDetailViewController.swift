@@ -14,7 +14,7 @@ class TicketDetailViewController: UIViewController
   @IBOutlet weak var sportLabel: UILabel!
   @IBOutlet weak var priceLabel: UILabel!
   @IBOutlet weak var descriptionTextView: UITextView!
-  
+
   @IBOutlet weak var actionButton: UIButton!
 
   var ticket: Ticket!
@@ -36,10 +36,14 @@ class TicketDetailViewController: UIViewController
     if UserRespository().getCurrentUserID() == ticket.creatorID {
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
       actionButton.setTitle("Mark Ticket Sold", for: .normal)
+    } else if UserDefaults.standard.integer(forKey: "userType") > 1 {
+      actionButton.setTitle("Message Seller", for: .normal)
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
+
   }
 
   @objc fileprivate func editItem()
@@ -71,6 +75,7 @@ extension TicketDetailViewController
     } else if segue.identifier == "showChat" {
       if let vc = segue.destination as? ChatViewController {
         vc.receiverID = ticket.creatorID
+
       }
     }
   }

@@ -17,7 +17,8 @@ class ChatListTableViewController: UITableViewController
   override func viewDidLoad()
   {
     super.viewDidLoad()
-
+    navigationItem.title = "Messages"
+    
     userRepo.getUsersChatList { (userData) in
       self.chatUsers = userData
       self.tableView.reloadData()
@@ -68,6 +69,7 @@ extension ChatListTableViewController
       if let vc = segue.destination as? ChatViewController {
         if let chat = selectedChat {
           vc.receiverID = chat.userID
+          vc.navigationItem.title = selectedChat?.displayName
         }
       }
     }

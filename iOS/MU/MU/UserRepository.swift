@@ -14,10 +14,15 @@ class UserRespository
 {
   /// DatabaseGateway for connecting to database
   fileprivate var gateway: DatabaseGateway
+  
+  /// A factory that is used to create the items.
+  fileprivate var factory: ItemFactory
+  
 
   /// Creates a new UserRepository
   init() {
     gateway = DatabaseGateway()
+    factory = ItemFactory()
   }
 
   /// Retrieves the current user's ID
@@ -25,6 +30,63 @@ class UserRespository
   func getCurrentUserID() -> String
   {
     return FIRAuth.auth()!.currentUser!.uid
+  }
+  
+  func getUsers(completion: @escaping ([User]) -> Void) //-> [User]
+  {
+    var users: [User] = [User]()
+    var items: [Item] = [Item]()
+    
+    gateway.querySingleEvent(endpoint: FirebaseKeyVendor.usersKey) { (data, error) in
+      if let allUsers = data {
+        for id in allUsers.keys {
+          var userId: String = ""
+          var userName: String = ""
+          var userType: Int = 0
+          
+          
+          userId = id
+          
+          if let name = (allUsers[id] as? [String: Any?])?["displayName"] {
+            userName = name as! String
+          }
+          
+          if let type = (allUsers[id] as? [String: Any?])?["type"] {
+                userType = type as! Int
+          }
+          
+          if let itemData = (allUsers[id] as? [String : Any])?["items"] as? [String: Any?] {
+            for key in itemData.keys {
+              //Retrieve type.
+              var keyInfo: [String] = (key).components(separatedBy: "-")
+              var itemType: ItemType? = nil
+              switch keyInfo[0] {
+              case "food":
+                itemType = .food
+                
+              case "ticket":
+                itemType = .ticket
+                
+              case "book":
+                itemType = .book
+                
+              case "misc":
+                itemType = .miscellaneous
+                
+              default:
+                return
+              }
+              
+              items.append(self.factory.makeItem(type: itemType!, key: key, data: itemData[key]! as! [String : Any]))
+            }
+          }
+          
+          users.append(User(id: userId, name: userName, type: userType, postedItems: items))
+        }
+      }
+      completion(users)
+    }
+    //return users
   }
 
   /// Gets the metadata for the users current user is chatting with
@@ -72,6 +134,8 @@ class UserRespository
     }
   }
 }
+
+
 
 struct UserMetaData
 {

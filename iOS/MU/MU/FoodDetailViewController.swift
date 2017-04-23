@@ -9,20 +9,20 @@
 import UIKit
 
 class FoodDetailViewController: UIViewController {
-  
+
   @IBOutlet weak var TitleLabel: UILabel!
   @IBOutlet weak var FoodCatLabel: UILabel!
   @IBOutlet weak var DescriptionTextView: UITextView!
   @IBOutlet weak var actionButton: UIButton!
-  
+
   var food: Food!
   let itemRepo = ItemRepository()
-  
+
   override func viewDidLoad()
   {
     super.viewDidLoad()
   }
-  
+
   override func viewWillAppear(_ animated: Bool)
   {
     TitleLabel.text = food?.name
@@ -30,20 +30,23 @@ class FoodDetailViewController: UIViewController {
     DescriptionTextView.text = food?.description
     actionButton.isHidden = false
 
-    if UserRespository().getCurrentUserID() == food!.creatorID {
+    if UserRespository().getCurrentUserID() == food.creatorID {
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
       actionButton.setTitle("Close Food Event", for: .normal)
+    } else if UserDefaults.standard.integer(forKey: "userType") > 1 {
+      actionButton.setTitle("Message Creator", for: .normal)
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
       actionButton.setTitle("Message Creator", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
   }
-  
+
   @objc fileprivate func editItem()
   {
     performSegue(withIdentifier: "editFood", sender: self)
   }
-  
+
   @IBAction func messageSeller(_ sender: Any)
   {
     if UserRespository().getCurrentUserID() == food!.creatorID {

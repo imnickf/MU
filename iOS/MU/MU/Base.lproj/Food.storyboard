@@ -371,7 +371,7 @@
         <image name="food_icon" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VOO-Lc-QMU"/>
+        <segue reference="JsH-5J-YKs"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.11647947311906659" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

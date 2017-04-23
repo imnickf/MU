@@ -48,6 +48,9 @@ class BookDetailViewController: UIViewController
     if UserRespository().getCurrentUserID() == book.creatorID {
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
       actionButton.setTitle("Mark Book Sold", for: .normal)
+    } else if UserDefaults.standard.integer(forKey: "userType") > 1 {
+      actionButton.setTitle("Message Seller", for: .normal)
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil

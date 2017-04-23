@@ -17,12 +17,17 @@ protocol SignOutDelegate
   func signOut()
 }
 
+let userRepo = UserRespository()
+
 /// A class used to manage the Profile View.
 class ProfileTableViewController: UITableViewController
 {
   @IBOutlet weak var nameText: UILabel!
   @IBOutlet weak var emailText: UILabel!
   @IBOutlet weak var testImage: UIImageView!
+  @IBOutlet weak var adminTitle: UITableViewCell!
+  @IBOutlet weak var adminUsers: UITableViewCell!
+  @IBOutlet weak var adminItems: UITableViewCell!
   
   
   /// The AppDelegate of the Profile View.
@@ -40,6 +45,13 @@ class ProfileTableViewController: UITableViewController
     
     nameText.text = FIRAuth.auth()?.currentUser?.displayName
     emailText.text = FIRAuth.auth()?.currentUser?.email
+    
+    if (UserDefaults.standard.integer(forKey: "userType") != 3) {
+      adminTitle.isHidden = true
+      adminUsers.isHidden = true
+      adminItems.isHidden = true
+    }
+    
     
     let url = URL(string: "http://proj-309-gb-4.cs.iastate.edu/images/Qd04tReXvcfCDuFvPak5hyNO44U2/cat_image.jpg")
     let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
@@ -87,18 +99,16 @@ extension ProfileTableViewController {
     if segue.identifier == "showPostedItems" {
       if let vc = segue.destination as? ViewItemsProfileTableViewController {
         vc.fetchType = .posted
+        vc.userId = userRepo.getCurrentUserID()
+        vc.navigationItem.title = "Posted Items"
       }
     }
     
     if segue.identifier == "showSoldItems" {
       if let vc = segue.destination as? ViewItemsProfileTableViewController {
         vc.fetchType = .sold
-      }
-    }
-    
-    if segue.identifier == "showBoughtItems" {
-      if let vc = segue.destination as? ViewItemsProfileTableViewController {
-        vc.fetchType = .bought
+        vc.userId = userRepo.getCurrentUserID()
+        vc.navigationItem.title = "Sold Items"
       }
     }
   }

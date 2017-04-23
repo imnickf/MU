@@ -10,7 +10,7 @@ import FirebaseAuth
 
 enum ItemFetchType
 {
-  case posted, sold, bought
+  case posted, sold
 }
 
 /// The ItemRepository class enables you to query and persist item data with the database.
@@ -89,10 +89,6 @@ class ItemRepository
 
     case .sold:
       path = FirebaseKeyVendor.userSoldKey
-      break
-
-    case .bought:
-      path = FirebaseKeyVendor.userBoughtKey
       break
     }
     gateway.querySingleEvent(endpoint: FirebaseKeyVendor.usersKey + "/" + id + "/" + path) { (data, error) in

@@ -87,6 +87,7 @@ extension BookTableViewController
       if let vc = segue.destination as? BookDetailViewController {
         if let book = selectedBook {
           vc.book = book
+          vc.navigationItem.title = book.name
         }
       }
     }

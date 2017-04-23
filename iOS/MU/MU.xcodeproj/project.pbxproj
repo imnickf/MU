@@ -62,7 +62,10 @@
 		484315311E80FAC5009D57A8 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484315301E80FAC5009D57A8 /* ProfileTableViewController.swift */; };
 		484315331E82061A009D57A8 /* ViewItemsProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484315321E82061A009D57A8 /* ViewItemsProfileTableViewController.swift */; };
 		484315351E820D22009D57A8 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484315341E820D22009D57A8 /* ItemTableViewCell.swift */; };
+		486761BC1EA7144B0073393C /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 486761BB1EA7144B0073393C /* User.swift */; };
 		48D663431E6FD4E20027FC9B /* CreateFoodTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D663421E6FD4E20027FC9B /* CreateFoodTableViewController.swift */; };
+		48ECAA261EA700B7006F7AF8 /* AdminUsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ECAA251EA700B7006F7AF8 /* AdminUsersTableViewController.swift */; };
+		48ECAA281EA7075C006F7AF8 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48ECAA271EA7075C006F7AF8 /* UserTableViewCell.swift */; };
 		48FFEE841E771E1D00764748 /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FFEE831E771E1D00764748 /* FoodDetailViewController.swift */; };
 		48FFEE861E77531E00764748 /* MiscDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FFEE851E77531E00764748 /* MiscDetailViewController.swift */; };
 		48FFEE881E7767A300764748 /* CreateMiscTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48FFEE871E7767A300764748 /* CreateMiscTableViewController.swift */; };
@@ -146,7 +149,10 @@
 		484315301E80FAC5009D57A8 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
 		484315321E82061A009D57A8 /* ViewItemsProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewItemsProfileTableViewController.swift; sourceTree = "<group>"; };
 		484315341E820D22009D57A8 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
+		486761BB1EA7144B0073393C /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		48D663421E6FD4E20027FC9B /* CreateFoodTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateFoodTableViewController.swift; sourceTree = "<group>"; };
+		48ECAA251EA700B7006F7AF8 /* AdminUsersTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminUsersTableViewController.swift; sourceTree = "<group>"; };
+		48ECAA271EA7075C006F7AF8 /* UserTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		48FFEE831E771E1D00764748 /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = "<group>"; };
 		48FFEE851E77531E00764748 /* MiscDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MiscDetailViewController.swift; sourceTree = "<group>"; };
 		48FFEE871E7767A300764748 /* CreateMiscTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateMiscTableViewController.swift; sourceTree = "<group>"; };
@@ -247,6 +253,7 @@
 			children = (
 				0175A8461E45A16A008A7780 /* Ticket.swift */,
 				0175A8431E45A153008A7780 /* Book.swift */,
+				486761BB1EA7144B0073393C /* User.swift */,
 				0175A8481E45A173008A7780 /* Food.swift */,
 				0175A84A1E45A181008A7780 /* Misc.swift */,
 				0175A84C1E45A1E5008A7780 /* Item.swift */,
@@ -281,6 +288,7 @@
 				48377B2A1E5A66C7007DBE2B /* FoodTableViewCell.swift */,
 				01BE84EE1E665CCC0035B48F /* MiscTableViewCell.swift */,
 				484315341E820D22009D57A8 /* ItemTableViewCell.swift */,
+				48ECAA271EA7075C006F7AF8 /* UserTableViewCell.swift */,
 				0127BB401E84E10800B9F28C /* OutMessageTableViewCell.swift */,
 				0127BB421E84E28000B9F28C /* InMessageTableViewCell.swift */,
 				0127BB461E85B19500B9F28C /* ChatListTableViewCell.swift */,
@@ -291,6 +299,7 @@
 		01F3CCE81E42F095005DE947 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				48ECAA251EA700B7006F7AF8 /* AdminUsersTableViewController.swift */,
 				484315321E82061A009D57A8 /* ViewItemsProfileTableViewController.swift */,
 				01F3CCE51E42EFDF005DE947 /* AuthViewController.swift */,
 				484315301E80FAC5009D57A8 /* ProfileTableViewController.swift */,
@@ -651,6 +660,7 @@
 				01D5E6DB1E5A7CB7005C737C /* BookTableViewCell.swift in Sources */,
 				014E6DE91E5A62980027A633 /* FoodTableViewController.swift in Sources */,
 				014E6DED1E5A62D20027A633 /* MiscTableViewController.swift in Sources */,
+				48ECAA281EA7075C006F7AF8 /* UserTableViewCell.swift in Sources */,
 				484315311E80FAC5009D57A8 /* ProfileTableViewController.swift in Sources */,
 				017C6B531E6CA44900EB7E36 /* CreateBookTableViewController.swift in Sources */,
 				0127BB431E84E28000B9F28C /* InMessageTableViewCell.swift in Sources */,
@@ -663,12 +673,14 @@
 				484315331E82061A009D57A8 /* ViewItemsProfileTableViewController.swift in Sources */,
 				014E6DE71E5A4E1A0027A633 /* TicketTableViewCell.swift in Sources */,
 				01BE84EF1E665CCC0035B48F /* MiscTableViewCell.swift in Sources */,
+				486761BC1EA7144B0073393C /* User.swift in Sources */,
 				0175A8491E45A173008A7780 /* Food.swift in Sources */,
 				01C1283E1E46CE9900A8DB87 /* ItemFactory.swift in Sources */,
 				0112CF371E68A11E008D46FB /* CreateTicketTableViewController.swift in Sources */,
 				484315351E820D22009D57A8 /* ItemTableViewCell.swift in Sources */,
 				48FFEE861E77531E00764748 /* MiscDetailViewController.swift in Sources */,
 				0127BB491E85B75E00B9F28C /* ChatRepository.swift in Sources */,
+				48ECAA261EA700B7006F7AF8 /* AdminUsersTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
