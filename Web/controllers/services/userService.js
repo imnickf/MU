@@ -8,9 +8,9 @@ app.factory('userService', function userService($firebaseArray, $firebaseObject,
     var userName;
     var userBio;
     var userEmail;
+    var userLevel;
 
     return{
-
         set: function(userInfo) {
             // perform updates using an array, note this will be helpful when we begin updating
             // the users table, we can add on keys to the updates array
@@ -35,6 +35,7 @@ app.factory('userService', function userService($firebaseArray, $firebaseObject,
             userName = userInfo.displayName;
             userEmail = userInfo.email;
             userBio = userInfo.bio;
+            userLevel = userInfo.type;
         }
     };
 

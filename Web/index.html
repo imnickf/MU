@@ -23,6 +23,8 @@
     <script src="controllers/services/userService.js"></script>
 
     <!-- Angular View Controllers -->
+    <script src="controllers/content/adminController.js"></script>
+    <script src="controllers/content/mainController.js"></script>
     <script src="controllers/content/foodController.js"></script>
     <script src="controllers/content/ticketController.js"></script>
     <script src="controllers/content/textbookController.js"></script>
@@ -72,6 +74,7 @@
                             <a id="single-button" uib-dropdown-toggle ng-disabled="disabled" ng-show="display_Navinfo">{{ user.email | emailToNetID }}<span class="caret"></span></a>
                             <ul class="dropdown-menu" uib-dropdown-menu role="menu" aria-labelledby="single-button">
                                 <li role="menuitem"><a href="#profile">Profile</a></li>
+                                <li role="menuitem"><a href="#admin" ng-show="display_Admin">Admin View</a></li>
                                 <li class="divider"></li>
                                 <li role="menuitem"><a href="#index" ng-click="signOut()">Logout</a></li>
                             </ul>
@@ -81,7 +84,9 @@
             </div>
         </nav>
         <!-- End Navigation Bar -->
+        <center>
         <div class="container"><h3><strong>{{ error }}</strong></h3></div>
+        </center>
     </div>
 
     <!-- Page Content -->
@@ -97,9 +102,11 @@
             <div class="chat_head">Chat</div>
             <div style="display:none" class="chat_body">
                 <div ng-repeat="(key, user) in userList">
-                    <div ng-click="updateChatWidth('add', user, $event); user.hide_message = false;" class='user' ng-show="user.displayInList">{{ user.displayName }}</div>
+                    <div ng-click="updateChatWidth('add', user, $event);
+                         user.hide_message = false;" class='user' ng-show="user.displayInList">{{ user.displayName }}</div>
 
-                    <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box" ng-hide="user.hide_message || !user.displayInList" >
+                    <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box"
+                         ng-hide="user.hide_message || !user.displayInList" >
 
                         <div class="msg_head" ng-click="slideToggle(key)"> {{ user.displayName }}
                             <div ng-click="updateChatWidth('sub', user, $event); user.hide_message = true" class="close">x</div>
@@ -113,7 +120,8 @@
                             </div>
                             <form>
                                 <div class="msg_footer">
-                                    <textarea ng-attr-id="{{ key }}_input" ng-keypress="send($event, user);" class="msg_input" rows="4" style="resize: none" ng-model="inputMessages[key]"></textarea>
+                                    <textarea ng-attr-id="{{ key }}_input" ng-keypress="send($event, user);"
+                                              class="msg_input" rows="4" style="resize: none" ng-model="inputMessages[key]"></textarea>
                                 </div>
                             </form>
                         </div>

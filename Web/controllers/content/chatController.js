@@ -150,7 +150,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
         angular.forEach($scope.userList, function (u, id) {
             // for each loop over users updating chat widths
             u.chatNum = storedChatNums[id];
-            
+
             if (chatCount == 1) {
                 $scope.userList[id].chatWidth = 300 * u.chatNum;
             } else {

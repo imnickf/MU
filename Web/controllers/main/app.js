@@ -17,9 +17,11 @@ var database = firebase.database();
 // define our angular app, our dependencies are ngRoute, firebase, and ui.bootstrap
 var app = angular.module('app', ['ngRoute', 'firebase', 'ui.bootstrap']);
 
-app.controller('headerController', function($scope, authService, $location, $window) {
+app.controller('headerController', function($scope, authService, $location, $window, userService) {
     // pull authentication variables/functions into current scope
     authService.setup($scope);
+    $scope.display_Admin = false;
+
 
     $scope.auth.$onAuthStateChanged(function (user) {
         // listener function, called every time authentication state changes
@@ -29,25 +31,46 @@ app.controller('headerController', function($scope, authService, $location, $win
             $scope.user = user;
             $scope.display_Navinfo = true;
             $scope.error = '';
-            // update firebase information with new user
-            var updates = {};
-            // normal users get a type set to 3
-            updates['/users/' + user.uid + '/type/'] = 3;
-            updates['/users/' + user.uid + '/displayName/'] = user.displayName;
 
-            database.ref().update(updates);
+            var typeRef = firebase.database().ref('/users/' + user.uid + '/type/');
+            typeRef.on('value', function(snapshot) {
+                var type = snapshot.val();
+                if(type == 0){
+                    $scope.error = "You've been Banned. If you feel this is a mistake please contact the Admins";
+                    authService.signOut();
+                }
+                else if(type > 2){
+                    $scope.display_Admin = true;
+                }
+
+                else if(type == null) {
+                    var updates = {};
+                    // normal users get a type set to 1
+                    updates['/users/' + user.uid + '/type/'] = 1;
+                    updates['/users/' + user.uid + '/displayName/'] = user.displayName;
+
+                    database.ref().update(updates);
+
+                }
+
+            });
+
+
+            // update firebase information with new user
+
 
             if($location.path() == '/'){
-                $location.path('/profile/');
+                $location.path('/main');
                 $window.location.reload();
             }// end if we are on the main page and logged in, redirect
-        } else if (user) {
+        }else if (user) {
             // user is logged in with non-iastate account
             $scope.error = "You must login with your Iowa State (@iastate.edu) Google account.";
             authService.signOut();
-        } else {
+        }else {
             // user is signing out
             $scope.display_Navinfo = false;
+            $scope.display_Admin = false;
         }// end if we have a valid user
     });
 
