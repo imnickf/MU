@@ -25,14 +25,11 @@ class ItemRepository
   /// DatabaseGateway for connecting to database
   fileprivate var gateway: DatabaseGateway
 
-  fileprivate var userRepo: UserRespository
-
   /// Creates a new ItemRepository
   init()
   {
     factory = ItemFactory()
     gateway = DatabaseGateway()
-    userRepo = UserRespository()
   }
 
   /// Gets items of specified type from database
@@ -149,7 +146,7 @@ class ItemRepository
     default:
       return
     }
-    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + userRepo.getCurrentUserID() + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
+    gateway.deleteData(atEndpoint: FirebaseKeyVendor.usersKey + "/" + UserRespository().getCurrentUserID() + "/" + FirebaseKeyVendor.itemsKey + "/\(item.id)")
   }
 
   /// Marks an item as sold in the database
