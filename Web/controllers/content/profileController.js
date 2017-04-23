@@ -21,20 +21,17 @@ app.controller('profileController', function($scope, $firebaseObject, authServic
         $scope.userBio = userInfo.bio;
         $scope.items = userItems;
         $scope.completedItems = completedItems;
-
-
     });
-        $scope.saveProfileData = function(){
-          userInfo.bio = $scope.userBio;
-            userService.set(userInfo);
-            $scope.editing = false;
-        };
+
+    $scope.saveProfileData = function(){
+      userInfo.bio = $scope.userBio;
+        userService.set(userInfo);
+        $scope.editing = false;
+    };
 
     $scope.soldTicket = function(item) {
         // we dont have an error
-        console.log(item);
         var updates = {};
-        var tempItem = item;
         itemService.userItemremove(item);
         var itemId = item.$id;
         delete item['$id'];
