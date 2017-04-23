@@ -79,6 +79,7 @@ extension FoodTableViewController
       if let vc = segue.destination as? FoodDetailViewController {
         if let food = selectedFood {
           vc.food = food
+          vc.navigationItem.title = food.name
         }
       }
     }

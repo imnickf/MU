@@ -215,6 +215,9 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <connections>
+                                            <segue destination="4tS-3f-EQ2" kind="show" identifier="showAdminUsers" id="aYx-k0-fZ1"/>
+                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="55" id="Dyf-Ta-DhF">
                                         <rect key="frame" x="0.0" y="426" width="375" height="55"/>
@@ -264,6 +267,66 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R0B-rY-0eE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1989.5999999999999" y="-83.208395802098963"/>
+        </scene>
+        <!--Admin View-->
+        <scene sceneID="eCF-ET-gcw">
+            <objects>
+                <tableViewController id="4tS-3f-EQ2" customClass="AdminUsersTableViewController" customModule="MU" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="85" sectionHeaderHeight="18" sectionFooterHeight="18" id="c4m-Rs-TKP">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.18431372549019609" green="0.18431372549019609" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="UserTableViewCell" rowHeight="85" id="2PW-Eg-YhK" customClass="UserTableViewCell" customModule="MU" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.5" width="375" height="85"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2PW-Eg-YhK" id="ICt-6o-9Rl">
+                                    <rect key="frame" x="0.0" y="0.0" width="342" height="85"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yhr-0B-CKA">
+                                            <rect key="frame" x="8" y="8" width="256" height="33"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="oRK-fu-8iD">
+                                            <rect key="frame" x="8" y="49" width="248" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <segments>
+                                                <segment title="Banned"/>
+                                                <segment title="User"/>
+                                                <segment title="Mod"/>
+                                                <segment title="Admin"/>
+                                            </segments>
+                                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <connections>
+                                                <action selector="editUserLevel:" destination="2PW-Eg-YhK" eventType="valueChanged" id="KyA-98-tbo"/>
+                                            </connections>
+                                        </segmentedControl>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <connections>
+                                    <outlet property="userName" destination="Yhr-0B-CKA" id="0J1-yq-gVl"/>
+                                    <outlet property="userTypeSel" destination="oRK-fu-8iD" id="8VG-rE-r70"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="4tS-3f-EQ2" id="otH-y7-Tr7"/>
+                            <outlet property="delegate" destination="4tS-3f-EQ2" id="fkh-nR-gqG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Admin View" id="s7g-N4-s8X"/>
+                    <connections>
+                        <segue destination="0Kr-bJ-7Ya" kind="show" identifier="adminShowUsersItems" id="UuB-FD-Mpd"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b9U-Cm-Lts" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1989.5999999999999" y="706.59670164917543"/>
         </scene>
         <!--Chat List Table View Controller-->
         <scene sceneID="Aob-O1-N7v">

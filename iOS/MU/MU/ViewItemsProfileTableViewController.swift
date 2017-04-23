@@ -11,16 +11,16 @@ import UIKit
 class ViewItemsProfileTableViewController: UITableViewController {
 
   let itemRepo = ItemRepository()
-  let userRepo = UserRespository()
+  //let userRepo = UserRespository()
   var userItems = [Item]()
   var fetchType: ItemFetchType = .posted
   var selItem: Item? = nil
+  var userId: String = ""
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    
-    let userId: String = userRepo.getCurrentUserID()
+    //let userId: String = userRepo.getCurrentUserID()
     itemRepo.getItems(forUserId: userId, fetchType: fetchType) { (items) in
       self.userItems = items
     

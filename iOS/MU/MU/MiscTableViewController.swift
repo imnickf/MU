@@ -84,6 +84,7 @@ extension MiscTableViewController
       if let vc = segue.destination as? MiscDetailViewController {
         if let misc = selectedMisc {
           vc.misc = misc
+          vc.navigationItem.title = misc.name
         }
       }
     }
