@@ -151,10 +151,30 @@ class ItemRepository
 
   /// Marks an item as sold in the database
   /// - Parameter item: item to be marked as sold
-  /// - Parameter byUser: unique ID for the buyer of the item
-  func markItemBought(_ item: Item, byUser id: String)
+  func markItemSold(_ item: Item)
   {
-    // TODO
+    var data: [String : Any]
+    switch item {
+    case is Ticket:
+      data = translate(ticket: item as! Ticket)
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.ticketsPath + "/\(item.id)")
+      break
+    case is Book:
+      data = translate(book: item as! Book)
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.booksPath + "/\(item.id)")
+      break
+    case is Food:
+      data = translate(food: item as! Food)
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.foodPath + "/\(item.id)")
+      break
+    case is Misc:
+      data = translate(misc: item as! Misc)
+      gateway.deleteData(atEndpoint: FirebaseKeyVendor.miscPath + "/\(item.id)")
+      break
+    default:
+      return
+    }
+    gateway.persist(data: data, endpoint: FirebaseKeyVendor.usersKey + "/\(UserRespository().getCurrentUserID())" + "/\(FirebaseKeyVendor.userSoldKey)" + "/\(item.id)")
   }
 
   /// Saves provided item to database
