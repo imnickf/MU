@@ -15,7 +15,7 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pop-9r-Ner" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Profile" image="user_icon" selectedImage="user_filled_icon" id="WBQ-lB-SVZ"/>
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sk2-4l-R2q">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sk2-4l-R2q">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -219,27 +219,6 @@
                                             <segue destination="4tS-3f-EQ2" kind="show" identifier="showAdminUsers" id="aYx-k0-fZ1"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="55" id="Dyf-Ta-DhF">
-                                        <rect key="frame" x="0.0" y="426" width="375" height="55"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Dyf-Ta-DhF" id="sZ8-Rx-Jnx">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="55"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Items" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="koP-bQ-fGk">
-                                                    <rect key="frame" x="15" y="17" width="45" height="21"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <constraints>
-                                                <constraint firstItem="koP-bQ-fGk" firstAttribute="leading" secondItem="sZ8-Rx-Jnx" secondAttribute="leading" constant="15" id="AMu-9T-UUC"/>
-                                                <constraint firstItem="koP-bQ-fGk" firstAttribute="centerY" secondItem="sZ8-Rx-Jnx" secondAttribute="centerY" id="qsr-rt-b2g"/>
-                                            </constraints>
-                                        </tableViewCellContentView>
-                                        <color key="backgroundColor" red="0.27069070940000001" green="0.27068409319999998" blue="0.2706854045" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -256,7 +235,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="adminItems" destination="Dyf-Ta-DhF" id="sRF-W1-U9i"/>
                         <outlet property="adminTitle" destination="ZkW-Ho-pec" id="CiB-cx-TJk"/>
                         <outlet property="adminUsers" destination="a9u-Ys-yuf" id="otf-Tz-Wb7"/>
                         <outlet property="emailText" destination="ap1-dh-NEe" id="Uf0-fC-ebg"/>
