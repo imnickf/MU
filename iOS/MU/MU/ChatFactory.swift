@@ -12,7 +12,8 @@ class ChatFactory
 {
   var userRepo: UserRespository
 
-  init() {
+  init()
+  {
     userRepo = UserRespository()
   }
 
