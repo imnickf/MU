@@ -53,7 +53,6 @@ class ProfileTableViewController: UITableViewController
     }
     
     
-    
     let url = URL(string: "http://proj-309-gb-4.cs.iastate.edu/images/Qd04tReXvcfCDuFvPak5hyNO44U2/cat_image.jpg")
     let task = URLSession.shared.dataTask(with: url!) { (data, response, error) in
       if (error != nil) {
