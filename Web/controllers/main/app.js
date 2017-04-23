@@ -23,7 +23,8 @@ app.controller('headerController', function($scope, authService, $location, $win
 
     $scope.auth.$onAuthStateChanged(function (user) {
         // listener function, called every time authentication state changes
-        if (user && user.email.includes("@iastate.edu")) {
+        if (user) {
+            /*&& user.email.includes("@iastate.edu")*/
             // user is logged in using an @iastate.edu account
             $scope.user = user;
             $scope.display_Navinfo = true;
@@ -63,3 +64,8 @@ app.controller('headerController', function($scope, authService, $location, $win
     $scope.isNavCollapsed = true;
     $scope.display_Navinfo = false;
 });
+
+/*
+ Controller for providing data to the mainView
+ */
+app.controller('mainController', function($scope){});

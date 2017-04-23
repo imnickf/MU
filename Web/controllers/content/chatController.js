@@ -9,10 +9,12 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
     var chatCount = 0;
     var sender;
     var storedChatNums = [];
+    var receiver;
 
     $scope.auth.$onAuthStateChanged(function (user) {
         // listener function, called every time authentication state changes
-        if (user && user.email.includes("@iastate.edu")) {
+        if (user ) {
+            /*&& user.email.includes("@iastate.edu")*/
             // user is logged in using an @iastate.edu account
             $scope.hide_chat = false;
         } else {
@@ -34,15 +36,24 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
         }); // end authService promise function()
 
         messagesRef.on('value', function(snapshot) {
-
+            var messages = snapshot.val();
+            var counter = 0;
             // messages listener
             authService.promise.then(function() {
                 sender = users.$getRecord(authService.getUser().uid);
-                var messages = snapshot.val();
+                // update the users scope variables
+                updateUsers(users);
 
                 if(sender.chats != null){
 
                     angular.forEach(sender.chats, function (chatID, receiverID) {
+                        // for each loop over chats
+                        receiver = users.$getRecord(receiverID);
+
+                        if(storedChatNums[receiver.chatIndex] == null){
+                            storedChatNums[receiver.chatIndex] = counter;
+                            counter++;
+                        }// end if we need to create a new stored chat for receiving a message
 
                         if(chatID in messages){
                             var messageObj = messages[chatID];
@@ -67,7 +78,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
                 }// end if the auth user is involved in any chats
 
             }); // end authService promise function()
-
+           $scope.updateChatWidth();
         }); // end messages on value change listener
 
     }); // end users data loaded function
@@ -100,14 +111,19 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
             user.id = user.$id;
             user.chatIndex = id;
             user.displayMessages = [];
+
+            $scope.updateChatWidth(null, user);
             $scope.userList[id] = user;
         }); // end for loop over all users data
 
     }// end updateUsers function(...)
 
     $scope.updateChatWidth = function(type, user, $event){
+        console.log(storedChatNums);
         // update the chat widths for all users
-        $event.stopPropagation();
+        if($event){
+            $event.stopPropagation();
+        }// end if we have an event to stop
 
         if (type == 'add') {
             chatCount++;
@@ -134,7 +150,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
         angular.forEach($scope.userList, function (u, id) {
             // for each loop over users updating chat widths
             u.chatNum = storedChatNums[id];
-
+            
             if (chatCount == 1) {
                 $scope.userList[id].chatWidth = 300 * u.chatNum;
             } else {
@@ -142,7 +158,7 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
             }// end if first chat opened
 
         });// end for each loop over all users
-
+        $scope.$evalAsync();
     }; // end function updateChatWidth(...)
 
     $scope.send = function($event, receiver) {
@@ -164,7 +180,6 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
 
             // update the chat width for this receiver (fixes weird bug)
             $scope.updateChatWidth(null, receiver, $event);
-            $scope.$evalAsync();
         }// end if they pressed enter
     };
 

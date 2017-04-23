@@ -11,8 +11,7 @@ app.controller('profileController', function($scope, $firebaseObject, authServic
     //flag for editing one profile.
     $scope.editing = false;
 
-    var updates =
-
+    var updates;
 
     //Grabs user information from AuthServices.js
     authService.promise.then(function() {
