@@ -88,6 +88,7 @@ extension TicketsTableViewController
       if let vc = segue.destination as? TicketDetailViewController {
         if let ticket = selectedTicket {
           vc.ticket = ticket
+          vc.navigationItem.title = ticket.name
         }
       }
     }

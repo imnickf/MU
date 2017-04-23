@@ -34,11 +34,16 @@ class TicketDetailViewController: UIViewController
     if UserRespository().getCurrentUserID() == ticket.creatorID {
       actionButton.isHidden = true
       navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
+    } else if UserDefaults.standard.integer(forKey: "userType") > 1 {
+      actionButton.isHidden = false
+      actionButton.setTitle("Message Seller", for: .normal)
+      navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .edit, target: self, action: #selector(editItem))
     } else {
       actionButton.isHidden = false
       actionButton.setTitle("Message Seller", for: .normal)
       navigationItem.rightBarButtonItem = nil
     }
+    
   }
 
   @objc fileprivate func editItem()
@@ -66,6 +71,7 @@ extension TicketDetailViewController
     } else if segue.identifier == "showChat" {
       if let vc = segue.destination as? ChatViewController {
         vc.receiverID = ticket.creatorID
+        
       }
     }
   }
