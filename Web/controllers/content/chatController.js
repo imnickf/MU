@@ -3,15 +3,16 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
     // setup our sender and receiver variables
     var sender;
     $scope.displayHead = false;
+    // setup our data variables for scope
+    $scope.userList = [];
+    $scope.inputMessages = [];
+    $scope.displayMessages = {};
 
     $scope.auth.$onAuthStateChanged(function (user) {
         // listener function, called every time authentication state changes
         if (user && user.email.includes("@iastate.edu")) {
             // user is logged in using an @iastate.edu account
             $scope.hide_chat = false;
-            $scope.userList = [];
-            $scope.inputMessages = [];
-            $scope.displayMessages = {};
 
             var userRef = firebase.database().ref('/users/');
             var users = $firebaseArray(userRef);
@@ -25,26 +26,41 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
                 chatService.setup(sender, $scope, users);
 
                 // users are loaded, initialize them in the service
-                chatService.initUsers(users, $scope);
+                chatService.initUsers();
+
+                // store the user data since 3-way binding will cause our custom-set variables
+                // to be removed from the $firebaseArray
+                chatService.stashUsers();
 
                 var messagesRef = firebase.database().ref('/messages/');
-
-                firebase.database().ref('/users/' + sender.$id).on('value', function() {
+                users.$watch(function(event) {
                     // users listener
-                    chatService.initUsers(users, $scope);
+                    chatService.restoreUsers();
+
+                    if(event.event == 'child_changed'){
+                        var key = event.key;
+                        var index = users.$indexFor(key);
+
+                        if(key != sender.$id && $scope.userList[index].hide_message){
+                            chatService.openChat(key);
+                        }// end if this is not the sender
+
+                    }// end if we have a new chat
 
                     messagesRef.on('value', function(snapshot) {
                         // messages listener
                         var messages = snapshot.val();
                         chatService.updateDisplayMessages(messages);
-
-                        $scope.updateChatWidth();
-                        $scope.userList = chatService.getUserList();
                     }); // end messages on value change listener
 
-                    $scope.updateChatWidth();
-                    $scope.userList = chatService.getUserList();
-                });
+                    chatService.updateChatWidth(null, null, null);
+                }); // end users $firebaseArray on change event listener
+
+                messagesRef.on('value', function(snapshot) {
+                    // messages listener
+                    var messages = snapshot.val();
+                    chatService.updateDisplayMessages(messages);
+                }); // end messages on value change listener
 
             }); // end users data loaded function
 
@@ -65,20 +81,20 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
         if($event.code == 'Enter' && $scope.inputMessages[receiver.chatIndex] != ''){
             // prevent the enter key from creating a new line in the textarea
             event.preventDefault();
-            // setup our users with default 'constructor' variables
-            chatService.initUsers($scope.userList, $scope);
 
             // get the message from the DOM
             var message = $scope.inputMessages[receiver.chatIndex];
 
-            // send the message
-            chatService.send(receiver, message);
-
             // clear the message box
             $scope.inputMessages[receiver.chatIndex] = "";
 
+            // send the message
+            chatService.send(receiver, message);
+
             // update the chat width for this receiver (fixes weird bug)
             chatService.updateChatWidth(null, receiver, $event);
+
+            $scope.$evalAsync();
         }// end if they pressed enter
     };
 

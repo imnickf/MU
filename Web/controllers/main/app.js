@@ -36,8 +36,7 @@ app.controller('headerController', function($scope, authService, $location, $win
                 if(type == 0){
                     $scope.error = "You've been Banned. If you feel this is a mistake please contact the Admins";
                     authService.signOut();
-                }
-                else if(type > 2){
+                }else if(type > 2){
                     $scope.display_Admin = true;
                 }else if(type == null) {
                     var updates = {};
