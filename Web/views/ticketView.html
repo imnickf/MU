@@ -82,7 +82,7 @@
                     <a style="float: right; cursor: pointer;" ng-show="display_message_link" ng-click="openChat(ticket.creatorID)"> Message Seller </a>
                     <div style="float: right">
                         <a ng-href="#tickets/{{ ticket.$id }}" ng-show="ticket.allow_edit"> Edit </a> <span ng-show="ticket.allow_edit"> &bull;</span>
-                        <a ng-href="#tickets" ng-click="deleteTicket(ticket)" ng-show="ticket.allow_delete"> Delete </a><span ng-show="ticket.allow_delete"> &bull;</span>
+                        <a ng-href="#tickets" ng-click="deleteTicket(ticket)" ng-show="ticket.allow_delete"> Delete </a><span ng-show="ticket.allow_delete"> &bull;&nbsp;</span>
                     </div>
                 </div>
                 <div class="panel-body">
