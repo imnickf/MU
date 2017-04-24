@@ -7,6 +7,7 @@
 //
 
 import FirebaseAuth
+import UIKit
 
 /// The UserRepository class enables you to query and persist user data with the database.
 /// The UserRepository interfaces with DatabaseGateway to save and query raw JSON data.
@@ -17,6 +18,9 @@ class UserRespository
 
   /// A factory that is used to create the items.
   fileprivate var factory: ItemFactory
+
+  /// Sign out delegate
+  let signOutDelegate: SignOutDelegate = (UIApplication.shared.delegate as! AppDelegate)
 
   /// Creates a new UserRepository
   init()
@@ -129,6 +133,14 @@ class UserRespository
         self.gateway.persist(data: FIRAuth.auth()!.currentUser!.displayName ?? "", endpoint: endpoint + "/" + FirebaseKeyVendor.displayNameKey)
         UserDefaults.standard.set(UserType.normal.rawValue, forKey: "userType")
       } else {
+        if (data!["type"] as! Int) == 0 {
+          let alertController = UIAlertController(title: "Error", message: "You have been banned.", preferredStyle: .alert)
+          alertController.addAction(UIAlertAction(title: "OK", style: .default) { _ in
+            try? FIRAuth.auth()?.signOut()
+            self.signOutDelegate.signOut()
+          })
+          UIApplication.shared.keyWindow?.rootViewController?.present(alertController, animated: true, completion: nil)
+        }
         UserDefaults.standard.set(data!["type"], forKey: "userType")
       }
     }
