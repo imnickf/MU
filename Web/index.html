@@ -97,21 +97,21 @@
     <!-- Chat View -->
     <div ng-controller="chatController">
         <div class="chat_box" ng-hide="hide_chat">
-            <div class="chat_head" ng-click="displayHead = (displayHead == false) ? true : false">Chat</div>
+            <div class="chat_head" ng-click="displayHead = !displayHead">Chat</div>
             <div class="chat_body" ng-show="displayHead">
                 <div ng-repeat="(key, user) in userList">
-                    <div ng-click="updateChatWidth('add', user, $event);" class='user' ng-show="user.displayInList">{{ user.displayName }}</div>
+                    <div ng-click="updateChatWidth('add', user, $event); user.openChat = true;" class='user' ng-show="user.displayInList">{{ user.displayName }}</div>
                 </div>
             </div>
                 <div ng-repeat="(key, user) in userList">
                     <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box"
                          ng-hide="user.hide_message || !user.displayInList" >
 
-                        <div class="msg_head" ng-click="slideToggle(key)"> {{ user.displayName }}
+                        <div class="msg_head" ng-click="user.openChat = !user.openChat"> {{ user.displayName }}
                             <div ng-click="updateChatWidth('sub', user, $event);" class="close">x</div>
                         </div>
 
-                        <div ng-attr-id="{{ key }}_wrap" class="msg_wrap">
+                        <div class="msg_wrap" ng-show="user.openChat">
                             <div class="msg_body">
                                 <div ng-repeat="messageData in userList[key].displayMessages">
                                     <div ng-class="messageData.class">{{ messageData.message }}</div>

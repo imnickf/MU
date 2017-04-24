@@ -98,7 +98,4 @@ app.controller('chatController', function($scope, authService, $firebaseArray, c
         }// end if they pressed enter
     };
 
-    $scope.slideToggle = function(key){
-        $("#" + key + '_wrap').toggle();
-    };
 });

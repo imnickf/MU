@@ -5,12 +5,11 @@
 app.factory('chatService', function chatService() {
     // service for providing functions to the chatController
     var storedChatNums = [];
-    var users = [];
-    var chatCount = 0;
-    var sender; // the auth sender
-    var users; // Firebase array of users
-    var scope; // the chatController's scope variable
-    var tempUsers = [];
+    var chatCount = 0;      // number of chats currently open
+    var sender;             // the auth sender
+    var users;              // $firebase array of users
+    var scope;              // the chatController's scope variable
+    var tempUsers = [];     // temporary $firebaseArray for users
 
     return {
         send: function(receiver, message){
@@ -71,7 +70,6 @@ app.factory('chatService', function chatService() {
 
             if (type == 'add') {
                 // adding a new chat window
-
                 if(user.hide_message){
                     chatCount++;
                     tempUsers[user.chatIndex].chatNum = users[user.chatIndex].chatNum = chatCount;
@@ -101,13 +99,7 @@ app.factory('chatService', function chatService() {
             angular.forEach(users, function (u, id) {
                 // for each loop over users updating chat widths
                 u.chatNum = storedChatNums[id];
-
-                if (chatCount == 1) {
-                    users[id].chatWidth = 300 * u.chatNum;
-                } else {
-                    users[id].chatWidth = 280 * u.chatNum;
-                }// end if first chat opened
-
+                users[id].chatWidth = 280 * u.chatNum;
             });// end for each loop over all users
 
             scope.userList = users;
@@ -181,6 +173,7 @@ app.factory('chatService', function chatService() {
                 receiver = users.$getRecord(userID);
             }// end if users index != null
 
+            receiver.openChat = true;
             this.updateChatWidth('add', receiver);
         },
         stashUsers: function(){
@@ -201,7 +194,7 @@ app.factory('chatService', function chatService() {
             });
         },
         restoreUsers: function(){
-
+            // restore the users since 3-way binding fucks it up
             angular.forEach(users, function (user, id) {
                 // for each loop over all users setting up chats
                 user.hide_message = tempUsers[id].hide_message;
