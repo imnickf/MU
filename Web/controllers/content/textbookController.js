@@ -1,7 +1,7 @@
 /*
      Controller for providing data to the textbookView
  */
-app.controller('textbookController', function($scope, $routeParams, $location, itemService, books, userItems, userInfo, userService){
+app.controller('textbookController', function($scope, $firebaseObject, $routeParams, $location, itemService, books, userItems, chatService, userInfo, userService){
     // setup our items service with a database URL, item name, and item array
     // books variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service by passing books array
@@ -60,6 +60,10 @@ app.controller('textbookController', function($scope, $routeParams, $location, i
         }// end if we dont have an error
     };
 
+    $scope.openChat = function(creatorID){
+        chatService.openChat(creatorID);
+    }// end openChat function
+
     $scope.deleteBook = function(bookID){
         itemService.remove(bookID);
     };
@@ -79,11 +83,16 @@ app.controller('textbookController', function($scope, $routeParams, $location, i
         $scope.editing = false;
         $scope.list = false;
         $scope.title = 'Book Details:';
+
         // pull in Firebase storage image reference
         var imageRef = itemService.getImageRef(bookID);
 
         if(userItems.$getRecord($scope.book.$id) !== null){
+            // user can edit this book
             $scope.book.allow_edit = true;
+        }else{
+            // user cannot edit this book, provide the message seller link
+            $scope.display_message_link = true;
         }// end if the user can edit this book
 
         //Checks if user is a mod/admin

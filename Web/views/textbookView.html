@@ -79,6 +79,7 @@
             <h3>{{ title }}</h3><br/>
             <div class="panel panel-default">
                 <div class="panel-heading">{{ book.name }}
+                    <a style="float: right; cursor: pointer;" ng-show="display_message_link" ng-click="openChat(book.creatorID)">Message Seller</a>
                    <div style="float: right">
                        <a ng-href="#textbooks/{{ book.$id }}" ng-show="book.allow_edit">Edit</a> <span ng-show="book.allow_edit"> &bull;</span>
                        <a ng-href="#textbooks" ng-click="deleteBook(book)" ng-show="book.allow_delete">Delete</a>

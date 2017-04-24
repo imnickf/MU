@@ -24,7 +24,6 @@
 
     <!-- Angular View Controllers -->
     <script src="controllers/content/adminController.js"></script>
-    <script src="controllers/content/mainController.js"></script>
     <script src="controllers/content/foodController.js"></script>
     <script src="controllers/content/ticketController.js"></script>
     <script src="controllers/content/textbookController.js"></script>
@@ -85,7 +84,7 @@
         </nav>
         <!-- End Navigation Bar -->
         <center>
-        <div class="container"><h3><strong>{{ error }}</strong></h3></div>
+            <div class="container"><h3><strong>{{ error }}</strong></h3></div>
         </center>
     </div>
 
@@ -97,22 +96,22 @@
 
     <!-- Chat View -->
     <div ng-controller="chatController">
-    <body>
         <div class="chat_box" ng-hide="hide_chat">
-            <div class="chat_head">Chat</div>
-            <div style="display:none" class="chat_body">
+            <div class="chat_head" ng-click="displayHead = !displayHead">Chat</div>
+            <div class="chat_body" ng-show="displayHead">
                 <div ng-repeat="(key, user) in userList">
-                    <div ng-click="updateChatWidth('add', user, $event);
-                         user.hide_message = false;" class='user' ng-show="user.displayInList">{{ user.displayName }}</div>
-
+                    <div ng-click="updateChatWidth('add', user, $event); user.openChat = true;" class='user' ng-show="user.displayInList">{{ user.displayName }}</div>
+                </div>
+            </div>
+                <div ng-repeat="(key, user) in userList">
                     <div ng-style="{'right': user.chatWidth + 'px'}" class="msg_box"
                          ng-hide="user.hide_message || !user.displayInList" >
 
-                        <div class="msg_head" ng-click="slideToggle(key)"> {{ user.displayName }}
-                            <div ng-click="updateChatWidth('sub', user, $event); user.hide_message = true" class="close">x</div>
+                        <div class="msg_head" ng-click="user.openChat = !user.openChat"> {{ user.displayName }}
+                            <div ng-click="updateChatWidth('sub', user, $event);" class="close">x</div>
                         </div>
 
-                        <div ng-attr-id="{{ key }}_wrap" class="msg_wrap">
+                        <div class="msg_wrap" ng-show="user.openChat">
                             <div class="msg_body">
                                 <div ng-repeat="messageData in userList[key].displayMessages">
                                     <div ng-class="messageData.class">{{ messageData.message }}</div>
@@ -129,14 +128,7 @@
                 </div>
             </div>
         </div>
-        </body>
     </div>
     <!-- End Chat View -->
 </div>
-<script>
-$(document).ready(function(){
-    $('.chat_head').click(function(){
-        $('.chat_body').toggle();
-    });
-});
-</script>
+

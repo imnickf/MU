@@ -1,7 +1,7 @@
 /*
  Controller for providing data to the textfoodView
  */
-app.controller('foodController', function($scope, $routeParams, $location, itemService, foods, userItems, userInfo, userService){
+app.controller('foodController', function($scope, $routeParams, $location, itemService, foods, userItems, chatService, userInfo, userService){
     // setup our items service with a database URL, item name, and item array
     // foods variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service by passing foods array
@@ -60,6 +60,10 @@ app.controller('foodController', function($scope, $routeParams, $location, itemS
         }// end if we dont have an error
     };
 
+    $scope.openChat = function(creatorID){
+        chatService.openChat(creatorID);
+    }// end openChat function
+
     $scope.deleteFood = function(foodID){
         itemService.remove(foodID);
     };
@@ -84,6 +88,8 @@ app.controller('foodController', function($scope, $routeParams, $location, itemS
 
         if(userItems.$getRecord($scope.food.$id) !== null){
             $scope.food.allow_edit = true;
+        }else{
+            $scope.display_message_link = true;
         }// end if the user can edit this food
 
         //Checks if user is a mod/admin

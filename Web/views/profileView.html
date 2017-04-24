@@ -1,6 +1,6 @@
 <div class="container" ng-hide="editing">
     <div class="panel panel-default">
-        <div class="panel-heading"><h3><td><a ng-click="editing = true" >{{ userName }}</a></td></h3>
+        <div class="panel-heading"><h3><td><a href="#profile/edit">{{ userName }}</a></td></h3>
         </div>
         <div class="panel-body">
             <div class="col-sm-5">
@@ -19,6 +19,7 @@
             </thead>
             <tr ng-repeat="item in items">
                 <td>{{ item.name}}</td>
+                <td><a  ng-href="#{{getItemLink(item.$id)}}"><button class="btn btn-primary btn-xs">View</button></a></td>
                 <td><input type="submit" class="btn btn-primary btn-xs" value="Sold" ng-model="item.checked" ng-click="soldTicket(item)"></td>
             </tr>
         </table>

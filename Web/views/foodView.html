@@ -65,6 +65,7 @@
             <h3>{{ title }}</h3><br/>
             <div class="panel panel-default">
                 <div class="panel-heading">{{ food.name }}
+                    <a style="float: right; cursor: pointer;" ng-show="display_message_link" ng-click="openChat(food.creatorID)">Message Seller</a>
                     <div style="float: right">
                         <a ng-href="#foods/{{ food.$id }}" ng-show="food.allow_edit">Edit</a> <span ng-show="food.allow_edit"> &bull;</span>
                         <a ng-href="#foods" ng-click="deleteFood(food)" ng-show="food.allow_delete">Delete</a>
