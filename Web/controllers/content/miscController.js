@@ -1,7 +1,7 @@
 /*
  Controller for providing data to the textmiscView
  */
-app.controller('miscController', function($scope, $routeParams, $location, itemService, miscs, userItems){
+app.controller('miscController', function($scope, $routeParams, $location, itemService, miscs, userItems, chatService){
     // setup our items service with a database URL, item name, and item array
     // miscs variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service by passing miscs array
@@ -58,6 +58,10 @@ app.controller('miscController', function($scope, $routeParams, $location, itemS
         }// end if we dont have an error
     };
 
+    $scope.openChat = function(creatorID){
+        chatService.openChat(creatorID);
+    }// end openChat function
+
     $scope.deleteMisc = function(miscID){
         itemService.remove(miscID);
     };
@@ -82,6 +86,8 @@ app.controller('miscController', function($scope, $routeParams, $location, itemS
 
         if(userItems.$getRecord($scope.misc.$id) !== null){
             $scope.misc.allow_edit = true;
+        }else{
+            $scope.display_message_link = true;
         }// end if the user can edit this misc
 
         imageRef.getDownloadURL().then(function(url) {

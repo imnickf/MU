@@ -40,4 +40,22 @@ app.controller('profileController', function($scope, $firebaseObject, authServic
         updates['/users/' + userInfo.$id + '/soldItems/' + itemId] = item;
         database.ref().update(updates);
     };
+
+    $scope.getItemLink = function(itemID){
+        var link;
+        var n = itemID.indexOf("-");
+        var res = itemID.substring(0, n);
+
+        if(res == 'book'){
+            link = '/textbooks/detail/';
+        }else if(res == 'ticket'){
+            link = '/tickets/detail/';
+        }else if(res == 'misc'){
+            link = '/miscs/detail/';
+        }else if(res == 'food'){
+            link = '/foods/detail/';
+        }
+        link += itemID;
+        return link;
+    };
 });

@@ -22,11 +22,9 @@ app.controller('headerController', function($scope, authService, $location, $win
     authService.setup($scope);
     $scope.display_Admin = false;
 
-
     $scope.auth.$onAuthStateChanged(function (user) {
         // listener function, called every time authentication state changes
-        if (user) {
-            /*&& user.email.includes("@iastate.edu")*/
+        if (user && user.email.includes("@iastate.edu")) {
             // user is logged in using an @iastate.edu account
             $scope.user = user;
             $scope.display_Navinfo = true;
@@ -41,23 +39,15 @@ app.controller('headerController', function($scope, authService, $location, $win
                 }
                 else if(type > 2){
                     $scope.display_Admin = true;
-                }
-
-                else if(type == null) {
+                }else if(type == null) {
                     var updates = {};
                     // normal users get a type set to 1
                     updates['/users/' + user.uid + '/type/'] = 1;
                     updates['/users/' + user.uid + '/displayName/'] = user.displayName;
 
                     database.ref().update(updates);
-
-                }
-
+                }// end if type == 0
             });
-
-
-            // update firebase information with new user
-
 
             if($location.path() == '/'){
                 $location.path('/main');

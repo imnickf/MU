@@ -1,7 +1,7 @@
 /*
  Controller for providing data to the textbookView
  */
-app.controller('ticketController', function($scope, $routeParams, $location, itemService, tickets, userItems){
+app.controller('ticketController', function($scope, $routeParams, $location, itemService, tickets, userItems, chatService){
     // setup our items service with a database URL, item name, and item array
     // books variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service by passing books array
@@ -57,6 +57,10 @@ app.controller('ticketController', function($scope, $routeParams, $location, ite
         }// end if we dont have an error
     };
 
+    $scope.openChat = function(creatorID){
+        chatService.openChat(creatorID);
+    }// end openChat function
+
     $scope.deleteTicket = function(ticketID){
         itemService.remove(ticketID);
     };
@@ -81,6 +85,8 @@ app.controller('ticketController', function($scope, $routeParams, $location, ite
 
         if(userItems.$getRecord($scope.ticket.$id) !== null){
             $scope.ticket.allow_edit = true;
+        }else{
+            $scope.display_message_link = true;
         }// end if the user can edit this book
 
         imageRef.getDownloadURL().then(function(url) {
