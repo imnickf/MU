@@ -50,7 +50,8 @@ app.factory('itemService', function itemService($firebaseArray, $firebaseObject,
         },
         remove: function(item){
             // delete the item with itemID
-            var user_id = authService.getUser().uid;
+            var user_id = item.creatorID;
+
             items.$remove(item);
             // remove data from users table
             database.ref('/users/' + user_id + '/items/' + item.$id).remove();

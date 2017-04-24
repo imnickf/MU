@@ -81,7 +81,7 @@
                 <div class="panel-heading">{{ book.name }}
                    <div style="float: right">
                        <a ng-href="#textbooks/{{ book.$id }}" ng-show="book.allow_edit">Edit</a> <span ng-show="book.allow_edit"> &bull;</span>
-                       <a ng-href="#textbooks" ng-click="deleteBook(book)" ng-show="book.allow_edit">Delete</a>
+                       <a ng-href="#textbooks" ng-click="deleteBook(book)" ng-show="book.allow_delete">Delete</a>
                    </div>
                 </div>
                 <div class="panel-body">

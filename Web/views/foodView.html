@@ -67,7 +67,7 @@
                 <div class="panel-heading">{{ food.name }}
                     <div style="float: right">
                         <a ng-href="#foods/{{ food.$id }}" ng-show="food.allow_edit">Edit</a> <span ng-show="food.allow_edit"> &bull;</span>
-                        <a ng-href="#foods" ng-click="deleteFood(food)" ng-show="food.allow_edit">Delete</a>
+                        <a ng-href="#foods" ng-click="deleteFood(food)" ng-show="food.allow_delete">Delete</a>
                     </div>
                 </div>
                 <div class="panel-body">

@@ -31,6 +31,20 @@ app.config(function ($routeProvider) {
                 });
 
                 return deferred.promise;
+            },
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
             }// end resolved functions
         }
     }).when("/foods/detail/:foodID?", {
@@ -54,6 +68,20 @@ app.config(function ($routeProvider) {
                 });
 
                 return deferred.promise;
+            },
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
             }// end resolved functions
         }
     })
@@ -79,6 +107,20 @@ app.config(function ($routeProvider) {
                 });
 
                 return deferred.promise;
+            },
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
             }// end resolved functions
         }
     }).when("/tickets/detail/:ticketID?", {
@@ -103,6 +145,20 @@ app.config(function ($routeProvider) {
                 });
 
                 return deferred.promise;
+            },
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
             }// end resolved functions
         }
     })
@@ -128,7 +184,21 @@ app.config(function ($routeProvider) {
                 });
 
                 return deferred.promise;
-            }// end resolved functions
+            },// end resolved functions
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
+            }
         }
     })
 
@@ -155,6 +225,20 @@ app.config(function ($routeProvider) {
                 });
 
                 return deferred.promise;
+            },
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
             }// end resolved functions
         }
     }).when("/miscs/detail/:miscID?", {
@@ -180,6 +264,20 @@ app.config(function ($routeProvider) {
                 });
 
                 return deferred.promise;
+            },
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
             }// end resolved functions
         }
     })
@@ -206,7 +304,21 @@ app.config(function ($routeProvider) {
                 });
 
                 return deferred.promise;
-            }// end resolved functions
+            },// end resolved functions
+
+            userInfo: function ($firebaseObject, authService, $q)  {
+                var deferred = $q.defer();
+
+                authService.promise.then(function(){
+                    // user authenticated promise resolved, return a new promise to the users items
+                    var ref = firebase.database().ref('/users/' + authService.getUser().uid);
+                    var data = $firebaseObject(ref).$loaded();
+                    deferred.resolve(data);
+                });
+
+                return deferred.promise;
+
+            }
         }
 
     })

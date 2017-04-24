@@ -1,11 +1,14 @@
 /*
  Controller for providing data to the textbookView
  */
-app.controller('ticketController', function($scope, $routeParams, $location, itemService, tickets, userItems){
+app.controller('ticketController', function($scope, $routeParams, $location, itemService, tickets, userItems, userInfo, userService){
     // setup our items service with a database URL, item name, and item array
     // books variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service by passing books array
     itemService.setup('/products/ticket/', 'ticket', tickets);
+    userService.setup(userInfo);
+
+    $scope.level = userInfo.type;
 
     // default editing to false, show edit form when we have a valid bookID
     $scope.editing = false;
@@ -82,6 +85,11 @@ app.controller('ticketController', function($scope, $routeParams, $location, ite
         if(userItems.$getRecord($scope.ticket.$id) !== null){
             $scope.ticket.allow_edit = true;
         }// end if the user can edit this book
+
+        //Checks if user is a mod/admin
+        if ($scope.level >= 2) {
+            $scope.ticket.allow_delete = true;
+        }
 
         imageRef.getDownloadURL().then(function(url) {
             $scope.image_valid = true;

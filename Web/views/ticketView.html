@@ -81,7 +81,7 @@
                 <div class="panel-heading">{{ ticket.name  }}
                     <div style="float: right">
                         <a ng-href="#tickets/{{ ticket.$id }}" ng-show="ticket.allow_edit">Edit</a> <span ng-show="ticket.allow_edit"> &bull;</span>
-                        <a ng-href="#tickets" ng-click="deleteTicket(ticket)" ng-show="ticket.allow_edit">Delete</a>
+                        <a ng-href="#tickets" ng-click="deleteTicket(ticket)" ng-show="ticket.allow_delete">Delete</a>
                     </div>
                 </div>
                 <div class="panel-body">

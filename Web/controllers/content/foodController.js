@@ -1,11 +1,14 @@
 /*
  Controller for providing data to the textfoodView
  */
-app.controller('foodController', function($scope, $routeParams, $location, itemService, foods, userItems){
+app.controller('foodController', function($scope, $routeParams, $location, itemService, foods, userItems, userInfo, userService){
     // setup our items service with a database URL, item name, and item array
     // foods variable resolved on the route, resolved variables are only available
     // in the controller, so we need to update our singleton service by passing foods array
     itemService.setup('/products/food/', 'food', foods);
+    userService.setup(userInfo);
+
+    $scope.level = userInfo.type;
 
     // default editing to false, show edit form when we have a valid foodID
     $scope.editing = false;
@@ -82,6 +85,11 @@ app.controller('foodController', function($scope, $routeParams, $location, itemS
         if(userItems.$getRecord($scope.food.$id) !== null){
             $scope.food.allow_edit = true;
         }// end if the user can edit this food
+
+        //Checks if user is a mod/admin
+        if ($scope.level >= 2) {
+            $scope.food.allow_delete = true;
+        }
 
         imageRef.getDownloadURL().then(function(url) {
             $scope.image_valid = true;
