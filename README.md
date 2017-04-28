@@ -11,3 +11,13 @@ We will create a back-end for our application that will consist of some database
 * Normal Users - Can buy and sell items, perform simple profile actions (forgot password, etc.)
 * Moderators - Can moderate message boards by removing comments
 * Admins - Can modify or delete users and products
+
+## Contributors
+
+### iOS
+* Me (Nick)
+* Brennen
+
+### Web
+* Joe
+* John
